@@ -3,12 +3,11 @@ package model;
 import java.util.Stack;
 
 public class Model {
-	Stack<Move> moves;
+	Stack<IMove> moves;
 	Level[] levels;
 	
 	public Model(Level[] l){
 		this.levels = l;
 		
 	}
-
 }
