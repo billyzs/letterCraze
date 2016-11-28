@@ -22,12 +22,22 @@ public abstract class Level{
 	protected abstract void initialize();
 	
 	protected Word popCurrentWord(){
-		//TODO remove tiles from board, ...
+		//TODO remove tiles from board, return currentWord on success
 		return currentWord;
 	}
+
+	//saves the level to a file
+	//  This will eventually go to a controller I think
+	public abstract void save(String filename);
 	
 	protected void repopulate(){
 		//TODO fill empty tiles
 	}
+	
+	public abstract String getType();
 
+	public String getName() { return this.name; }
+	public Board getBoard() { return this.board; }
+	public int getHighscore() { return this.highscore; }
+	public int[] getStarVals() { return this.starVals; }
 }

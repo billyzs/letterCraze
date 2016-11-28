@@ -19,5 +19,19 @@ public class ThemeLevel extends Level {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//because dicitonary needs to be saved to disk
+	protected Dictionary getDictionary(){ return this.dict; }
+
+	@Override
+	public String getType() {
+		return "Theme";
+	}
+
+	@Override
+	public void save(String filename) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

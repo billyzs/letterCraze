@@ -15,4 +15,15 @@ public class LightningLevel extends Level{
 		
 	}
 
+	@Override
+	public String getType() {
+		return "Lightning";
+	}
+
+	@Override
+	public void save(String filename) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
