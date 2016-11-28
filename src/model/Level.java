@@ -1,11 +1,10 @@
 package model;
 
-import java.util.Arrays;
-
-public class Level {
+public abstract class Level{
 	Board board;
 	String name;
 	Word currentWord;
+
 	//need to establish dictionary implementation
 	Dictionary dict;
 	int currentPoints;
@@ -20,14 +19,15 @@ public class Level {
 		this.starVals = sv;
 	}
 	
-	protected void initialize(){
-	}
+	protected abstract void initialize();
 	
 	protected Word popCurrentWord(){
-		return null;
+		//TODO remove tiles from board, ...
+		return currentWord;
 	}
 	
 	protected void repopulate(){
+		//TODO fill empty tiles
 	}
 
 }
