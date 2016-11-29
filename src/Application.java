@@ -7,7 +7,7 @@ import model.*;
 import view.*;
 
 public class Application {
-	Model model;
+	Model model; 
 	WelcomeView welcome;
 	MenuView menu;
 	LevelView currentLevel;
