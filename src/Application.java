@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import model.*;
 import view.*;
-//santiago
+//santiago and spencer
 public class Application {
 	Model model; 
 	WelcomeView welcome;
