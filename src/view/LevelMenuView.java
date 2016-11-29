@@ -8,7 +8,7 @@ public class LevelMenuView implements IView {
 	JLabel name;
 	JLabel highscore;
 	Image[] stars = new Image[3];
-	GRect background;
+//	GRect background;
 
 	@Override
 	public void show() {

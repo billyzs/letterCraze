@@ -1,6 +1,9 @@
 package view;
 
+import java.util.ArrayList;
+
 public class BoardView implements IView {
+	ArrayList<ArrayList<TileView>> tileViews;
 
 	@Override
 	public void show() {

@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,22 +6,20 @@ import java.util.ArrayList;
 
 import model.*;
 import view.*;
+
 //santiago and spencer
 public class Application {
 	Model model; 
 	WelcomeView welcome;
 	MenuView menu;
 	LevelView currentLevel;
-	
+
 	public Application(Model m){
 		this.model = m;
 	}
-	
-	public static void main(String args[]){
-	}
-	
+
 	//This will eventually be in a controller
-	public Level loadLevel(String filename){
+	public static Level loadLevel(String filename){
 
 		//read a file
 		BufferedReader br = null;
@@ -34,12 +33,12 @@ public class Application {
 
             //read next three ints as starvals
             int[] starVals = new int[3];
-            for(int k = 0; k < 3; k++)
+            for(int k = 0; k < starVals.length; k++)
                 starVals[k] = Integer.parseInt(br.readLine());
             
             ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>();
             
-            //read in board as 6 lines EOF
+            //read in board as 6 lines until EOF
             String row;
             for(int r = 0; (row = br.readLine()) != null; r++){
 
@@ -51,10 +50,11 @@ public class Application {
             	char[] chars = row.toCharArray();
             	for(int c = 0; c < chars.length; c++){
             		if(chars[c] == '1'){
-            			tiles.get(r).add(new Tile(r, c));
+            			//TODO, placeholder values
+            			tiles.get(r).add(new Tile("Z", r, c));
             		}
             		else{
-            			tiles.get(r).add(null);
+            			tiles.get(r).add(new Tile("", r, c));
             		}
             	}
             }
@@ -66,11 +66,11 @@ public class Application {
             		//TODO fix placeholder values
             		result = new PuzzleLevel(new Board(tiles), name, new Dictionary(),
                     		highscore, starVals, 100);
-            		break;
+            		return result;
             	case "Lightning":
-            		break;
+            		return result;
             	case "Theme":
-            		break;
+            		return result;
             }
 
 
@@ -90,5 +90,4 @@ public class Application {
         //failed read
 		return null;
 	}
-
 }

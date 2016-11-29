@@ -9,6 +9,8 @@ public class Tile {
 	public Tile(int r, int c){
 		this.row = r;
 		this.col = c;
+		//unselecteable tile
+		this.letters = "";
 	}
 
 	public Tile(String l, int r, int c){

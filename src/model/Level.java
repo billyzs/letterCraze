@@ -18,7 +18,7 @@ public abstract class Level{
 		this.highscore = hs;
 		this.starVals = sv;
 	}
-	
+
 	protected abstract void initialize();
 	
 	protected Word popCurrentWord(){
