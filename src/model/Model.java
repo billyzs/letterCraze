@@ -1,13 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Model {
 	Stack<IMove> moves;
-	Level[] levels;
+	ArrayList<Level> levels;
+	Level currentLevel;
 	
-	public Model(Level[] l){
+	public Model(ArrayList<Level> l){
 		this.levels = l;
-		
 	}
 }
