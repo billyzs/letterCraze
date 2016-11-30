@@ -37,16 +37,10 @@ public class StartLevelController implements ActionListener{
 		this.app.getMenu().hide();
 
 		//send the level view to application, show it
-		this.app.setLevelView(makeLevelView(theLevel));
+		this.app.setLevelView(new LevelView(app, theLevel));
 		this.app.getCurrentLevelView().show();
 		
 		//set the level as current level in the model
 		this.model.setLevel(theLevel);
-	}
-	
-	public LevelView makeLevelView(Level l){
-		LevelView result = new LevelView();
-
-		return result;
 	}
 }

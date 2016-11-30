@@ -13,13 +13,14 @@ public class ExitLevelController implements ActionListener{
 
 	public ExitLevelController(Application a){
 		this.app = a;
-		this.model = a.getModel();
+		//this.model = a.getModel();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
+		/*
 		//hide the current level view
 		this.app.getCurrentLevelView().hide();
 		
@@ -31,5 +32,6 @@ public class ExitLevelController implements ActionListener{
 		
 		//show the menu
 		this.app.getMenu().show();
+		*/
 	}
 }
