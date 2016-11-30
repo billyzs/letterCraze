@@ -40,7 +40,10 @@ public class LevelMenuView extends JPanel implements IView {
 		add(lblLocked);
 	}
 	
-	// Listeners for the button???
+	//TODO Listeners for the button???
+	// I envisioned this view to be shared btwn the builder and the app, 
+	// so the child classes would implement listeners from different controllers to either start at game, or start modifying a game
+	
 	JLabel getLabelSequence(){return lblSequence;}
 	JLabel getLabelHighScore(){return lblHighScore;}
 	JLabel getLabelStar(){return lblStar;};
