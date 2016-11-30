@@ -32,24 +32,21 @@ public class LevelView extends JPanel implements IView {
 	
 	Application app;
 
-	public LevelView(){
-		this.show();
-	}
 	public LevelView(Application a, Level l){
 		this.app = a;
 		this.level = l;
-		//this.show();
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
 		this.app.getContentPane().remove(this);
+		this.app.getContentPane().invalidate();
+		this.app.getContentPane().validate();
 	}
 	
 	@Override
 	public void show(){
-		System.out.println("kapa");
 		BoardView panel = new BoardView();
 		
 		JButton button = new JButton("Exit");
@@ -137,7 +134,7 @@ public class LevelView extends JPanel implements IView {
 
 		this.app.setBounds(0, 0, 900, 622);
 		//Add to the content pane and show
-		this.app.add(this);
+		this.app.getContentPane().add(this);
 		this.app.setLevelView(this);
 	}
 }

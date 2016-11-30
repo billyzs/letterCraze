@@ -21,6 +21,7 @@ public class ExitLevelController implements ActionListener{
         // TODO Auto-generated method stub
 		
 		//hide the current level view
+		this.app.getMenu().show();
 		this.app.getCurrentLevelView().hide();
 		
 		//set it to null
@@ -30,6 +31,5 @@ public class ExitLevelController implements ActionListener{
 		this.model.setLevel(null);
 		
 		//show the menu
-		this.app.getMenu().show();
 	}
 }

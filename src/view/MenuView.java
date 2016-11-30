@@ -46,13 +46,16 @@ public class MenuView  extends JPanel implements IView{
 	public void show() {
 		// TODO Auto-generated method stub
 		this.app.getContentPane().add(this);
-
+		this.app.getContentPane().invalidate();
+		this.app.getContentPane().validate();
 	}
 
 	@Override
 	public void hide() {
 		// todo auto-generated method stub
 		this.app.getContentPane().remove(this);
+		this.app.getContentPane().invalidate();
+		this.app.getContentPane().validate();
 	}
 
 	public ArrayList<LevelMenuView> getLevelMenuViews(){

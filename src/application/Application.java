@@ -25,6 +25,7 @@ public class Application extends JFrame{
 	WelcomeView welcome;
 	MenuView menu;
 	LevelView currentLevelView;
+
 	private JPanel contentPane;
 
 	/**
@@ -56,8 +57,8 @@ public class Application extends JFrame{
 	public Application(Model m) {
 		this.model = m;
 		//initialize menu
-        /*this.pack();
-        this.setSize(900, 700);
+        //this.pack();
+        /*this.setSize(900, 700);
         this.setVisible(true);
         */
 
