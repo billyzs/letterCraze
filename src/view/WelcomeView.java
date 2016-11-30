@@ -3,6 +3,7 @@ package view;
 import javax.swing.JLabel;
 
 import application.Application;
+import controller.SplashTimer;
 
 import java.awt.*;
 import javax.swing.*;
@@ -29,6 +30,12 @@ public class WelcomeView extends Canvas implements IView {
         //this.app.getContentPane().setVisible(true);
 		this.app.getContentPane().invalidate();
 		this.app.getContentPane().validate();
+
+        int delay = 2000;
+        SplashTimer tp = new SplashTimer(this.app);
+        Timer t =new Timer(delay, tp);
+        t.setRepeats(false);
+        t.start();
 	}
 
 	@Override

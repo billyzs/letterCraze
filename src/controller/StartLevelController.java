@@ -34,11 +34,10 @@ public class StartLevelController implements ActionListener{
 		//Check that there isnt already a level view
 		if(this.app.getCurrentLevelView() != null){
             this.app.getCurrentLevelView().hide();
-            System.out.println("MEMEs");
+            System.out.println("tried to load 2 levels");
 		}
 		
 		//hide the menu
-		this.app.getMenu().hide();
 
 		//send the level view to application, show it
 		this.app.setLevelView(new LevelView(app, theLevel));
@@ -46,5 +45,6 @@ public class StartLevelController implements ActionListener{
 		
 		//set the level as current level in the model
 		this.model.setLevel(theLevel);
+		this.app.getMenu().hide();
 	}
 }

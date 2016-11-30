@@ -3,6 +3,7 @@ package application;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,7 +46,7 @@ public class Application extends JFrame{
 
 					Application frame = new Application(new Model(levels));
 
-                    frame.menu.show();
+                    frame.welcome.show();
 					frame.setVisible(true);
 
 				} catch (Exception e) {
@@ -75,11 +76,7 @@ public class Application extends JFrame{
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 
 		this.welcome = new WelcomeView(this);
-
 		this.menu = new MenuView(this);
-        //this.menu.show();
-		
-		//LevelView panel = new LevelView();
 	}
 
 	public LevelView getCurrentLevelView(){ return this.currentLevelView;}
@@ -167,5 +164,9 @@ public class Application extends JFrame{
 
 	public Model getModel() {
 		return this.model;
+	}
+
+	public WelcomeView getWelcome() {
+		return this.welcome;
 	}
 }
