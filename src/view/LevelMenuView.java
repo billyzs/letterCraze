@@ -48,6 +48,7 @@ public class LevelMenuView extends JPanel implements IView {
 	JLabel getLabelHighScore(){return lblHighScore;}
 	JLabel getLabelStar(){return lblStar;};
 	JLabel getLabelLocked(){return lblLocked;}
+
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub

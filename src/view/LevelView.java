@@ -136,5 +136,9 @@ public class LevelView extends JPanel implements IView {
 		//Add to the content pane and show
 		this.app.getContentPane().add(this);
 		this.app.setLevelView(this);
+
+		//refresh
+		this.app.getContentPane().invalidate();
+		this.app.getContentPane().validate();
 	}
 }

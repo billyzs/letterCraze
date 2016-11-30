@@ -39,18 +39,20 @@ public class Application extends JFrame{
 
                     Level testLevel = (PuzzleLevel)loadLevel("TestingLevel.lvl");
                     ArrayList<Level> levels = new ArrayList<Level>();
-                    levels.add(testLevel);
-                    levels.add(testLevel);
-                    levels.add(testLevel);
-                    levels.add(testLevel);
+                     
+                    for(int k = 0; k < 15;k++)
+                        levels.add(testLevel);
 
 					Application frame = new Application(new Model(levels));
+
+                    frame.menu.show();
 					frame.setVisible(true);
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
+
 		});
 	}
 	
@@ -62,7 +64,6 @@ public class Application extends JFrame{
         this.setVisible(true);
         */
 
-
 		//initialize window
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 645);
@@ -72,13 +73,13 @@ public class Application extends JFrame{
 		contentPane.setLayout(null);
 
 		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
-		
-		//show the menu
+
+		this.welcome = new WelcomeView(this);
+
 		this.menu = new MenuView(this);
-		getContentPane().add(menu);
+        //this.menu.show();
 		
 		//LevelView panel = new LevelView();
-
 	}
 
 	public LevelView getCurrentLevelView(){ return this.currentLevelView;}
