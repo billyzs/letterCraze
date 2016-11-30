@@ -11,4 +11,5 @@ public class Model {
 	public Model(ArrayList<Level> l){
 		this.levels = l;
 	}
+	public ArrayList<Level> getLevels(){return levels;}
 }
