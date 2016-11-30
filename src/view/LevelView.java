@@ -47,7 +47,7 @@ public class LevelView extends JPanel implements IView {
 	
 	@Override
 	public void show(){
-		BoardView panel = new BoardView();
+		BoardView panel = new BoardView("X");
 		
 		JButton button = new JButton("Exit");
 		button.addActionListener(new ExitLevelController(this.app));

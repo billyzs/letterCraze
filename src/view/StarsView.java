@@ -23,19 +23,19 @@ public class StarsView extends JPanel {
 		progressBar.setPreferredSize(new Dimension(400, 10));
 		add(progressBar);
 		
-		JLabel label_1 = new JLabel("���");
+		JLabel label_1 = new JLabel("★");
 		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(64, 21, 34, 27);
 		add(label_1);
 		
-		JLabel label = new JLabel("���");
+		JLabel label = new JLabel("★");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		label.setBounds(140, 21, 34, 27);
 		add(label);
 		
-		JLabel label_2 = new JLabel("���");
+		JLabel label_2 = new JLabel("★");
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		label_2.setBounds(218, 21, 34, 27);

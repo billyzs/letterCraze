@@ -10,7 +10,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class TileView extends JPanel {
-
+	
+	JLabel lblX;
+	
 	public TileView() {
 		this.initialize();
 	}
@@ -31,7 +33,7 @@ public class TileView extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		
-		JLabel lblX = new JLabel("X");
+		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
 		lblX.setFont(new Font("Lucida Grande", Font.PLAIN, 42));
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -51,5 +53,9 @@ public class TileView extends JPanel {
 		);
 		setLayout(groupLayout);
 
+	}
+	
+	public void setLabel(String label) {
+		lblX.setText(label);
 	}
 }
