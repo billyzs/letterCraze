@@ -32,10 +32,10 @@ public class LevelMenuView extends JPanel implements IView {
 		lblHighScore = new JLabel(Integer.toString(l.getHighscore()));
 		add(lblHighScore);
 		
-		lblStar = new JLabel("***"); //TODO replace with proper icons
+		lblStar = new JLabel("☆☆☆"); //★ or ☆ based on completion
 		add(lblStar);
 		
-		lblLocked = new JLabel("A padlock"); //TODO 
+		lblLocked = new JLabel("Unlocked"); //TODO 🔓 or 🔒 based on lock/unlocked
 		add(lblLocked);
 		this.setSize(900, 45); //TODO standardize size
 	}
