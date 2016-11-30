@@ -25,7 +25,8 @@ public class LevelMenuView extends JPanel implements IView {
 		btnThisLevel = new JButton(l.getName());
 		btnThisLevel.addActionListener(slc);
 				
-		lblSequence = new JLabel(Integer.toString(seq));
+		//I added 1 to the sequence, to make it 1-15
+		lblSequence = new JLabel(Integer.toString(seq + 1));
 		add(lblSequence);
 		add(btnThisLevel);
 		

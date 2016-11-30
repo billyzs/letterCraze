@@ -31,22 +31,11 @@ public class LevelView extends JPanel implements IView {
 	GroupLayout layout;
 	
 	Application app;
-
+	
 	public LevelView(Application a, Level l){
 		this.app = a;
 		this.level = l;
-	}
 
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		this.app.getContentPane().remove(this);
-		this.app.getContentPane().invalidate();
-		this.app.getContentPane().validate();
-	}
-	
-	@Override
-	public void show(){
 		BoardView panel = new BoardView("X");
 		
 		JButton button = new JButton("Exit");
@@ -134,10 +123,22 @@ public class LevelView extends JPanel implements IView {
 
 		this.app.setBounds(0, 0, 900, 622);
 		//Add to the content pane and show
+	}
+	
+	@Override
+	public void show(){
 		this.app.getContentPane().add(this);
 		this.app.setLevelView(this);
 
 		//refresh
+		this.app.getContentPane().invalidate();
+		this.app.getContentPane().validate();
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		this.app.getContentPane().remove(this);
 		this.app.getContentPane().invalidate();
 		this.app.getContentPane().validate();
 	}
