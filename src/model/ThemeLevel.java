@@ -2,8 +2,8 @@ package model;
 
 public class ThemeLevel extends Level {
 
-	public ThemeLevel(Board b, String n, Dictionary d, int hs, int[] sv){
-		super(b,n,d,hs,sv);
+	public ThemeLevel(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
+		super(b,n,d,hs,sv,ul);
 	}
 	
 	protected void repopulate(){

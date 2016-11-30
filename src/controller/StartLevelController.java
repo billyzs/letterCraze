@@ -20,9 +20,33 @@ public class StartLevelController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
-		// TODO Auto-generated method stub
-		LevelMenuView lmv = (LevelMenuView)ae.getSource();
-		
-	}
 
+		//get the button that pressed this, find which level it corresponds to
+		LevelMenuView lmv = (LevelMenuView)ae.getSource();
+		int index = this.app.getMenu().getLevelIndex(lmv);
+		
+		//get the respective level from the model
+		Level theLevel = this.model.getLevels().get(index);
+		
+		//Check that there isnt already a level view
+		if(this.app.getCurrentLevelView() != null){
+            this.app.getCurrentLevelView().hide();
+		}
+		
+		//hide the menu
+		this.app.getMenu().hide();
+
+		//send the level view to application, show it
+		this.app.setLevelView(makeLevelView(theLevel));
+		this.app.getCurrentLevelView().show();
+		
+		//set the level as current level in the model
+		this.model.setLevel(theLevel);
+	}
+	
+	public LevelView makeLevelView(Level l){
+		LevelView result = new LevelView();
+
+		return result;
+	}
 }
