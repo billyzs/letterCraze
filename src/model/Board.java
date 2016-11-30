@@ -8,7 +8,7 @@ public class Board {
 	public Board(ArrayList<ArrayList<Tile>> t){
 		tiles = t;
 	}
-	
+	public Board(){} // empty constructor for test
 	protected boolean floatTiles(){
 		return false;
 	}
@@ -16,6 +16,7 @@ public class Board {
 	public ArrayList<ArrayList<Tile>> getTiles() {
 		return this.tiles;
 	}
+	
 	
 
 }
