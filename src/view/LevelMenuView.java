@@ -51,12 +51,14 @@ public class LevelMenuView extends JPanel implements IView {
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
+		this.setVisible(true);
 
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
+		this.setVisible(false);
 	}
 
 }
