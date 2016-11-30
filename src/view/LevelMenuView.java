@@ -19,13 +19,9 @@ public class LevelMenuView extends JPanel implements IView {
 //	GRect background;
 	
 	public LevelMenuView(int seq, Level l) {
-		
+		super();
 		btnThisLevel = new JButton(l.getName());
-		btnThisLevel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
+				
 		lblSequence = new JLabel(Integer.toString(seq));
 		add(lblSequence);
 		add(btnThisLevel);
@@ -38,6 +34,7 @@ public class LevelMenuView extends JPanel implements IView {
 		
 		lblLocked = new JLabel("A padlock"); //TODO 
 		add(lblLocked);
+		this.setSize(900, 45); //TODO standardize size
 	}
 	
 	//TODO Listeners for the button???
