@@ -38,12 +38,8 @@ public class SubmittedWordsView extends JPanel implements IView {
 		lblSubmittedWords.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		lblSubmittedWords.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		textField = new JTextField();
-		textField.setBounds(6, 6, 173, 26);
-		textField.setColumns(10);
-		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(185, 6, 88, 29);
+		btnSubmit.setBounds(197, 6, 76, 29);
 		
 		JLabel lblWord = new JLabel("Word");
 		lblWord.setBounds(119, 78, 32, 16);
@@ -62,7 +58,6 @@ public class SubmittedWordsView extends JPanel implements IView {
 		label_2.setBounds(119, 162, 32, 16);
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		add(label_2);
-		add(textField);
 		add(btnSubmit);
 		add(lblSubmittedWords);
 		add(label);
@@ -103,6 +98,18 @@ public class SubmittedWordsView extends JPanel implements IView {
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
 		label_9.setBounds(119, 358, 32, 16);
 		add(label_9);
+		
+		JLabel lblXxxxx = new JLabel("Current Word:");
+		lblXxxxx.setHorizontalAlignment(SwingConstants.LEFT);
+		lblXxxxx.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		lblXxxxx.setBounds(6, 7, 106, 22);
+		add(lblXxxxx);
+		
+		JLabel lblXxxxxxxx = new JLabel("XXXXXXXX");
+		lblXxxxxxxx.setHorizontalAlignment(SwingConstants.LEFT);
+		lblXxxxxxxx.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		lblXxxxxxxx.setBounds(98, 8, 100, 22);
+		add(lblXxxxxxxx);
 
 	}
 }
