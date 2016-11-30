@@ -121,7 +121,7 @@ public class LevelView extends JPanel implements IView {
 		this.submittedWords = panel_2;
 		this.layout = groupLayout;
 
-		this.app.setBounds(0, 0, 900, 622);
+		//this.app.setBounds(0, 0, 900, 622);
 		//Add to the content pane and show
 	}
 	

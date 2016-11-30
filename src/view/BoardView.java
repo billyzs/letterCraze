@@ -15,8 +15,8 @@ public class BoardView extends JPanel implements IView{
 	String label;
 	
 	public BoardView(String label){
-		this.initialize();
 		this.label = label;
+		this.initialize();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class BoardView extends JPanel implements IView{
 	 * Create the panel.
 	 */
 	public void initialize() {
-		
+		System.out.println(label);
 		TileView panel = new TileView();
 		panel.setBounds(0, 0, 96, 96);
 		panel.setLabel(label);
