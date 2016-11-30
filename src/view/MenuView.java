@@ -33,9 +33,9 @@ public class MenuView  extends JPanel implements IView{
 		this.setSize(900, 620); //TODO standardize
 		for (Level l : currentGame.getLevels()){
 			LevelMenuView thisLevelView = new LevelMenuView(seq, l, new StartLevelController(app, l));
-			//thisLevelView.setVisible(true);
 			lmv.add(thisLevelView);
 			this.add(thisLevelView);
+
 			// lmv.add(new LevelMenuView(seq, l));
 			// add(lmv.get(seq)); // for the layout
 			seq++;
