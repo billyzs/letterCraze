@@ -38,12 +38,13 @@ public class LevelView extends JPanel implements IView {
 	public LevelView(Application a, Level l){
 		this.app = a;
 		this.level = l;
-		this.show();
+		//this.show();
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
+		this.app.getContentPane().remove(this);
 	}
 	
 	@Override
@@ -134,5 +135,9 @@ public class LevelView extends JPanel implements IView {
 		this.submittedWords = panel_2;
 		this.layout = groupLayout;
 
+		this.app.setBounds(0, 0, 900, 622);
+		//Add to the content pane and show
+		this.app.add(this);
+		this.app.setLevelView(this);
 	}
 }

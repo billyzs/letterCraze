@@ -1,42 +1,58 @@
 package view;
 
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import application.Application;
 import controller.StartLevelController;
 import model.Level;
 import model.Model;
-import java.awt.GridLayout;
 
 public class MenuView  extends JPanel implements IView{
 	//decided to make it an arraylist because 
 	//  the size could change due to custom levels
 	
 	ArrayList<LevelMenuView> lmv;
-	public MenuView(Application app){
-		setLayout(new GridLayout(16, 1, 0, 0));
+	Application app;
+
+	public MenuView(Application a){
+		super();
+
+		this.app = a;
+        ArrayList<LevelMenuView> lmv = new ArrayList<LevelMenuView>();
+
+		Model currentGame =this.app.getModel();
+		int numLevels = currentGame.getLevels().size();
+
+		setLayout(new GridLayout(numLevels, 1, 0, 0));
 		int seq = 0;
-		for (Level l : app.getModel().getLevels()){
-			LevelMenuView thisLevelView = new LevelMenuView(seq, l, new StartLevelController(app));
+
+		this.setSize(900, 620); //TODO standardize
+		for (Level l : currentGame.getLevels()){
+			LevelMenuView thisLevelView = new LevelMenuView(seq, l, new StartLevelController(app, l));
+			//thisLevelView.setVisible(true);
 			lmv.add(thisLevelView);
-			add(thisLevelView); // for the layout
+			this.add(thisLevelView);
+			// lmv.add(new LevelMenuView(seq, l));
+			// add(lmv.get(seq)); // for the layout
 			seq++;
 		}
 	}
+	
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		this.setVisible(true);
+		this.app.getContentPane().add(this);
 
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-		this.setVisible(false);
-
+		// todo auto-generated method stub
+		this.app.getContentPane().remove(this);
 	}
 
 	public ArrayList<LevelMenuView> getLevelMenuViews(){

@@ -2,6 +2,7 @@ package application;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -30,11 +31,21 @@ public class Application extends JFrame{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Application frame = new Application(new Model(new ArrayList<Level>()));
+
+                    Level testLevel = (PuzzleLevel)loadLevel("TestingLevel.lvl");
+                    ArrayList<Level> levels = new ArrayList<Level>();
+                    levels.add(testLevel);
+                    levels.add(testLevel);
+                    levels.add(testLevel);
+                    levels.add(testLevel);
+
+					Application frame = new Application(new Model(levels));
 					frame.setVisible(true);
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,6 +55,12 @@ public class Application extends JFrame{
 	
 	public Application(Model m) {
 		this.model = m;
+		//initialize menu
+        /*this.pack();
+        this.setSize(900, 700);
+        this.setVisible(true);
+        */
+
 
 		//initialize window
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,11 +69,14 @@ public class Application extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		LevelView panel = new LevelView();
-		panel.setBounds(0, 0, 900, 622);
-		contentPane.add(panel);
-		this.currentLevelView = panel;
+		//show the menu
+		this.menu = new MenuView(this);
+		getContentPane().add(menu);
+		
+		//LevelView panel = new LevelView();
 
 	}
 

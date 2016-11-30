@@ -21,9 +21,10 @@ public class LevelMenuView extends JPanel implements IView {
 	
 	public LevelMenuView(int seq, Level l, StartLevelController slc) {
 		
+		super();
 		btnThisLevel = new JButton(l.getName());
 		btnThisLevel.addActionListener(slc);
-		
+				
 		lblSequence = new JLabel(Integer.toString(seq));
 		add(lblSequence);
 		add(btnThisLevel);
@@ -36,9 +37,13 @@ public class LevelMenuView extends JPanel implements IView {
 		
 		lblLocked = new JLabel("A padlock"); //TODO 
 		add(lblLocked);
+		this.setSize(900, 45); //TODO standardize size
 	}
 	
-	// Listeners for the button???
+	//TODO Listeners for the button???
+	// I envisioned this view to be shared btwn the builder and the app, 
+	// so the child classes would implement listeners from different controllers to either start at game, or start modifying a game
+	
 	JLabel getLabelSequence(){return lblSequence;}
 	JLabel getLabelHighScore(){return lblHighScore;}
 	JLabel getLabelStar(){return lblStar;};
@@ -46,14 +51,12 @@ public class LevelMenuView extends JPanel implements IView {
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		this.setVisible(true);
 
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
-		this.setVisible(false);
 	}
 
 }

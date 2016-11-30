@@ -12,8 +12,10 @@ public class StartLevelController implements ActionListener{
 	
 	Application app;
 	Model model;
+	Level theLevel;
 	
-	public StartLevelController(Application a){
+	public StartLevelController(Application a, Level l){
+		this.theLevel = l;
 		this.app = a;
 		this.model= app.getModel();
 	}
@@ -22,15 +24,17 @@ public class StartLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
 
 		//get the button that pressed this, find which level it corresponds to
-		LevelMenuView lmv = (LevelMenuView)ae.getSource();
-		int index = this.app.getMenu().getLevelIndex(lmv);
+		//LevelMenuView lmv = (LevelMenuView)ae.getSource();
+
+		//int index = this.app.getMenu().getLevelIndex(lmv);
 		
 		//get the respective level from the model
-		Level theLevel = this.model.getLevels().get(index);
+		//Level theLevel = this.model.getLevels().get(index);
 		
 		//Check that there isnt already a level view
 		if(this.app.getCurrentLevelView() != null){
             this.app.getCurrentLevelView().hide();
+            System.out.println("MEMEs");
 		}
 		
 		//hide the menu
