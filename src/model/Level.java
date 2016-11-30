@@ -10,8 +10,10 @@ public abstract class Level{
 	int currentPoints;
 	int highscore;
 	int[] starVals = new int[3];
+	boolean unlocked;
 	
-	public Level(Board b, String n, Dictionary d, int hs, int[] sv){
+	public Level(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
+		this.unlocked = ul;
 		this.board = b;
 		this.name = n;
 		this.dict = d;

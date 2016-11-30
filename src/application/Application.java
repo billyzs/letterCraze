@@ -13,11 +13,16 @@ public class Application {
 	Model model; 
 	WelcomeView welcome;
 	MenuView menu;
-	LevelView currentLevel;
+	LevelView currentLevelView;
 
 	public Application(Model m){
 		this.model = m;
 	}
+	
+	public LevelView getCurrentLevelView(){ return this.currentLevelView;}
+	public MenuView getMenu(){ return this.menu; }
+
+	public void setLevelView(LevelView lv){this.currentLevelView = lv;}
 
 	//This will eventually be in a controller
 	public static Level loadLevel(String filename){
@@ -37,6 +42,11 @@ public class Application {
             for(int k = 0; k < starVals.length; k++)
                 starVals[k] = Integer.parseInt(br.readLine());
             
+            //read in whether it is unlocked
+            boolean isUnlocked = false;
+            if(br.readLine().equals("true"))
+            	isUnlocked = true;
+
             ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>();
             
             //read in board as 6 lines until EOF
@@ -66,7 +76,7 @@ public class Application {
             	case "Puzzle":
             		//TODO fix placeholder values
             		result = new PuzzleLevel(new Board(tiles), name, new Dictionary(),
-                    		highscore, starVals, 100);
+                    		highscore, starVals, 100, isUnlocked);
             		return result;
             	case "Lightning":
             		return result;

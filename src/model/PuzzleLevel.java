@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class PuzzleLevel extends Level{
 	int maxWords;
 
-	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int[] sv, int mw){
-		super(b,n,d,hs,sv);
+	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int[] sv, int mw, boolean ul){
+		super(b,n,d,hs,sv,ul);
 		this.maxWords = mw;
 	}
 	
@@ -21,9 +21,12 @@ public class PuzzleLevel extends Level{
 	public String getType(){
 		return "Puzzle";
 	}
+	
+	public boolean getUnlocked(){return this.unlocked;}
 
 	@Override
 	//Saves the level in ascii
+	//TODO save maxwords somehow?
 	public void save(String filename) {
 		try{
 		    PrintWriter wr = new PrintWriter("./" + filename + ".lvl", "UTF-8");
@@ -34,6 +37,7 @@ public class PuzzleLevel extends Level{
 		    wr.println("" + this.getStarVals()[0]);
 		    wr.println("" + this.getStarVals()[1]);
 		    wr.println("" + this.getStarVals()[2]);
+		    wr.println("" + this.getUnlocked());
 		    ArrayList<ArrayList<Tile>> tiles = this.getBoard().getTiles();
 		    
 		    //output the board as an array of 0's and 1's
