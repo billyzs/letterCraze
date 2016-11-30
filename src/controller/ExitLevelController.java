@@ -11,9 +11,9 @@ public class ExitLevelController implements ActionListener{
 	Application app;
 	Model model;
 
-	public ExitLevelController(Application a, Model m){
+	public ExitLevelController(Application a){
 		this.app = a;
-		this.model = m;
+		this.model = a.getModel();
 	}
 
 	@Override

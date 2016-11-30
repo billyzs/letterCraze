@@ -13,9 +13,9 @@ public class StartLevelController implements ActionListener{
 	Application app;
 	Model model;
 	
-	public StartLevelController(Application a, Model m){
+	public StartLevelController(Application a){
 		this.app = a;
-		this.model = m;
+		this.model= app.getModel();
 	}
 	
 	@Override

@@ -101,4 +101,8 @@ public class Application {
         //failed read
 		return null;
 	}
+
+	public Model getModel() {
+		return this.model;
+	}
 }
