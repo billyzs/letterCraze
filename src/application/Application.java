@@ -78,7 +78,7 @@ public class Application extends JFrame{
 
 		this.menu = new MenuView(this.model);
 
-		//initialize controllers
+		//initialize controllers for levelviewbuttons
 		int seq = 0;
 		for(LevelMenuView almv : menu.getLevelMenuViews()){
             almv.getButton().addActionListener(new StartLevelController(this, this.model.getLevels().get(seq)));
