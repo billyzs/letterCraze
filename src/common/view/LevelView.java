@@ -1,4 +1,4 @@
-package view;
+package common.view;
 
 
 import javax.swing.JPanel;
@@ -10,9 +10,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import application.Application;
-import controller.ExitLevelController;
-import model.Level;
+import common.model.Level;
 
 public class LevelView extends JPanel implements IView {
 	BoardView board;

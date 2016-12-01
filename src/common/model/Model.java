@@ -1,4 +1,4 @@
-package model;
+package common.model;
 
 import java.util.ArrayList;
 import java.util.Stack;

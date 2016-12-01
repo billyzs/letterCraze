@@ -3,9 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import application.Application;
-import view.MenuView;
-import view.WelcomeView;
+import common.view.MenuView;
+import common.view.WelcomeView;
 
 public class SplashTimer implements ActionListener{
 

@@ -1,4 +1,4 @@
-package view;
+package common.view;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;

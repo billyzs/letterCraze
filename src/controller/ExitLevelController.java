@@ -3,8 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.*;
-import view.*;
+import common.model.*;
 import application.Application;
 
 public class ExitLevelController implements ActionListener{
@@ -20,14 +19,14 @@ public class ExitLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
         // TODO Auto-generated method stub
 		
-		//hide the current level view
+		//hide the current level common.view
 		this.app.getMenu().show();
 		this.app.getCurrentLevelView().hide();
 		
 		//set it to null
 		this.app.setLevelView(null);
 		
-		//set the current level to null in model
+		//set the current level to null in common.model
 		this.model.setLevel(null);
 		
 		//show the menu

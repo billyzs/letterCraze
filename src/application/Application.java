@@ -1,26 +1,22 @@
 package application;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controller.StartLevelController;
-import view.LevelView;
+import common.view.LevelView;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import model.*;
-import view.*;
+import common.model.*;
+import common.view.*;
 
 public class Application extends JFrame{
 	Model model; 

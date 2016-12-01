@@ -1,12 +1,8 @@
-package view;
+package common.view;
 
 import javax.swing.JPanel;
 
 import java.util.ArrayList;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 public class BoardView extends JPanel implements IView{

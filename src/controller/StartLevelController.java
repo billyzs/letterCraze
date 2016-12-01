@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import application.Application;
-import model.*;
-import view.*;
+import common.model.*;
+import common.view.*;
 
 // Controller for starting levels from the main menu
 public class StartLevelController implements ActionListener{
@@ -28,17 +28,17 @@ public class StartLevelController implements ActionListener{
 
 		//int index = this.app.getMenu().getLevelIndex(lmv);
 		
-		//get the respective level from the model
-		//Level theLevel = this.model.getLevels().get(index);
+		//get the respective level from the common.model
+		//Level theLevel = this.common.model.getLevels().get(index);
 		
-		//Check that there isnt already a level view
+		//Check that there isnt already a level common.view
 		if(this.app.getCurrentLevelView() != null){
             this.app.getCurrentLevelView().hide();
             System.out.println("tried to load 2 levels");
 		}
 		//hide the menu
 
-		//send the level view to application, show it
+		//send the level common.view to application, show it
 		this.app.setLevelView(new LevelView(theLevel));
 		
 		//initialize Controllers
@@ -46,7 +46,7 @@ public class StartLevelController implements ActionListener{
 
 		this.app.getCurrentLevelView().show();
 		
-		//set the level as current level in the model
+		//set the level as current level in the common.model
 		this.model.setLevel(theLevel);
 		this.app.getMenu().hide();
 	}

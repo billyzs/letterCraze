@@ -1,15 +1,12 @@
-package view;
+package common.view;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import application.Application;
-import controller.StartLevelController;
-import model.Level;
-import model.Model;
+import common.model.Level;
+import common.model.Model;
 
 public class MenuView  extends JPanel implements IView{
 	//decided to make it an arraylist because 

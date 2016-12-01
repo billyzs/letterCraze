@@ -1,8 +1,5 @@
-package view;
+package common.view;
 
-import javax.swing.JLabel;
-
-import application.Application;
 import controller.SplashTimer;
 
 import java.awt.*;

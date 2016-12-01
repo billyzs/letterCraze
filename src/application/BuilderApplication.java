@@ -1,16 +1,12 @@
 package application;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import view.BuilderView;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import common.view.BuilderView;
 
 public class BuilderApplication extends JFrame {
 

@@ -1,15 +1,12 @@
-package view;
+package common.view;
 
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.StartLevelController;
-import model.Level;
+import common.model.Level;
 public class LevelMenuView extends JPanel implements IView {
 	JButton btnThisLevel;
 	JLabel lblSequence;
@@ -41,7 +38,7 @@ public class LevelMenuView extends JPanel implements IView {
 	}
 	
 	//TODO Listeners for the button???
-	// I envisioned this view to be shared btwn the builder and the app, 
+	// I envisioned this common.view to be shared btwn the builder and the app,
 	// so the child classes would implement listeners from different controllers to either start at game, or start modifying a game
 	
 	JLabel getLabelSequence(){return lblSequence;}

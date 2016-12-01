@@ -1,4 +1,4 @@
-package view;
+package common.view;
 
 //interface for the show/hide methods
 public interface IView {

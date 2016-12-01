@@ -1,4 +1,4 @@
-package model;
+package common.model;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -1,4 +1,4 @@
-package model;
+package common.model;
 
 public abstract class Level{
 	Board board;
