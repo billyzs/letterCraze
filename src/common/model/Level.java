@@ -11,7 +11,7 @@ public abstract class Level{
 	int highscore;
 	int[] starVals = new int[3];
 	boolean unlocked;
-	
+	public Level(){} //empty constructor to make creation of view and controller easier?
 	public Level(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
 		this.board = b;
 		this.name = n;
@@ -29,7 +29,7 @@ public abstract class Level{
 	}
 
 	//saves the level to a file
-	//  This will eventually go to a controller I think
+	//  This will eventually go to a common.controller I think
 	public abstract void save(String filename);
 	
 	protected void repopulate(){

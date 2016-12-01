@@ -1,9 +1,9 @@
-package controller;
+package common.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import application.Application;
+import common.application.Application;
 import common.model.*;
 import common.view.*;
 
@@ -38,7 +38,7 @@ public class StartLevelController implements ActionListener{
 		}
 		//hide the menu
 
-		//send the level common.view to application, show it
+		//send the level common.view to common.application, show it
 		this.app.setLevelView(new LevelView(theLevel));
 		
 		//initialize Controllers

@@ -41,10 +41,10 @@ public class LevelMenuView extends JPanel implements IView {
 	// I envisioned this common.view to be shared btwn the builder and the app,
 	// so the child classes would implement listeners from different controllers to either start at game, or start modifying a game
 	
-	JLabel getLabelSequence(){return lblSequence;}
-	JLabel getLabelHighScore(){return lblHighScore;}
-	JLabel getLabelStar(){return lblStar;};
-	JLabel getLabelLocked(){return lblLocked;}
+	public JLabel getLabelSequence(){return lblSequence;}
+	public JLabel getLabelHighScore(){return lblHighScore;}
+	public JLabel getLabelStar(){return lblStar;};
+	public JLabel getLabelLocked(){return lblLocked;}
 	public JButton getButton(){ return this.btnThisLevel;};
 
 	@Override

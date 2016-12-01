@@ -1,10 +1,10 @@
-package controller;
+package common.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import common.model.*;
-import application.Application;
+import common.application.Application;
 
 public class ExitLevelController implements ActionListener{
 	Application app;

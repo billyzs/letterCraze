@@ -1,6 +1,6 @@
 package common.view;
 
-import controller.SplashTimer;
+import common.controller.SplashTimer;
 
 import java.awt.*;
 import javax.swing.*;
@@ -30,7 +30,7 @@ public class WelcomeView extends Canvas implements IView {
 		ContentPane.get().validate();
 
         int delay = 2000;
-        //Pass the menu to the timer controller
+        //Pass the menu to the timer common.controller
         SplashTimer tp = new SplashTimer(this, menu);
         Timer t =new Timer(delay, tp);
         t.setRepeats(false);

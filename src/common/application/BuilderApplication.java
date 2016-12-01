@@ -1,4 +1,4 @@
-package application;
+package common.application;
 
 import java.awt.EventQueue;
 
@@ -13,7 +13,7 @@ public class BuilderApplication extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Launch the common.application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

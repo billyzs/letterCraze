@@ -1,4 +1,4 @@
-package application;
+package common.application;
 
 import java.awt.EventQueue;
 import java.awt.GridLayout;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.StartLevelController;
+import common.controller.StartLevelController;
 import common.view.LevelView;
 
 import java.io.BufferedReader;
@@ -27,7 +27,7 @@ public class Application extends JFrame{
 	//private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Launch the common.application.
 	 */
 	public static void main(String[] args) {
 
@@ -89,7 +89,7 @@ public class Application extends JFrame{
 
 	public void setLevelView(LevelView lv){this.currentLevelView = lv;}
 
-	//This will eventually be in a controller
+	//This will eventually be in a common.controller
 	public static Level loadLevel(String filename){
 
 		//read a file
