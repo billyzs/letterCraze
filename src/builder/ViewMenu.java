@@ -19,7 +19,9 @@ public class ViewMenu extends MenuView{
             lmv.getLabelHighScore().setVisible(false);
             lmv.getLabelLocked().setVisible(false);
             lmv.getLabelStar().setVisible(false);
+            //TODO add controller for buttons in lmv
         }
+
         //TODO Add a new button for creating a new Level
         int numLevels = m.getLevels().size();
         setLayout(new GridLayout(numLevels+1, 1, 0, 0));
