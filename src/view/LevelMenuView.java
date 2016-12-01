@@ -19,11 +19,10 @@ public class LevelMenuView extends JPanel implements IView {
 	Image[] stars = new Image[3];
 //	GRect background;
 	
-	public LevelMenuView(int seq, Level l, StartLevelController slc) {
+	public LevelMenuView(int seq, Level l){
 		
 		super();
 		btnThisLevel = new JButton(l.getName());
-		btnThisLevel.addActionListener(slc);
 				
 		//I added 1 to the sequence, to make it 1-15
 		lblSequence = new JLabel(Integer.toString(seq + 1));
@@ -33,10 +32,10 @@ public class LevelMenuView extends JPanel implements IView {
 		lblHighScore = new JLabel(Integer.toString(l.getHighscore()));
 		add(lblHighScore);
 		
-		lblStar = new JLabel("☆☆☆"); //★ or ☆ based on completion
+		lblStar = new JLabel("���������"); //��� or ��� based on completion
 		add(lblStar);
 		
-		lblLocked = new JLabel("Unlocked"); //TODO 🔓 or 🔒 based on lock/unlocked
+		lblLocked = new JLabel("Unlocked"); //TODO ���� or ���� based on lock/unlocked
 		add(lblLocked);
 		this.setSize(900, 45); //TODO standardize size
 	}
@@ -49,6 +48,7 @@ public class LevelMenuView extends JPanel implements IView {
 	JLabel getLabelHighScore(){return lblHighScore;}
 	JLabel getLabelStar(){return lblStar;};
 	JLabel getLabelLocked(){return lblLocked;}
+	public JButton getButton(){ return this.btnThisLevel;};
 
 	@Override
 	public void show() {

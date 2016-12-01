@@ -4,19 +4,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import application.Application;
+import view.MenuView;
 import view.WelcomeView;
 
 public class SplashTimer implements ActionListener{
 
-	Application app;
-	public SplashTimer(Application a){
-		this.app = a;
+	WelcomeView welcome;
+	MenuView menu;
+
+	public SplashTimer(WelcomeView wv, MenuView mv){
+		welcome = wv;
+		menu = mv;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.app.getWelcome().hide();
-		this.app.getMenu().show();
+		welcome.hide();
+		menu.show();
 	}
 
 }

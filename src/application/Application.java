@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.StartLevelController;
 import view.LevelView;
 
 import javax.swing.GroupLayout;
@@ -27,7 +28,7 @@ public class Application extends JFrame{
 	MenuView menu;
 	LevelView currentLevelView;
 
-	private JPanel contentPane;
+	//private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -68,15 +69,23 @@ public class Application extends JFrame{
 		//initialize window
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 645);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		ContentPane.setContentPanel(new JPanel());
+		ContentPane.get().setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(ContentPane.get());
+		ContentPane.get().setLayout(null);
 
-		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+		ContentPane.get().setLayout(new GridLayout(0, 1, 0, 0));
 
-		this.welcome = new WelcomeView(this);
-		this.menu = new MenuView(this);
+		this.menu = new MenuView(this.model);
+
+		//initialize controllers
+		int seq = 0;
+		for(LevelMenuView almv : menu.getLevelMenuViews()){
+            almv.getButton().addActionListener(new StartLevelController(this, this.model.getLevels().get(seq)));
+            seq++;
+		}
+
+		this.welcome = new WelcomeView(this.menu);
 	}
 
 	public LevelView getCurrentLevelView(){ return this.currentLevelView;}

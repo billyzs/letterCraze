@@ -9,30 +9,32 @@ import java.awt.*;
 import javax.swing.*;
 
 public class WelcomeView extends Canvas implements IView {
-	Application app;
 
-	public WelcomeView(Application a){
-        this.app = a;
+	MenuView menu;
+	public WelcomeView(MenuView mv){
+		menu = mv;
 	}
 
 	public void paint(Graphics g){
         java.net.URL url = this.getClass().getResource("/images/gameSplash.png");
         //System.out.print(url.toString());
         Image i = java.awt.Toolkit.getDefaultToolkit().getImage(url);
-        g.drawImage(i, 100, 100, this);
+        g.drawImage(i, 100, 0, this);
         //System.out.println(i.getWidth(this) + " " + i.getHeight(this));
 	}
 
 	@Override
 	public void show() {
-        this.app.getContentPane().add(this);
+        //this.app.getContentPane().add(this);
+		ContentPane.get().add(this);
         //this.app.getContentPane().setSize(1473,1854);
         //this.app.getContentPane().setVisible(true);
-		this.app.getContentPane().invalidate();
-		this.app.getContentPane().validate();
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
 
         int delay = 2000;
-        SplashTimer tp = new SplashTimer(this.app);
+        //Pass the menu to the timer controller
+        SplashTimer tp = new SplashTimer(this, menu);
         Timer t =new Timer(delay, tp);
         t.setRepeats(false);
         t.start();
@@ -40,9 +42,9 @@ public class WelcomeView extends Canvas implements IView {
 
 	@Override
 	public void hide() {
-		this.app.getContentPane().remove(this);
-		this.app.getContentPane().invalidate();
-		this.app.getContentPane().validate();
+		ContentPane.get().remove(this);
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
 	}
 
 }

@@ -16,15 +16,14 @@ public class MenuView  extends JPanel implements IView{
 	//  the size could change due to custom levels
 	
 	ArrayList<LevelMenuView> lmv;
-	Application app;
+	Model currentGame;
 
-	public MenuView(Application a){
+	public MenuView(Model m){
 		super();
 
-		this.app = a;
-        ArrayList<LevelMenuView> lmv = new ArrayList<LevelMenuView>();
+		currentGame = m;
+        lmv = new ArrayList<LevelMenuView>();
 
-		Model currentGame =this.app.getModel();
 		int numLevels = currentGame.getLevels().size();
 
 		setLayout(new GridLayout(numLevels, 1, 0, 0));
@@ -32,7 +31,7 @@ public class MenuView  extends JPanel implements IView{
 
 		this.setSize(900, 620); //TODO standardize
 		for (Level l : currentGame.getLevels()){
-			LevelMenuView thisLevelView = new LevelMenuView(seq, l, new StartLevelController(app, l));
+			LevelMenuView thisLevelView = new LevelMenuView(seq, l);
 			lmv.add(thisLevelView);
 			this.add(thisLevelView);
 
@@ -45,30 +44,21 @@ public class MenuView  extends JPanel implements IView{
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
-		this.app.getContentPane().add(this);
-		this.app.getContentPane().invalidate();
-		this.app.getContentPane().validate();
+		ContentPane.get().add(this);
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
 	}
 
 	@Override
 	public void hide() {
 		// todo auto-generated method stub
-		this.app.getContentPane().remove(this);
-		this.app.getContentPane().invalidate();
-		this.app.getContentPane().validate();
+		ContentPane.get().remove(this);
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
 	}
 
 	public ArrayList<LevelMenuView> getLevelMenuViews(){
 		return this.lmv;
-	}
-	
-	//returns the index for a particular levelmenuview
-	public int getLevelIndex(LevelMenuView l){
-		for(int k = 0; k < this.lmv.size(); k++){
-			if(this.lmv.get(k) == l)
-				return k;
-		}
-		return -1;
 	}
 
 }

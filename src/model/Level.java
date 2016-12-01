@@ -13,12 +13,12 @@ public abstract class Level{
 	boolean unlocked;
 	
 	public Level(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
-		this.unlocked = ul;
 		this.board = b;
 		this.name = n;
 		this.dict = d;
 		this.highscore = hs;
 		this.starVals = sv;
+		this.unlocked = ul;
 	}
 
 	protected abstract void initialize();
