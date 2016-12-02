@@ -26,7 +26,6 @@ public class Application extends JFrame{
 	Model model; 
 	WelcomeView welcome;
 	MenuView menu;
-	LevelView currentLevelView;
 
 	//private JPanel contentPane;
 
@@ -73,7 +72,6 @@ public class Application extends JFrame{
 		ContentPane.get().setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(ContentPane.get());
 		ContentPane.get().setLayout(null);
-
 		ContentPane.get().setLayout(new GridLayout(0, 1, 0, 0));
 
 		this.menu = new MenuView(this.model);
@@ -88,10 +86,8 @@ public class Application extends JFrame{
 		this.welcome = new WelcomeView(this.menu);
 	}
 
-	public LevelView getCurrentLevelView(){ return this.currentLevelView;}
 	public MenuView getMenu(){ return this.menu; }
 
-	public void setLevelView(LevelView lv){this.currentLevelView = lv;}
 
 	//This will eventually be in a controller
 	public static Level loadLevel(String filename){

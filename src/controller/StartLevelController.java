@@ -32,22 +32,23 @@ public class StartLevelController implements ActionListener{
 		//Level theLevel = this.model.getLevels().get(index);
 		
 		//Check that there isnt already a level view
-		if(this.app.getCurrentLevelView() != null){
-            this.app.getCurrentLevelView().hide();
+		if(ContentPane.getCurrentLevelView() != null){
+            ContentPane.getCurrentLevelView().hide();
             System.out.println("tried to load 2 levels");
 		}
-		//hide the menu
 
 		//send the level view to application, show it
-		this.app.setLevelView(new LevelView(theLevel));
+		ContentPane.setCurrentLevelView(new LevelView(theLevel));
 		
 		//initialize Controllers
-		this.app.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
+		ContentPane.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
 
-		this.app.getCurrentLevelView().show();
+		ContentPane.getCurrentLevelView().show();
 		
 		//set the level as current level in the model
 		this.model.setLevel(theLevel);
+
+        //hide the menu
 		this.app.getMenu().hide();
 	}
 }
