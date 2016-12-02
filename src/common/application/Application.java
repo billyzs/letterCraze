@@ -19,48 +19,15 @@ import common.model.*;
 import common.view.*;
 
 public class Application extends JFrame{
-	Model model; 
-	WelcomeView welcome;
-	MenuView menu;
+	protected Model model; 
+	protected WelcomeView welcome;
+	protected MenuView menu;
+	
+	//To be removed on the merge to dev
 	LevelView currentLevelView;
 
-	//private JPanel contentPane;
-
-	/**
-	 * Launch the common.application.
-	 */
-	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-
-                    Level testLevel = (PuzzleLevel)loadLevel("TestingLevel.lvl");
-                    ArrayList<Level> levels = new ArrayList<Level>();
-                     
-                    for(int k = 0; k < 15;k++)
-                        levels.add(testLevel);
-
-					Application frame = new Application(new Model(levels));
-
-                    frame.welcome.show();
-					frame.setVisible(true);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-		});
-	}
-	
 	public Application(Model m) {
 		this.model = m;
-		//initialize menu
-        //this.pack();
-        /*this.setSize(900, 700);
-        this.setVisible(true);
-        */
 
 		//initialize window
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,16 +39,6 @@ public class Application extends JFrame{
 
 		ContentPane.get().setLayout(new GridLayout(0, 1, 0, 0));
 
-		this.menu = new MenuView(this.model);
-
-		//initialize controllers for levelviewbuttons
-		int seq = 0;
-		for(LevelMenuView almv : menu.getLevelMenuViews()){
-            almv.getButton().addActionListener(new StartLevelController(this, this.model.getLevels().get(seq)));
-            seq++;
-		}
-
-		this.welcome = new WelcomeView(this.menu);
 	}
 
 	public LevelView getCurrentLevelView(){ return this.currentLevelView;}
