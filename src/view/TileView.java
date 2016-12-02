@@ -2,6 +2,9 @@ package view;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import model.Tile;
+
 import java.awt.Color;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -12,10 +15,24 @@ import javax.swing.SwingConstants;
 public class TileView extends JPanel {
 	
 	JLabel lblX;
+	Tile tile;
 	
-	public TileView() {
+	public TileView(Tile t) {
+		this.tile = t;
 		this.initialize();
+		this.updateLabel();
 	}
+	
+	//Tiles now set their own label
+	public void updateLabel(){
+        if(this.tile.getLetters().equals(""))
+            this.setLabel(" ");
+        else{
+            //now it will display the real letters
+            this.setLabel(this.tile.getLetters());
+        }
+	}
+
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub

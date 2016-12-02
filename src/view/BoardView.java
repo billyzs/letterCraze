@@ -39,21 +39,22 @@ public class BoardView extends JPanel implements IView{
 	public void initialize() {
 
 		setLayout(null);
+		
+		//init tileViews
+		this.TileViews = new ArrayList<ArrayList<TileView>>();
 
 		//attempt to put santiagos mess in a loop
 		for(int r = 0; r < 6; r++){
+			this.TileViews.add(new ArrayList<TileView>());
+
 			for(int c = 0; c < 6; c++){
 				Tile theTile = this.board.getTiles().get(r).get(c);
-                TileView atv = new TileView();
-                atv.setBounds(r*95, c*95, 96, 96);
-                
-                //for empty tiles
-                if(theTile.getLetters().equals(""))
-                    atv.setLabel(" ");
-                else{
-                    //now it will display the real letters
-                	atv.setLabel(theTile.getLetters());
-                }
+                TileView atv = new TileView(theTile);
+
+                atv.setBounds(c*95, r*95, 96, 96);
+
+                //Add it to the array
+				this.TileViews.get(r).add(atv);
 
                 add(atv);
 			}

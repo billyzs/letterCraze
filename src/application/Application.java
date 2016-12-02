@@ -135,6 +135,10 @@ public class Application extends JFrame{
             	}
             }
             
+            for(int k = 0; k < 6; k++){
+            	System.out.println(tiles.get(0).get(k).getLetters());
+            }
+            
             //create the resulting level
             Level result = null;
             switch(type){
