@@ -8,14 +8,17 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import model.Board;
+import model.Tile;
+
 
 public class BoardView extends JPanel implements IView{
 
 	ArrayList<ArrayList<TileView>> TileViews;
-	String label;
+	Board board;
 	
-	public BoardView(String label){
-		this.label = label;
+	public BoardView(Board b){
+		this.board = b;
 		this.initialize();
 	}
 
@@ -34,11 +37,29 @@ public class BoardView extends JPanel implements IView{
 	 * Create the panel.
 	 */
 	public void initialize() {
-		System.out.println(label);
-		TileView panel = new TileView();
-		panel.setBounds(0, 0, 96, 96);
-		panel.setLabel(label);
-		
+
+		setLayout(null);
+
+		//attempt to put santiagos mess in a loop
+		for(int r = 0; r < 6; r++){
+			for(int c = 0; c < 6; c++){
+				Tile theTile = this.board.getTiles().get(r).get(c);
+                TileView atv = new TileView();
+                atv.setBounds(r*95, c*95, 96, 96);
+                
+                //for empty tiles
+                if(theTile.getLetters().equals(""))
+                    atv.setLabel(" ");
+                else{
+                    //now it will display the real letters
+                	atv.setLabel(theTile.getLetters());
+                }
+
+                add(atv);
+			}
+		}
+
+        /*		
 		TileView TileView_ = new TileView();
 		TileView_.setBounds(192, 0, 96, 96);
 		TileView_.setLabel(label);
@@ -215,6 +236,7 @@ public class BoardView extends JPanel implements IView{
 		TileView__34.setBounds(480, 477, 96, 96);
 		TileView__34.setLabel(label);
 		add(TileView__34);
+		*/
 
 	}
 }

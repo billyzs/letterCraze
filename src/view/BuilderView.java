@@ -23,7 +23,7 @@ public class BuilderView extends JPanel {
 	 */
 	public BuilderView() {
 		
-		BoardView panel = new BoardView("");
+		BoardView panel = new BoardView(null);
 		panel.setBounds(12, 41, 577, 569);
 		
 		
@@ -70,17 +70,17 @@ public class BuilderView extends JPanel {
 		lblPointThresholds.setBounds(601, 140, 108, 16);
 		add(lblPointThresholds);
 		
-		JLabel label = new JLabel("★");
+		JLabel label = new JLabel("���");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setBounds(601, 168, 52, 16);
 		add(label);
 		
-		JLabel label_1 = new JLabel("★ ★");
+		JLabel label_1 = new JLabel("��� ���");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_1.setBounds(601, 190, 52, 16);
 		add(label_1);
 		
-		JLabel label_2 = new JLabel("★ ★ ★");
+		JLabel label_2 = new JLabel("��� ��� ���");
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_2.setBounds(601, 212, 52, 16);
 		add(label_2);

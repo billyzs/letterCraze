@@ -34,7 +34,7 @@ public class LevelView extends JPanel implements IView {
 	public LevelView(Level l){
 		this.level = l;
 
-		BoardView panel = new BoardView("X");
+		BoardView panel = new BoardView(level.getBoard());
 		
 		JButton button = new JButton("Exit");
 		
