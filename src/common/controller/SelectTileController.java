@@ -25,8 +25,10 @@ public class SelectTileController implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		tileView.setBackground(Color.WHITE);
-		tileView.getTile().setSelected(true);		
+		if(tileView.getTile() != null) {
+			tileView.setBackground(Color.WHITE);
+			tileView.getTile().setSelected(true);	
+		}	
 	}
 
 	@Override
