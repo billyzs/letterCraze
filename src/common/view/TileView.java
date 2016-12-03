@@ -10,7 +10,14 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.SwingConstants;
+
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class TileView extends JPanel {
 	
@@ -47,8 +54,13 @@ public class TileView extends JPanel {
 	 * Create the panel.
 	 */
 	public void initialize() {
-		setBackground(Color.LIGHT_GRAY);
-		setBorder(new LineBorder(new Color(0, 0, 0)));
+		if (tile == null) {
+			setBackground(Color.BLACK);
+		} else {
+			setBackground(Color.LIGHT_GRAY);
+		}
+		
+		setBorder(new LineBorder(Color.BLACK));
 		
 		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -70,9 +82,31 @@ public class TileView extends JPanel {
 		);
 		setLayout(groupLayout);
 
+		/*addMouseListener(new MouseAdapter() {
+	        @Override
+	        public void mouseClicked(MouseEvent e){
+	        	if (!tile.isSelected()) {
+	        		//selecting a tile
+	        		setBackground(Color.WHITE);
+	        		tile.setSelected(true);
+	        	} else {
+	        		//de-selecting a tile
+	        		setBackground(Color.LIGHT_GRAY);
+	        		tile.setSelected(false);
+	        	}
+	        }
+	        
+	    });*/
+	
 	}
 	
+	//set the label of a tile...
 	public void setLabel(String label) {
 		lblX.setText(label);
 	}
+	
+	public Tile getTile(){return tile;}
+	
+	
+	
 }

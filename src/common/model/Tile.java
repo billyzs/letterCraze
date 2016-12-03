@@ -26,6 +26,7 @@ public class Tile {
 	
 	protected void initialize(){
 		//set the score probably
+		selected = false;
 	}
 	
 	protected boolean isEmpty(){
@@ -43,6 +44,8 @@ public class Tile {
 	
 	protected void setRow(int i){this.row = i;}
 	protected void setCol(int i){this.col = i;}
+	public boolean isSelected(){return this.selected;}
+	public void setSelected(boolean s){this.selected = s;}
 
 	protected boolean isAdjacent(Tile t){
 		return false;
@@ -163,4 +166,5 @@ public class Tile {
         return (this.letters = "z");
 
 	}
+
 }
