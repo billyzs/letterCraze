@@ -3,7 +3,7 @@ package common.view;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import model.Tile;
+import common.model.Tile;
 
 import java.awt.Color;
 import javax.swing.GroupLayout;

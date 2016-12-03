@@ -33,9 +33,9 @@ public class StartLevelController implements ActionListener{
 		
 
 		//Check that there isnt already a level view
-		if(ContentPane.getCurrentLevelView() != null){
-            ContentPane.getCurrentLevelView().hide();
-
+		if(ContentPane.getCurrentLevelView() != null) {
+			ContentPane.getCurrentLevelView().hide();
+		}
 		//Check that there isnt already a level common.view
 		if(ContentPane.getCurrentLevelView() != null){
             ContentPane.getCurrentLevelView().hide();
