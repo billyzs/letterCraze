@@ -3,9 +3,6 @@ package common.view;
 import javax.swing.JPanel;
 
 import java.util.ArrayList;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
