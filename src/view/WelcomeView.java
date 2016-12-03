@@ -19,7 +19,7 @@ public class WelcomeView extends Canvas implements IView {
         java.net.URL url = this.getClass().getResource("/images/gameSplash.png");
         //System.out.print(url.toString());
         Image i = java.awt.Toolkit.getDefaultToolkit().getImage(url);
-        g.drawImage(i, 100, 100, this);
+        g.drawImage(i, 100, 0, this);
         //System.out.println(i.getWidth(this) + " " + i.getHeight(this));
 	}
 
