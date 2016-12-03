@@ -23,6 +23,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 
     Application app;
     Level level;
+    //TODO what are the textFields?
     private JTextField textField;
     private JTextField textField_1;
     private JTextField textField_2;
