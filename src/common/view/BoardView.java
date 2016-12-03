@@ -3,6 +3,9 @@ package common.view;
 import javax.swing.JPanel;
 
 import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -59,6 +62,22 @@ public class BoardView extends JPanel implements IView{
                 add(atv);
 			}
 		}
+		
+		/*addMouseListener(new MouseAdapter() {
+            private Color background;
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                background = getBackground();
+                setBackground(Color.RED);
+                repaint();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                setBackground(background);
+            }
+        });*/
 
         /*		
 		TileView TileView_ = new TileView();
