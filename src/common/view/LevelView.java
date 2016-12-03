@@ -28,7 +28,7 @@ public class LevelView extends JPanel implements IView {
 	
 	GroupLayout layout;
 	
-	
+	public LevelView(){};
 	public LevelView(Level l){
 		this.level = l;
 
