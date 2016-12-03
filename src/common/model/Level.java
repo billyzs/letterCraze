@@ -19,12 +19,15 @@ public abstract class Level{
 		this.highscore = hs;
 		this.starVals = sv;
 		this.unlocked = ul;
+		this.currentWord = new Word();
 	}
 
 	protected abstract void initialize();
 	
-	protected Word popCurrentWord(){
+	public Word popCurrentWord(){
 		//TODO remove tiles from board, return currentWord on success
+
+		this.currentWord = new Word();
 		return currentWord;
 	}
 
@@ -42,4 +45,12 @@ public abstract class Level{
 	public Board getBoard() { return this.board; }
 	public int getHighscore() { return this.highscore; }
 	public int[] getStarVals() { return this.starVals; }
+	public int getCurrentPoints(){return currentPoints;};
+	public void setPoints(int i) {
+		this.currentPoints = i;
+	}
+	
+	//done if current points is greater than 1 star
+	public boolean isComplete(){return this.currentPoints >= this.starVals[0];}
+	public void addPoints(int i) {this.currentPoints += i;};
 }

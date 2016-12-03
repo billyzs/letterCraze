@@ -48,7 +48,7 @@ public class StartLevelController implements ActionListener{
 		ContentPane.setCurrentLevelView(new LevelView(theLevel));
 
 		//send the level common.view to common.application, show it
-			ContentPane.setCurrentLevelView(new LevelView(theLevel));
+        ContentPane.setCurrentLevelView(new LevelView(theLevel));
 
 		
 		//initialize Controllers

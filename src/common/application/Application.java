@@ -81,11 +81,15 @@ public class Application extends JFrame{
             	char[] chars = row.toCharArray();
             	for(int c = 0; c < chars.length; c++){
             		if(chars[c] == '1'){
-            			//TODO, placeholder values
-            			tiles.get(r).add(new Tile("Z", r, c));
+            			Tile newTile = new Tile(r,c);
+
+            			tiles.get(r).add(newTile);
+            			
+            			//assign it a random letter
             		}
             		else{
-            			tiles.get(r).add(new Tile("", r, c));
+            			tiles.get(r).add(null);
+            			//tiles.get(r).add(new Tile("", r, c));
             		}
             	}
             }

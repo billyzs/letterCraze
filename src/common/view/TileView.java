@@ -25,7 +25,7 @@ public class TileView extends JPanel {
 	
 	//Tiles now set their own label
 	public void updateLabel(){
-        if(this.tile.getLetters().equals(""))
+        if(this.tile == null || this.tile.getLetters().equals(""))
             this.setLabel(" ");
         else{
             //now it will display the real letters
