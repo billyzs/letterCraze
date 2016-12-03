@@ -2,6 +2,7 @@ package common.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import common.application.Application;
 import common.model.*;
@@ -53,8 +54,15 @@ public class StartLevelController implements ActionListener{
 		
 		//initialize Controllers
 		ContentPane.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
-
 		ContentPane.getCurrentLevelView().show();
+		
+		for(int i = 0; i < 6; i++){
+			for(int j = 0; j < 6; j++){
+				TileView t = ContentPane.getCurrentLevelView().getBoardView().getTileViews().get(i).get(j);
+				t.addMouseListener(new SelectTileController(app, t));
+			}
+		}
+			
 		
 		//set the level as current level in the common.model
 		this.model.setLevel(theLevel);

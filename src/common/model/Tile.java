@@ -5,6 +5,7 @@ public class Tile {
 	int score;
 	int row;
 	int col;
+	boolean selected;
 	
 	public Tile(int r, int c){
 		this.row = r;
@@ -22,6 +23,7 @@ public class Tile {
 	
 	protected void initialize(){
 		//set the score probably
+		selected = false;
 	}
 
 	protected boolean isAdjacent(Tile t){
@@ -30,4 +32,6 @@ public class Tile {
 
 	public int getScore(){return this.score;}
 	public String getLetters(){return this.letters;}
+	public boolean isSelected(){return this.selected;}
+	public void setSelected(boolean s){this.selected = s;}
 }

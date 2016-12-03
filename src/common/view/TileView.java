@@ -23,7 +23,6 @@ public class TileView extends JPanel {
 	
 	JLabel lblX;
 	Tile tile;
-	boolean selected;
 	
 	public TileView(Tile t) {
 		this.tile = t;
@@ -55,9 +54,13 @@ public class TileView extends JPanel {
 	 * Create the panel.
 	 */
 	public void initialize() {
-		selected = false;
-		setBackground(Color.LIGHT_GRAY);
-		setBorder(new LineBorder(new Color(0, 0, 0)));
+		if (tile == null) {
+			setBackground(Color.BLACK);
+		} else {
+			setBackground(Color.LIGHT_GRAY);
+		}
+		
+		setBorder(new LineBorder(Color.BLACK));
 		
 		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -79,21 +82,21 @@ public class TileView extends JPanel {
 		);
 		setLayout(groupLayout);
 
-		addMouseListener(new MouseAdapter() {
+		/*addMouseListener(new MouseAdapter() {
 	        @Override
 	        public void mouseClicked(MouseEvent e){
-	        	if (!selected) {
+	        	if (!tile.isSelected()) {
 	        		//selecting a tile
 	        		setBackground(Color.WHITE);
-	        		selected = true;
+	        		tile.setSelected(true);
 	        	} else {
 	        		//de-selecting a tile
 	        		setBackground(Color.LIGHT_GRAY);
-	        		selected = false;
+	        		tile.setSelected(false);
 	        	}
 	        }
 	        
-	    });
+	    });*/
 	
 	}
 	
@@ -101,6 +104,8 @@ public class TileView extends JPanel {
 	public void setLabel(String label) {
 		lblX.setText(label);
 	}
+	
+	public Tile getTile(){return tile;}
 	
 	
 	
