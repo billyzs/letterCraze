@@ -26,6 +26,8 @@ public class ViewMenu extends MenuView{
         int numLevels = m.getLevels().size();
         setLayout(new GridLayout(numLevels+1, 1, 0, 0));
         btnCreateNewLevel = new JButton("Create new level");
+        add(btnCreateNewLevel);
+        btnCreateNewLevel.setVisible(true);
         //TODO Controller for this action
 
     }
