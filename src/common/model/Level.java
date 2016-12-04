@@ -55,5 +55,6 @@ public abstract class Level{
 	public boolean isComplete(){return this.currentPoints >= this.starVals[0];}
 	public void addPoints(int i) {this.currentPoints += i;};
 	public boolean getUnlocked() {return this.unlocked;}
+	public Dictionary getDict(){ return this.dict;}
 
 }

@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  */
 public class Dictionary {
-	
+
 	// The look up table for the dictionary
 	HashSet<String> table;
 	
@@ -22,7 +22,7 @@ public class Dictionary {
 	Scanner sc;
 	
 	// The default file (located in letterCraze)
-	public static final String defaultTable = "WordTable.sort";
+	public static final String defaultTable = "./WordTable.sort";
 
 	// Default constructor, which populates table from defaultTable
 	public Dictionary() throws IOException {
@@ -46,4 +46,7 @@ public class Dictionary {
 		return table.contains(s.toLowerCase());
 	}
 
+	public HashSet<String> getTable() {
+		return table;
+	}
 }

@@ -14,6 +14,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Hashtable;
 
 import common.model.*;
 import common.view.*;
@@ -45,7 +47,7 @@ public class Application extends JFrame{
 
 
 	//This will eventually be in a common.controller
-	public static Level loadLevel(String filename){
+	public static Level loadLevel(String filename) throws IOException{
 
 		//read a file
 		BufferedReader br = null;
@@ -69,9 +71,9 @@ public class Application extends JFrame{
 
             ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>();
             
-            //read in board as 6 lines until EOF
+            //read in board as 6 lines
             String row;
-            for(int r = 0; (row = br.readLine()) != null; r++){
+            for(int r = 0; r < 6 && (row = br.readLine()) != null; r++){
 
             	//add new row
             	tiles.add(new ArrayList<Tile>());
@@ -88,8 +90,8 @@ public class Application extends JFrame{
             			//assign it a random letter
             		}
             		else{
-            			tiles.get(r).add(null);
-            			//tiles.get(r).add(new Tile("", r, c));
+            			//tiles.get(r).add(null);
+            			tiles.get(r).add(new Tile("", r, c));
             		}
             	}
             }
@@ -109,6 +111,15 @@ public class Application extends JFrame{
             	case "Lightning":
             		return result;
             	case "Theme":
+
+					HashSet<String> table = new HashSet<String>();
+             		// not at EOF yet, read into dict.
+					String word;
+					while((word=br.readLine()) != null){
+						table.add(word.toLowerCase());
+					}
+					Dictionary dict = new Dictionary(table);
+            		result = new ThemeLevel(new Board(tiles), name, dict, highscore, starVals, isUnlocked);
             		return result;
             }
 

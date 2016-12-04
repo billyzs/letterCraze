@@ -1,6 +1,8 @@
 package builder;
 
+import common.model.Dictionary;
 import common.model.Level;
+import common.model.ThemeLevel;
 import common.model.Tile;
 
 import java.awt.event.ActionEvent;
@@ -9,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Saves a level to ASCII file as specified by Grant
@@ -33,32 +36,25 @@ public class CtrlSaveLevel implements ActionListener {
                 writer.write(Integer.toString(val)); writer.newLine();
             }
             writer.write(String.valueOf(lvl.getUnlocked())); writer.newLine();
-            // write board layout and letter layout to buffer
-            // for anything other than themed, wordLayoutBuffer should just be empty string
-            // TODO make sure tiles's words are "" for puzzle and lightening.
-            String wordLayoutBuffer = "";
+            // write board layout to buffer
             String sysLineBreak = System.getProperty("line.separator");
             for (ArrayList<Tile> row : lvl.getBoard().getTiles()){
                 // write each row to buffer
                 String buffer = "";
                 for(Tile t: row){
-                    if(t.isSelectable()){
-                        buffer += "1";
-                        wordLayoutBuffer += t.getLetters();
-                    }
-                    else{
-                        buffer += "0";
-                        wordLayoutBuffer += "*"; //disabled tile
-                    }
-
+                    buffer += (t.isSelectable())? "1" : "0";
                 }
                 writer.write(buffer); writer.newLine();
-                wordLayoutBuffer += sysLineBreak;
             }
             if (lvl.getType() == "Theme") {
-                // remove the last unnecessary line break
-                wordLayoutBuffer = wordLayoutBuffer.substring(0,wordLayoutBuffer.length()-1);
-                writer.write(wordLayoutBuffer);
+                // write the dict to end of file
+                Iterator<String> itr = lvl.getDict().getTable().iterator();
+
+                while(itr.hasNext()){
+                    String s = itr.next();
+                    writer.write(s); writer.newLine();
+                }
+                // writer.write(itr.next()); writer.newLine();
             }
             writer.close();
         } catch (IOException e) {

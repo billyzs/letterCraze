@@ -24,6 +24,8 @@ public class TestDictionary {
 			Dictionary d = new Dictionary();
 			assertFalse(d.table.isEmpty());
 			assertTrue(d.isWord("accosts"));
+			assertTrue(d.isWord("ACCOSTS"));
+			assertFalse(d.isWord("AABBDDC"));
 		} catch(IOException e) {
 			fail();
 		}

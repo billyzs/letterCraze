@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Iterator;
 
 /**
  * Created by billyzs on 12/3/16.
@@ -15,9 +16,9 @@ public class testCtrlSaveLevel extends TestCase{
     // buffer1 == buffer2?
     // level1 == level2?
 
-    public void test() throws Exception{
+    void test(String inFileName) throws Exception{
         Application app = new Application();
-        String testFile = "TestingLevel.lvl";
+        String testFile = inFileName;
         String outputFile = "reference.lvl";
         Level level1 = app.loadLevel(testFile);
         CtrlSaveLevel csl = new CtrlSaveLevel(level1);
@@ -27,15 +28,36 @@ public class testCtrlSaveLevel extends TestCase{
         assertEquals(level1.getName(), level2.getName());
         assertEquals(level1.getType(), level2.getType());
         assertEquals(level1.getHighscore(), level2.getHighscore());
-        // assertEquals(level1.getStarVals(), level2.getStarVals());
+
+        for(int t=0; t < 3; t++){
+            assertEquals((level1.getStarVals())[t], (level2.getStarVals())[t]);
+        }
 
         BufferedReader buffer1 = new BufferedReader(new FileReader(testFile));
         BufferedReader buffer2 = new BufferedReader(new FileReader(outputFile));
         String line1;
-        while((line1=buffer1.readLine()) != null){
+        int lineNum = 0;
+        while((line1=buffer1.readLine()) != null && lineNum < 13){ // don't need to check the dict
+            lineNum++;
             String line2 = buffer2.readLine();
             assertEquals(line1, line2);
         }
+    }
+    public void testPuzzle() throws Exception {
+        test("TestingLevel.lvl");
+    }
+    public void testTheme() throws Exception{
+        test("TestingTheme.lvl");
+        Application app = new Application();
+        String testFile = "TestingTheme.lvl";
+        String outputFile = "reference.lvl";
+        Level level1 = app.loadLevel(testFile);
+        Level level2 = app.loadLevel(outputFile);
+        Iterator<String> iter = level1.getDict().getTable().iterator();
+        while(iter.hasNext()){
+            assertTrue(level2.getDict().isWord(iter.next()));
+        }
+
     }
 
 }
