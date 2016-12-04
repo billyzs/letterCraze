@@ -2,6 +2,7 @@ package common.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class Dictionary {
 	
 	// The look up table for the dictionary
-	Hashtable<String,Boolean> table;
+	HashSet<String> table;
 	
 	// Scanner for reading files
 	Scanner sc;
@@ -25,24 +26,24 @@ public class Dictionary {
 
 	// Default constructor, which populates table from defaultTable
 	public Dictionary() throws IOException {
-		table = new Hashtable<String,Boolean>();
+		table = new HashSet<String>();
 		sc = new Scanner(new File(defaultTable));
 		
 		// Populate table
 		String s;
 		while (sc.hasNextLine()) {
 			s = sc.nextLine().trim();
-			table.put(s, Boolean.TRUE);
+			table.add(s);
 		} sc.close();
 	}
 	
-	// Constructor to form dictionary using an alternate Hashtable
-	public Dictionary(Hashtable<String,Boolean> alternate){
+	// Constructor to form dictionary using an alternate HashSet
+	public Dictionary(HashSet<String> alternate){
 		table = alternate;
 	}
 	
 	public boolean isWord(String s) {
-		return table.containsKey(s.toLowerCase());
+		return table.contains(s.toLowerCase());
 	}
 
 }
