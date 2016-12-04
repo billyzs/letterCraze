@@ -55,12 +55,12 @@ public class TileView extends JPanel {
 	 */
 	public void initialize() {
 		if (tile == null) {
-			setBackground(Color.BLACK);
+			setBackground(new Color(238, 238, 238));
 		} else {
-			setBackground(Color.LIGHT_GRAY);
+			setBackground(Color.WHITE);
+			setBorder(new LineBorder((new Color(238, 238, 238)),2));
 		}
 		
-		setBorder(new LineBorder(Color.BLACK));
 		
 		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,22 +81,6 @@ public class TileView extends JPanel {
 					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
-
-		/*addMouseListener(new MouseAdapter() {
-	        @Override
-	        public void mouseClicked(MouseEvent e){
-	        	if (!tile.isSelected()) {
-	        		//selecting a tile
-	        		setBackground(Color.WHITE);
-	        		tile.setSelected(true);
-	        	} else {
-	        		//de-selecting a tile
-	        		setBackground(Color.LIGHT_GRAY);
-	        		tile.setSelected(false);
-	        	}
-	        }
-	        
-	    });*/
 	
 	}
 	

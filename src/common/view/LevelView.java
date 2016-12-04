@@ -111,6 +111,8 @@ public class LevelView extends JPanel implements IView {
 		this.layout = groupLayout;
 
 		//Add to the content pane and show
+		
+		System.out.println(this.getBackground().toString());
 	}
 	
 	@Override
