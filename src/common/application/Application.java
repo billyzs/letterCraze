@@ -26,7 +26,7 @@ public class Application extends JFrame{
 	
 	//To be removed on the merge to dev
 
-
+	public Application(){}
 	public Application(Model m) {
 		this.model = m;
 

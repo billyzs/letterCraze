@@ -166,5 +166,6 @@ public class Tile {
         return (this.letters = "z");
 
 	}
+	public boolean isSelectable(){return !(letters == "");}
 
 }

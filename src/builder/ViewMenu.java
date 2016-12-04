@@ -22,10 +22,9 @@ public class ViewMenu extends MenuView{
             //TODO add controller for buttons in lmv
         }
 
-        //TODO Add a new dropdown menu for creating a new Level
         int numLevels = m.getLevels().size();
         setLayout(new GridLayout(numLevels+1, 1, 0, 0));
-        boxCreateNewLevel = new JComboBox(new DefaultComboBoxModel(new String[] {"Puzzle", "Lightening", "Themed"}));
+        boxCreateNewLevel = new JComboBox(new DefaultComboBoxModel(new String[] {"Puzzle", "Lightening", "Theme"}));
         add(boxCreateNewLevel);
         boxCreateNewLevel.setVisible(true);
         //TODO Controller for this action

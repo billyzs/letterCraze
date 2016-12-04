@@ -45,6 +45,7 @@ public abstract class Level{
 	public Board getBoard() { return this.board; }
 	public int getHighscore() { return this.highscore; }
 	public int[] getStarVals() { return this.starVals; }
+
 	public int getCurrentPoints(){return currentPoints;};
 	public void setPoints(int i) {
 		this.currentPoints = i;
@@ -53,4 +54,6 @@ public abstract class Level{
 	//done if current points is greater than 1 star
 	public boolean isComplete(){return this.currentPoints >= this.starVals[0];}
 	public void addPoints(int i) {this.currentPoints += i;};
+	public boolean getUnlocked() {return this.unlocked;}
+
 }
