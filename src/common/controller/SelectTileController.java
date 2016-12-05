@@ -39,9 +39,12 @@ public class SelectTileController implements MouseListener{
 			tileView.updateColor();
 			//refresh current word
             ContentPane.getCurrentLevelView().getSubmittedWordsView().refresh();
+            ContentPane.getCurrentLevelView().refresh();
             model.addMove(move);
 		}
 		
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
 	}
 
 	@Override

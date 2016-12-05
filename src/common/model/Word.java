@@ -107,4 +107,28 @@ public class Word {
 
 	public ArrayList<Tile> getTiles() { return this.tiles; }
 
+	/**
+	 * Updates this word to reflect the state an old word.
+	 * @param l
+	 * 	Level for which it is being updated.
+	 * @param copy
+	 *  An old word which the state will be updated to reflect.
+	 */
+	public void recoverState(Level l, Word copy) {
+		this.tiles = new ArrayList<Tile>();
+		Board b = l.getBoard();
+		ArrayList<ArrayList<Tile>> btiles = b.getTiles();
+		for(Tile t : copy.getTiles()){
+			tiles.add(btiles.get(t.getRow()).get(t.getCol()));
+		}
+		
+	}
+
+	/**
+	 * Empties the current word, resetting the tiles.
+	 */
+	public void reset() {
+		this.tiles = new ArrayList<Tile>();
+	}
+
 }
