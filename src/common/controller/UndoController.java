@@ -26,9 +26,6 @@ public class UndoController implements ActionListener{
             move.undo();
             //update tileviews
             ContentPane.getCurrentLevelView().refresh();
-            
-            //update currentWord View
-            ContentPane.getCurrentLevelView().getSubmittedWordsView().refresh();
 		}
 	}
 }

@@ -149,7 +149,10 @@ public class LevelView extends JPanel implements IView {
                 tv.updateLabel();
             }
 		}
+		//Redisplay submitted words
+		this.submittedWords.refresh();
 	}
+
 	public SubmittedWordsView getSubmittedWordsView() {
 		return this.submittedWords;
 	}

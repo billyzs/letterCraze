@@ -50,7 +50,7 @@ public class SubmitWordMove implements IMove{
 		this.level.getSubmittedWords().remove(this.level.getSubmittedWords().size()-1);
 		
 		//move the prevword to the level
-		this.level.setCurrentWord(this.wordCopy);
+		this.level.getCurrentWord().recoverState(this.level,this.wordCopy);
 		
 		//remove the points
 		this.level.addPoints(-1 * this.points);

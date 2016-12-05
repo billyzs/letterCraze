@@ -63,7 +63,7 @@ public abstract class Level{
 	public void addSubmittedWord(String s) {
 		this.submittedWords.add(s);
 	}
-	public void resetCurrentWord() { this.currentWord = new Word(); }
+	public void resetCurrentWord() { this.currentWord.reset(); }
 	public void setBoard(Board prevBoard) {
 		this.board = prevBoard;
 	}

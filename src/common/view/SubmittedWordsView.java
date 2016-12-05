@@ -33,7 +33,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 	
 	@Override
 	public void show() {
-		//refresh
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -44,6 +44,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 	//Converts the arraylist of words into labels
 	//  refreshes for adding/removing a word
 	public void refresh(){
+		System.out.println(this.currentWord.toString());
 		//remove all labels from the view
 		if(wordLabels != null){
             for(JLabel jl : wordLabels){
@@ -55,30 +56,21 @@ public class SubmittedWordsView extends JPanel implements IView {
 		for(int k = 0; k < words.size(); k++){
             JLabel word = new JLabel(this.words.get(k));
             int size = this.wordLabels.size();
-            int offset = size*28;
+            int offset = k*30;
             word.setBounds(119, 78 + offset, 32, 16);
             word.setHorizontalAlignment(SwingConstants.CENTER);
 
             this.wordLabels.add(word);
             this.add(word);
+            word.setVisible(true);
 		}
 		
-		System.out.println(words);
-		
 		//Now refresh current word
-		this.remove(this.currentWordLabel);
+		this.currentWordLabel.setText(currentWord.toString());
 
-		this.currentWordLabel = new JLabel(currentWord.toString());
-		currentWordLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		currentWordLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		currentWordLabel.setBounds(98, 8, 100, 22);
-		//currentWordLabel.setBounds(98, 8, 80, 50);
-		
-		this.add(currentWordLabel);
-
-		//refresh 
-		ContentPane.get().invalidate();
-		ContentPane.get().validate();
+		//refresh submitted words
+		System.out.println(words);
+		this.repaint();
 	}
 	
 	public JButton getSubmitButton(){return this.submitWord;}
@@ -88,6 +80,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 	 */
 	public void initialize() {
 		
+		setLayout(null);
 		JLabel lblSubmittedWords = new JLabel("Submitted Words");
 		lblSubmittedWords.setBounds(61, 44, 148, 22);
 		lblSubmittedWords.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
@@ -157,13 +150,14 @@ public class SubmittedWordsView extends JPanel implements IView {
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
 		label_9.setBounds(119, 358, 32, 16);
 		add(label_9);
-		*/
+		
 		
 		JLabel lblXxxxx = new JLabel("Current Word:");
 		lblXxxxx.setHorizontalAlignment(SwingConstants.LEFT);
 		lblXxxxx.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		lblXxxxx.setBounds(6, 7, 106, 22);
 		add(lblXxxxx);
+		*/
 		
 		this.currentWordLabel= new JLabel("");
 		this.currentWordLabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -173,6 +167,5 @@ public class SubmittedWordsView extends JPanel implements IView {
 
 		//srsly santiago
 		add(this.currentWordLabel);
-
 	}
 }
