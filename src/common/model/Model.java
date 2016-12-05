@@ -19,5 +19,22 @@ public class Model {
 		return this.currentLevel;
 	}
 
+	//adds a move to the list
+	public void addMove(IMove move) {
+		moves.add(move);
+	}
+	
+	//returns a move and removes it from the list of moves
+	public IMove popMove(){
+		if(moves.size() > 0)
+            return moves.pop();
+		return null;
+	}
+
+	//reinit the move array, for starting new levels w]]]
+	public void resetMoves() {
+		this.moves = new Stack<IMove>();
+	}
+
 }
 

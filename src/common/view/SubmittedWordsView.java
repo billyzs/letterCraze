@@ -3,27 +3,85 @@ package common.view;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import common.model.Word;
+
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class SubmittedWordsView extends JPanel implements IView {
 	private JTextField textField;
+	private JLabel currentWordLabel;
+	private ArrayList<JLabel> wordLabels;
+
+	JButton submitWord;
+
+	ArrayList<String> words;
+
+	Word currentWord;
 	
-	public SubmittedWordsView(){
+	public SubmittedWordsView(ArrayList<String> sw, Word cw){
+		this.words = sw;
+		this.currentWord = cw;
 
 		this.initialize();
+		this.wordLabels = new ArrayList<JLabel>();
 	}
 	
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
+		//refresh
 	}
 
 	@Override
 	public void hide() {
 		// TODO Auto-generated method stub
 	}
+	
+	//Converts the arraylist of words into labels
+	//  refreshes for adding/removing a word
+	public void refresh(){
+		//remove all labels from the view
+		if(wordLabels != null){
+            for(JLabel jl : wordLabels){
+                this.remove(jl);
+            }
+		}
+
+		//add all labels in the words array to the view, and to the array
+		for(int k = 0; k < words.size(); k++){
+            JLabel word = new JLabel(this.words.get(k));
+            int size = this.wordLabels.size();
+            int offset = size*28;
+            word.setBounds(119, 78 + offset, 32, 16);
+            word.setHorizontalAlignment(SwingConstants.CENTER);
+
+            this.wordLabels.add(word);
+            this.add(word);
+		}
+		
+		System.out.println(words);
+		
+		//Now refresh current word
+		this.remove(this.currentWordLabel);
+
+		this.currentWordLabel = new JLabel(currentWord.toString());
+		currentWordLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		currentWordLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		currentWordLabel.setBounds(98, 8, 100, 22);
+		//currentWordLabel.setBounds(98, 8, 80, 50);
+		
+		this.add(currentWordLabel);
+
+		//refresh 
+		ContentPane.get().invalidate();
+		ContentPane.get().validate();
+	}
+	
+	public JButton getSubmitButton(){return this.submitWord;}
 	
 	/**
 	 * Create the panel.
@@ -37,7 +95,11 @@ public class SubmittedWordsView extends JPanel implements IView {
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setBounds(197, 6, 76, 29);
+		add(btnSubmit);
+		add(lblSubmittedWords);
+		this.submitWord = btnSubmit;
 		
+		/*
 		JLabel lblWord = new JLabel("Word");
 		lblWord.setBounds(119, 78, 32, 16);
 		lblWord.setHorizontalAlignment(SwingConstants.CENTER);
@@ -55,13 +117,13 @@ public class SubmittedWordsView extends JPanel implements IView {
 		label_2.setBounds(119, 162, 32, 16);
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		add(label_2);
-		add(btnSubmit);
-		add(lblSubmittedWords);
 		add(label);
 		add(lblWord);
 		add(label_1);
+		*/
+
 		
-		JLabel label_3 = new JLabel("Word");
+		/*JLabel label_3 = new JLabel("Word");
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setBounds(119, 190, 32, 16);
 		add(label_3);
@@ -95,6 +157,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
 		label_9.setBounds(119, 358, 32, 16);
 		add(label_9);
+		*/
 		
 		JLabel lblXxxxx = new JLabel("Current Word:");
 		lblXxxxx.setHorizontalAlignment(SwingConstants.LEFT);
@@ -102,11 +165,14 @@ public class SubmittedWordsView extends JPanel implements IView {
 		lblXxxxx.setBounds(6, 7, 106, 22);
 		add(lblXxxxx);
 		
-		JLabel lblXxxxxxxx = new JLabel("XXXXXXXX");
-		lblXxxxxxxx.setHorizontalAlignment(SwingConstants.LEFT);
-		lblXxxxxxxx.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		lblXxxxxxxx.setBounds(98, 8, 100, 22);
-		add(lblXxxxxxxx);
+		this.currentWordLabel= new JLabel("");
+		this.currentWordLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		this.currentWordLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		this.currentWordLabel.setBounds(98, 8, 100, 22);
+		//currentWordLabel.setBounds(98, 8, 80, 50);
+
+		//srsly santiago
+		add(this.currentWordLabel);
 
 	}
 }

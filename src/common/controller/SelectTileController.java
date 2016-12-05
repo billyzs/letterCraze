@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 
 import common.application.Application;
 import common.model.Model;
-import common.model.SelectTileMove;
+import game.move.*;
 import common.model.Tile;
+import common.view.ContentPane;
 import common.view.TileView;
 
 import java.awt.Color;
@@ -36,7 +37,11 @@ public class SelectTileController implements MouseListener{
 		if(move.isValid()){
 			move.doMove();
 			tileView.updateColor();
+			//refresh current word
+            ContentPane.getCurrentLevelView().getSubmittedWordsView().refresh();
+            model.addMove(move);
 		}
+		
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package common.model;
 
+import java.util.ArrayList;
+
 public abstract class Level{
 	Board board;
 	String name;
@@ -11,6 +13,10 @@ public abstract class Level{
 	int highscore;
 	int[] starVals = new int[3];
 	boolean unlocked;
+
+    ArrayList<String> submittedWords = new ArrayList<String>();
+
+
 	public Level(){} //empty constructor to make creation of view and controller easier?
 	public Level(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
 		this.board = b;
@@ -24,13 +30,6 @@ public abstract class Level{
 
 	protected abstract void initialize();
 	
-	public Word popCurrentWord(){
-		Word oldWord = this.currentWord;
-		this.currentWord = new Word();
-
-		return oldWord;
-	}
-
 	//saves the level to a file
 	//  This will eventually go to a common.controller I think
 	public abstract void save(String filename);
@@ -45,6 +44,7 @@ public abstract class Level{
 	public Board getBoard() { return this.board; }
 	public int getHighscore() { return this.highscore; }
 	public int[] getStarVals() { return this.starVals; }
+	public ArrayList<String> getSubmittedWords(){ return this.submittedWords; }
 
 	public int getCurrentPoints(){return currentPoints;};
 	public void setPoints(int i) {
@@ -59,6 +59,16 @@ public abstract class Level{
 
 	public Word getCurrentWord() {
 		return this.currentWord;
+	}
+	public void addSubmittedWord(String s) {
+		this.submittedWords.add(s);
+	}
+	public void resetCurrentWord() { this.currentWord = new Word(); }
+	public void setBoard(Board prevBoard) {
+		this.board = prevBoard;
+	}
+	public void setCurrentWord(Word word) {
+		this.currentWord = word;
 	}
 
 }

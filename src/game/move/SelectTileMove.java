@@ -1,12 +1,18 @@
-package common.model;
+package game.move;
+
+import common.model.*;
 
 public class SelectTileMove implements IMove{
 	Model model;
 	Tile tile;
+	int row;
+	int col;
 	
 	public SelectTileMove(Model m, Tile t){
 		this.model = m;
 		this.tile = t;
+		this.row = this.tile.getRow();
+		this.col = this.tile.getCol();
 	}
 	
 	
@@ -20,13 +26,16 @@ public class SelectTileMove implements IMove{
 
 	//removes tile from word, deselects
 	public void undo(){
-		this.tile.setSelected(false);
+		//deselect the tile at the position
+		this.model.getCurrentLevel().getBoard().getTiles().get(row).get(col).setSelected(false);
+		
+		//remove last tile from the current word
 		this.model.getCurrentLevel().getCurrentWord().removeLastTile();
 	}
 	
 	//mind the short circuit evaluation
 	public boolean isValid(){
-		if(!this.tile.isSelectable())
+		if(!this.tile.isSelectable() || this.tile.isSelected())
 			return false;
 			
 		Word currentWord = this.model.getCurrentLevel().getCurrentWord();

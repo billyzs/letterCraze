@@ -2,7 +2,6 @@ package common.model;
 
 public class Tile {
 	String letters;
-	int score;
 	int row;
 	int col;
 	boolean selected;
@@ -23,10 +22,12 @@ public class Tile {
 		this.selected = false;
 	}
 	
-	
-	protected void initialize(){
-		//set the score probably
-		selected = false;
+	//for cloning tiles
+	public Tile(Tile t) {
+		this.letters = t.getLetters();
+		this.row = t.getRow();
+		this.col = t.getCol();
+		this.selected = t.isSelected();
 	}
 	
 	protected boolean isEmpty(){
@@ -35,12 +36,12 @@ public class Tile {
 		return false;
 	}
 	
-	protected void makeEmpty(){
+	public void makeEmpty(){
 		this.letters = "";
 	}
 	
-	protected int getRow(){ return this.row;}
-	protected int getCol(){ return this.col;}
+	public int getRow(){ return this.row;}
+	public int getCol(){ return this.col;}
 	
 	protected void setRow(int i){this.row = i;}
 	protected void setCol(int i){this.col = i;}
@@ -48,14 +49,13 @@ public class Tile {
 	public void setSelected(boolean s){this.selected = s;}
 
 	//returns true if they are within 1 of each other
-	protected boolean isAdjacent(Tile t){
+	public boolean isAdjacent(Tile t){
 		if(t.getCol()+1 == this.getCol() || t.getCol()-1 == this.getCol() || t.getCol() == this.getCol())
             if(t.getRow()+1 == this.getRow() || t.getRow()-1 == this.getRow() || t.getRow() == this.getRow())
                 return true;
 		return false;
 	}
 
-	public int getScore(){return this.score;}
 	public String getLetters(){return this.letters;}
 
 	public String setRandLetter() {
@@ -172,4 +172,12 @@ public class Tile {
 	}
 	public boolean isSelectable(){return !(letters == "");}
 
+	public void setLetters(String s ) { this.letters = s; }
+
+	public void recoverState(Tile t) {
+		this.letters = t.getLetters();
+		this.row = t.getRow();
+		this.col = t.getCol();
+		this.selected = t.isSelected();
+	}
 }

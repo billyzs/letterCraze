@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.SwingConstants;
 
 import common.model.Level;
@@ -20,7 +22,7 @@ public class LevelView extends JPanel implements IView {
 	JButton reset;
 	JButton finish;
 	JButton undo;
-	JButton submitWord;
+//	JButton submitWord;
 	JLabel currentWord;
 	JLabel name;
 	JLabel timer;
@@ -41,7 +43,7 @@ public class LevelView extends JPanel implements IView {
 		JLabel timer = new JLabel("000");
 		StarsView panel_1 = new StarsView();
 		
-		SubmittedWordsView panel_2 = new SubmittedWordsView();
+		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord());
 
 		name.setHorizontalAlignment(SwingConstants.CENTER);
 		name.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
@@ -138,4 +140,17 @@ public class LevelView extends JPanel implements IView {
 	public JButton getFinishButton() { return this.finish; }
 	public JButton getUndoButton() { return this.undo; }
 	public BoardView getBoardView() { return this.board; }
+
+	//Redisplays all tilesviews, might do other stuff later
+	public void refresh() {
+		for(ArrayList<TileView> row : this.board.getTileViews()){
+            for(TileView tv : row){
+                tv.updateColor();
+                tv.updateLabel();
+            }
+		}
+	}
+	public SubmittedWordsView getSubmittedWordsView() {
+		return this.submittedWords;
+	}
 }

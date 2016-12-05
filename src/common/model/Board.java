@@ -9,6 +9,20 @@ public class Board {
 		tiles = t;
 	}
 	public Board(){} // empty constructor for test
+	
+	//constructor for cloning
+	public Board(Board b){
+		//make new arraylist of tiles
+		this.tiles = new ArrayList<ArrayList<Tile>>();
+		
+		//clone each tile
+		for(ArrayList<Tile> row : b.getTiles()){
+			tiles.add(new ArrayList<Tile>());
+			for(Tile t : row){
+				this.tiles.get(this.tiles.size()-1).add(new Tile(t));
+			}
+		}
+	}
 
 	protected boolean floatTiles(){
 		//start looping from second row
@@ -52,6 +66,18 @@ public class Board {
 		result.setRandLetter();
 
 		return result; 
+	}
+	public void recoverState(Board prevBoard) {
+		int r = 0;
+		for(ArrayList<Tile> row : prevBoard.getTiles()){
+			int c =0;
+			for(Tile t : row){
+				this.tiles.get(r).get(c).recoverState(t);
+				c++;
+			}
+			r++;
+		}
+		
 	}
 	
 	

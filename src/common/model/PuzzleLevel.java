@@ -22,7 +22,6 @@ public class PuzzleLevel extends Level{
 		return "Puzzle";
 	}
 	
-	public boolean getUnlocked(){return this.unlocked;}
 
 	@Override
 	//Saves the level in ascii

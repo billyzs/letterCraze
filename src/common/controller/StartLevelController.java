@@ -48,12 +48,11 @@ public class StartLevelController implements ActionListener{
 		//send the level view to application, show it
 		ContentPane.setCurrentLevelView(new LevelView(theLevel));
 
-		//send the level common.view to common.application, show it
-        ContentPane.setCurrentLevelView(new LevelView(theLevel));
-
-		
 		//initialize Controllers
 		ContentPane.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
+		ContentPane.getCurrentLevelView().getUndoButton().addActionListener(new UndoController(app));
+		ContentPane.getCurrentLevelView().getSubmittedWordsView().getSubmitButton().addActionListener(new SubmitWordController(app, theLevel));
+
 		ContentPane.getCurrentLevelView().show();
 		
 		for(int i = 0; i < 6; i++){
@@ -66,6 +65,7 @@ public class StartLevelController implements ActionListener{
 		
 		//set the level as current level in the common.model
 		this.model.setLevel(theLevel);
+		this.model.resetMoves();
 
         //hide the menu
 		this.app.getMenu().hide();

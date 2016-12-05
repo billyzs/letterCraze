@@ -15,7 +15,16 @@ public class Word {
 		tiles = new ArrayList<Tile>();
 	}
 	
-	protected void addTile(Tile t){
+	//copy constructor
+	public Word(Word w, Board prevboard) {
+		tiles = new ArrayList<Tile>();
+		for(Tile t : w.getTiles()){
+			//add the tiles from the prevboard, matching the current ones
+			tiles.add(prevboard.getTiles().get(t.getRow()).get(t.getCol()));
+		}
+	}
+
+	public void addTile(Tile t){
 		this.tiles.add(t);
 	}
 	
@@ -95,5 +104,7 @@ public class Word {
 			return;
 		this.tiles.remove(this.tiles.size()-1);
 	}
+
+	public ArrayList<Tile> getTiles() { return this.tiles; }
 
 }
