@@ -14,5 +14,10 @@ public class Model {
 	
 	public void setLevel(Level l){ this.currentLevel = l; }
 	public ArrayList<Level> getLevels(){return levels;}
+
+	public Level getCurrentLevel() {
+		return this.currentLevel;
+	}
+
 }
 

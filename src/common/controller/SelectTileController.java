@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import common.application.Application;
 import common.model.Model;
+import common.model.SelectTileMove;
+import common.model.Tile;
 import common.view.TileView;
 
 import java.awt.Color;
@@ -25,10 +27,16 @@ public class SelectTileController implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(tileView.getTile() != null) {
-			tileView.setBackground(Color.LIGHT_GRAY);
-			tileView.getTile().setSelected(true);	
-		}	
+		Tile tile = tileView.getTile();
+
+		if(tile == null)
+			return;
+
+		SelectTileMove move = new SelectTileMove(this.model, tile);
+		if(move.isValid()){
+			move.doMove();
+			tileView.updateColor();
+		}
 	}
 
 	@Override

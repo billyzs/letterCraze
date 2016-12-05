@@ -80,4 +80,20 @@ public class Word {
 		return false;
 	}
 
+	public boolean isEmpty(){
+		return (this.tiles.size() == 0);
+	}
+
+	public Tile getLastTile() {
+		if(this.isEmpty())
+			return null;
+		return this.tiles.get(this.tiles.size()-1);
+	}
+	
+	public void removeLastTile(){
+		if(this.isEmpty())
+			return;
+		this.tiles.remove(this.tiles.size()-1);
+	}
+
 }

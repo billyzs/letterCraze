@@ -30,6 +30,23 @@ public class TileView extends JPanel {
 		this.updateLabel();
 	}
 	
+	//moved logic for color to this function
+	public void updateColor(){
+		if (tile == null) {
+			setBackground(new Color(238, 238, 238));
+		} else {
+			if(tile.isSelected()){
+                setBackground(Color.LIGHT_GRAY);
+			}
+            else{
+                setBackground(Color.WHITE);
+            }
+
+			setBorder(new LineBorder((new Color(238, 238, 238)),2));
+		}
+
+	}
+	
 	//Tiles now set their own label
 	public void updateLabel(){
         if(this.tile == null || this.tile.getLetters().equals(""))
@@ -54,13 +71,8 @@ public class TileView extends JPanel {
 	 * Create the panel.
 	 */
 	public void initialize() {
-		if (tile == null) {
-			setBackground(new Color(238, 238, 238));
-		} else {
-			setBackground(Color.WHITE);
-			setBorder(new LineBorder((new Color(238, 238, 238)),2));
-		}
 		
+		this.updateColor();
 		
 		lblX = new JLabel("X");
 		lblX.setHorizontalAlignment(SwingConstants.CENTER);
@@ -90,7 +102,5 @@ public class TileView extends JPanel {
 	}
 	
 	public Tile getTile(){return tile;}
-	
-	
 	
 }

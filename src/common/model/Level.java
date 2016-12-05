@@ -25,10 +25,10 @@ public abstract class Level{
 	protected abstract void initialize();
 	
 	public Word popCurrentWord(){
-		//TODO remove tiles from board, return currentWord on success
-
+		Word oldWord = this.currentWord;
 		this.currentWord = new Word();
-		return currentWord;
+
+		return oldWord;
 	}
 
 	//saves the level to a file
@@ -56,5 +56,9 @@ public abstract class Level{
 	public void addPoints(int i) {this.currentPoints += i;};
 	public boolean getUnlocked() {return this.unlocked;}
 	public Dictionary getDict(){ return this.dict;}
+
+	public Word getCurrentWord() {
+		return this.currentWord;
+	}
 
 }

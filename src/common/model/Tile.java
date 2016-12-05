@@ -47,7 +47,11 @@ public class Tile {
 	public boolean isSelected(){return this.selected;}
 	public void setSelected(boolean s){this.selected = s;}
 
+	//returns true if they are within 1 of each other
 	protected boolean isAdjacent(Tile t){
+		if(t.getCol()+1 == this.getCol() || t.getCol()-1 == this.getCol() || t.getCol() == this.getCol())
+            if(t.getRow()+1 == this.getRow() || t.getRow()-1 == this.getRow() || t.getRow() == this.getRow())
+                return true;
 		return false;
 	}
 
