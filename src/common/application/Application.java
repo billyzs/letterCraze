@@ -90,8 +90,7 @@ public class Application extends JFrame{
             			//assign it a random letter
             		}
             		else{
-            			//tiles.get(r).add(null);
-            			tiles.get(r).add(new Tile("", r, c));
+            			tiles.get(r).add(null);
             		}
             	}
             }
