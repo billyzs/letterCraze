@@ -35,6 +35,7 @@ public class SubmitWordController implements ActionListener{
             model.addMove(move);
             
             //float tiles
+            this.level.floatTiles();
 		}
 		
 		/*if(level.getDict().isWord(theWord.toString())){
@@ -50,6 +51,9 @@ public class SubmitWordController implements ActionListener{
 		
 		ContentPane.get().invalidate();
 		ContentPane.get().validate();
+		
+		System.out.println(this.level.getCurrentPoints());
+		
 		
 	}
 }
