@@ -24,6 +24,8 @@ public class testCtrlCreateNewLevel extends TestCase{
 			CtrlCreateNewLevel c = new CtrlCreateNewLevel(app);
 			Level l = c.createNewLevel("Puzzle");
 			assertEquals("Puzzle", l.getType());
+			assertTrue(l.getDict().isWord("good"));
+			assertFalse(l.getDict().isWord("sldjflsag"));
 		} catch(Exception e){
 			e.printStackTrace();
 			fail();

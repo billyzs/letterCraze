@@ -83,7 +83,7 @@ public class CtrlCreateNewLevel implements ActionListener{
 
 	/**
 	 * Calls the createnewLevel method, creates the level and brings up a view
-	 * @param ae
+	 * @param ae should be the JCombox that is the drop down menu with 3 types of levels
 	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {
