@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class PuzzleLevel extends Level{
 	int maxWords;
+	public static final String type = "Puzzle";
 
 	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int[] sv, int mw, boolean ul){
 		super(b,n,d,hs,sv,ul);

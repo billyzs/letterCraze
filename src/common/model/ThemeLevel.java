@@ -1,6 +1,7 @@
 package common.model;
 
 public class ThemeLevel extends Level {
+	public static final String type = "Theme";
 
 	public ThemeLevel(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
 		super(b,n,d,hs,sv,ul);
