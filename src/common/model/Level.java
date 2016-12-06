@@ -36,7 +36,67 @@ public abstract class Level{
 	public abstract void save(String filename);
 	
 	protected void repopulate(){
-		//TODO fill empty tiles
+		//TODO fill empty cells at bottom
+	}
+
+	/**
+	 * Performs upward gravity on the board.
+	 * @return
+	 */
+	public boolean floatTiles(){
+		//start looping from second row
+		ArrayList<ArrayList<Tile>> tiles = this.board.getTiles();
+		for(int r = 0; r < tiles.size(); r++){
+			ArrayList<Tile> thisRow = tiles.get(r);
+			
+            for(int c = 0; c < tiles.get(r).size(); c++){
+            	
+            	//If this is empty
+            	Tile tile = thisRow.get(c);
+            	if(tile != null && tile.isEmpty()){
+            		
+            		//Find the next floatable and set it there
+            		Tile foundTile = getNextFloatTile(r+1, c);
+            		thisRow.get(c).setLetters(foundTile.getLetters());
+            		
+            		//set next tile to empty
+            		foundTile.setLetters("");
+            	}
+            }
+		}
+		
+		return true;
+	}
+
+	/**
+	 * Gets the next tile to move up, searching a specific column. 
+	 * @param startRow
+	 * The first Row to start looking on.
+	 * @param col
+	 * The column to search down.
+	 * @return
+	 * Returns the Tile it found.
+	 */
+	protected Tile getNextFloatTile(int startRow, int col){
+		int r;
+
+		ArrayList<ArrayList<Tile>> tiles = this.board.getTiles();
+
+		//Cycle through remaining rows
+		for(r = startRow; r < tiles.size(); r++){
+			ArrayList<Tile> row = tiles.get(r);
+			
+			//find next non-empty tile
+			if(row.get(col) != null)
+                if(!(row.get(col).isEmpty()))
+                    return row.get(col);
+		}
+
+		//make new random tiles
+        Tile result = new Tile(r,col);
+		result.setRandLetter();
+
+		return result; 
 	}
 	
 	public abstract String getType();

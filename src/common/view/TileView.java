@@ -33,6 +33,7 @@ public class TileView extends JPanel {
 	//moved logic for color to this function
 	public void updateColor(){
 		if (tile == null) {
+			System.out.println("test");
 			setBackground(new Color(238, 238, 238));
 		} else {
 			if(tile.isSelected()){
