@@ -3,6 +3,7 @@ package common.model;
 import java.util.ArrayList;
 
 public abstract class Level{
+	public static final String type = "";
 	Board board;
 	String name;
 	Word currentWord;

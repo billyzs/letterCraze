@@ -1,4 +1,6 @@
-package common.view;
+package builder;
+
+import common.view.BoardView;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;

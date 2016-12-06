@@ -1,5 +1,6 @@
 package common.model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Board {
@@ -47,7 +48,26 @@ public class Board {
 			r++;
 		}
 	}
-	
-	
+
+	/**
+	 * set tiles to be an empty 6*6 array of tiles
+	 */
+	public void setEmptyBoard(){
+		ArrayList<ArrayList<Tile>> newTiles = new ArrayList<ArrayList<Tile>>();
+		// int i = 0, j = 0;
+		for(int i=0; i < 6; i++){
+			ArrayList<Tile> row = new ArrayList<Tile>(6);
+			for(int j = 0; j < 6; j++){
+				row.add(new Tile("", i, j));
+			}
+			newTiles.add(row);
+		}
+		tiles = newTiles;
+	}
+
+	// return the letter at specific position
+	String getLetterAt(int row, int col){
+		return tiles.get(row).get(col).getLetters();
+	}
 
 }

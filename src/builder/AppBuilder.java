@@ -11,30 +11,34 @@ import java.util.ArrayList;
  * Created by billyzs on 11/30/16.
  */
 public class AppBuilder extends Application{
-    @Override
-    public Model getModel() {
-        return model;
-    }
 
-    public ViewMenu getViewMenu() {
-        return viewMenu;
-    }
-
-    @Override
-    public ViewWelcome getWelcome() {
-        return welcome;
-    }
 
     Model model;
     ViewMenu viewMenu;
     ViewWelcome welcome;
+    ViewBuildLevel viewBuildLevel;
+    CtrlSaveLevel ctrlSaveLevel;
+    CtrlCreateNewLevel ctrlCreateNewLevel;
 
     public AppBuilder(Model m){
         super(m);
+        //TODO move to initializer function
         viewMenu = new ViewMenu(m);
         welcome = new ViewWelcome(viewMenu);
+        initializeControllers();
     }
 
+    /**
+     * Model only needs a currentLevel for builder
+     * TODO does builder need undo & redo???
+     */
+    private void initializeModel(){
+
+    }
+    private void initializeControllers(){
+        ctrlCreateNewLevel = new CtrlCreateNewLevel(this);
+        viewMenu.boxCreateNewLevel.addActionListener(ctrlCreateNewLevel);
+    }
 
     public static void main(String[] args){
         EventQueue.invokeLater(new Runnable() {
@@ -51,6 +55,7 @@ public class AppBuilder extends Application{
 
                     frame.welcome.show();
                     frame.setVisible(true);
+                    frame.initializeControllers();
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -58,6 +63,44 @@ public class AppBuilder extends Application{
             }
 
         });
+    }
+
+    @Override
+    public Model getModel() {
+        return model;
+    }
+
+    public ViewMenu getViewMenu() {
+        return viewMenu;
+    }
+
+    @Override
+    public ViewWelcome getWelcome() {
+        return welcome;
+    }
+
+    public ViewBuildLevel getViewBuildLevel() {
+        return viewBuildLevel;
+    }
+
+    public void setViewBuildLevel(ViewBuildLevel viewBuildLevel) {
+        this.viewBuildLevel = viewBuildLevel;
+    }
+
+    public CtrlSaveLevel getCtrlSaveLevel() {
+        return ctrlSaveLevel;
+    }
+
+    public void setCtrlSaveLevel(CtrlSaveLevel ctrlSaveLevel) {
+        this.ctrlSaveLevel = ctrlSaveLevel;
+    }
+
+    public CtrlCreateNewLevel getCtrlCreateNewLevel() {
+        return ctrlCreateNewLevel;
+    }
+
+    public void setCtrlCreateNewLevel(CtrlCreateNewLevel ctrlCreateNewLevel) {
+        this.ctrlCreateNewLevel = ctrlCreateNewLevel;
     }
 
 }
