@@ -26,8 +26,9 @@ public class CtrlCreateNewLevel implements ActionListener{
 	Model model;
 	// A new level to be built
 	Level theLevel;
+	JComboBox dropDown;
 
-	public CtrlCreateNewLevel(Application a) {
+	public CtrlCreateNewLevel(AppBuilder a) {
 		this.app = a;
 		this.model = a.getModel();
 	}
@@ -40,7 +41,7 @@ public class CtrlCreateNewLevel implements ActionListener{
 	 */
 	public Level createNewLevel(String levelType) throws Exception{
 		// standardize input
-		levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
+		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
 		Board emptyBoard = new Board();
 		emptyBoard.setEmptyBoard();
 		String name = "";
@@ -68,10 +69,13 @@ public class CtrlCreateNewLevel implements ActionListener{
 			}
 		} catch (IllegalFormatCodePointException e){
 			e.printStackTrace();
+			level = null;
 		} catch (IOException ioe){
 			System.err.println(ioe.getMessage()+" Check that you have the right files in test execution root");
 			ioe.printStackTrace();
-		} finally {
+			level = null;
+		} catch (Exception ee){
+			ee.printStackTrace();
 			level = null;
 		}
 		return level;
@@ -86,6 +90,7 @@ public class CtrlCreateNewLevel implements ActionListener{
 		// JComboBox jcb = (JComboBox) ae.getSource();
 		// String type = (String) jcb.getSelectedItem();
 		String levelType = (String) ((JComboBox) ae.getSource()).getSelectedItem();
+		System.out.println("Selected " + levelType);
 		Level newLevel;
 		try {
 			newLevel = createNewLevel(levelType);
@@ -95,10 +100,11 @@ public class CtrlCreateNewLevel implements ActionListener{
 		}
 		if (!(newLevel==null)){
 			// bring up the level building view
-
+			ViewBuildLevel viewBuildLevel = new ViewBuildLevel(app, newLevel);
+			viewBuildLevel.show();
 		}
 		else{
-			System.err.println("Created an empty new level");
+			System.err.println("CtrnCreateNewLevel::actionPerformed: Created an empty new level");
 		}
 
 	}
@@ -122,7 +128,7 @@ public class CtrlCreateNewLevel implements ActionListener{
 				//Note all values besides the board and the dictionary can be changed in builder
 				theLevel = new PuzzleLevel(new Board(tiles),"Unnamed",new Dictionary(),0,new int[3],0,true);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}

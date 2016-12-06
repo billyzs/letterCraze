@@ -14,7 +14,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Saves a level to ASCII file as specified by Grant
+ * Saves a level to ASCII file format as specified by Grant.
+ * Fileds are (separated by new line):
+ * Type
+ * Name
+ * highScore
+ * starVal[0]
+ * starVal[1]
+ * starVal[2]
+ * unlocked
+ * 6*6 Board Layout
+ * (Theme only) Dict words
  * Created by billyzs on 12/3/16.
  */
 
@@ -67,7 +77,7 @@ public class CtrlSaveLevel implements ActionListener {
             if(writer!=null) writer.close();
         }
     }
-    protected void saveLevelToFile(Level lvl) throws IOException{
+    public void saveLevelToFile(Level lvl) throws IOException{
         saveLevelToFile(lvl, lvl.getName()+".lvl");
     }
     @Override
