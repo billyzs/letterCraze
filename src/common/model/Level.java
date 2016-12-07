@@ -53,7 +53,7 @@ public abstract class Level{
             	
             	//If this is empty
             	Tile tile = thisRow.get(c);
-            	if(tile != null && tile.isEmpty()){
+            	if(!tile.isNull() && tile.isEmpty()){
             		
             		//Find the next floatable and set it there
             		Tile foundTile = getNextFloatTile(r+1, c);
@@ -87,7 +87,7 @@ public abstract class Level{
 			ArrayList<Tile> row = tiles.get(r);
 			
 			//find next non-empty tile
-			if(row.get(col) != null)
+			if(!row.get(col).isNull())
                 if(!(row.get(col).isEmpty()))
                     return row.get(col);
 		}
