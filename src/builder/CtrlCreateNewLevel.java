@@ -35,12 +35,7 @@ public class CtrlCreateNewLevel implements ActionListener{
 		this.model = a.getModel();
 	}
 
-	/**
-	 * Creates new level based on type.
-	 * @param levelType one of "Puzzle", "Lightening", "Theme"
-	 * @return a new level with empty board, name, starval, highscore, unlocked=false;
-	 * dict = default for lightening, puzzle, empty for theme;
-	 */
+
 	public Level createNewLevel(String levelType) throws Exception{
 		// standardize input
 		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();

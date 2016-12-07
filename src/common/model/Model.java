@@ -10,7 +10,9 @@ public class Model {
 	Stack<IMove> moves;
 	ArrayList<Level> levels;
 	Level currentLevel;
-	
+	public static final String Puzzle = "Puzzle";
+	public static final String Theme = "Lightening";
+	public static final String Lightening = "Lightening";
 	public Model(ArrayList<Level> l){
 		this.levels = l;
 	}
@@ -38,7 +40,13 @@ public class Model {
 	public void resetMoves() {
 		this.moves = new Stack<IMove>();
 	}
-
+	public void addLevel(Level l){this.levels.add(l);}
+	/**
+	 * Creates new level based on type.
+	 * @param levelType one of "Puzzle", "Lightening", "Theme"
+	 * @return a new level with empty 6*6 board, name, starval, highscore, unlocked=false;
+	 * dict = default for lightening, puzzle, empty for theme;
+	 */
 	public Level createNewLevel(String levelType) throws Exception{
 		// standardize input
 		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
@@ -80,6 +88,10 @@ public class Model {
 		}
 		return level;
 	}
-
+	public Level creaateNewLevel(String levelType, String levelName) throws Exception{
+		Level l = this.createNewLevel(levelType);
+		l.setName(levelName);
+		return l;
+	}
 }
 

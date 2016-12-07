@@ -49,10 +49,11 @@ public class SubmitWordController implements ActionListener{
 		ContentPane.getCurrentLevelView().refresh();
 		ContentPane.getCurrentLevelView().getSubmittedWordsView().refresh();
 		
+		System.out.println(this.level.getCurrentPoints());
+		ContentPane.getCurrentLevelView().getStarsView().refresh();
+		
 		ContentPane.get().invalidate();
 		ContentPane.get().validate();
-		
-		System.out.println(this.level.getCurrentPoints());
 		
 		
 	}

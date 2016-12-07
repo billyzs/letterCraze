@@ -41,7 +41,7 @@ public class LevelView extends JPanel implements IView {
 		JButton finish = new JButton("Finish Level");
 		JLabel name = new JLabel("1 - This is the name level and theme if needed");
 		JLabel timer = new JLabel("000");
-		StarsView panel_1 = new StarsView();
+		StarsView panel_1 = new StarsView(level);
 		
 		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord());
 
@@ -135,11 +135,14 @@ public class LevelView extends JPanel implements IView {
 		ContentPane.get().validate();
 	}
 
+	//GETTERS
 	public JButton getExitButton() { return this.exit; }
 	public JButton getResetButton() { return this.reset; }
 	public JButton getFinishButton() { return this.finish; }
 	public JButton getUndoButton() { return this.undo; }
 	public BoardView getBoardView() { return this.board; }
+	public SubmittedWordsView getSubmittedWordsView() { return this.submittedWords; }
+	public StarsView getStarsView() { return this.stars; }
 
 	//Redisplays all tilesviews, might do other stuff later
 	public void refresh() {
@@ -153,7 +156,5 @@ public class LevelView extends JPanel implements IView {
 		this.submittedWords.refresh();
 	}
 
-	public SubmittedWordsView getSubmittedWordsView() {
-		return this.submittedWords;
-	}
+	
 }

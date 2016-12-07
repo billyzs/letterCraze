@@ -1,8 +1,6 @@
 package builder;
 import common.application.Application;
-import common.model.Level;
-import common.model.Model;
-import common.model.PuzzleLevel;
+import common.model.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -56,13 +54,18 @@ public class AppBuilder extends Application{
             public void run() {
                 try {
 
-                    Level testLevel = (PuzzleLevel)loadLevel("TestingLevel.lvl");
+                    Level testLevel = (PuzzleLevel) loadLevel("TestingLevel.lvl");
                     ArrayList<Level> levels = new ArrayList<Level>();
 
-                    for(int k = 0; k < 15;k++)
+                    for (int k = 0; k < 15; k++)
                         levels.add(testLevel);
 
-                    AppBuilder frame = new AppBuilder(new Model(levels));
+                    Model builderModel = new Model(levels);
+					builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
+					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightening));
+					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
+
+                    AppBuilder frame = new AppBuilder(builderModel);
 
                     frame.welcome.show();
                     frame.setVisible(true);
