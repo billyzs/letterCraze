@@ -58,7 +58,7 @@ public class SubmittedWordsView extends JPanel implements IView {
             JLabel word = new JLabel(this.words.get(k));
             int size = this.wordLabels.size();
             int offset = k*20;
-            word.setBounds(75, 78 + offset, 100, 16);
+            word.setBounds(85, 70 + offset, 100, 16);
             word.setHorizontalAlignment(SwingConstants.CENTER);
 
             this.wordLabels.add(word);
