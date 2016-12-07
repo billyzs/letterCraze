@@ -63,12 +63,12 @@ public abstract class Level{
 		this.initialize();
 	}
 
-	protected void initialize(){
+	public void initialize(){
 		this.currentWord.initialize();
 		this.board.initialize();
 
 		//remove all words from submitted words array
-		for(int k = 0; k < this.submittedWords.size(); k++){
+		for(int k = this.submittedWords.size()-1; k >= 0; k--){
 			submittedWords.remove(k);
 		}
 
