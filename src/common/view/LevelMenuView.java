@@ -14,11 +14,18 @@ public class LevelMenuView extends JPanel implements IView {
 	JLabel lblStar;
 	JLabel lblLocked;
 	Image[] stars = new Image[3];
+
+	public Level getTheLevel() {
+		return theLevel;
+	}
+
+	Level theLevel;
 //	GRect background;
 	
 	public LevelMenuView(int seq, Level l){
 		
 		super();
+		theLevel = l;
 		btnThisLevel = new JButton(l.getName());
 				
 		//I added 1 to the sequence, to make it 1-15
