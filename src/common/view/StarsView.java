@@ -23,10 +23,10 @@ public class StarsView extends JPanel {
 	
 	public StarsView(Level l) {
 		this.level = l;
-		
+		targetScore = this.level.getTargetScore();
+		targetScore = 100; //temporary failsafe
 		setLayout(null);
 		
-		targetScore = 100;
 		progressBar = new JProgressBar();
 		progressBar.setMaximum(targetScore);
 		progressBar.setBounds(6, 6, 231, 21);
@@ -62,8 +62,15 @@ public class StarsView extends JPanel {
 		score = this.level.getCurrentPoints();
 		this.currentScorelabel.setText(""+score);
 		this.progressBar.setValue(score);
-		if(score > (targetScore/3)){
-			label_1.setText("\u2605"); // "\u2605" is black, "\u2606" is white
+		
+		if(score >= (targetScore/3)){
+			label_1.setText("\u2605"); // ONE STAR UNLOCKED "\u2605" is black, "\u2606" is white
+			if(score >= (2*(targetScore/3))){
+				label_2.setText("\u2605"); // TWO STARS UNLOCKED "\u2605" is black, "\u2606" is white
+				if(score >= targetScore){
+					label_3.setText("\u2605"); // THREE STARS UNLOCKED "\u2605" is black, "\u2606" is white
+				}
+			}
 		}
 	}
 
