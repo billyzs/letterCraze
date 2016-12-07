@@ -13,7 +13,7 @@ import common.view.*;
  */
 public class ViewBuildLevel extends LevelView implements IView{
 
-    Application app;
+    // Application app;
     Level level;
     //TODO what are the textFields?
     private JTextField starVal1;
@@ -32,16 +32,16 @@ public class ViewBuildLevel extends LevelView implements IView{
      * Create the panel.
      */
 
-    public ViewBuildLevel(Application a, Level l) {
+    public ViewBuildLevel(Level l) {
         //TODO TEST!!!
-        app = a;
+        // app = a;
         level = l;
         panel = new BoardView(l.getBoard());
         panel.setBounds(12, 41, 577, 569);
         btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
         //TODO Should ExitLevelController be used??
-        btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
+        // btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
         lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
         lblChooseAtLeast.setBounds(158, 8, 293, 20);
         lblChooseAtLeast.setHorizontalAlignment(SwingConstants.LEFT);
@@ -131,9 +131,11 @@ public class ViewBuildLevel extends LevelView implements IView{
     @Override
     public void show(){
         ContentPane.setCurrentLevelView(this);
+        this.setVisible(true);
         //refresh
         ContentPane.get().invalidate();
         ContentPane.get().validate();
+        ContentPane.get().repaint();
     }
 
     @Override

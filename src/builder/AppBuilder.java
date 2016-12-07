@@ -1,6 +1,8 @@
 package builder;
 import common.application.Application;
 import common.model.*;
+import common.view.LevelMenuView;
+import common.view.MenuView;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class AppBuilder extends Application{
     ViewWelcome welcome;
     ViewBuildLevel viewBuildLevel;
     CtrlSaveLevel ctrlSaveLevel;
-    CtrlCreateNewLevel ctrlCreateNewLevel;
+    ArrayList<CtrlModifyLevel> ctrModifyLevels = new ArrayList<CtrlModifyLevel>();
 
     public void setModel(Model model) {
         this.model = model;
@@ -45,8 +47,15 @@ public class AppBuilder extends Application{
 
     }
     private void initializeControllers(){
-        ctrlCreateNewLevel = new CtrlCreateNewLevel(this);
-        // viewMenu.boxCreateNewLevel.addActionListener(ctrlCreateNewLevel);
+        int i = 0;
+        for(LevelMenuView lmv : this.viewMenu.getLevelMenuViews()){
+            CtrlModifyLevel c = new CtrlModifyLevel(this, lmv);
+            // System.out.println(lmv.getTheLevel().getType());
+            this.ctrModifyLevels.add(c);
+            lmv.getButton().addActionListener(this.ctrModifyLevels.get(i++));
+
+        }
+        // viewMenu.boxCreateNewLevel.addActionListener(ctrlModifyLevel);
     }
 
     public static void main(String[] args){
@@ -109,12 +118,8 @@ public class AppBuilder extends Application{
         this.ctrlSaveLevel = ctrlSaveLevel;
     }
 
-    public CtrlCreateNewLevel getCtrlCreateNewLevel() {
-        return ctrlCreateNewLevel;
+    @Override
+    public ViewMenu getMenu() {
+        return this.viewMenu;
     }
-
-    public void setCtrlCreateNewLevel(CtrlCreateNewLevel ctrlCreateNewLevel) {
-        this.ctrlCreateNewLevel = ctrlCreateNewLevel;
-    }
-
 }
