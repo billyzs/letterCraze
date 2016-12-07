@@ -167,7 +167,7 @@ public class Tile {
 		if(r <= prob)
 		*/
 
-        return (this.letters = "z");
+        return (this.letters = "Z");
 
 	}
 	public boolean isSelectable(){return !(letters == "");}

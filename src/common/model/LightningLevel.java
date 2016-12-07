@@ -11,7 +11,7 @@ public class LightningLevel extends Level{
 	}
 	
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}
