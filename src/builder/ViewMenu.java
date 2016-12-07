@@ -43,7 +43,7 @@ public class ViewMenu extends MenuView implements IView{
     }
 
     public ViewMenu(Model m){
-        PuzzleLevel puzzleLevel = new puzzle
+        // PuzzleLevel puzzleLevel = m.
         super(m);
         //TODO stars, locks, previous high scores shouldn't be needed.
         for(LevelMenuView lmv : this.getLevelMenuViews()){
@@ -57,7 +57,7 @@ public class ViewMenu extends MenuView implements IView{
         int numLevels = m.getLevels().size();
         setLayout(new GridLayout(numLevels+3, 1, 0, 0)); // +3 because of the 3 new buttons
 
-        btnPuzzle =
+
 
         //TODO Controller for this action
 

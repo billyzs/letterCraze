@@ -1,6 +1,9 @@
 package common.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.IllegalFormatCodePointException;
 import java.util.Stack;
 
 public class Model {
@@ -34,6 +37,48 @@ public class Model {
 	//reinit the move array, for starting new levels w]]]
 	public void resetMoves() {
 		this.moves = new Stack<IMove>();
+	}
+
+	public Level createNewLevel(String levelType) throws Exception{
+		// standardize input
+		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
+		Board emptyBoard = new Board();
+		emptyBoard.setEmptyBoard();
+		String name = "";
+		int[] starVal = {0,0,0};
+		int highScore = 0;
+		int maxWords = 100; //for puzzle
+		boolean unlocked = false;
+		Dictionary dict = new Dictionary(new HashSet<String>());
+		Level level;
+		try{
+			switch (levelType){
+				case "Puzzle":
+					dict = new Dictionary();
+					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, maxWords, unlocked);
+					break;
+				case "Lightening":
+					dict = new Dictionary();
+					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
+					break;
+				case "Theme":
+					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
+					break;
+				default:
+					throw new IllegalArgumentException("CtrlCreateNewLevel::createNewLevel: cannot parse: " + levelType);
+			}
+		} catch (IllegalFormatCodePointException e){
+			e.printStackTrace();
+			level = null;
+		} catch (IOException ioe){
+			System.err.println(ioe.getMessage()+" Check that you have the right files in test execution root");
+			ioe.printStackTrace();
+			level = null;
+		} catch (Exception ee){
+			ee.printStackTrace();
+			level = null;
+		}
+		return level;
 	}
 
 }
