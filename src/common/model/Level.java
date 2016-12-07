@@ -11,6 +11,7 @@ public abstract class Level{
 	int currentPoints;
 	int highscore;
 	int[] starVals = new int[3];
+	int targetScore;
 	boolean unlocked;
 
     ArrayList<String> submittedWords = new ArrayList<String>();
@@ -149,6 +150,7 @@ public abstract class Level{
 	public boolean isComplete(){return this.currentPoints >= this.starVals[0];}
 	public void addPoints(int i) {this.currentPoints += i;};
 	public boolean getUnlocked() {return this.unlocked;}
+	public int getTargetScore() {return this.targetScore;}
 	public Dictionary getDict(){ return this.dict;}
 
 	public Word getCurrentWord() {
