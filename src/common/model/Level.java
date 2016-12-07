@@ -7,6 +7,13 @@ public abstract class Level{
 	Board board;
 	String name;
 	Word currentWord;
+	Dictionary dict;
+	int currentPoints;
+	int highscore;
+	int[] starVals = new int[3];
+	boolean unlocked;
+
+    ArrayList<String> submittedWords = new ArrayList<String>();
 
 	public void setName(String name) {
 		this.name = name;
@@ -41,13 +48,7 @@ public abstract class Level{
 	}
 
 	//need to establish dictionary implementation
-	Dictionary dict;
-	int currentPoints;
-	int highscore;
-	int[] starVals = new int[3];
-	boolean unlocked;
-
-    ArrayList<String> submittedWords = new ArrayList<String>();
+	
 
 
 	public Level(){} //empty constructor to make creation of view and controller easier?
