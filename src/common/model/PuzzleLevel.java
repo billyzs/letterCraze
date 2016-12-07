@@ -8,7 +8,7 @@ public class PuzzleLevel extends Level{
 	int maxWords;
 	public static final String type = "Puzzle";
 
-	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int[] sv, int mw, boolean ul){
+	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int sv, int mw, boolean ul){
 		super(b,n,d,hs,sv,ul);
 		this.maxWords = mw;
 	}
@@ -34,9 +34,7 @@ public class PuzzleLevel extends Level{
 		    wr.println(this.getType());
 		    wr.println(this.getName());
 		    wr.println("" + this.getHighscore());
-		    wr.println("" + this.getStarVals()[0]);
-		    wr.println("" + this.getStarVals()[1]);
-		    wr.println("" + this.getStarVals()[2]);
+		    wr.println("" + this.getTargetScore());
 		    wr.println("" + this.getUnlocked());
 		    ArrayList<ArrayList<Tile>> tiles = this.getBoard().getTiles();
 		    
