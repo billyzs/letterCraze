@@ -154,6 +154,7 @@ public class LevelView extends JPanel implements IView {
 		}
 		//Redisplay submitted words
 		this.submittedWords.refresh();
+		this.stars.refresh();
 	}
 
 	

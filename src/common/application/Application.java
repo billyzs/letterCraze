@@ -45,7 +45,6 @@ public class Application extends JFrame{
 
 	public MenuView getMenu(){ return this.menu; }
 
-
 	//This will eventually be in a common.controller
 	public static Level loadLevel(String filename) throws IOException{
 
@@ -60,10 +59,8 @@ public class Application extends JFrame{
             int highscore = Integer.parseInt(br.readLine());
 
             //read next three ints as starvals
-            int[] starVals = new int[3];
-            for(int k = 0; k < starVals.length; k++)
-                starVals[k] = Integer.parseInt(br.readLine());
-            
+            int targetScore= Integer.parseInt(br.readLine());
+
             //read in whether it is unlocked
             boolean isUnlocked = false;
             if(br.readLine().equals("true"))
@@ -78,7 +75,6 @@ public class Application extends JFrame{
 
             	//add new row
             	tiles.add(new ArrayList<Tile>());
-
 
             	//cycle through the string, adding tiles to the array
             	char[] chars = row.toCharArray();
@@ -106,7 +102,7 @@ public class Application extends JFrame{
             	case "Puzzle":
             		//TODO fix placeholder values
             		result = new PuzzleLevel(new Board(tiles), name, new Dictionary(),
-                    		highscore, starVals, 100, isUnlocked);
+                    		highscore, targetScore, 100, isUnlocked);
             		return result;
             	case "Lightning":
             		return result;
@@ -119,7 +115,7 @@ public class Application extends JFrame{
 						table.add(word.toLowerCase());
 					}
 					Dictionary dict = new Dictionary(table);
-            		result = new ThemeLevel(new Board(tiles), name, dict, highscore, starVals, isUnlocked);
+            		result = new ThemeLevel(new Board(tiles), name, dict, highscore, targetScore, isUnlocked);
             		return result;
             }
 

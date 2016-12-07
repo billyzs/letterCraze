@@ -24,7 +24,6 @@ public class StarsView extends JPanel {
 	public StarsView(Level l) {
 		this.level = l;
 		targetScore = this.level.getTargetScore();
-		targetScore = 100; //temporary failsafe
 		setLayout(null);
 		
 		progressBar = new JProgressBar();
