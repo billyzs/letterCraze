@@ -29,6 +29,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 
 		this.initialize();
 		this.wordLabels = new ArrayList<JLabel>();
+		this.submitWord.setEnabled(false);
 	}
 	
 	@Override
@@ -70,6 +71,12 @@ public class SubmittedWordsView extends JPanel implements IView {
 
 		//refresh submitted words
 		System.out.println(words);
+
+		if(ContentPane.getCurrentLevelView().getLevel().getDict().isWord(this.currentWord.toString()))
+			this.submitWord.setEnabled(true);
+		else
+			this.submitWord.setEnabled(false);
+
 		this.repaint();
 	}
 	
