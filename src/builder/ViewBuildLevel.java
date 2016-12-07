@@ -16,8 +16,7 @@ public class ViewBuildLevel extends LevelView implements IView{
     // Application app;
     Level level;
     //TODO what are the textFields?
-    private JTextField starVal1;
-    private JTextField starVal2;
+
     private JTextField starVal3;
 	JButton btnExitWithoutSaving;
 	JLabel lblChooseAtLeast;
@@ -87,16 +86,6 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(lblPointThresholds);
 
         //TODO looks like these fields are for starVals, and need controllers
-
-        starVal1 = new JTextField();
-        starVal1.setBounds(658, 163, 77, 26);
-        add(starVal1);
-        starVal1.setColumns(10);
-
-        starVal2 = new JTextField();
-        starVal2.setColumns(10);
-        starVal2.setBounds(658, 185, 77, 26);
-        add(starVal2);
 
         starVal3 = new JTextField();
         starVal3.setColumns(10);
