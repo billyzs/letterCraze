@@ -1,6 +1,7 @@
 package builder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,10 +20,10 @@ import common.view.LevelView;
  * Handles user's selection of type of level to build.
  * Created by billyzs on 12/6/16.
  */
-public class CtrlCreateNewLevel implements ActionListener, MouseListener{
+public class CtrlCreateNewLevel implements ActionListener{
 
 	// The builder
-	Application app;
+	AppBuilder app;
 	// The builder's model
 	Model model;
 	// A new level to be built
@@ -105,15 +106,24 @@ public class CtrlCreateNewLevel implements ActionListener, MouseListener{
 			viewBuildLevel.setVisible(true);
 			//app.getMenu().setVisible(false);
 			ContentPane.setCurrentLevelView(viewBuildLevel);
-			//app.getMenu().hide();
-
+			app.viewMenu.hide();
+			// ContentPane.setContentPanel(ContentPane.getCurrentLevelView());
+			ContentPane.getCurrentLevelView().show();
 		}
 		else{
 			System.err.println("CtrnCreateNewLevel::actionPerformed: Created an empty new level");
 		}
-
 	}
 
+	public void itenStateChanged(ItemEvent evt){
+		switch (evt.getStateChange()){
+			case ItemEvent.DESELECTED:
+				break;
+			case ItemEvent.SELECTED:
+				System.out.println("Selected");
+		}
+
+	}
 
 
 }

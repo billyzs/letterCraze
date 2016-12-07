@@ -2,11 +2,7 @@ package builder;
 
 import java.awt.Font;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 import common.application.Application;
 import common.controller.ExitLevelController;
@@ -147,4 +143,6 @@ public class ViewBuildLevel extends LevelView implements IView{
         ContentPane.get().invalidate();
         ContentPane.get().validate();
     }
+
+
 }

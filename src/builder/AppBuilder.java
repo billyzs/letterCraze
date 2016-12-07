@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class AppBuilder extends Application{
 
-
     Model model;
     ViewMenu viewMenu;
     ViewWelcome welcome;
@@ -49,7 +48,7 @@ public class AppBuilder extends Application{
     }
     private void initializeControllers(){
         ctrlCreateNewLevel = new CtrlCreateNewLevel(this);
-        viewMenu.boxCreateNewLevel.addActionListener(ctrlCreateNewLevel);
+        // viewMenu.boxCreateNewLevel.addActionListener(ctrlCreateNewLevel);
     }
 
     public static void main(String[] args){
