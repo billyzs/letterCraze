@@ -71,6 +71,7 @@ public class Application extends JFrame{
 
             ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>();
             
+            
             //read in board as 6 lines
             String row;
             for(int r = 0; r < 6 && (row = br.readLine()) != null; r++){
