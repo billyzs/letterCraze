@@ -60,9 +60,20 @@ public abstract class Level{
 		this.starVals = sv;
 		this.unlocked = ul;
 		this.currentWord = new Word();
+		this.initialize();
 	}
 
-	protected abstract void initialize();
+	protected void initialize(){
+		this.currentWord.initialize();
+		this.board.initialize();
+
+		//remove all words from submitted words array
+		for(int k = 0; k < this.submittedWords.size(); k++){
+			submittedWords.remove(k);
+		}
+
+		this.currentPoints = 0;
+	}
 	
 	//saves the level to a file
 	//  This will eventually go to a common.controller I think

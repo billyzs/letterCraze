@@ -13,12 +13,6 @@ public class PuzzleLevel extends Level{
 		this.maxWords = mw;
 	}
 	
-	@Override
-	protected void initialize() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public String getType(){
 		return "Puzzle";
 	}

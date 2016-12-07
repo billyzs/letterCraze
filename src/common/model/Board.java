@@ -28,6 +28,15 @@ public class Board {
 			}
 		}
 	}
+    
+    //Reset each tile to be random
+    public void initialize(){
+		for(ArrayList<Tile> row : this.tiles){
+			for(Tile t : row){
+                t.setRandLetter();
+			}
+		}
+    }
 	
 
 

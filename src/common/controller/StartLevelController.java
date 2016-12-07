@@ -52,6 +52,7 @@ public class StartLevelController implements ActionListener{
 		ContentPane.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
 		ContentPane.getCurrentLevelView().getUndoButton().addActionListener(new UndoController(app));
 		ContentPane.getCurrentLevelView().getSubmittedWordsView().getSubmitButton().addActionListener(new SubmitWordController(app, theLevel));
+		ContentPane.getCurrentLevelView().getFinishButton().addActionListener(new FinishLevelController(app, theLevel));
 
 		ContentPane.getCurrentLevelView().show();
 		
