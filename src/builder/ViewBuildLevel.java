@@ -2,18 +2,14 @@ package builder;
 
 import java.awt.Font;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import common.application.Application;
 import common.controller.ExitLevelController;
-import common.model.Board;
 import common.model.Level;
 import common.view.*;
 /**
@@ -24,35 +20,44 @@ public class ViewBuildLevel extends LevelView implements IView{
     Application app;
     Level level;
     //TODO what are the textFields?
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-
-    /**
+    private JTextField starVal1;
+    private JTextField starVal2;
+    private JTextField starVal3;
+	JButton btnExitWithoutSaving;
+	JLabel lblChooseAtLeast;
+	JButton btnSaveChanges;
+	JButton btnDeleteLevel;
+	JButton btnPreviewLevel;
+	JLabel lblLevelSettings;
+	JLabel lblPointThresholds;
+	BoardView panel;
+	JTextPane textPane;
+	/**
      * Create the panel.
      */
 
     public ViewBuildLevel(Application a, Level l) {
         //TODO TEST!!!
-        BoardView panel = new BoardView(new Board());
-        panel.setBounds(12, 41, 577, 569);
         app = a;
         level = l;
-        JButton btnExitWithoutSaving = new JButton("Exit without saving");
+        panel = new BoardView(l.getBoard());
+        panel.setBounds(12, 41, 577, 569);
+        btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
+        //TODO Should ExitLevelController be used??
         btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
-        JLabel lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
+        lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
         lblChooseAtLeast.setBounds(158, 8, 293, 20);
         lblChooseAtLeast.setHorizontalAlignment(SwingConstants.LEFT);
         lblChooseAtLeast.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 
-        JButton btnSaveChanges = new JButton("Save");
+        btnSaveChanges = new JButton("Save");
         btnSaveChanges.setBounds(812, 6, 82, 29);
 
-        JButton btnDeleteLevel = new JButton("Delete Level");
+        btnDeleteLevel = new JButton("Delete Level");
         btnDeleteLevel.setBounds(600, 6, 120, 29);
 
-        JButton btnPreviewLevel = new JButton("Preview");
+        btnPreviewLevel = new JButton("Preview");
         btnPreviewLevel.setBounds(720, 6, 91, 29);
         setLayout(null);
         add(panel);
@@ -62,61 +67,66 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(btnPreviewLevel);
         add(btnSaveChanges);
 
-        JComboBox comboBox = new JComboBox();
+        // Not needed, should be done in previous view
+
+        /*JComboBox comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lighting", "Theme"}));
         comboBox.setBounds(675, 85, 108, 27);
-        add(comboBox);
+        add(comboBox);*/
 
-        JLabel lblLevelType = new JLabel("Level type:");
+        /*JLabel lblLevelType = new JLabel("Level type:");
         lblLevelType.setBounds(601, 89, 82, 16);
-        add(lblLevelType);
+        add(lblLevelType);*/
 
-        JLabel lblLevelSettings = new JLabel("Level Settings");
+        lblLevelSettings = new JLabel("Level Settings");
         lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
         lblLevelSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
         lblLevelSettings.setBounds(680, 41, 148, 22);
         add(lblLevelSettings);
 
-        JLabel lblPointThresholds = new JLabel("Point thresholds:");
+		lblPointThresholds = new JLabel("Point thresholds:");
         lblPointThresholds.setBounds(601, 140, 108, 16);
         add(lblPointThresholds);
 
-        JLabel label = new JLabel("★");
-        label.setHorizontalAlignment(SwingConstants.RIGHT);
-        label.setBounds(601, 168, 52, 16);
-        add(label);
+        //TODO looks like these fields are for starVals, and need controllers
 
-        JLabel label_1 = new JLabel("★ ★");
-        label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-        label_1.setBounds(601, 190, 52, 16);
-        add(label_1);
+        starVal1 = new JTextField();
+        starVal1.setBounds(658, 163, 77, 26);
+        add(starVal1);
+        starVal1.setColumns(10);
 
-        JLabel label_2 = new JLabel("★ ★ ★");
-        label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-        label_2.setBounds(601, 212, 52, 16);
-        add(label_2);
+        starVal2 = new JTextField();
+        starVal2.setColumns(10);
+        starVal2.setBounds(658, 185, 77, 26);
+        add(starVal2);
 
-        textField = new JTextField();
-        textField.setBounds(658, 163, 77, 26);
-        add(textField);
-        textField.setColumns(10);
+        starVal3 = new JTextField();
+        starVal3.setColumns(10);
+        starVal3.setBounds(658, 207, 77, 26);
+        add(starVal3);
 
-        textField_1 = new JTextField();
-        textField_1.setColumns(10);
-        textField_1.setBounds(658, 185, 77, 26);
-        add(textField_1);
+        // Elements that won't require a controller
+		JLabel label = new JLabel("★");
+		label.setHorizontalAlignment(SwingConstants.RIGHT);
+		label.setBounds(601, 168, 52, 16);
+		add(label);
 
-        textField_2 = new JTextField();
-        textField_2.setColumns(10);
-        textField_2.setBounds(658, 207, 77, 26);
-        add(textField_2);
+		JLabel label_1 = new JLabel("★ ★");
+		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_1.setBounds(601, 190, 52, 16);
+		add(label_1);
+
+		JLabel label_2 = new JLabel("★ ★ ★");
+		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
+		label_2.setBounds(601, 212, 52, 16);
+		add(label_2);
 
         JLabel lblInsertDesiredWords = new JLabel("Words if level type Theme, separate with commas");
         lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
         lblInsertDesiredWords.setBounds(601, 271, 293, 16);
         add(lblInsertDesiredWords);
 
-        JTextPane textPane = new JTextPane();
+        textPane = new JTextPane();
         textPane.setBounds(601, 299, 293, 81);
         add(textPane);
 

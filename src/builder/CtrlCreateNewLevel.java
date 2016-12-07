@@ -1,6 +1,7 @@
 package builder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,7 +19,7 @@ import common.view.LevelView;
  * Handles user's selection of type of level to build.
  * Created by billyzs on 12/6/16.
  */
-public class CtrlCreateNewLevel implements ActionListener{
+public class CtrlCreateNewLevel implements ActionListener, MouseListener{
 
 	// The builder
 	Application app;
@@ -61,11 +62,11 @@ public class CtrlCreateNewLevel implements ActionListener{
 					dict = new Dictionary();
 					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
 					break;
-				case "Themed":
+				case "Theme":
 					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
 					break;
 				default:
-					throw new IllegalArgumentException("CtrlCreateNewLevel::createNewLevel: cannot parse" + levelType);
+					throw new IllegalArgumentException("CtrlCreateNewLevel::createNewLevel: cannot parse: " + levelType);
 			}
 		} catch (IllegalFormatCodePointException e){
 			e.printStackTrace();
@@ -101,63 +102,18 @@ public class CtrlCreateNewLevel implements ActionListener{
 		if (!(newLevel==null)){
 			// bring up the level building view
 			ViewBuildLevel viewBuildLevel = new ViewBuildLevel(app, newLevel);
-			viewBuildLevel.show();
+			viewBuildLevel.setVisible(true);
+			//app.getMenu().setVisible(false);
+			ContentPane.setCurrentLevelView(viewBuildLevel);
+			//app.getMenu().hide();
+
 		}
 		else{
 			System.err.println("CtrnCreateNewLevel::actionPerformed: Created an empty new level");
 		}
 
 	}
-		/*if (type.equals("Puzzle")) {
-			*//** If level is of type puzzle, we can assume two things are true regardless
-			 * of how user builds it:
-			 * 1) It will have a board built out of 6x6 shape
-			 * 2) It will use the default dictionary
-			 *//*
-			ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>();
-			ArrayList<Tile> row = new ArrayList<Tile>();
-			for (int i = 0; i < 6; i++) {
-				for (int j = 0; j < 6; j++) {
-					row.add(new Tile(i,j));
-				}
-				tiles.add(row);
-				row.clear();
-			}
 
-			try {
-				//Note all values besides the board and the dictionary can be changed in builder
-				theLevel = new PuzzleLevel(new Board(tiles),"Unnamed",new Dictionary(),0,new int[3],0,true);
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
-		}
-
-		//Check that there isnt already a level view
-		if(ContentPane.getCurrentLevelView() != null) {
-			ContentPane.getCurrentLevelView().hide();
-		}
-		//Check that there isnt already a level common.view
-		if(ContentPane.getCurrentLevelView() != null){
-			ContentPane.getCurrentLevelView().hide();
-
-			System.out.println("tried to load 2 levels");
-		}
-
-		//send the level view to application, show it
-		ContentPane.setCurrentLevelView(new LevelView(theLevel));
-
-		//initialize Controllers
-		ContentPane.getCurrentLevelView().getExitButton().addActionListener(new ExitLevelController(app));
-		ContentPane.getCurrentLevelView().show();
-
-		//set the level as current level in the common.model
-		this.model.setLevel(theLevel);
-
-		//hide the menu
-		this.app.getMenu().hide();
-
-	}*/
 
 
 }

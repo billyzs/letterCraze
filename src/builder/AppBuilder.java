@@ -20,6 +20,18 @@ public class AppBuilder extends Application{
     CtrlSaveLevel ctrlSaveLevel;
     CtrlCreateNewLevel ctrlCreateNewLevel;
 
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public void setViewMenu(ViewMenu viewMenu) {
+        this.viewMenu = viewMenu;
+    }
+
+    public void setWelcome(ViewWelcome welcome) {
+        this.welcome = welcome;
+    }
+
     public AppBuilder(Model m){
         super(m);
         //TODO move to initializer function
