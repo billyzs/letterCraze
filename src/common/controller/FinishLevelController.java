@@ -22,6 +22,10 @@ public class FinishLevelController implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		
+		//update the highscore
+		this.theLevel.updateHighscore();
+
 		//save the level to filename, go back to main menu
 		this.theLevel.save(this.theLevel.getName());
 

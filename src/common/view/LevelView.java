@@ -156,6 +156,7 @@ public class LevelView extends JPanel implements IView {
             for(TileView tv : row){
                 tv.updateColor();
                 tv.updateLabel();
+                this.stars.refresh();
             }
 		}
 

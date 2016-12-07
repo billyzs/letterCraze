@@ -24,7 +24,6 @@ public class StartLevelController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		
 		this.theLevel.initialize();
 
 		//Check that there isnt already a level view

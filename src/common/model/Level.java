@@ -176,4 +176,12 @@ public abstract class Level{
 		this.currentWord = word;
 	}
 
+	/**
+	 * responisble for updating the highscore to the new current points, if it's greater
+	 */
+	public void updateHighscore() {
+		if(this.currentPoints > this.highscore)
+			this.highscore = this.currentPoints;
+	}
+
 }
