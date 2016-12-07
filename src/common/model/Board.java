@@ -12,7 +12,7 @@ public class Board {
 	public Board(){} // empty constructor for test
 	
 	//constructor for cloning
-	public Board(Board b){
+    public Board(Board b){
 		//make new arraylist of tiles
 		this.tiles = new ArrayList<ArrayList<Tile>>();
 		
@@ -21,13 +21,23 @@ public class Board {
 			tiles.add(new ArrayList<Tile>());
 			for(Tile t : row){
 				//if its null add a null tile
-				if(t == null)
-					this.tiles.get(this.tiles.size()-1).add(null);
+				if(t.isNull())
+					this.tiles.get(this.tiles.size()-1).add(new NullTile(t));
 				else
                     this.tiles.get(this.tiles.size()-1).add(new Tile(t));
 			}
 		}
 	}
+    
+    //Reset each tile to be random
+    public void initialize(){
+		for(ArrayList<Tile> row : this.tiles){
+			for(Tile t : row){
+                t.setRandLetter();
+			}
+		}
+    }
+	
 
 
 	public ArrayList<ArrayList<Tile>> getTiles() {
@@ -39,10 +49,11 @@ public class Board {
 		for(ArrayList<Tile> row : prevBoard.getTiles()){
 			int c =0;
 			for(Tile t : row){
-				if(t == null)
-					this.tiles.get(r).set(c, null);
+				/*if(t.isNull()l)
+					this.tiles.get(r).get(c, recoverState(t));
 				else
-                    this.tiles.get(r).get(c).recoverState(t);
+				*/
+                this.tiles.get(r).get(c).recoverState(t);
 				c++;
 			}
 			r++;

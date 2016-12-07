@@ -1,32 +1,39 @@
 package common.controller;
 
+import common.model.*;
+import common.view.ContentPane;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import common.model.*;
-import common.application.Application;
-import common.view.*;
-public class ExitLevelController implements ActionListener{
+import common.application.*;
+
+public class FinishLevelController implements ActionListener{
+	
 	Application app;
 	Model model;
-
-	public ExitLevelController(Application a){
+	Level theLevel;
+	
+	public FinishLevelController(Application a, Level l){
+		this.theLevel = l;
 		this.app = a;
-		this.model = a.getModel();
+		this.model= app.getModel();
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		//save the level to filename, go back to main menu
+		this.theLevel.save(this.theLevel.getName());
 
 		//hide the current level view
 		ContentPane.getCurrentLevelView().hide();
 
-		//Show the menu
+		//hide the current level common.view
 		this.app.getMenu().show();
 		
 		//set it to null
 		ContentPane.setCurrentLevelView(null);
-		
+	
 		//set the current level to null in common.model
 		this.model.setLevel(null);
 		

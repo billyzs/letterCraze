@@ -131,4 +131,8 @@ public class Word {
 		this.tiles = new ArrayList<Tile>();
 	}
 
+	public void initialize() {
+		this.reset();
+	}
+
 }

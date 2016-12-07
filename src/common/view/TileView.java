@@ -32,8 +32,7 @@ public class TileView extends JPanel {
 	
 	//moved logic for color to this function
 	public void updateColor(){
-		if (tile == null) {
-			System.out.println("test");
+		if (tile.isNull()) {
 			setBackground(new Color(238, 238, 238));
 		} else {
 			if(tile.isSelected()){
@@ -50,7 +49,7 @@ public class TileView extends JPanel {
 	
 	//Tiles now set their own label
 	public void updateLabel(){
-        if(this.tile == null || this.tile.getLetters().equals(""))
+        if(this.tile.isNull() || this.tile.getLetters().equals(""))
             this.setLabel(" ");
         else{
             //now it will display the real letters

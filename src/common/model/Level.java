@@ -60,9 +60,20 @@ public abstract class Level{
 		this.targetScore = ts;
 		this.unlocked = ul;
 		this.currentWord = new Word();
+		this.initialize();
 	}
 
-	protected abstract void initialize();
+	protected void initialize(){
+		this.currentWord.initialize();
+		this.board.initialize();
+
+		//remove all words from submitted words array
+		for(int k = 0; k < this.submittedWords.size(); k++){
+			submittedWords.remove(k);
+		}
+
+		this.currentPoints = 0;
+	}
 	
 	//saves the level to a file
 	//  This will eventually go to a common.controller I think
@@ -86,7 +97,7 @@ public abstract class Level{
             	
             	//If this is empty
             	Tile tile = thisRow.get(c);
-            	if(tile != null && tile.isEmpty()){
+            	if(!tile.isNull() && tile.isEmpty()){
             		
             		//Find the next floatable and set it there
             		Tile foundTile = getNextFloatTile(r+1, c);
@@ -120,7 +131,7 @@ public abstract class Level{
 			ArrayList<Tile> row = tiles.get(r);
 			
 			//find next non-empty tile
-			if(row.get(col) != null)
+			if(!row.get(col).isNull())
                 if(!(row.get(col).isEmpty()))
                     return row.get(col);
 		}

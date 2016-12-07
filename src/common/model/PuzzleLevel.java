@@ -13,12 +13,6 @@ public class PuzzleLevel extends Level{
 		this.maxWords = mw;
 	}
 	
-	@Override
-	protected void initialize() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public String getType(){
 		return "Puzzle";
 	}
@@ -42,7 +36,7 @@ public class PuzzleLevel extends Level{
 		    for(ArrayList<Tile> row : tiles){
 		    	for(Tile t : row){
 		    		//if the tile is empty, output 0, otherwise 1
-		    		if(t == null || t.getLetters().equals(""))
+		    		if(t.isEmpty() || t.getLetters().equals(""))
                         wr.print("0");
 		    		else
 		    			wr.print("1");

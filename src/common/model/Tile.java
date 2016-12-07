@@ -31,7 +31,7 @@ public class Tile {
 	}
 	
 	protected boolean isEmpty(){
-		if(this.letters.equals(""))
+		if(this.isNull() || this.letters.equals(""))
 			return true;
 		return false;
 	}
@@ -173,6 +173,8 @@ public class Tile {
 	public boolean isSelectable(){return !(letters == "");}
 
 	public void setLetters(String s ) { this.letters = s; }
+	
+	public boolean isNull(){return false;}
 
 	public void recoverState(Tile t) {
 		this.letters = t.getLetters();
