@@ -10,7 +10,6 @@ public abstract class Level{
 	Dictionary dict;
 	int currentPoints;
 	int highscore;
-	int[] starVals = new int[3];
 	int targetScore;
 	boolean unlocked;
 
@@ -32,8 +31,8 @@ public abstract class Level{
 		this.highscore = highscore;
 	}
 
-	public void setStarVals(int[] starVals) {
-		this.starVals = starVals;
+	public void setTargetScore(int targetScore) {
+		this.targetScore = targetScore;
 	}
 
 	public boolean isUnlocked() {
@@ -53,12 +52,12 @@ public abstract class Level{
 
 
 	public Level(){} //empty constructor to make creation of view and controller easier?
-	public Level(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
+	public Level(Board b, String n, Dictionary d, int hs, int ts, boolean ul){
 		this.board = b;
 		this.name = n;
 		this.dict = d;
 		this.highscore = hs;
-		this.starVals = sv;
+		this.targetScore = ts;
 		this.unlocked = ul;
 		this.currentWord = new Word();
 		this.initialize();
@@ -149,7 +148,6 @@ public abstract class Level{
 	public String getName() { return this.name; }
 	public Board getBoard() { return this.board; }
 	public int getHighscore() { return this.highscore; }
-	public int[] getStarVals() { return this.starVals; }
 	public ArrayList<String> getSubmittedWords(){ return this.submittedWords; }
 
 	public int getCurrentPoints(){return currentPoints;};
@@ -158,7 +156,7 @@ public abstract class Level{
 	}
 	
 	//done if current points is greater than 1 star
-	public boolean isComplete(){return this.currentPoints >= this.starVals[0];}
+	public boolean isComplete(){return this.currentPoints >= this.targetScore;}
 	public void addPoints(int i) {this.currentPoints += i;};
 	public boolean getUnlocked() {return this.unlocked;}
 	public int getTargetScore() {return this.targetScore;}
