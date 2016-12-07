@@ -11,7 +11,7 @@ public class Model {
 	ArrayList<Level> levels;
 	Level currentLevel;
 	public static final String Puzzle = "Puzzle";
-	public static final String Theme = "Lightening";
+	public static final String Theme = "Theme";
 	public static final String Lightening = "Lightening";
 	public Model(ArrayList<Level> l){
 		this.levels = l;
@@ -73,7 +73,7 @@ public class Model {
 					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
 					break;
 				default:
-					throw new IllegalArgumentException("CtrlCreateNewLevel::createNewLevel: cannot parse: " + levelType);
+					throw new IllegalArgumentException("CtrlModifyLevel::createNewLevel: cannot parse: " + levelType);
 			}
 		} catch (IllegalFormatCodePointException e){
 			e.printStackTrace();

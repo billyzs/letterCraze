@@ -4,6 +4,7 @@ import common.model.LightningLevel;
 import common.model.Model;
 import common.model.PuzzleLevel;
 import common.model.ThemeLevel;
+import common.view.ContentPane;
 import common.view.IView;
 import common.view.LevelMenuView;
 import common.view.MenuView;
@@ -27,8 +28,16 @@ public class ViewMenu extends MenuView implements IView{
             lmv.getLabelHighScore().setVisible(false);
             lmv.getLabelLocked().setVisible(false);
             lmv.getLabelStar().setVisible(false);
-            lmv.getButton().setText("Modify "+ lmv.getTheLevel().getName());
+            String btnString = "";
+            if(lmv.getTheLevel().getName() != ""){
+                btnString = "Modify " + lmv.getTheLevel().getName();
+            }
+            else{ // is an empty new level
+                btnString = "Create a new " + lmv.getTheLevel().getType() + " level";
+            }
+            lmv.getButton().setText(btnString);
             //TODO add controller for buttons in lmv
+
         }
 
         int numLevels = m.getLevels().size();
@@ -40,4 +49,21 @@ public class ViewMenu extends MenuView implements IView{
 
     }
 
+    @Override
+    public void show() {
+        ContentPane.get().add(this);
+        //this.app.setLevelView(this);
+
+        //refresh
+        ContentPane.get().invalidate();
+        ContentPane.get().validate();
+
+    }
+
+    @Override
+    public void hide() {
+        ContentPane.get().setVisible(false);
+        ContentPane.get().invalidate();
+        ContentPane.get().validate();
+    }
 }
