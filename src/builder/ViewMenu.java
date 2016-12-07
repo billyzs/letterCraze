@@ -62,7 +62,8 @@ public class ViewMenu extends MenuView implements IView{
 
     @Override
     public void hide() {
-        ContentPane.get().setVisible(false);
+        ContentPane.get().remove(this);
+        // setVisible(false);
         ContentPane.get().invalidate();
         ContentPane.get().validate();
     }

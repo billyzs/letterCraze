@@ -82,10 +82,13 @@ public class CtrlModifyLevel implements ActionListener {
 		System.out.println("mouse pressed on " + lmv.getSeq());
 		try {
 			ViewBuildLevel vbl = new ViewBuildLevel(theLevel);
-
-			vbl.show();
-			//ContentPane.setCurrentLevelView(vbl);
-			// ContentPane.getCurrentLevelView().show();
+			this.builder.viewBuildLevel = vbl;
+			// this.builder.add(vbl);
+			//ContentPane.get().setVisible(false);
+			//builder.getMenu().hide();
+			// ContentPane.get();
+			ContentPane.setCurrentLevelView(vbl);
+			((ViewBuildLevel) ContentPane.getCurrentLevelView()).show();
 			builder.getMenu().hide();
 		} catch (Exception e) {
 			e.printStackTrace();
