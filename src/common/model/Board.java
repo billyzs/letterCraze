@@ -34,6 +34,7 @@ public class Board {
 		for(ArrayList<Tile> row : this.tiles){
 			for(Tile t : row){
                 t.setRandLetter();
+                t.setSelected(false);
 			}
 		}
     }

@@ -64,7 +64,7 @@ public abstract class Level{
 		this.initialize();
 	}
 
-	protected void initialize(){
+	public void initialize(){
 		this.currentWord.initialize();
 		this.board.initialize();
 
@@ -176,6 +176,14 @@ public abstract class Level{
 	}
 	public void setCurrentWord(Word word) {
 		this.currentWord = word;
+	}
+
+	/**
+	 * responisble for updating the highscore to the new current points, if it's greater
+	 */
+	public void updateHighscore() {
+		if(this.currentPoints > this.highscore)
+			this.highscore = this.currentPoints;
 	}
 
 }
