@@ -170,6 +170,9 @@ public class LevelView extends JPanel implements IView {
 		else
 			this.finish.setEnabled(false);
 	}
+	public Level getLevel() {
+		return this.level;
+	}
 
 	
 }
