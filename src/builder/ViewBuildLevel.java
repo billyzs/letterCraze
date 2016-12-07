@@ -130,12 +130,15 @@ public class ViewBuildLevel extends LevelView implements IView{
 
     @Override
     public void show(){
-        ContentPane.setCurrentLevelView(this);
+    	System.out.println("show this BuildLevelView");
+
+        ContentPane.get().add(this);
         this.setVisible(true);
-        //refresh
+        // refresh
         ContentPane.get().invalidate();
-        ContentPane.get().validate();
-        ContentPane.get().repaint();
+		ContentPane.get().validate();
+		ContentPane.setCurrentLevelView(this);
+        // ContentPane.get().repaint();
     }
 
     @Override

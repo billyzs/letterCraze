@@ -84,8 +84,8 @@ public class CtrlModifyLevel implements ActionListener {
 			ViewBuildLevel vbl = new ViewBuildLevel(theLevel);
 
 			vbl.show();
-			ContentPane.setCurrentLevelView(vbl);
-			ContentPane.getCurrentLevelView().show();
+			//ContentPane.setCurrentLevelView(vbl);
+			// ContentPane.getCurrentLevelView().show();
 			builder.getMenu().hide();
 		} catch (Exception e) {
 			e.printStackTrace();
