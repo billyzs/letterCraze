@@ -8,6 +8,38 @@ public abstract class Level{
 	String name;
 	Word currentWord;
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDict(Dictionary dict) {
+		this.dict = dict;
+	}
+
+	public void setCurrentPoints(int currentPoints) {
+		this.currentPoints = currentPoints;
+	}
+
+	public void setHighscore(int highscore) {
+		this.highscore = highscore;
+	}
+
+	public void setStarVals(int[] starVals) {
+		this.starVals = starVals;
+	}
+
+	public boolean isUnlocked() {
+		return unlocked;
+	}
+
+	public void setUnlocked(boolean unlocked) {
+		this.unlocked = unlocked;
+	}
+
+	public void setSubmittedWords(ArrayList<String> submittedWords) {
+		this.submittedWords = submittedWords;
+	}
+
 	//need to establish dictionary implementation
 	Dictionary dict;
 	int currentPoints;
