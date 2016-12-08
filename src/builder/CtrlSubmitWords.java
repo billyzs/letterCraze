@@ -23,7 +23,6 @@ public class CtrlSubmitWords implements ActionListener{
 		this.vbl = vbl;
 		this.jtp = j;
 		this.builder = b;
-
 	}
 
 	/**

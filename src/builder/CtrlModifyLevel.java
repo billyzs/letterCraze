@@ -26,11 +26,12 @@ public class CtrlModifyLevel implements ActionListener {
 	AppBuilder builder;
 	CtrlSubmitWords ctrlSubmitWords;
 	//TODO put all the controllers for the Level builder here
-
+	CtrlSaveLevel ctrlSaveLevel;
 	public CtrlModifyLevel(AppBuilder app, LevelMenuView lmv) {
 		this.theLevel = lmv.getTheLevel();
 		this.lmv = lmv;
 		this.builder = app;
+		ctrlSaveLevel = new CtrlSaveLevel(theLevel);
 	}
 
 /*	public Level createNewLevel(String levelType) throws Exception {
@@ -106,6 +107,8 @@ public class CtrlModifyLevel implements ActionListener {
 				ctrlSubmitWords = new CtrlSubmitWords(this.builder.viewBuildLevel, this.builder.viewBuildLevel.getTextPane(), this.builder);
 				vbl.getBtnSaveDict().addActionListener(ctrlSubmitWords);
 			}
+			// Save level controller
+			vbl.getBtnSaveChanges().addActionListener(ctrlSaveLevel);
 
 		} catch (Exception e) {
 			e.printStackTrace();

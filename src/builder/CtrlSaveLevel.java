@@ -85,6 +85,12 @@ public class CtrlSaveLevel implements ActionListener {
      * File name should be
      */
     public void actionPerformed(ActionEvent actionEvent){
-
+        System.out.println("preparing to save");
+        try{
+			saveLevelToFile(currentLevel);
+			System.out.println("saved");
+		} catch (Exception e){
+        	e.printStackTrace();
+		}
     }
 }

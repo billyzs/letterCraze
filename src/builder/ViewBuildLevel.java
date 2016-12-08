@@ -12,101 +12,7 @@ import common.view.*;
  */
 public class ViewBuildLevel extends LevelView implements IView{
 
-	public Level getLevel() {
-		return level;
-	}
 
-	public void setLevel(Level level) {
-		this.level = level;
-	}
-
-	public JTextField getStarVal3() {
-		return starVal3;
-	}
-
-	public void setStarVal3(JTextField starVal3) {
-		this.starVal3 = starVal3;
-	}
-
-	public JButton getBtnExitWithoutSaving() {
-		return btnExitWithoutSaving;
-	}
-
-	public void setBtnExitWithoutSaving(JButton btnExitWithoutSaving) {
-		this.btnExitWithoutSaving = btnExitWithoutSaving;
-	}
-
-	public JLabel getLblChooseAtLeast() {
-		return lblChooseAtLeast;
-	}
-
-	public void setLblChooseAtLeast(JLabel lblChooseAtLeast) {
-		this.lblChooseAtLeast = lblChooseAtLeast;
-	}
-
-	public JButton getBtnSaveChanges() {
-		return btnSaveChanges;
-	}
-
-	public void setBtnSaveChanges(JButton btnSaveChanges) {
-		this.btnSaveChanges = btnSaveChanges;
-	}
-
-	public JButton getBtnDeleteLevel() {
-		return btnDeleteLevel;
-	}
-
-	public void setBtnDeleteLevel(JButton btnDeleteLevel) {
-		this.btnDeleteLevel = btnDeleteLevel;
-	}
-
-	public JButton getBtnPreviewLevel() {
-		return btnPreviewLevel;
-	}
-
-	public void setBtnPreviewLevel(JButton btnPreviewLevel) {
-		this.btnPreviewLevel = btnPreviewLevel;
-	}
-
-	public JLabel getLblLevelSettings() {
-		return lblLevelSettings;
-	}
-
-	public void setLblLevelSettings(JLabel lblLevelSettings) {
-		this.lblLevelSettings = lblLevelSettings;
-	}
-
-	public JLabel getLblPointThresholds() {
-		return lblPointThresholds;
-	}
-
-	public void setLblPointThresholds(JLabel lblPointThresholds) {
-		this.lblPointThresholds = lblPointThresholds;
-	}
-
-	public BoardView getPanel() {
-		return panel;
-	}
-
-	public void setPanel(BoardView panel) {
-		this.panel = panel;
-	}
-
-	public JTextPane getTextPane() {
-		return textPane;
-	}
-
-	public void setTextPane(JTextPane textPane) {
-		this.textPane = textPane;
-	}
-
-	public JLabel getPrompt() {
-		return prompt;
-	}
-
-	public void setPrompt(JLabel prompt) {
-		this.prompt = prompt;
-	}
 
 	// Application app;
     Level level;
@@ -291,6 +197,100 @@ public class ViewBuildLevel extends LevelView implements IView{
     public BoardView getBoardView(){
     	return this.panel;
     }
-    
 
+	public Level getLevel() {
+		return level;
+	}
+
+	public void setLevel(Level level) {
+		this.level = level;
+	}
+
+	public JTextField getStarVal3() {
+		return starVal3;
+	}
+
+	public void setStarVal3(JTextField starVal3) {
+		this.starVal3 = starVal3;
+	}
+
+	public JButton getBtnExitWithoutSaving() {
+		return btnExitWithoutSaving;
+	}
+
+	public void setBtnExitWithoutSaving(JButton btnExitWithoutSaving) {
+		this.btnExitWithoutSaving = btnExitWithoutSaving;
+	}
+
+	public JLabel getLblChooseAtLeast() {
+		return lblChooseAtLeast;
+	}
+
+	public void setLblChooseAtLeast(JLabel lblChooseAtLeast) {
+		this.lblChooseAtLeast = lblChooseAtLeast;
+	}
+
+	public JButton getBtnSaveChanges() {
+		return btnSaveChanges;
+	}
+
+	public void setBtnSaveChanges(JButton btnSaveChanges) {
+		this.btnSaveChanges = btnSaveChanges;
+	}
+
+	public JButton getBtnDeleteLevel() {
+		return btnDeleteLevel;
+	}
+
+	public void setBtnDeleteLevel(JButton btnDeleteLevel) {
+		this.btnDeleteLevel = btnDeleteLevel;
+	}
+
+	public JButton getBtnPreviewLevel() {
+		return btnPreviewLevel;
+	}
+
+	public void setBtnPreviewLevel(JButton btnPreviewLevel) {
+		this.btnPreviewLevel = btnPreviewLevel;
+	}
+
+	public JLabel getLblLevelSettings() {
+		return lblLevelSettings;
+	}
+
+	public void setLblLevelSettings(JLabel lblLevelSettings) {
+		this.lblLevelSettings = lblLevelSettings;
+	}
+
+	public JLabel getLblPointThresholds() {
+		return lblPointThresholds;
+	}
+
+	public void setLblPointThresholds(JLabel lblPointThresholds) {
+		this.lblPointThresholds = lblPointThresholds;
+	}
+
+	public BoardView getPanel() {
+		return panel;
+	}
+
+	public void setPanel(BoardView panel) {
+		this.panel = panel;
+	}
+
+	public JTextPane getTextPane() {
+		return textPane;
+	}
+
+	public void setTextPane(JTextPane textPane) {
+		this.textPane = textPane;
+	}
+
+	public JLabel getPrompt() {
+		return prompt;
+	}
+
+	public void setPrompt(JLabel prompt) {
+		this.prompt = prompt;
+	}
 }
