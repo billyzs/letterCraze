@@ -77,16 +77,6 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(btnPreviewLevel);
         add(btnSaveChanges);
 
-        // Not needed, should be done in previous view
-
-        JComboBox comboBox = new JComboBox();
-        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lighting", "Theme"}));
-        comboBox.setBounds(675, 85, 108, 27);
-        add(comboBox);
-
-        JLabel lblLevelType = new JLabel("Level type:");
-        lblLevelType.setBounds(601, 89, 82, 16);
-        add(lblLevelType);
 
         lblLevelSettings = new JLabel("Level Settings");
         lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
@@ -94,33 +84,16 @@ public class ViewBuildLevel extends LevelView implements IView{
         lblLevelSettings.setBounds(680, 41, 148, 22);
         add(lblLevelSettings);
 
-		lblPointThresholds = new JLabel("Point thresholds:");
-        lblPointThresholds.setBounds(601, 140, 108, 16);
+		lblPointThresholds = new JLabel("Points needed for ★ ★ ★:");
+        lblPointThresholds.setBounds(601, 140, 200, 16);
         add(lblPointThresholds);
 
         //TODO looks like these fields are for starVals, and need controllers
 
         starVal3 = new JTextField();
         starVal3.setColumns(10);
-        starVal3.setBounds(658, 207, 77, 26);
+        starVal3.setBounds(658, 157, 77, 26);
         add(starVal3);
-
-        // Elements that won't require a controller
-		JLabel label = new JLabel("★");
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		label.setBounds(601, 168, 52, 16);
-		add(label);
-
-		JLabel label_1 = new JLabel("★ ★");
-		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setBounds(601, 190, 52, 16);
-		add(label_1);
-
-		JLabel label_2 = new JLabel("★ ★ ★");
-		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setBounds(601, 212, 52, 16);
-		add(label_2);
-
 
 		if(l.getType() == "Theme") {
 			JLabel lblInsertDesiredWords = new JLabel("Separate with commas");
