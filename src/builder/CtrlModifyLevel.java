@@ -13,6 +13,7 @@ import common.model.*;
 import common.view.ContentPane;
 import common.view.LevelMenuView;
 import common.view.LevelView;
+import common.view.TileView;
 /**
  * Controller to handle bringing up the level building view.
  * Handles user's selection of which level to modity
@@ -90,6 +91,17 @@ public class CtrlModifyLevel implements ActionListener {
 			ContentPane.setCurrentLevelView(vbl);
 			((ViewBuildLevel) ContentPane.getCurrentLevelView()).show();
 			builder.getMenu().hide();
+			
+			builder.getModel().setLevel(theLevel);;
+			
+			
+			//Assign the TileView ChooseTileControllers
+			for(ArrayList<TileView> row : vbl.getBoardView().getTileViews()){
+				for(TileView t : row){
+                    t.addMouseListener(new ChooseTileController(this.builder, t));
+				}
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

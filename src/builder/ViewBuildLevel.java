@@ -1,6 +1,7 @@
 package builder;
 
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -117,6 +118,35 @@ public class ViewBuildLevel extends LevelView implements IView{
         textPane.setBounds(601, 299, 293, 81);
         add(textPane);
 
+        this.hideLetters();
+    }
+
+    public void refresh(){
+    	//update the color of the tiles
+		for(ArrayList<TileView> row : this.panel.getTileViews()){
+            for(TileView tv : row){
+                tv.updateColor();
+                tv.setLabel("");
+            }
+		}
+
+		/*//Grey out finishbutton if necesary
+		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3))
+            this.finish.setEnabled(true);
+		else
+			this.finish.setEnabled(false);
+			*/
+    }
+    
+    /**
+     * Hide all lettesr in boardview..
+     */
+    public void hideLetters(){
+		for(ArrayList<TileView> row : this.panel.getTileViews()){
+            for(TileView tv : row){
+                tv.setLabel("");
+            }
+		}
     }
 
     @Override
@@ -132,6 +162,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 
         // ContentPane.get().repaint();
     }
+    
 
     @Override
     public void hide() {
@@ -141,5 +172,9 @@ public class ViewBuildLevel extends LevelView implements IView{
         // ContentPane.get().validate();
     }
 
+    public BoardView getBoardView(){
+    	return this.panel;
+    }
+    
 
 }

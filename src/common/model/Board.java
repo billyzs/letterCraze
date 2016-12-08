@@ -9,6 +9,7 @@ public class Board {
 	public Board(ArrayList<ArrayList<Tile>> t){
 		tiles = t;
 	}
+
 	public Board(){} // empty constructor for test
 	
 	//constructor for cloning

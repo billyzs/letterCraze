@@ -102,5 +102,9 @@ public class TileView extends JPanel {
 	}
 	
 	public Tile getTile(){return tile;}
+
+	public void updateTile(Tile newTile) {
+		this.tile = newTile;
+	}
 	
 }
