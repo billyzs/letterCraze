@@ -29,7 +29,7 @@ public class PuzzleLevel extends Level{
 		    wr.println(this.getName());
 		    wr.println("" + this.getHighscore());
 		    wr.println("" + this.getTargetScore());
-		    wr.println("" + this.getUnlocked());
+		    wr.println("" + this.isUnlocked());
 		    ArrayList<ArrayList<Tile>> tiles = this.getBoard().getTiles();
 		    
 		    //output the board as an array of 0's and 1's
