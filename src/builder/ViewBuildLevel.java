@@ -12,8 +12,6 @@ import common.view.*;
  */
 public class ViewBuildLevel extends LevelView implements IView{
 
-
-
 	// Application app;
     Level level;
     //TODO what are the textFields?
