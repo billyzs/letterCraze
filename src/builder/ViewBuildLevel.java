@@ -224,7 +224,8 @@ public class ViewBuildLevel extends LevelView implements IView{
 			textPane = new JTextPane();
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
-			btnSaveDict.setBounds(601, 381, 100, 29);
+			btnSaveDict.setBounds(601, 381, 200, 29);
+			prompt = new JLabel("");
 			prompt.setBounds(601, 411, 293, 50);
 			add(textPane);
 			add(prompt);

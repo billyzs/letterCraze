@@ -17,11 +17,12 @@ public class CtrlSubmitWords implements ActionListener{
 	String prompt; // message to display to user
 	ViewBuildLevel vbl;
 	JTextPane jtp;
-
+	AppBuilder builder;
 	public CtrlSubmitWords(){}
-	public CtrlSubmitWords(ViewBuildLevel vbl, JTextPane j){
+	public CtrlSubmitWords(ViewBuildLevel vbl, JTextPane j, AppBuilder b){
 		this.vbl = vbl;
 		this.jtp = j;
+		this.builder = b;
 
 	}
 
@@ -92,7 +93,7 @@ public class CtrlSubmitWords implements ActionListener{
 		String userInput = jtp.getText();
 
 		// get numActiveTile
-		int numActiveTile = vbl.getBoardView().getBoard().countActiveTiles();
+		int numActiveTile = builder.getModel().getCurrentLevel().getBoard().countActiveTiles();
 		try{
 			if(isValid(userInput, numActiveTile)){
 				// save dict to level

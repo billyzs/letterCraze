@@ -93,11 +93,8 @@ public class CtrlModifyLevel implements ActionListener {
 			ContentPane.setCurrentLevelView(vbl);
 			((ViewBuildLevel) ContentPane.getCurrentLevelView()).show();
 			builder.getMenu().hide();
-			
 			builder.getModel().setLevel(theLevel);;
 
-
-			
 			//Assign the TileView ChooseTileControllers
 			for(ArrayList<TileView> row : vbl.getBoardView().getTileViews()){
 				for(TileView t : row){
@@ -106,7 +103,7 @@ public class CtrlModifyLevel implements ActionListener {
 			}
 			// Submit words controller
 			if(theLevel.getType() == "Theme"){
-				ctrlSubmitWords = new CtrlSubmitWords();
+				ctrlSubmitWords = new CtrlSubmitWords(this.builder.viewBuildLevel, this.builder.viewBuildLevel.getTextPane(), this.builder);
 				vbl.getBtnSaveDict().addActionListener(ctrlSubmitWords);
 			}
 

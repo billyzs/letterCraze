@@ -84,14 +84,15 @@ public class Board {
 	}
 
 	public int countActiveTiles(){
-		int count = 0;
+		int count = 36;
 		for (ArrayList<Tile> row: this.getTiles()){
-			for (Tile t : row){
-				if (t.isSelectable()){
-					count += 1;
-				}
+			for(Tile t : row){
+				if (t.isSelected()){
+					count--;
+				};
 			}
 		}
+		System.out.println(count);
 		return count;
 	}
 }

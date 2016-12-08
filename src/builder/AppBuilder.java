@@ -86,7 +86,7 @@ public class AppBuilder extends Application{
                     AppBuilder frame = new AppBuilder(builderModel);
 
                     //TODO
-                    ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(0));
+                    // ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(17));
                     frame.welcome.show();
                     frame.setVisible(true);
                     //frame.initializeControllers();
