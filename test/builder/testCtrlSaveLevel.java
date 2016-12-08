@@ -28,7 +28,7 @@ public class testCtrlSaveLevel extends TestCase{
         assertEquals(level1.getName(), level2.getName());
         assertEquals(level1.getType(), level2.getType());
         assertEquals(level1.getHighscore(), level2.getHighscore());
-
+        assertEquals(18, level1.getBoard().countActiveTiles());
         for(int t=0; t < 3; t++){
             assertEquals((level1.getStarVals())[t], (level2.getStarVals())[t]);
         }

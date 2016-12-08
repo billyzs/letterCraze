@@ -41,7 +41,11 @@ public class Dictionary {
 	public Dictionary(HashSet<String> alternate){
 		table = alternate;
 	}
-	
+	public Dictionary(String[] words){
+		for(String word : words){
+			this.table.add(word.toLowerCase());
+		}
+	}
 	public boolean isWord(String s) {
 		return table.contains(s.toLowerCase());
 	}

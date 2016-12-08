@@ -81,4 +81,15 @@ public class Board {
 		return tiles.get(row).get(col).getLetters();
 	}
 
+	public int countActiveTiles(){
+		int count = 0;
+		for (ArrayList<Tile> row: this.getTiles()){
+			for (Tile t : row){
+				if (t.isSelectable()){
+					count += 1;
+				}
+			}
+		}
+		return count;
+	}
 }

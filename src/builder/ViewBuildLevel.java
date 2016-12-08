@@ -4,8 +4,6 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-import common.application.Application;
-import common.controller.ExitLevelController;
 import common.model.Level;
 import common.view.*;
 /**
@@ -13,7 +11,104 @@ import common.view.*;
  */
 public class ViewBuildLevel extends LevelView implements IView{
 
-    // Application app;
+	public Level getLevel() {
+		return level;
+	}
+
+	public void setLevel(Level level) {
+		this.level = level;
+	}
+
+	public JTextField getStarVal3() {
+		return starVal3;
+	}
+
+	public void setStarVal3(JTextField starVal3) {
+		this.starVal3 = starVal3;
+	}
+
+	public JButton getBtnExitWithoutSaving() {
+		return btnExitWithoutSaving;
+	}
+
+	public void setBtnExitWithoutSaving(JButton btnExitWithoutSaving) {
+		this.btnExitWithoutSaving = btnExitWithoutSaving;
+	}
+
+	public JLabel getLblChooseAtLeast() {
+		return lblChooseAtLeast;
+	}
+
+	public void setLblChooseAtLeast(JLabel lblChooseAtLeast) {
+		this.lblChooseAtLeast = lblChooseAtLeast;
+	}
+
+	public JButton getBtnSaveChanges() {
+		return btnSaveChanges;
+	}
+
+	public void setBtnSaveChanges(JButton btnSaveChanges) {
+		this.btnSaveChanges = btnSaveChanges;
+	}
+
+	public JButton getBtnDeleteLevel() {
+		return btnDeleteLevel;
+	}
+
+	public void setBtnDeleteLevel(JButton btnDeleteLevel) {
+		this.btnDeleteLevel = btnDeleteLevel;
+	}
+
+	public JButton getBtnPreviewLevel() {
+		return btnPreviewLevel;
+	}
+
+	public void setBtnPreviewLevel(JButton btnPreviewLevel) {
+		this.btnPreviewLevel = btnPreviewLevel;
+	}
+
+	public JLabel getLblLevelSettings() {
+		return lblLevelSettings;
+	}
+
+	public void setLblLevelSettings(JLabel lblLevelSettings) {
+		this.lblLevelSettings = lblLevelSettings;
+	}
+
+	public JLabel getLblPointThresholds() {
+		return lblPointThresholds;
+	}
+
+	public void setLblPointThresholds(JLabel lblPointThresholds) {
+		this.lblPointThresholds = lblPointThresholds;
+	}
+
+	@Override
+	public BoardView getBoardView() {
+		return boardView;
+	}
+
+	public void setBoardView(BoardView boardView) {
+		this.boardView = boardView;
+	}
+
+	public JTextPane getTextPane() {
+		return textPane;
+	}
+
+	public void setTextPane(JTextPane textPane) {
+		this.textPane = textPane;
+	}
+
+	public JLabel getPrompt() {
+		return prompt;
+	}
+
+	public void setPrompt(JLabel prompt) {
+		this.prompt = prompt;
+	}
+
+	// Application app;
     Level level;
     //TODO what are the textFields?
 
@@ -25,10 +120,11 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JButton btnPreviewLevel;
 	JLabel lblLevelSettings;
 	JLabel lblPointThresholds;
-	BoardView panel;
+	BoardView boardView;
 	JTextPane textPane;
+	JLabel prompt;
 	/**
-     * Create the panel.
+     * Create the boardView.
      */
 
     public ViewBuildLevel(Level l) {
@@ -37,11 +133,11 @@ public class ViewBuildLevel extends LevelView implements IView{
         //TODO TEST!!!
         // app = a;
         level = l;
-        panel = new BoardView(l.getBoard());
-        panel.setBounds(12, 41, 577, 569);
+        boardView = new BoardView(l.getBoard());
+        boardView.setBounds(12, 41, 577, 569);
         btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
-        //TODO Should ExitLevelController be used??
+        //TODO Impelment saving in ExitLevelController
         // btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
         lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
         lblChooseAtLeast.setBounds(158, 8, 293, 20);
@@ -57,7 +153,8 @@ public class ViewBuildLevel extends LevelView implements IView{
         btnPreviewLevel = new JButton("Preview");
         btnPreviewLevel.setBounds(720, 6, 91, 29);
         setLayout(null);
-        add(panel);
+
+        add(boardView);
         add(btnExitWithoutSaving);
         add(lblChooseAtLeast);
         add(btnDeleteLevel);
@@ -108,17 +205,22 @@ public class ViewBuildLevel extends LevelView implements IView{
 		label_2.setBounds(601, 212, 52, 16);
 		add(label_2);
 
-        JLabel lblInsertDesiredWords = new JLabel("Words if level type Theme, separate with commas");
-        lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
-        lblInsertDesiredWords.setBounds(601, 271, 293, 16);
-        add(lblInsertDesiredWords);
 
-        textPane = new JTextPane();
-        textPane.setBounds(601, 299, 293, 81);
-        add(textPane);
-
+		if(l.getType() == "Theme"){
+			JLabel lblInsertDesiredWords = new JLabel("Separate with commas");
+			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
+			add(lblInsertDesiredWords);
+			textPane = new JTextPane();
+			textPane.setBounds(601, 299, 293, 81);
+			prompt.setBounds(601, 320, 293, 50);
+			add(textPane);
+			add(prompt);
+		}
     }
+	public void initialiizeControllers(){
 
+	}
     @Override
     public void show(){
     	System.out.println("show this BuildLevelView");

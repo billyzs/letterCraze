@@ -15,6 +15,11 @@ import common.model.Tile;
 public class BoardView extends JPanel implements IView{
 
 	ArrayList<ArrayList<TileView>> TileViews;
+
+	public Board getBoard() {
+		return board;
+	}
+
 	Board board;
 	
 	public BoardView(Board b){

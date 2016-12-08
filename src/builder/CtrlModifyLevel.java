@@ -15,15 +15,16 @@ import common.view.LevelMenuView;
 import common.view.LevelView;
 /**
  * Controller to handle bringing up the level building view.
- * Handles user's selection of which level to modity
+ * Handles user's selection of which level to modify
  * Created by billyzs on 12/6/16.
  */
 public class CtrlModifyLevel implements ActionListener {
 
-	// Level theLevel;
 	LevelMenuView lmv;
 	Level theLevel;
 	AppBuilder builder;
+	//TODO put all the controllers for the Level builder here
+
 	public CtrlModifyLevel(AppBuilder app, LevelMenuView lmv) {
 		this.theLevel = lmv.getTheLevel();
 		this.lmv = lmv;

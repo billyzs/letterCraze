@@ -26,7 +26,7 @@ public class testCtrlCreateNewLevel extends TestCase{
 			assertEquals("Puzzle", l.getType());
 			assertTrue(l.getDict().isWord("good"));
 			assertFalse(l.getDict().isWord("sldjflsag"));
-		} catch(Exception e){
+		} catch(Exception e){isValid
 			e.printStackTrace();
 			fail();
 		}

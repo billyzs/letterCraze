@@ -75,7 +75,7 @@ public class AppBuilder extends Application{
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightening));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
-					//TODO need to set all letters to "";
+					//need to set all letters to "";
 					for(Level l : builderModel.getLevels()){
 						for(ArrayList<Tile> row : l.getBoard().getTiles()){
 							for(Tile t : row){
