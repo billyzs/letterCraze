@@ -158,7 +158,6 @@ public abstract class Level{
 	//done if current points is greater than 1 star
 	public boolean isComplete(){return this.currentPoints >= this.targetScore;}
 	public void addPoints(int i) {this.currentPoints += i;};
-	public boolean getUnlocked() {return this.unlocked;}
 	public int getTargetScore() {return this.targetScore;}
 	public Dictionary getDict(){ return this.dict;}
 
@@ -183,5 +182,7 @@ public abstract class Level{
 		if(this.currentPoints > this.highscore)
 			this.highscore = this.currentPoints;
 	}
+	
+	
 
 }
