@@ -53,7 +53,7 @@ public class Model {
 		Board emptyBoard = new Board();
 		emptyBoard.setEmptyBoard();
 		String name = "";
-		int[] starVal = {0,0,0};
+		int starVal = 0;
 		int highScore = 0;
 		int maxWords = 100; //for puzzle
 		boolean unlocked = false;

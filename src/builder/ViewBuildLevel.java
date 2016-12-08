@@ -1,6 +1,7 @@
 package builder;
 
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -83,13 +84,12 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.lblPointThresholds = lblPointThresholds;
 	}
 
-	@Override
-	public BoardView getBoardView() {
-		return boardView;
+	public BoardView getPanel() {
+		return panel;
 	}
 
-	public void setBoardView(BoardView boardView) {
-		this.boardView = boardView;
+	public void setPanel(BoardView panel) {
+		this.panel = panel;
 	}
 
 	public JTextPane getTextPane() {
@@ -120,11 +120,11 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JButton btnPreviewLevel;
 	JLabel lblLevelSettings;
 	JLabel lblPointThresholds;
-	BoardView boardView;
+	BoardView panel;
 	JTextPane textPane;
 	JLabel prompt;
 	/**
-     * Create the boardView.
+     * Create the panel.
      */
 
     public ViewBuildLevel(Level l) {
@@ -133,8 +133,8 @@ public class ViewBuildLevel extends LevelView implements IView{
         //TODO TEST!!!
         // app = a;
         level = l;
-        boardView = new BoardView(l.getBoard());
-        boardView.setBounds(12, 41, 577, 569);
+        panel = new BoardView(l.getBoard());
+        panel.setBounds(12, 41, 577, 569);
         btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
         //TODO Impelment saving in ExitLevelController
@@ -154,7 +154,7 @@ public class ViewBuildLevel extends LevelView implements IView{
         btnPreviewLevel.setBounds(720, 6, 91, 29);
         setLayout(null);
 
-        add(boardView);
+        add(panel);
         add(btnExitWithoutSaving);
         add(lblChooseAtLeast);
         add(btnDeleteLevel);
@@ -206,7 +206,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 		add(label_2);
 
 
-		if(l.getType() == "Theme"){
+		if(l.getType() == "Theme") {
 			JLabel lblInsertDesiredWords = new JLabel("Separate with commas");
 			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
@@ -216,6 +216,36 @@ public class ViewBuildLevel extends LevelView implements IView{
 			prompt.setBounds(601, 320, 293, 50);
 			add(textPane);
 			add(prompt);
+
+		}
+		this.hideLetters();
+    }
+
+    public void refresh(){
+    	//update the color of the tiles
+		for(ArrayList<TileView> row : this.panel.getTileViews()){
+            for(TileView tv : row){
+                tv.updateColor();
+                tv.setLabel("");
+            }
+		}
+
+		/*//Grey out finishbutton if necesary
+		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3))
+            this.finish.setEnabled(true);
+		else
+			this.finish.setEnabled(false);
+			*/
+    }
+    
+    /**
+     * Hide all lettesr in boardview..
+     */
+    public void hideLetters(){
+		for(ArrayList<TileView> row : this.panel.getTileViews()){
+            for(TileView tv : row){
+                tv.setLabel("");
+            }
 		}
     }
 	public void initialiizeControllers(){
@@ -234,6 +264,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 
         // ContentPane.get().repaint();
     }
+    
 
     @Override
     public void hide() {
@@ -243,5 +274,9 @@ public class ViewBuildLevel extends LevelView implements IView{
         // ContentPane.get().validate();
     }
 
+    public BoardView getBoardView(){
+    	return this.panel;
+    }
+    
 
 }

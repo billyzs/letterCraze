@@ -6,12 +6,12 @@ public class LightningLevel extends Level{
 	Timer timer;
 	public static final String type = "Lightening";
 
-	public LightningLevel(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
-		super(b,n,d,hs,sv,ul);
+	public LightningLevel(Board b, String n, Dictionary d, int hs, int ts, boolean ul){
+		super(b,n,d,hs,ts,ul);
 	}
 	
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}

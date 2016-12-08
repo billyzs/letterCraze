@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class AppBuilder extends Application{
 
-    Model model;
     ViewMenu viewMenu;
     ViewWelcome welcome;
     ViewBuildLevel viewBuildLevel;
@@ -46,6 +45,7 @@ public class AppBuilder extends Application{
     private void initializeModel(){
 
     }
+
     private void initializeControllers(){
         int i = 0;
         System.out.println(this.viewMenu.getLevelMenuViews().size());
@@ -71,10 +71,10 @@ public class AppBuilder extends Application{
                         levels.add(testLevel);
 
                     Model builderModel = new Model(levels);
-
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightening));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
+
 					//need to set all letters to "";
 					for(Level l : builderModel.getLevels()){
 						for(ArrayList<Tile> row : l.getBoard().getTiles()){
@@ -85,9 +85,11 @@ public class AppBuilder extends Application{
 					}
                     AppBuilder frame = new AppBuilder(builderModel);
 
+
+                    ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(0));
                     frame.welcome.show();
                     frame.setVisible(true);
-
+                    //frame.initializeControllers();
 
                 } catch (Exception e) {
                     e.printStackTrace();

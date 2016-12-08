@@ -112,6 +112,12 @@ public class LevelView extends JPanel implements IView {
 		this.submittedWords = panel_2;
 		this.layout = groupLayout;
 
+		//Grey out finishbutton if necesary
+		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3))
+            this.finish.setEnabled(true);
+		else
+			this.finish.setEnabled(false);
+
 		//Add to the content pane and show
 		
 		System.out.println(this.getBackground().toString());
@@ -150,10 +156,22 @@ public class LevelView extends JPanel implements IView {
             for(TileView tv : row){
                 tv.updateColor();
                 tv.updateLabel();
+                this.stars.refresh();
             }
 		}
+
 		//Redisplay submitted words
 		this.submittedWords.refresh();
+		this.stars.refresh();
+		
+		//Grey out finishbutton if necesary
+		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3))
+            this.finish.setEnabled(true);
+		else
+			this.finish.setEnabled(false);
+	}
+	public Level getLevel() {
+		return this.level;
 	}
 
 	

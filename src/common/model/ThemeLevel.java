@@ -3,7 +3,7 @@ package common.model;
 public class ThemeLevel extends Level {
 	public static final String type = "Theme";
 
-	public ThemeLevel(Board b, String n, Dictionary d, int hs, int[] sv, boolean ul){
+	public ThemeLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul){
 		super(b,n,d,hs,sv,ul);
 	}
 	
@@ -16,7 +16,7 @@ public class ThemeLevel extends Level {
 	}
 
 	@Override
-	protected void initialize() {
+	public void initialize() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -24,14 +24,7 @@ public class StartLevelController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
-		//get the button that pressed this, find which level it corresponds to
-		//LevelMenuView lmv = (LevelMenuView)ae.getSource();
-
-		//int index = this.app.getMenu().getLevelIndex(lmv);
-		
-		//get the respective level from the common.model
-		//Level theLevel = this.common.model.getLevels().get(index);
-		
+		this.theLevel.initialize();
 
 		//Check that there isnt already a level view
 		if(ContentPane.getCurrentLevelView() != null) {
@@ -53,6 +46,7 @@ public class StartLevelController implements ActionListener{
 		ContentPane.getCurrentLevelView().getUndoButton().addActionListener(new UndoController(app));
 		ContentPane.getCurrentLevelView().getSubmittedWordsView().getSubmitButton().addActionListener(new SubmitWordController(app, theLevel));
 		ContentPane.getCurrentLevelView().getFinishButton().addActionListener(new FinishLevelController(app, theLevel));
+		ContentPane.getCurrentLevelView().getResetButton().addActionListener(new ResetLevelController(app, theLevel));
 
 		ContentPane.getCurrentLevelView().show();
 		
