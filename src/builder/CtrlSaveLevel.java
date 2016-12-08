@@ -41,10 +41,10 @@ public class CtrlSaveLevel implements ActionListener {
             writer.write(lvl.getType()); writer.newLine();
             writer.write(lvl.getName()); writer.newLine();
             writer.write(Integer.toString(lvl.getHighscore())); writer.newLine();
-            int[] starVals = lvl.getStarVals();
-            for (int val : starVals){
-                writer.write(Integer.toString(val)); writer.newLine();
-            }
+            int starVals = lvl.getTargetScore();
+
+            writer.write(Integer.toString(starVals)); writer.newLine();
+
             writer.write(String.valueOf(lvl.getUnlocked())); writer.newLine();
             // write board layout to buffer
             String sysLineBreak = System.getProperty("line.separator");

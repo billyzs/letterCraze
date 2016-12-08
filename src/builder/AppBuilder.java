@@ -65,7 +65,7 @@ public class AppBuilder extends Application{
                 try {
 
                     Level testLevel = (PuzzleLevel) loadLevel("TestingLevel.lvl");
-                    ArrayList<Level> levels = new ArrayList<Level>();
+                    ArrayList<Level> levels = new ArrayList<Level>(18);
 
                     for (int k = 0; k < 15; k++)
                         levels.add(testLevel);
@@ -85,7 +85,7 @@ public class AppBuilder extends Application{
 					}
                     AppBuilder frame = new AppBuilder(builderModel);
 
-
+                    //TODO
                     ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(0));
                     frame.welcome.show();
                     frame.setVisible(true);

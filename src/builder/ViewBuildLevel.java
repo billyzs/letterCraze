@@ -123,6 +123,16 @@ public class ViewBuildLevel extends LevelView implements IView{
 	BoardView panel;
 	JTextPane textPane;
 	JLabel prompt;
+
+	public JButton getBtnSaveDict() {
+		return btnSaveDict;
+	}
+
+	public void setBtnSaveDict(JButton btnSaveDict) {
+		this.btnSaveDict = btnSaveDict;
+	}
+
+	JButton btnSaveDict;
 	/**
      * Create the panel.
      */
@@ -213,9 +223,12 @@ public class ViewBuildLevel extends LevelView implements IView{
 			add(lblInsertDesiredWords);
 			textPane = new JTextPane();
 			textPane.setBounds(601, 299, 293, 81);
-			prompt.setBounds(601, 320, 293, 50);
+			btnSaveDict = new JButton("Save Words");
+			btnSaveDict.setBounds(601, 381, 100, 29);
+			prompt.setBounds(601, 411, 293, 50);
 			add(textPane);
 			add(prompt);
+			add(btnSaveDict);
 
 		}
 		this.hideLetters();

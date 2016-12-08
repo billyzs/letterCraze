@@ -24,6 +24,7 @@ public class CtrlModifyLevel implements ActionListener {
 	LevelMenuView lmv;
 	Level theLevel;
 	AppBuilder builder;
+	CtrlSubmitWords ctrlSubmitWords;
 	//TODO put all the controllers for the Level builder here
 
 	public CtrlModifyLevel(AppBuilder app, LevelMenuView lmv) {
@@ -32,7 +33,7 @@ public class CtrlModifyLevel implements ActionListener {
 		this.builder = app;
 	}
 
-	public Level createNewLevel(String levelType) throws Exception {
+/*	public Level createNewLevel(String levelType) throws Exception {
 		// standardize input
 		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
 		Board emptyBoard = new Board();
@@ -72,7 +73,7 @@ public class CtrlModifyLevel implements ActionListener {
 			level = null;
 		}
 		return level;
-	}
+	}*/
 
 	/**
 	 * Calls the createnewLevel method, creates the level and brings up a view
@@ -94,13 +95,19 @@ public class CtrlModifyLevel implements ActionListener {
 			builder.getMenu().hide();
 			
 			builder.getModel().setLevel(theLevel);;
-			
+
+
 			
 			//Assign the TileView ChooseTileControllers
 			for(ArrayList<TileView> row : vbl.getBoardView().getTileViews()){
 				for(TileView t : row){
                     t.addMouseListener(new ChooseTileController(this.builder, t));
 				}
+			}
+			// Submit words controller
+			if(theLevel.getType() == "Theme"){
+				ctrlSubmitWords = new CtrlSubmitWords();
+				vbl.getBtnSaveDict().addActionListener(ctrlSubmitWords);
 			}
 
 		} catch (Exception e) {
