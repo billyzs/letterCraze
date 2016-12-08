@@ -48,6 +48,7 @@ public class AppBuilder extends Application{
     }
     private void initializeControllers(){
         int i = 0;
+        System.out.println(this.viewMenu.getLevelMenuViews().size());
         for(LevelMenuView lmv : this.viewMenu.getLevelMenuViews()){
             CtrlModifyLevel c = new CtrlModifyLevel(this, lmv);
             // System.out.println(lmv.getTheLevel().getType());
@@ -75,10 +76,10 @@ public class AppBuilder extends Application{
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
 
                     AppBuilder frame = new AppBuilder(builderModel);
-
+                    ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(0));
                     frame.welcome.show();
                     frame.setVisible(true);
-                    frame.initializeControllers();
+                    //frame.initializeControllers();
 
                 } catch (Exception e) {
                     e.printStackTrace();

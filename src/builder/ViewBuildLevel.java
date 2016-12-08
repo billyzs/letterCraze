@@ -33,6 +33,8 @@ public class ViewBuildLevel extends LevelView implements IView{
      */
 
     public ViewBuildLevel(Level l) {
+
+
         //TODO TEST!!!
         // app = a;
         level = l;
@@ -65,14 +67,14 @@ public class ViewBuildLevel extends LevelView implements IView{
 
         // Not needed, should be done in previous view
 
-        /*JComboBox comboBox = new JComboBox();
+        JComboBox comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Puzzle", "Lighting", "Theme"}));
         comboBox.setBounds(675, 85, 108, 27);
-        add(comboBox);*/
+        add(comboBox);
 
-        /*JLabel lblLevelType = new JLabel("Level type:");
+        JLabel lblLevelType = new JLabel("Level type:");
         lblLevelType.setBounds(601, 89, 82, 16);
-        add(lblLevelType);*/
+        add(lblLevelType);
 
         lblLevelSettings = new JLabel("Level Settings");
         lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
@@ -130,20 +132,24 @@ public class ViewBuildLevel extends LevelView implements IView{
 
     @Override
     public void show(){
-        ContentPane.setCurrentLevelView(this);
-        this.setVisible(true);
-        //refresh
+    	System.out.println("show this BuildLevelView");
+
+        //ContentPane.get().add(this);
+		ContentPane.get().add(this);
+		ContentPane.setCurrentLevelView(this);
+        // refresh
         ContentPane.get().invalidate();
-        ContentPane.get().validate();
-        ContentPane.get().repaint();
+		ContentPane.get().validate();
+
+        // ContentPane.get().repaint();
     }
 
     @Override
     public void hide() {
         // TODO Auto-generated method stub
-        ContentPane.get().setVisible(false);
-        ContentPane.get().invalidate();
-        ContentPane.get().validate();
+        // ContentPane.get().setVisible(false);
+        // ContentPane.get().invalidate();
+        // ContentPane.get().validate();
     }
 
 
