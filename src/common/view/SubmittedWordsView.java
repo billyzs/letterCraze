@@ -72,6 +72,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 		//refresh submitted words
 		System.out.println(words);
 
+		//Disable button if current words isnt a word
 		if(ContentPane.getCurrentLevelView().getLevel().getDict().isWord(this.currentWord.toString()))
 			this.submitWord.setEnabled(true);
 		else
