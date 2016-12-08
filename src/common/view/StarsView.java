@@ -62,13 +62,13 @@ public class StarsView extends JPanel {
 		this.currentScorelabel.setText(""+score);
 		this.progressBar.setValue(score);
 		
-		if(score >= (targetScore/3)){
+		if(score >= (targetScore/3.0)){
 			label_1.setText("\u2605"); // ONE STAR UNLOCKED "\u2605" is black, "\u2606" is white
 		} else {
 			label_1.setText("\u2606");
 		}
 		
-		if(score >= (2*(targetScore/3))){
+		if(score >= (2.0*(targetScore/3.0))){
 			label_2.setText("\u2605"); // TWO STARS UNLOCKED "\u2605" is black, "\u2606" is white
 		} else {
 			label_2.setText("\u2606");
