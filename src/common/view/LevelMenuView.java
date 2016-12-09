@@ -12,7 +12,7 @@ public class LevelMenuView extends JPanel implements IView {
 	JLabel lblSequence;
 	JLabel lblHighScore;
 	JLabel lblStar;
-	JLabel lblLocked;
+	JLabel lblTitle;
 	String[] stars = new String[3];
 	int highscore;
 	int targetScore;
@@ -34,19 +34,16 @@ public class LevelMenuView extends JPanel implements IView {
 		super();
 		theLevel = l;
 		this.seq = seq;
-
-		highscore = this.theLevel.getHighscore();
-		targetScore = this.theLevel.getTargetScore();
-
-		btnThisLevel = new JButton(l.getName());
-				
-		//I added 1 to the sequence, to make it 1-15
+		this.highscore = this.theLevel.getHighscore();
+		this.targetScore = this.theLevel.getTargetScore();
+		
 		lblSequence = new JLabel(Integer.toString(seq + 1));
 		add(lblSequence);
-		add(btnThisLevel);
 		
-		lblHighScore = new JLabel(Integer.toString(l.getHighscore()));
-		add(lblHighScore);
+		lblTitle = new JLabel(l.getName());
+		add(lblTitle);
+
+		btnThisLevel = new JButton(l.getName());
 		
 		
 		if(highscore >= (targetScore/3.0)){
@@ -74,13 +71,17 @@ public class LevelMenuView extends JPanel implements IView {
 		
 		if (theLevel.isUnlocked()) {
 			btnThisLevel.setEnabled(true);
-			lblLocked = new JLabel("Unlocked");
-			add(lblLocked);
+			btnThisLevel.setText("Play");
 		} else {
 			btnThisLevel.setEnabled(false);
-			lblLocked = new JLabel("Locked");
-			add(lblLocked);
+			btnThisLevel.setText("Locked");
 		}
+		
+		lblHighScore = new JLabel("High score: " + Integer.toString(l.getHighscore()));
+		add(lblHighScore);
+		
+		add(btnThisLevel);
+		
 	}
 	
 	//TODO Listeners for the button???
@@ -90,7 +91,6 @@ public class LevelMenuView extends JPanel implements IView {
 	public JLabel getLabelSequence(){return lblSequence;}
 	public JLabel getLabelHighScore(){return lblHighScore;}
 	public JLabel getLabelStar(){return lblStar;};
-	public JLabel getLabelLocked(){return lblLocked;}
 	public JButton getButton(){ return this.btnThisLevel;};
 
 	@Override
@@ -126,14 +126,14 @@ public class LevelMenuView extends JPanel implements IView {
 		}
 		
 		lblStar.setText(stars[0] + stars[1] + stars[2]);
-		lblHighScore.setText(""+ highscore);
+		lblHighScore.setText("High score: " + highscore);
 		
 		if (theLevel.isUnlocked()) {
 			btnThisLevel.setEnabled(true);
-			lblLocked.setText("Unlocked");
+			btnThisLevel.setText("Play");
 		} else {
 			btnThisLevel.setEnabled(false);
-			lblLocked.setText("Locked");
+			btnThisLevel.setText("Locked");
 		}
 		
 		
