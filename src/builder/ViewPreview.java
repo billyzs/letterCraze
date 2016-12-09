@@ -11,19 +11,10 @@ import javax.swing.*;
 public class ViewPreview extends JFrame {
 	BoardView boardView;
 	public ViewPreview(ViewBuildLevel vbl){
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setBounds(200, 200, 800, 645);
 		boardView = vbl.getBoardView();
 		add(boardView);
-	}
-
-	@Override
-	public void show() {
-		//super.show();
-		this.setVisible(true);
-	}
-
-	@Override
-	public void hide() {
-		//super.hide();
-		this.setVisible(false);
+		boardView.setVisible(true);
 	}
 }

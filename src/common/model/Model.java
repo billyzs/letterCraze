@@ -69,7 +69,7 @@ public class Model {
 		int starVal = 0;
 		int highScore = 0;
 		int maxWords = 100; //for puzzle
-		boolean unlocked = false;
+		boolean unlocked = true;
 		Dictionary dict = new Dictionary(new HashSet<String>());
 		Level level;
 		try{

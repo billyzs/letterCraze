@@ -17,6 +17,6 @@ public class CtrlPreview implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		ViewPreview vpv = new ViewPreview(this.vbl);
-		// vpv.show();
+		vpv.setVisible(true);
 	}
 }
