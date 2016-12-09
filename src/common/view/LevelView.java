@@ -39,7 +39,7 @@ public class LevelView extends JPanel implements IView {
 		JButton reset = new JButton("Reset");
 		JButton undo = new JButton("Undo");
 		JButton finish = new JButton("Finish Level");
-		JLabel name = new JLabel("1 - This is the name level and theme if needed");
+		JLabel name = new JLabel(level.getName());
 		JLabel timer = new JLabel("000");
 		StarsView panel_1 = new StarsView(level);
 		
