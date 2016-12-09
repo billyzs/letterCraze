@@ -32,6 +32,8 @@ public class CtrlModifyLevel implements ActionListener {
 	//TODO put all the controllers for the Level builder here
 	CtrlSaveLevel ctrlSaveLevel;
 	CtrlChangeLevelName ctrlChangeLevelName;
+	CtrlPreview ctrlPreview;
+
 	public int getSeq() {
 		return seq;
 	}
@@ -113,6 +115,7 @@ public class CtrlModifyLevel implements ActionListener {
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
 		ctrlChangeLevelName = new CtrlChangeLevelName(theLevel);
+
 		// TODO TEST, or do we need a copy constructor for backup?
 		try{
 			if (theLevel.getName() != ""){
@@ -182,6 +185,7 @@ public class CtrlModifyLevel implements ActionListener {
 			ViewBuildLevel vbl = new ViewBuildLevel(lmv);
 			this.builder.viewBuildLevel = vbl;
 			this.viewBuildLevel = vbl;
+			this.ctrlPreview = new CtrlPreview(vbl);
 			// this.builder.add(vbl);
 			//ContentPane.get().setVisible(false);
 			//builder.getMenu().hide();
@@ -214,6 +218,8 @@ public class CtrlModifyLevel implements ActionListener {
 			// Change level name
 			vbl.getFieldChangeLevelName().addActionListener(ctrlChangeLevelName);
 
+			// preview controller
+			vbl.getBtnPreviewLevel().addActionListener(this.ctrlPreview);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

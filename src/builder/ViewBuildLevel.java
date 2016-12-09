@@ -141,7 +141,6 @@ public class ViewBuildLevel extends LevelView implements IView{
 			add(textPane);
 			add(prompt);
 			add(btnSaveDict);
-
 		}
 		this.hideLetters();
     }

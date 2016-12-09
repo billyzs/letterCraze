@@ -40,7 +40,7 @@ public class AppBuilder extends Application{
 
     /**
      * Model only needs a currentLevel for builder
-     * TODO does builder need undo & redo???
+     *
      */
     private void initializeModel(){
 
@@ -95,7 +95,6 @@ public class AppBuilder extends Application{
                     e.printStackTrace();
                 }
             }
-
         });
     }
 

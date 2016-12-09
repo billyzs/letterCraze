@@ -13,7 +13,7 @@ public class Model {
 
 	public static final String Puzzle = "Puzzle";
 	public static final String Theme = "Theme";
-	public static final String Lightening = "Lightning";
+	public static final String Lightning = "Lightning";
 
 	public Model(ArrayList<Level> l){
 		this.levels = l;
