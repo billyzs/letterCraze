@@ -51,7 +51,7 @@ public class ChooseTileController implements MouseListener{
 				if (curLable > 1){
 					return false;
 				}
-				if(!b.at(i,j).isSelected() && !checked.contains(new Point(i,j))){ // if tile is enabled and not checked
+				if(!b.at(i,j).isNull() && !checked.contains(new Point(i,j))){ // if tile is enabled and not checked
 					q.add(b.at(i,j));
 					enabledTileCount++;
 					// if(!checked.contains(new Point(i, j))){ // if tile has not been checked
@@ -63,7 +63,7 @@ public class ChooseTileController implements MouseListener{
 						Tile t = q.pop();
 						for(int row = max(0, t.getRow()-1); row < min(6, t.getRow()+2); row++){
 							for(int col = max(0, t.getCol()-1); col < min(6, t.getCol()+2); col++){
-								if(!b.at(row, col).isSelected() && !checked.contains(new Point(row, col))){
+								if(!b.at(row, col).isNull() && !checked.contains(new Point(row, col))){
 									enabledTileCount++;
 									q.add(b.at(row, col));
 									checked.add(new Point(row, col));
@@ -76,6 +76,7 @@ public class ChooseTileController implements MouseListener{
 		}
 		return (curLable==1 && enabledTileCount > 8);
 	}
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -88,16 +89,24 @@ public class ChooseTileController implements MouseListener{
 		int row = tile.getRow();
 		int col = tile.getCol();
 
-		//select/deselect the tile
+		//select/deselect the tile by swapping in/out a null tile
 		Tile newTile;
 		if(tile.isNull())
 			newTile = new Tile(row,col);
 		else
 			newTile = new NullTile(row,col);
-		newTile.setSelected(true);
-		this.model.getCurrentLevel().getBoard().getTiles().get(row).set(col, newTile);
 
+		this.model.getCurrentLevel().getBoard().getTiles().get(row).set(col, newTile);
         tileView.updateTile(newTile);
+		
+        //move the tile back if the board is invalid
+		if(!isBoardValid(this.model.getCurrentLevel().getBoard())){
+            this.model.getCurrentLevel().getBoard().getTiles().get(row).set(col, tile);
+            tileView.updateTile(tile);
+		}
+
+		//newTile.setSelected(true);
+
         tileView.updateColor();
 
         ContentPane.getCurrentLevelView().refresh();

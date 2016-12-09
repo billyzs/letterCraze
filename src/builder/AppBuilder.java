@@ -84,7 +84,7 @@ public class AppBuilder extends Application{
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
 
-					//need to set all letters to "";
+					/*//need to set all letters to "";
 					for(Level l : builderModel.getLevels()){
 						for(ArrayList<Tile> row : l.getBoard().getTiles()){
 							for(Tile t : row){
@@ -92,6 +92,8 @@ public class AppBuilder extends Application{
 							}
 						}
 					}
+					*/
+
                     AppBuilder frame = new AppBuilder(builderModel);
 
                     // ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(17));

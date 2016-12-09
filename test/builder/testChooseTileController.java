@@ -31,18 +31,24 @@ public class testChooseTileController extends TestCase {
 		}
 		Board b = new Board(l);
 		assertTrue(c.isBoardValid(b));
+		int k = 0;
 		for(ArrayList<Tile> row : b.getTiles()){
-			row.get(0).setSelected(true);
+			row.set(0, new NullTile(k,0));
+			k++;
 		}
 		assertTrue(c.isBoardValid(b));
 
+		k = 0;
 		for(ArrayList<Tile> row : b.getTiles()){
-			row.get(5).setSelected(true);
+			row.set(5, new NullTile(k,5));
+			k++;
 		}
 		assertTrue(c.isBoardValid(b));
 
+		k = 0;
 		for(ArrayList<Tile> row : b.getTiles()){
-			row.get(3).setSelected(true);
+			row.set(3, new NullTile(k,3));
+			k++;
 		}
 		assertFalse(c.isBoardValid(b));
 	}
