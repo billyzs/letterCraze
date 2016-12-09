@@ -60,7 +60,7 @@ public class Model {
 	 * @return a new level with empty 6*6 board, name, starval, highscore, unlocked=false;
 	 * dict = default for lightning, puzzle, empty for theme;
 	 */
-	public Level createNewLevel(String levelType) throws Exception{
+	public Level createNewLevel(String levelType){
 		// standardize input
 		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
 		Board emptyBoard = new Board();
@@ -86,7 +86,7 @@ public class Model {
 					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
 					break;
 				default:
-					throw new IllegalArgumentException("CtrlModifyLevel::createNewLevel: cannot parse: " + levelType);
+					throw new IllegalArgumentException("CtrlModifyLevel::createNewLevel: cannot parse " + levelType);
 			}
 		} catch (IllegalFormatCodePointException e){
 			e.printStackTrace();

@@ -29,11 +29,43 @@ public class CtrlModifyLevel implements ActionListener {
 	CtrlModifyTargetScore ctrlModifyTargetScore;
 	ViewBuildLevel viewBuildLevel;
 	CtrlExitWithoutSaving ctrlExitWithoutSaving;
-	//TODO put all the controllers for the Level builder here
+
+	public CtrlExitWithoutSaving getCtrlExitWithoutSaving() {
+		return ctrlExitWithoutSaving;
+	}
+
+	public void setCtrlExitWithoutSaving(CtrlExitWithoutSaving ctrlExitWithoutSaving) {
+		this.ctrlExitWithoutSaving = ctrlExitWithoutSaving;
+	}
+
+	public CtrlChangeLevelName getCtrlChangeLevelName() {
+		return ctrlChangeLevelName;
+	}
+
+	public void setCtrlChangeLevelName(CtrlChangeLevelName ctrlChangeLevelName) {
+		this.ctrlChangeLevelName = ctrlChangeLevelName;
+	}
+
+	public CtrlPreview getCtrlPreview() {
+		return ctrlPreview;
+	}
+
+	public void setCtrlPreview(CtrlPreview ctrlPreview) {
+		this.ctrlPreview = ctrlPreview;
+	}
+
+	public CtrlDeleteLevel getCtrlDeleteLevel() {
+		return ctrlDeleteLevel;
+	}
+
+	public void setCtrlDeleteLevel(CtrlDeleteLevel ctrlDeleteLevel) {
+		this.ctrlDeleteLevel = ctrlDeleteLevel;
+	}
+
 	CtrlSaveLevel ctrlSaveLevel;
 	CtrlChangeLevelName ctrlChangeLevelName;
 	CtrlPreview ctrlPreview;
-
+	CtrlDeleteLevel ctrlDeleteLevel;
 	public int getSeq() {
 		return seq;
 	}
@@ -131,48 +163,6 @@ public class CtrlModifyLevel implements ActionListener {
 
 	}
 
-/*	public Level createNewLevel(String levelType) throws Exception {
-		// standardize input
-		//levelType = levelType.substring(0,1).toUpperCase() + levelType.substring(1).toLowerCase();
-		Board emptyBoard = new Board();
-		emptyBoard.setEmptyBoard();
-		String name = "";
-		int[] starVal = {0, 0, 0};
-		int highScore = 0;
-		int maxWords = 100; //for puzzle
-		boolean unlocked = false;
-		Dictionary dict = new Dictionary(new HashSet<String>());
-		Level level;
-		try {
-			switch (levelType) {
-				case "Puzzle":
-					dict = new Dictionary();
-					level = new PuzzleLevel(emptyBoard, name, dict, highScore, starVal, maxWords, unlocked);
-					break;
-				case "Lightening":
-					dict = new Dictionary();
-					level = new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
-					break;
-				case "Theme":
-					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
-					break;
-				default:
-					throw new IllegalArgumentException("CtrlModifyLevel::createNewLevel: cannot parse: " + levelType);
-			}
-		} catch (IllegalFormatCodePointException e) {
-			e.printStackTrace();
-			level = null;
-		} catch (IOException ioe) {
-			System.err.println(ioe.getMessage() + " Check that you have the right files in test execution root");
-			ioe.printStackTrace();
-			level = null;
-		} catch (Exception ee) {
-			ee.printStackTrace();
-			level = null;
-		}
-		return level;
-	}*/
-
 	/**
 	 * Calls the createnewLevel method, creates the level and brings up a view
 	 *
@@ -220,6 +210,10 @@ public class CtrlModifyLevel implements ActionListener {
 
 			// preview controller
 			vbl.getBtnPreviewLevel().addActionListener(this.ctrlPreview);
+
+			// delete level
+			ctrlDeleteLevel = new CtrlDeleteLevel(this.builder, this.getViewBuildLevel());
+			vbl.getBtnDeleteLevel().addActionListener(this.ctrlDeleteLevel);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
