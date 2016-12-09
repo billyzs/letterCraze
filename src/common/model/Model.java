@@ -10,14 +10,22 @@ public class Model {
 	Stack<IMove> moves;
 	ArrayList<Level> levels;
 	Level currentLevel;
+
 	public static final String Puzzle = "Puzzle";
 	public static final String Theme = "Theme";
-	public static final String Lightning = "Lightning";
+	public static final String Lightening = "Lightning";
+
 	public Model(ArrayList<Level> l){
 		this.levels = l;
+		this.moves = new Stack<IMove>();
 	}
-	public Model(){}
+
+	public Model(){
+		this.moves = new Stack<IMove>();
+	}
+
 	public void setLevel(Level l){ this.currentLevel = l; }
+
 	public ArrayList<Level> getLevels(){return levels;}
 
 	public Level getCurrentLevel() {
@@ -29,6 +37,12 @@ public class Model {
 		moves.add(move);
 	}
 	
+	//remove all moves
+	public void resetMoves(){
+		for(int k = this.moves.size()-1; k >= 0; k--)
+			this.moves.remove(k);
+	}
+	
 	//returns a move and removes it from the list of moves
 	public IMove popMove(){
 		if(moves.size() > 0)
@@ -37,9 +51,8 @@ public class Model {
 	}
 
 	//reinit the move array, for starting new levels w]]]
-	public void resetMoves() {
-		this.moves = new Stack<IMove>();
-	}
+//public void resetMoves() { this.moves = new Stack<IMove>(); }
+
 	public void addLevel(Level l){this.levels.add(l);}
 	/**
 	 * Creates new level based on type.

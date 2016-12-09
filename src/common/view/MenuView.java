@@ -44,6 +44,11 @@ public class MenuView  extends JPanel implements IView{
 		ContentPane.get().add(this);
 		ContentPane.get().invalidate();
 		ContentPane.get().validate();
+		
+		for (LevelMenuView l : lmv){
+			l.refresh();
+		}
+		
 	}
 
 	@Override

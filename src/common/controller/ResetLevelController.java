@@ -23,10 +23,14 @@ public class ResetLevelController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent ae) {
+		//Set moves to be empty
+		this.model.resetMoves();
+
 		//reinit the level
 		this.theLevel.initialize();
 
 		//refresh the LevelView
 		ContentPane.getCurrentLevelView().refresh();
+		
 	}
 }

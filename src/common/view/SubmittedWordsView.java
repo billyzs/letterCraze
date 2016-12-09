@@ -57,8 +57,8 @@ public class SubmittedWordsView extends JPanel implements IView {
 		for(int k = 0; k < words.size(); k++){
             JLabel word = new JLabel(this.words.get(k));
             int size = this.wordLabels.size();
-            int offset = k*30;
-            word.setBounds(119, 78 + offset, 32, 16);
+            int offset = k*20;
+            word.setBounds(85, 70 + offset, 100, 16);
             word.setHorizontalAlignment(SwingConstants.CENTER);
 
             this.wordLabels.add(word);
@@ -72,6 +72,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 		//refresh submitted words
 		System.out.println(words);
 
+		//Disable button if current words isnt a word
 		if(ContentPane.getCurrentLevelView().getLevel().getDict().isWord(this.currentWord.toString()))
 			this.submitWord.setEnabled(true);
 		else
