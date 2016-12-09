@@ -31,7 +31,7 @@ public class CtrlModifyLevel implements ActionListener {
 	CtrlExitWithoutSaving ctrlExitWithoutSaving;
 	//TODO put all the controllers for the Level builder here
 	CtrlSaveLevel ctrlSaveLevel;
-
+	CtrlChangeLevelName ctrlChangeLevelName;
 	public int getSeq() {
 		return seq;
 	}
@@ -112,6 +112,7 @@ public class CtrlModifyLevel implements ActionListener {
 		ctrlSaveLevel = new CtrlSaveLevel(theLevel);
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
+		ctrlChangeLevelName = new CtrlChangeLevelName(theLevel);
 		// TODO TEST, or do we need a copy constructor for backup?
 		try{
 			if (theLevel.getName() != ""){
@@ -209,6 +210,9 @@ public class CtrlModifyLevel implements ActionListener {
 
 			// Exit w/o saving ctrl
 			vbl.getBtnExitWithoutSaving().addActionListener(ctrlExitWithoutSaving);
+
+			// Change level name
+			vbl.getFieldChangeLevelName().addActionListener(ctrlChangeLevelName);
 
 		} catch (Exception e) {
 			e.printStackTrace();

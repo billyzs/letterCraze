@@ -28,6 +28,15 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JTextPane textPane;
 	JLabel prompt;
 
+	public JTextField getFieldChangeLevelName() {
+		return fieldChangeLevelName;
+	}
+
+	public void setFieldChangeLevelName(JTextField fieldChangeLevelName) {
+		this.fieldChangeLevelName = fieldChangeLevelName;
+	}
+
+	JTextField fieldChangeLevelName;
 	public LevelMenuView getLmv() {
 		return lmv;
 	}
@@ -72,7 +81,7 @@ public class ViewBuildLevel extends LevelView implements IView{
         btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
 
-        //TODO Impelment saving in ExitLevelController
+
         // btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
         lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
         lblChooseAtLeast.setBounds(158, 8, 293, 20);
@@ -87,6 +96,8 @@ public class ViewBuildLevel extends LevelView implements IView{
 
         btnPreviewLevel = new JButton("Preview");
         btnPreviewLevel.setBounds(720, 6, 91, 29);
+
+
         setLayout(null);
 
         add(panel);
@@ -97,12 +108,14 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(btnSaveChanges);
 
 
-        lblLevelSettings = new JLabel("Level Settings");
+        lblLevelSettings = new JLabel("Enter new level name");
         lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
-        lblLevelSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
-        lblLevelSettings.setBounds(680, 41, 148, 22);
+        lblLevelSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+        lblLevelSettings.setBounds(680, 41, 180, 22);
         add(lblLevelSettings);
-
+		fieldChangeLevelName = new JTextField(level.getName());
+		fieldChangeLevelName.setBounds(680, 64, 148, 22);
+		add(fieldChangeLevelName);
 		lblPointThresholds = new JLabel("Points for ★★★: (Hit enter to save)");
         lblPointThresholds.setBounds(601, 140, 480, 16);
         add(lblPointThresholds);
