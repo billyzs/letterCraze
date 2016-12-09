@@ -51,13 +51,11 @@ public class ViewMenu extends MenuView implements IView{
 
     @Override
     public void show() {
-        ContentPane.get().add(this);
-        //this.app.setLevelView(this);
+        System.out.println("Showing ViewMenu");
 
-        //refresh
+        ContentPane.get().add(this);
         ContentPane.get().invalidate();
         ContentPane.get().validate();
-
     }
 
     @Override

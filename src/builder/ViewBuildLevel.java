@@ -28,6 +28,24 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JTextPane textPane;
 	JLabel prompt;
 
+	public LevelMenuView getLmv() {
+		return lmv;
+	}
+
+	public void setLmv(LevelMenuView lmv) {
+		this.lmv = lmv;
+	}
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	LevelMenuView lmv;
+	int seq;
 	public JButton getBtnSaveDict() {
 		return btnSaveDict;
 	}
@@ -41,16 +59,19 @@ public class ViewBuildLevel extends LevelView implements IView{
      * Create the panel.
      */
 
-    public ViewBuildLevel(Level l) {
+    public ViewBuildLevel(LevelMenuView lmv) {
 
 
         //TODO TEST!!!
         // app = a;
-        level = l;
-        panel = new BoardView(l.getBoard());
+		this.lmv = lmv;
+		this.seq = lmv.getSeq();
+        level = lmv.getTheLevel();
+        panel = new BoardView(level.getBoard());
         panel.setBounds(12, 41, 577, 569);
         btnExitWithoutSaving = new JButton("Exit without saving");
         btnExitWithoutSaving.setBounds(6, 6, 146, 29);
+
         //TODO Impelment saving in ExitLevelController
         // btnExitWithoutSaving.addActionListener(new ExitLevelController(a));
         lblChooseAtLeast = new JLabel("Select at least 9 adjacent tiles:");
@@ -82,8 +103,8 @@ public class ViewBuildLevel extends LevelView implements IView{
         lblLevelSettings.setBounds(680, 41, 148, 22);
         add(lblLevelSettings);
 
-		lblPointThresholds = new JLabel("Points needed for ★ ★ ★:");
-        lblPointThresholds.setBounds(601, 140, 200, 16);
+		lblPointThresholds = new JLabel("Points for ★★★: (Hit enter to save)");
+        lblPointThresholds.setBounds(601, 140, 480, 16);
         add(lblPointThresholds);
 
         //TODO looks like these fields are for starVals, and need controllers
@@ -93,7 +114,7 @@ public class ViewBuildLevel extends LevelView implements IView{
         starVal3.setBounds(658, 157, 77, 26);
         add(starVal3);
 
-		if(l.getType() == "Theme") {
+		if(level.getType() == "Theme") {
 			JLabel lblInsertDesiredWords = new JLabel("Separate with commas");
 			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
@@ -159,10 +180,11 @@ public class ViewBuildLevel extends LevelView implements IView{
 
     @Override
     public void hide() {
-        // TODO Auto-generated method stub
-        // ContentPane.get().setVisible(false);
-        // ContentPane.get().invalidate();
-        // ContentPane.get().validate();
+        System.out.println("Hiding Viewbuildlevel");
+		// ContentPane.get().setVisible(false);
+		ContentPane.get().remove(this);
+        ContentPane.get().invalidate();
+        ContentPane.get().validate();
     }
 
     public BoardView getBoardView(){

@@ -4,7 +4,7 @@ import javax.swing.Timer;
 
 public class LightningLevel extends Level{
 	Timer timer;
-	public static final String type = "Lightening";
+	public static final String type = "Lightning";
 
 	public LightningLevel(Board b, String n, Dictionary d, int hs, int ts, boolean ul){
 		super(b,n,d,hs,ts,ul);

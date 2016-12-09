@@ -20,21 +20,111 @@ import common.view.TileView;
  * Created by billyzs on 12/6/16.
  */
 public class CtrlModifyLevel implements ActionListener {
-
+	int seq;
 	LevelMenuView lmv;
 	Level theLevel;
+	Level backup;
 	AppBuilder builder;
 	CtrlSubmitWords ctrlSubmitWords;
 	CtrlModifyTargetScore ctrlModifyTargetScore;
-
+	ViewBuildLevel viewBuildLevel;
+	CtrlExitWithoutSaving ctrlExitWithoutSaving;
 	//TODO put all the controllers for the Level builder here
 	CtrlSaveLevel ctrlSaveLevel;
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	public LevelMenuView getLmv() {
+		return lmv;
+	}
+
+	public void setLmv(LevelMenuView lmv) {
+		this.lmv = lmv;
+	}
+
+	public Level getTheLevel() {
+		return theLevel;
+	}
+
+	public void setTheLevel(Level theLevel) {
+		this.theLevel = theLevel;
+	}
+
+	public Level getBackup() {
+		return backup;
+	}
+
+	public void setBackup(Level backup) {
+		this.backup = backup;
+	}
+
+	public AppBuilder getBuilder() {
+		return builder;
+	}
+
+	public void setBuilder(AppBuilder builder) {
+		this.builder = builder;
+	}
+
+	public CtrlSubmitWords getCtrlSubmitWords() {
+		return ctrlSubmitWords;
+	}
+
+	public void setCtrlSubmitWords(CtrlSubmitWords ctrlSubmitWords) {
+		this.ctrlSubmitWords = ctrlSubmitWords;
+	}
+
+	public CtrlModifyTargetScore getCtrlModifyTargetScore() {
+		return ctrlModifyTargetScore;
+	}
+
+	public void setCtrlModifyTargetScore(CtrlModifyTargetScore ctrlModifyTargetScore) {
+		this.ctrlModifyTargetScore = ctrlModifyTargetScore;
+	}
+
+	public ViewBuildLevel getViewBuildLevel() {
+		return viewBuildLevel;
+	}
+
+	public void setViewBuildLevel(ViewBuildLevel viewBuildLevel) {
+		this.viewBuildLevel = viewBuildLevel;
+	}
+
+	public CtrlSaveLevel getCtrlSaveLevel() {
+		return ctrlSaveLevel;
+	}
+
+	public void setCtrlSaveLevel(CtrlSaveLevel ctrlSaveLevel) {
+		this.ctrlSaveLevel = ctrlSaveLevel;
+	}
+
 	public CtrlModifyLevel(AppBuilder app, LevelMenuView lmv) {
 		this.theLevel = lmv.getTheLevel();
 		this.lmv = lmv;
+		this.seq = lmv.getSeq();
 		this.builder = app;
 		ctrlSaveLevel = new CtrlSaveLevel(theLevel);
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
+		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
+		// TODO TEST, or do we need a copy constructor for backup?
+		try{
+			if (theLevel.getName() != ""){
+				backup = builder.loadLevel(theLevel.getName()+".lvl");
+			}
+			else {
+				backup = builder.getModel().creaateNewLevel(theLevel.getType(), theLevel.getName());
+			}
+		} catch (Exception e){
+			System.err.println("unable to load");
+			e.printStackTrace();
+		}
+
 	}
 
 /*	public Level createNewLevel(String levelType) throws Exception {
@@ -88,8 +178,9 @@ public class CtrlModifyLevel implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 		System.out.println("mouse pressed on " + lmv.getSeq());
 		try {
-			ViewBuildLevel vbl = new ViewBuildLevel(theLevel);
+			ViewBuildLevel vbl = new ViewBuildLevel(lmv);
 			this.builder.viewBuildLevel = vbl;
+			this.viewBuildLevel = vbl;
 			// this.builder.add(vbl);
 			//ContentPane.get().setVisible(false);
 			//builder.getMenu().hide();
@@ -97,7 +188,7 @@ public class CtrlModifyLevel implements ActionListener {
 			ContentPane.setCurrentLevelView(vbl);
 			((ViewBuildLevel) ContentPane.getCurrentLevelView()).show();
 			builder.getMenu().hide();
-			builder.getModel().setLevel(theLevel);;
+			builder.getModel().setLevel(theLevel);
 
 			//Assign the TileView ChooseTileControllers
 			for(ArrayList<TileView> row : vbl.getBoardView().getTileViews()){
@@ -115,6 +206,9 @@ public class CtrlModifyLevel implements ActionListener {
 
 			// Modify target score controller
 			vbl.getStarVal3().addActionListener(ctrlModifyTargetScore);
+
+			// Exit w/o saving ctrl
+			vbl.getBtnExitWithoutSaving().addActionListener(ctrlExitWithoutSaving);
 
 		} catch (Exception e) {
 			e.printStackTrace();

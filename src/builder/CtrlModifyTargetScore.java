@@ -19,6 +19,6 @@ public class CtrlModifyTargetScore implements ActionListener {
 	public void actionPerformed(ActionEvent actionEvent) {
 		int newTargetScore = Integer.parseInt(((JTextField) actionEvent.getSource()).getText());
 		theLevel.setTargetScore(newTargetScore);
-		System.out.println("Set new target score to" + Integer.toString(newTargetScore));
+		System.out.println("Set new target score to " + Integer.toString(newTargetScore));
 	}
 }

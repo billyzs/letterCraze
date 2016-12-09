@@ -72,7 +72,7 @@ public class AppBuilder extends Application{
 
                     Model builderModel = new Model(levels);
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
-					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightening));
+					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
 
 					//need to set all letters to "";

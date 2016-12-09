@@ -12,7 +12,7 @@ public class Model {
 	Level currentLevel;
 	public static final String Puzzle = "Puzzle";
 	public static final String Theme = "Theme";
-	public static final String Lightening = "Lightening";
+	public static final String Lightning = "Lightning";
 	public Model(ArrayList<Level> l){
 		this.levels = l;
 	}
@@ -43,9 +43,9 @@ public class Model {
 	public void addLevel(Level l){this.levels.add(l);}
 	/**
 	 * Creates new level based on type.
-	 * @param levelType one of "Puzzle", "Lightening", "Theme"
+	 * @param levelType one of "Puzzle", "Lightning", "Theme"
 	 * @return a new level with empty 6*6 board, name, starval, highscore, unlocked=false;
-	 * dict = default for lightening, puzzle, empty for theme;
+	 * dict = default for lightning, puzzle, empty for theme;
 	 */
 	public Level createNewLevel(String levelType) throws Exception{
 		// standardize input
@@ -65,7 +65,7 @@ public class Model {
 					dict = new Dictionary();
 					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, maxWords, unlocked);
 					break;
-				case "Lightening":
+				case "Lightning":
 					dict = new Dictionary();
 					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
 					break;
