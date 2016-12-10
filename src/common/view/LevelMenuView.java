@@ -17,6 +17,78 @@ public class LevelMenuView extends JPanel implements IView {
 	int highscore;
 	int targetScore;
 
+	public JButton getBtnThisLevel() {
+		return btnThisLevel;
+	}
+
+	public void setBtnThisLevel(JButton btnThisLevel) {
+		this.btnThisLevel = btnThisLevel;
+	}
+
+	public JLabel getLblSequence() {
+		return lblSequence;
+	}
+
+	public void setLblSequence(JLabel lblSequence) {
+		this.lblSequence = lblSequence;
+	}
+
+	public JLabel getLblHighScore() {
+		return lblHighScore;
+	}
+
+	public void setLblHighScore(JLabel lblHighScore) {
+		this.lblHighScore = lblHighScore;
+	}
+
+	public JLabel getLblStar() {
+		return lblStar;
+	}
+
+	public void setLblStar(JLabel lblStar) {
+		this.lblStar = lblStar;
+	}
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+
+	public void setLblTitle(JLabel lblTitle) {
+		this.lblTitle = lblTitle;
+	}
+
+	public String[] getStars() {
+		return stars;
+	}
+
+	public void setStars(String[] stars) {
+		this.stars = stars;
+	}
+
+	public int getHighscore() {
+		return highscore;
+	}
+
+	public void setHighscore(int highscore) {
+		this.highscore = highscore;
+	}
+
+	public int getTargetScore() {
+		return targetScore;
+	}
+
+	public void setTargetScore(int targetScore) {
+		this.targetScore = targetScore;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
+	public void setTheLevel(Level theLevel) {
+		this.theLevel = theLevel;
+	}
+
 	public int getSeq() {
 		return seq;
 	}
@@ -77,7 +149,7 @@ public class LevelMenuView extends JPanel implements IView {
 			btnThisLevel.setText("Locked");
 		}
 		
-		lblHighScore = new JLabel("High score: " + Integer.toString(l.getHighscore()));
+		lblHighScore = new JLabel("High Score: " + Integer.toString(l.getHighscore()));
 		add(lblHighScore);
 		
 		add(btnThisLevel);
@@ -126,7 +198,7 @@ public class LevelMenuView extends JPanel implements IView {
 		}
 		
 		lblStar.setText(stars[0] + stars[1] + stars[2]);
-		lblHighScore.setText("High score: " + highscore);
+		lblHighScore.setText("High Score: " + highscore);
 		
 		if (theLevel.isUnlocked()) {
 			btnThisLevel.setEnabled(true);
