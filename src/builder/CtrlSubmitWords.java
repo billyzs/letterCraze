@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 /**
  * Controller for saving user's submitted words to ThemeLevel's Dict
@@ -59,19 +60,19 @@ public class CtrlSubmitWords implements ActionListener{
 	 * @param userInput
 	 */
 
-	boolean isValid(String userInput, int numActiveTiles) throws Exception {
+	boolean isValid(String userInput, int numActiveTiles) throws IllegalArgumentException {
 		if(numActiveTiles > 36){
 			throw new IllegalArgumentException("Too many tiles: " + Integer.toString(numActiveTiles));
 		}
 		userInput = userInput.toLowerCase();
-		String[] words = userInput.split(",");
+		String[] words = userInput.replaceAll("^[,\\s]+", "").split("[,\\s]+");
 		int totalLength= 0;
 		for(String w : words){
 			if(!isAlpha(w)){
-				throw new IllegalArgumentException(w + " contains illeagle characters.");
+				throw new IllegalArgumentException(w + " contains illegal characters.");
 			}
 			else if (countLetters(w) < 3){
-				throw new IllegalArgumentException(w + " is too short.");
+				throw new IllegalArgumentException(w + " is too short. Needs to be at least 3 letters");
 			}
 			else{
 				totalLength += countLetters(w);
@@ -99,10 +100,23 @@ public class CtrlSubmitWords implements ActionListener{
 				String[] words = userInput.split(",");
 				Dictionary dict = new Dictionary(words);
 				vbl.getLevel().setDict(dict);
+				vbl.prompt.setText("Saved words");
+				vbl.prompt.setVisible(true);
+				String out = "Dict now contains: ";
+				Iterator<String> iter = vbl.getLevel().getDict().getTable().iterator();
+				while (iter.hasNext()){
+					out += iter.next() + " ";
+				}
+
+				System.out.println(out);
 			}
-		} catch (Exception e) {
+		} catch (IllegalArgumentException e) {
 			// display exception message in the prompt field of ViewBuildLevel
 			vbl.prompt.setText(e.getMessage());
+		} catch (Exception e){
+			e.printStackTrace();
+		} finally {
+			//vbl.prompt.setVisible(true);
 		}
 	}
 
