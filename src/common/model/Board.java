@@ -82,7 +82,7 @@ public class Board {
 	String getLetterAt(int row, int col){
 		return tiles.get(row).get(col).getLetters();
 	}
-
+	public Tile at(int row, int col){ return tiles.get(row).get(col);}
 	public int countActiveTiles(){
 		int count = 36;
 		for (ArrayList<Tile> row: this.getTiles()){
