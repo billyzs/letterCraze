@@ -149,7 +149,7 @@ public class LevelMenuView extends JPanel implements IView {
 			btnThisLevel.setText("Locked");
 		}
 		
-		lblHighScore = new JLabel("High score: " + Integer.toString(l.getHighscore()));
+		lblHighScore = new JLabel("High Score: " + Integer.toString(l.getHighscore()));
 		add(lblHighScore);
 		
 		add(btnThisLevel);
@@ -198,7 +198,7 @@ public class LevelMenuView extends JPanel implements IView {
 		}
 		
 		lblStar.setText(stars[0] + stars[1] + stars[2]);
-		lblHighScore.setText("High score: " + highscore);
+		lblHighScore.setText("High Score: " + highscore);
 		
 		if (theLevel.isUnlocked()) {
 			btnThisLevel.setEnabled(true);

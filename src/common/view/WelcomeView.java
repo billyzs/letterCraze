@@ -13,10 +13,10 @@ public class WelcomeView extends Canvas implements IView {
 	}
 
 	public void paint(Graphics g){
-        java.net.URL url = this.getClass().getResource("/images/gameSplash.png");
+        java.net.URL url = this.getClass().getResource("/images/gameSplashFixed.jpg");
         //System.out.print(url.toString());
         Image i = java.awt.Toolkit.getDefaultToolkit().getImage(url);
-        g.drawImage(i, 100, 0, this);
+        g.drawImage(i, 0, 0, this);
         //System.out.println(i.getWidth(this) + " " + i.getHeight(this));
 	}
 
