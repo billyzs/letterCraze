@@ -21,7 +21,7 @@ public class PuzzleLevel extends Level{
 	//TODO save maxwords somehow?
 	public void save(String filename) {
 		try{
-		    PrintWriter wr = new PrintWriter("./" + filename + ".lvl", "UTF-8");
+		    PrintWriter wr = new PrintWriter("./levels/" + filename + ".lvl", "UTF-8");
 		    //write out to disk
 		    wr.println(this.getType());
 		    wr.println(this.getName());
