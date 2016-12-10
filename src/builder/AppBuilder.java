@@ -7,7 +7,7 @@ import common.view.MenuView;
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
+/** Main class for the Builder app. Handles the initial loading of levels and displaying of level
  * Created by billyzs on 11/30/16.
  */
 public class AppBuilder extends Application{
@@ -17,6 +17,14 @@ public class AppBuilder extends Application{
     ViewBuildLevel viewBuildLevel;
     CtrlSaveLevel ctrlSaveLevel;
     ArrayList<CtrlModifyLevel> ctrModifyLevels = new ArrayList<CtrlModifyLevel>();
+
+    public ArrayList<CtrlModifyLevel> getCtrModifyLevels() {
+        return ctrModifyLevels;
+    }
+
+    public void setCtrModifyLevels(ArrayList<CtrlModifyLevel> ctrModifyLevels) {
+        this.ctrModifyLevels = ctrModifyLevels;
+    }
 
     public void setModel(Model model) {
         this.model = model;
@@ -32,15 +40,16 @@ public class AppBuilder extends Application{
 
     public AppBuilder(Model m){
         super(m);
-        //TODO move to initializer function
+
         viewMenu = new ViewMenu(m);
         welcome = new ViewWelcome(viewMenu);
+        initializeModel();
         initializeControllers();
     }
 
     /**
      * Model only needs a currentLevel for builder
-     *
+     * TODO Once we have a folder with levels, load the levels into model here
      */
     private void initializeModel(){
 
@@ -63,7 +72,7 @@ public class AppBuilder extends Application{
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-
+                    // TODO move to initializeModel()
                     Level testLevel = (PuzzleLevel) loadLevel("TestingLevel.lvl");
                     ArrayList<Level> levels = new ArrayList<Level>(18);
 
@@ -75,7 +84,7 @@ public class AppBuilder extends Application{
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
 					builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
 
-					//need to set all letters to "";
+					/*//need to set all letters to "";
 					for(Level l : builderModel.getLevels()){
 						for(ArrayList<Tile> row : l.getBoard().getTiles()){
 							for(Tile t : row){
@@ -83,9 +92,10 @@ public class AppBuilder extends Application{
 							}
 						}
 					}
+					*/
+
                     AppBuilder frame = new AppBuilder(builderModel);
 
-                    //TODO
                     // ViewBuildLevel vbl = new ViewBuildLevel(builderModel.getLevels().get(17));
                     frame.welcome.show();
                     frame.setVisible(true);
