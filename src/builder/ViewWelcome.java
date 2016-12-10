@@ -12,14 +12,14 @@ public class ViewWelcome extends WelcomeView{
     public ViewWelcome(ViewMenu viewMenu){
 
         super(viewMenu);
-        imagePath = "/images/builderSplash.png";
+        imagePath = "/images/builderSplashFixed.jpg";
     }
     //TODO ask grant why we need this
     public void paint(Graphics g){
-        java.net.URL url = this.getClass().getResource("/images/builderSplash.png");
+        java.net.URL url = this.getClass().getResource("/images/builderSplashFixed.jpg");
         //System.out.print(url.toString());
         Image i = java.awt.Toolkit.getDefaultToolkit().getImage(url);
-        g.drawImage(i, 100, 0, this);
+        g.drawImage(i, 0, 0, this);
         //System.out.println(i.getWidth(this) + " " + i.getHeight(this));
     }
 }
