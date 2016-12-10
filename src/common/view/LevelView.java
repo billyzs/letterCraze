@@ -165,7 +165,7 @@ public class LevelView extends JPanel implements IView {
 		this.stars.refresh();
 		
 		//Grey out finishbutton if necesary
-		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3))
+		if(this.level.getCurrentPoints() >= (this.level.getTargetScore()/3.0))
             this.finish.setEnabled(true);
 		else
 			this.finish.setEnabled(false);
