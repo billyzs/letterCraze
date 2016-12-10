@@ -43,7 +43,7 @@ public class ChooseTileController implements MouseListener{
 			newTile = new Tile(row,col);
 		else
 			newTile = new NullTile(row,col);
-		newTile.setSelected(true);
+		//newTile.setSelected(true);
 		this.model.getCurrentLevel().getBoard().getTiles().get(row).set(col, newTile);
 
         tileView.updateTile(newTile);

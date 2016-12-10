@@ -44,6 +44,21 @@ public class Application extends JFrame{
 	}
 
 	public MenuView getMenu(){ return this.menu; }
+	
+	public static ArrayList<Level> loadDefaultLevels(){
+		ArrayList<Level> result = new ArrayList<Level>();
+		try{
+            for(int k = 0; k < 5; k++){
+                result.add(loadLevel("Puzzle_Level_"+k));
+                result.add(loadLevel("Lightning_Level_"+k));
+                result.add(loadLevel("Theme_Level_"+k));
+            }
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	//This will eventually be in a common.controller
 	public static Level loadLevel(String filename) throws IOException{

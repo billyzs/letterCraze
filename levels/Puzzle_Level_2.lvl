@@ -1,11 +1,11 @@
 Puzzle
-TestingLevel
+Puzzle_Level_2
 0
-30
-true
+36
+false
 111111
 011111
-011100
+010100
 011110
 111110
 111111
