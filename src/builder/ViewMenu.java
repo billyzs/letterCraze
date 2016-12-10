@@ -37,6 +37,7 @@ public class ViewMenu extends MenuView implements IView{
             }
             lmv.getButton().setText(btnString);
             lmv.getButton().setEnabled(true); // should be able to edit a locked level
+            lmv.getLblTitle().setVisible(false); //upstream introduced unwanted changes AGAIN
             //TODO add controller for buttons in lmv
 
         }
