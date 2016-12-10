@@ -1,18 +1,10 @@
 package builder;
 import java.awt.event.*;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.IllegalFormatCodePointException;
 
-import javax.swing.JComboBox;
-
-import common.application.Application;
-import common.controller.ExitLevelController;
 import common.model.*;
 import common.view.ContentPane;
 import common.view.LevelMenuView;
-import common.view.LevelView;
 import common.view.TileView;
 /**
  * Controller to handle bringing up the level building view.
@@ -154,7 +146,7 @@ public class CtrlModifyLevel implements ActionListener {
 				backup = builder.loadLevel(theLevel.getName()+".lvl");
 			}
 			else {
-				backup = builder.getModel().creaateNewLevel(theLevel.getType(), theLevel.getName());
+				backup = builder.getModel().createNewLevel(theLevel.getType(), theLevel.getName());
 			}
 		} catch (Exception e){
 			System.err.println("unable to load");

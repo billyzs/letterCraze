@@ -36,6 +36,7 @@ public class ViewMenu extends MenuView implements IView{
                 btnString = "Create a new " + lmv.getTheLevel().getType() + " level";
             }
             lmv.getButton().setText(btnString);
+            lmv.getButton().setEnabled(true); // should be able to edit a locked level
             //TODO add controller for buttons in lmv
 
         }
