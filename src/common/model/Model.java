@@ -68,7 +68,7 @@ public class Model {
 		String name = "";
 		int starVal = 0;
 		int highScore = 0;
-		int maxWords = 100; //for puzzle
+		//int maxWords = 100; //for puzzle
 		boolean unlocked = false;
 		Dictionary dict = new Dictionary(new HashSet<String>());
 		Level level;
@@ -76,7 +76,7 @@ public class Model {
 			switch (levelType){
 				case "Puzzle":
 					dict = new Dictionary();
-					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, maxWords, unlocked);
+					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, unlocked);
 					break;
 				case "Lightning":
 					dict = new Dictionary();

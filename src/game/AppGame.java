@@ -40,11 +40,13 @@ public class AppGame extends Application{
 			public void run() {
 				try {
 
-                    Level testLevel = (PuzzleLevel)loadLevel("Puzzle_Level_1.lvl");
-                    ArrayList<Level> levels = new ArrayList<Level>();
+                    //Level testLevel = (PuzzleLevel)loadLevel("Puzzle_Level_1.lvl");
+                    ArrayList<Level> levels = loadDefaultLevels();//new ArrayList<Level>();
                      
-                    for(int k = 0; k < 15;k++)
+                    /*
+                     * for(int k = 0; k < 15;k++)
                         levels.add(testLevel);
+                        */
 
 					AppGame frame = new AppGame(new Model(levels));
 

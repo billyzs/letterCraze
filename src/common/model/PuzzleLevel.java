@@ -5,12 +5,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class PuzzleLevel extends Level{
-	int maxWords;
 	public static final String type = "Puzzle";
 
-	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int sv, int mw, boolean ul){
+	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul){
 		super(b,n,d,hs,sv,ul);
-		this.maxWords = mw;
 	}
 	
 	public String getType(){

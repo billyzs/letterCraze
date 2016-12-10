@@ -48,10 +48,13 @@ public class Application extends JFrame{
 	public static ArrayList<Level> loadDefaultLevels(){
 		ArrayList<Level> result = new ArrayList<Level>();
 		try{
-            for(int k = 0; k < 5; k++){
-                result.add(loadLevel("Puzzle_Level_"+k));
-                result.add(loadLevel("Lightning_Level_"+k));
-                result.add(loadLevel("Theme_Level_"+k));
+            for(int k = 1; k <= 5; k++){
+            	System.out.println("Loading Puzzle " + k);
+                result.add(loadLevel("Puzzle_Level_"+k+".lvl"));
+            	System.out.println("Loading lightning " + k);
+                result.add(loadLevel("Lightning_Level_"+k+".lvl"));
+            	System.out.println("Loading theme " + k);
+                result.add(loadLevel("Theme_Level_"+k+".lvl"));
             }
 		}
 		catch(Exception e){
@@ -117,16 +120,18 @@ public class Application extends JFrame{
             	case "Puzzle":
             		//TODO fix placeholder values
             		result = new PuzzleLevel(new Board(tiles), name, new Dictionary(),
-                    		highscore, targetScore, 100, isUnlocked);
+                    		highscore, targetScore, isUnlocked);
             		return result;
             	case "Lightning":
+            		result = new LightningLevel(new Board(tiles), name, new Dictionary(),
+                    		highscore, targetScore, isUnlocked);
             		return result;
             	case "Theme":
 
 					HashSet<String> table = new HashSet<String>();
              		// not at EOF yet, read into dict.
 					String word;
-					while((word=br.readLine()) != null){
+					while((word=br.readLine()) != null && !word.equals("")){
 						table.add(word.toLowerCase());
 					}
 					Dictionary dict = new Dictionary(table);
