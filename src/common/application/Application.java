@@ -51,7 +51,7 @@ public class Application extends JFrame{
 		//read a file
 		BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader("./" + filename));
+            br = new BufferedReader(new FileReader("./levels/" + filename));
             
             //get first three args
             String type = br.readLine();

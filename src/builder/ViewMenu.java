@@ -26,7 +26,7 @@ public class ViewMenu extends MenuView implements IView{
         //TODO stars, locks, previous high scores shouldn't be needed.
         for(LevelMenuView lmv : this.getLevelMenuViews()){
             lmv.getLabelHighScore().setVisible(false);
-            lmv.getLabelLocked().setVisible(false);
+            //lmv.getLabelLocked().setVisible(false);
             lmv.getLabelStar().setVisible(false);
             String btnString = "";
             if(lmv.getTheLevel().getName() != ""){
