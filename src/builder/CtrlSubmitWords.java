@@ -97,7 +97,7 @@ public class CtrlSubmitWords implements ActionListener{
 		try{
 			if(isValid(userInput, numActiveTile)){
 				// save dict to level
-				String[] words = userInput.split(",");
+				String[] words = userInput.replaceAll("^[,\\s]+", "").split("[,\\s]+");
 				Dictionary dict = new Dictionary(words);
 				vbl.getLevel().setDict(dict);
 				vbl.prompt.setText("Saved words");

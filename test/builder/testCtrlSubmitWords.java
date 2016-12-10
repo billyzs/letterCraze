@@ -42,5 +42,13 @@ public class testCtrlSubmitWords extends TestCase{
 		}
 
 	}
+	public void testDict(){
+		String[] t = {"aaa", "bbb", "ccc"};
+		Dictionary d = new Dictionary(t);
+		assertTrue(d.isWord("aaa"));
+		assertTrue(d.isWord("bbb"));
+		assertTrue(d.isWord("ccc"));
+
+	}
 
 }
