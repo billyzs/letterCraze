@@ -72,6 +72,7 @@ public class Model {
 		boolean unlocked = false;
 		Dictionary dict = new Dictionary(new HashSet<String>());
 		Level level;
+		int lightningSeconds = 66;
 		try{
 			switch (levelType){
 				case "Puzzle":
@@ -80,7 +81,7 @@ public class Model {
 					break;
 				case "Lightning":
 					dict = new Dictionary();
-					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
+					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked, lightningSeconds); //TODO santiago
 					break;
 				case "Theme":
 					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);

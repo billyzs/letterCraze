@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.SwingConstants;
 
 import common.model.Level;
+import common.model.LightningLevel;
 
 public class LevelView extends JPanel implements IView {
 	BoardView board;
@@ -27,20 +28,23 @@ public class LevelView extends JPanel implements IView {
 	JLabel name;
 	JLabel timer;
 	Level level;
+	int lightningSeconds;
 	
 	GroupLayout layout;
 	
 	public LevelView(){};
 	public LevelView(Level l){
 		this.level = l;
-
+		if (level.getType().equals("Lightning")) {
+			lightningSeconds = ((LightningLevel) level).getTimerSeconds();
+		}
 		BoardView panel = new BoardView(level.getBoard());
 		JButton exit = new JButton("Exit");
 		JButton reset = new JButton("Reset");
 		JButton undo = new JButton("Undo");
 		JButton finish = new JButton("Finish Level");
 		JLabel name = new JLabel(level.getName());
-		JLabel timer = new JLabel("000");
+		JLabel timer = new JLabel(""+ lightningSeconds);
 		StarsView panel_1 = new StarsView(level);
 		
 		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord());
@@ -149,6 +153,7 @@ public class LevelView extends JPanel implements IView {
 	public BoardView getBoardView() { return this.board; }
 	public SubmittedWordsView getSubmittedWordsView() { return this.submittedWords; }
 	public StarsView getStarsView() { return this.stars; }
+	public JLabel getTimerLabel() {return this.timer; }
 
 	//Redisplays all tilesviews, might do other stuff later
 	public void refresh() {

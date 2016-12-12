@@ -114,6 +114,14 @@ public class Application extends JFrame{
             	System.out.println(tiles.get(0).get(k).getLetters());
             }*/
             
+            int ligthningSeconds = 0;
+            System.out.println("NOT YET"+ ligthningSeconds + type);
+            if (type.equals("Lightning")) {
+            	ligthningSeconds = Integer.parseInt(br.readLine());
+            	System.out.println("WE DID SET IT" + ligthningSeconds);
+            }
+            System.out.println("YOU MISSED IT"+ ligthningSeconds);
+            
             //create the resulting level
             Level result = null;
             switch(type){
@@ -124,7 +132,7 @@ public class Application extends JFrame{
             		return result;
             	case "Lightning":
             		result = new LightningLevel(new Board(tiles), name, new Dictionary(),
-                    		highscore, targetScore, isUnlocked);
+                    		highscore, targetScore, isUnlocked, ligthningSeconds);
             		return result;
             	case "Theme":
 
