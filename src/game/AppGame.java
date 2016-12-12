@@ -34,13 +34,9 @@ public class AppGame extends Application{
 		}
 
 	}
-    
+
+    //Not yet used
     public void initializeControllers(){
-    	for(Level l : this.model.getLevels()){
-    		if(l instanceof LightningLevel){
-    			((LightningLevel) l).setTimer(new Timer(1000, new TimerController(l)));
-    		}
-    	}
     }
 
 	/**
