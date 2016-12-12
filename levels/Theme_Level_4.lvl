@@ -10,6 +10,5 @@ false
 111111
 111111
 int
-boolean
-string
+char
 double
