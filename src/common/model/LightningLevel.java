@@ -28,7 +28,7 @@ public class LightningLevel extends Level{
 
 		this.currentPoints = 0;
 		
-		timer = new Timer(1000, new TimerController());
+		//timer = new Timer(1000, new TimerController(this, )); TODO ??????
 
 	}
 
