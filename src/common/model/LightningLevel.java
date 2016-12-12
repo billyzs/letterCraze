@@ -27,6 +27,9 @@ public class LightningLevel extends Level{
 		}
 
 		this.currentPoints = 0;
+		
+		timer = new Timer(1000, new TimerController());
+
 	}
 
 	@Override
@@ -66,5 +69,6 @@ public class LightningLevel extends Level{
 	}
 	
 	public int getTimerSeconds() { return this.timerSeconds; }
+	public Timer getTimer() { return this.timer; }
 
 }

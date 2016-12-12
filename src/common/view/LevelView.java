@@ -153,6 +153,7 @@ public class LevelView extends JPanel implements IView {
 	public BoardView getBoardView() { return this.board; }
 	public SubmittedWordsView getSubmittedWordsView() { return this.submittedWords; }
 	public StarsView getStarsView() { return this.stars; }
+	public JLabel getTimerLabel() {return this.timer; }
 
 	//Redisplays all tilesviews, might do other stuff later
 	public void refresh() {
