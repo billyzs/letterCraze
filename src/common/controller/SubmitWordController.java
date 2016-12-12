@@ -36,6 +36,9 @@ public class SubmitWordController implements ActionListener{
             
             //float tiles
             this.level.floatTiles();
+            
+            //repopulate empties
+            this.level.repopulate();
 		}
 		
 		/*if(level.getDict().isWord(theWord.toString())){

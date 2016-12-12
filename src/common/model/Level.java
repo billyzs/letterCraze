@@ -79,8 +79,8 @@ public abstract class Level{
 	//  This will eventually go to a common.controller I think
 	public abstract void save(String filename);
 	
-	protected void repopulate(){
-		//TODO fill empty cells at bottom
+	public void repopulate(){
+		this.board.fillEmpty();
 	}
 
 	/**
@@ -136,9 +136,9 @@ public abstract class Level{
                     return row.get(col);
 		}
 
-		//make new random tiles
-        Tile result = new Tile(r,col);
-		result.setRandLetter();
+		//make new tiles
+        Tile result = new Tile("",r,col);
+		//result.setRandLetter();
 
 		return result; 
 	}

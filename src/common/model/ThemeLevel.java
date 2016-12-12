@@ -10,8 +10,10 @@ public class ThemeLevel extends Level {
 		//this.initialize();
 	}
 	
-	protected void repopulate(){
+	@Override
+	public void repopulate(){
 		//do nothing
+		System.out.println("\n\nREPOPULATE THEME\n\n");
 	}
 	
 	/**
