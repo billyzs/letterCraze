@@ -60,7 +60,7 @@ public abstract class Level{
 		this.targetScore = ts;
 		this.unlocked = ul;
 		this.currentWord = new Word();
-		this.initialize();
+		//this.initialize();
 	}
 
 	public void initialize(){
@@ -181,6 +181,12 @@ public abstract class Level{
 	public void updateHighscore() {
 		if(this.currentPoints > this.highscore)
 			this.highscore = this.currentPoints;
+	}
+
+	/**
+	 * responsible for teardown, opposite of init.
+	 */
+	public void terminate() {
 	}
 	
 	

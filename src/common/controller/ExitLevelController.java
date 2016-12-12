@@ -19,6 +19,7 @@ public class ExitLevelController implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
 
 		//hide the current level view
+		ContentPane.getCurrentLevelView().getLevel().terminate();
 		ContentPane.getCurrentLevelView().hide();
 
 		//Show the menu

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
+import common.controller.TimerController;
 
 public class LightningLevel extends Level{
 	Timer timer;
@@ -28,8 +29,14 @@ public class LightningLevel extends Level{
 
 		this.currentPoints = 0;
 		
+        this.setTimer(new Timer(1000, new TimerController(this)));
+		this.timer.start();
 		//timer = new Timer(1000, new TimerController(this, )); TODO ??????
-
+	}
+	
+	@Override
+	public void terminate(){
+		this.timer.stop();
 	}
 
 	@Override
@@ -70,5 +77,6 @@ public class LightningLevel extends Level{
 	
 	public int getTimerSeconds() { return this.timerSeconds; }
 	public Timer getTimer() { return this.timer; }
+	public void setTimer(Timer timer2) {this.timer = timer2;}
 
 }

@@ -3,15 +3,18 @@ package game;
 import common.application.Application;
 import common.controller.StartLevelController;
 import common.model.Level;
+import common.model.LightningLevel;
 import common.model.Model;
 import common.model.PuzzleLevel;
 import common.view.LevelMenuView;
 import common.view.LevelView;
 import common.view.MenuView;
 import common.view.WelcomeView;
+import common.controller.*;
 
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.Timer;
 
 /**
  * Created by gtespe on 02/12/16.
@@ -29,7 +32,16 @@ public class AppGame extends Application{
             almv.getButton().addActionListener(new StartLevelController(this, this.model.getLevels().get(seq)));
             seq++;
 		}
+
 	}
+    
+    public void initializeControllers(){
+    	for(Level l : this.model.getLevels()){
+    		if(l instanceof LightningLevel){
+    			((LightningLevel) l).setTimer(new Timer(1000, new TimerController(l)));
+    		}
+    	}
+    }
 
 	/**
 	 * Launch the application.

@@ -38,13 +38,14 @@ public class LevelView extends JPanel implements IView {
 		if (level.getType().equals("Lightning")) {
 			lightningSeconds = ((LightningLevel) level).getTimerSeconds();
 		}
+
 		BoardView panel = new BoardView(level.getBoard());
 		JButton exit = new JButton("Exit");
 		JButton reset = new JButton("Reset");
 		JButton undo = new JButton("Undo");
 		JButton finish = new JButton("Finish Level");
 		JLabel name = new JLabel(level.getName());
-		JLabel timer = new JLabel(""+ lightningSeconds);
+		JLabel timerlocal = new JLabel("" + lightningSeconds);
 		StarsView panel_1 = new StarsView(level);
 		
 		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord());
@@ -77,7 +78,7 @@ public class LevelView extends JPanel implements IView {
 							.addGap(18)
 							.addComponent(name, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)
 							.addGap(18)
-							.addComponent(timer, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+							.addComponent(timerlocal, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(finish, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -92,7 +93,7 @@ public class LevelView extends JPanel implements IView {
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(undo)
 							.addComponent(finish)
-							.addComponent(timer)
+							.addComponent(timerlocal)
 							.addComponent(name, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -111,6 +112,7 @@ public class LevelView extends JPanel implements IView {
 		this.reset = reset;
 		this.undo = undo;
 		this.name = name;
+		this.timer = timerlocal;
 		this.finish = finish;
 		this.stars = panel_1;
 		this.submittedWords = panel_2;

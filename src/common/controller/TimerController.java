@@ -10,24 +10,25 @@ import common.application.Application;
 import common.model.Level;
 import common.model.LightningLevel;
 import common.model.Model;
+import common.view.ContentPane;
 import common.view.LevelView;
 
-class TimerController implements ActionListener{
+public class TimerController implements ActionListener{
     int elapsedSeconds = 30;
     JLabel timerLabel;
 	Level level;
 	LevelView levelView;
 	Timer timer;
 	
-	public TimerController(Level l, LevelView lv){
-		this.levelView = lv;
+	public TimerController(Level l){
 		this.level= l;
 		this.timer = ((LightningLevel) l).getTimer();
-		timerLabel = levelView.getTimerLabel();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		this.levelView = ContentPane.getCurrentLevelView();
+		timerLabel = levelView.getTimerLabel();
 		elapsedSeconds--;
         timerLabel.setText("" + elapsedSeconds);
         if(elapsedSeconds <= 0){
