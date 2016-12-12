@@ -108,15 +108,17 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(btnSaveChanges);
 
 
-        lblLevelSettings = new JLabel("Enter new level name");
-        lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
+        lblLevelSettings = new JLabel("Enter new level name (Hit enter to save)");
+        // lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
         lblLevelSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-        lblLevelSettings.setBounds(680, 41, 180, 22);
+        lblLevelSettings.setBounds(601, 41, 180, 22);
         add(lblLevelSettings);
 		fieldChangeLevelName = new JTextField(level.getName());
-		fieldChangeLevelName.setBounds(680, 64, 148, 22);
+		fieldChangeLevelName.setBounds(601, 64, 148, 22);
+		// fieldChangeLevelName.setHorizontalAlignment(SwingConstants.CENTER);
 		add(fieldChangeLevelName);
 		lblPointThresholds = new JLabel("Points for ★★★: (Hit enter to save)");
+		lblPointThresholds.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
         lblPointThresholds.setBounds(601, 140, 480, 16);
         add(lblPointThresholds);
 
@@ -124,12 +126,12 @@ public class ViewBuildLevel extends LevelView implements IView{
 
         starVal3 = new JTextField();
         starVal3.setColumns(10);
-        starVal3.setBounds(658, 157, 77, 26);
+        starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
 
 		if(level.getType() == "Theme") {
-			JLabel lblInsertDesiredWords = new JLabel("Separate with commas");
-			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+			JLabel lblInsertDesiredWords = new JLabel("Insert dictionary words (separate with commas)");
+			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
 			add(lblInsertDesiredWords);
 			textPane = new JTextPane();

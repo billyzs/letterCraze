@@ -42,6 +42,7 @@ public class Dictionary {
 		table = alternate;
 	}
 	public Dictionary(String[] words){
+		table = new HashSet<String>();
 		for(String word : words){
 			this.table.add(word.toLowerCase());
 		}
