@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by billyzs on 12/8/16.
+ * <code>ActionListener</code> controller for setting or changing the name of a level being created in an <code>AppBuilder</code> object.
+ * 
+ * @author Created by billyzs on 12/8/16.
  */
 public class CtrlChangeLevelName implements ActionListener {
 	Level theLevel;

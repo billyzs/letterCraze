@@ -15,17 +15,26 @@ import java.util.Iterator;
 
 /**
  * Saves a level to ASCII file format as specified by Grant.
- * Fileds are (separated by new line):
- * Type
- * Name
- * highScore
- * starVal[0]
- * starVal[1]
- * starVal[2]
- * unlocked
+ * Fields are (separated by new line):
+ * <p>
+ * <code>Type</code>
+ * <p>
+ * <code>Name</code>
+ * <p>
+ * <code>highScore</code>
+ * <p>
+ * <code>starVal[0]</code>
+ * <p>
+ * <code>starVal[1]</code>
+ * <p>
+ * <code>starVal[2]</code>
+ * <p>
+ * <code>unlocked</code>
+ * <p>
  * 6*6 Board Layout
- * (Theme only) Dict words
- * Created by billyzs on 12/3/16.
+ * <p>
+ * (Theme only) Dict words.
+ * @author Created by billyzs on 12/3/16.
  */
 
 public class CtrlSaveLevel implements ActionListener {
@@ -77,13 +86,17 @@ public class CtrlSaveLevel implements ActionListener {
             if(writer!=null) writer.close();
         }
     }
+    
+    /**
+     * Saves a level to an ASCII text file in the format specified in class description.
+     * @param lvl
+     * @throws IOException
+     */
     public void saveLevelToFile(Level lvl) throws IOException{
         saveLevelToFile(lvl, lvl.getName()+".lvl");
     }
+    
     @Override
-    /**
-     * File name should be
-     */
     public void actionPerformed(ActionEvent actionEvent){
         System.out.println("preparing to save");
         try{

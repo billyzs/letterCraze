@@ -64,11 +64,12 @@ public class ViewBuildLevel extends LevelView implements IView{
 	}
 
 	JButton btnSaveDict;
+	
 	/**
      * Create the panel.
+     * @param lmv
      */
-
-    public ViewBuildLevel(LevelMenuView lmv) {
+	public ViewBuildLevel(LevelMenuView lmv) {
 
 
         //TODO TEST!!!
