@@ -9,9 +9,8 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/** <code>ActionListener</code> controller for deleting a level that was being built in an <code>AppBuilder</code> object.
- * 
- * @author Created by billyzs on 12/8/16.
+/** Deletes the file
+ * Created by billyzs on 12/8/16.
  */
 public class CtrlDeleteLevel implements ActionListener {
 	ViewBuildLevel viewBuildLevel;

@@ -8,14 +8,17 @@ import javax.swing.*;
 import common.model.Level;
 import common.view.*;
 /**
- * Created by billyzs on 12/3/16.
+ * Boundary object for the viewing of a level currently being built.
+ * @author Created by billyzs on 12/3/16.
  */
 public class ViewBuildLevel extends LevelView implements IView{
 
 	// Application app;
     Level level;
     //TODO what are the textFields?
-
+    /**
+     * The Swing attributes.
+     */
     private JTextField starVal3;
 	JButton btnExitWithoutSaving;
 	JLabel lblChooseAtLeast;
@@ -28,6 +31,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JTextPane textPane;
 	JLabel prompt;
 
+	/**
+	 * Returns the <code>fieldChangeLevelName</code> <code>JTextfield</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
 	public JTextField getFieldChangeLevelName() {
 		return fieldChangeLevelName;
 	}
@@ -45,6 +52,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.lmv = lmv;
 	}
 
+	/**
+	 * Returns the <code>seq</code> <code>Integer</code> attribute.
+	 * @return seq
+	 */
 	public int getSeq() {
 		return seq;
 	}
@@ -55,6 +66,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 
 	LevelMenuView lmv;
 	int seq;
+	/**
+	 * Returns the <code>btnSaveDict</code> <code>JButton</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
 	public JButton getBtnSaveDict() {
 		return btnSaveDict;
 	}
@@ -64,7 +79,6 @@ public class ViewBuildLevel extends LevelView implements IView{
 	}
 
 	JButton btnSaveDict;
-	
 	/**
      * Create the panel.
      * @param lmv
@@ -148,6 +162,9 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.hideLetters();
     }
 
+	/**
+	 * Update the ViewBuildLevel to reflect changes, usually to show a tile has been selected.
+	 */
     public void refresh(){
     	//update the color of the tiles
 		for(ArrayList<TileView> row : this.panel.getTileViews()){
@@ -166,7 +183,7 @@ public class ViewBuildLevel extends LevelView implements IView{
     }
     
     /**
-     * Hide all lettesr in boardview..
+     * Hide all letters in boardview.
      */
     public void hideLetters(){
 		for(ArrayList<TileView> row : this.panel.getTileViews()){
@@ -202,10 +219,18 @@ public class ViewBuildLevel extends LevelView implements IView{
         ContentPane.get().validate();
     }
 
+    /**
+	 * Returns the <code>panel</code> <code>BoardView</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
     public BoardView getBoardView(){
     	return this.panel;
     }
 
+    /**
+	 * Returns the <code>level</code> <code>Level</code> attribute.
+	 * @return level
+	 */
 	public Level getLevel() {
 		return level;
 	}
@@ -214,6 +239,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.level = level;
 	}
 
+	/**
+	 * Returns the <code>starVal3</code> <code>JTextfield</code> attribute.
+	 * @return starVal3
+	 */
 	public JTextField getStarVal3() {
 		return starVal3;
 	}
@@ -222,6 +251,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.starVal3 = starVal3;
 	}
 
+	/**
+	 * Returns the <code>getBtnExitWithoutSaving</code> <code>JButton</code> attribute.
+	 * @return getBtnExitWithoutSaving
+	 */
 	public JButton getBtnExitWithoutSaving() {
 		return btnExitWithoutSaving;
 	}
@@ -230,6 +263,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.btnExitWithoutSaving = btnExitWithoutSaving;
 	}
 
+	/**
+	 * Returns the <code>lblChooseAtLeast</code> <code>JLabel</code> attribute.
+	 * @return lblChooseAtLeast
+	 */
 	public JLabel getLblChooseAtLeast() {
 		return lblChooseAtLeast;
 	}
@@ -238,6 +275,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.lblChooseAtLeast = lblChooseAtLeast;
 	}
 
+	/**
+	 * Returns the <code>btnSaveChanges</code> <code>JButton</code> attribute.
+	 * @return btnSaveChanges
+	 */
 	public JButton getBtnSaveChanges() {
 		return btnSaveChanges;
 	}
@@ -246,6 +287,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.btnSaveChanges = btnSaveChanges;
 	}
 
+	/**
+	 * Returns the <code>btnDeleteLevel</code> <code>JButton</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
 	public JButton getBtnDeleteLevel() {
 		return btnDeleteLevel;
 	}
@@ -254,6 +299,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.btnDeleteLevel = btnDeleteLevel;
 	}
 
+	/**
+	 * Returns the <code>btnPreviewLevel</code> <code>JButton</code> attribute.
+	 * @return btnPreviewLevel
+	 */
 	public JButton getBtnPreviewLevel() {
 		return btnPreviewLevel;
 	}
@@ -262,6 +311,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.btnPreviewLevel = btnPreviewLevel;
 	}
 
+	/**
+	 * Returns the <code>lvlLevelSettings</code> <code>JLabel</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
 	public JLabel getLblLevelSettings() {
 		return lblLevelSettings;
 	}
@@ -270,6 +323,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.lblLevelSettings = lblLevelSettings;
 	}
 
+	/**
+	 * Returns the <code>lblPointThresholds</code> <code>JLabel</code> attribute.
+	 * @return lblPointThresholds
+	 */
 	public JLabel getLblPointThresholds() {
 		return lblPointThresholds;
 	}
@@ -278,6 +335,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.lblPointThresholds = lblPointThresholds;
 	}
 
+	/**
+	 * Returns the <code>panel</code> <code>BoardView</code> attribute.
+	 * @return panel
+	 */
 	public BoardView getPanel() {
 		return panel;
 	}
@@ -286,6 +347,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.panel = panel;
 	}
 
+	/**
+	 * Returns the <code>textPane</code> <code>JTextPane</code> attribute.
+	 * @return textPane
+	 */
 	public JTextPane getTextPane() {
 		return textPane;
 	}
@@ -294,6 +359,10 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.textPane = textPane;
 	}
 
+	/**
+	 * Returns the <code>prompt</code> <code>JLabel</code> attribute.
+	 * @return prompt
+	 */
 	public JLabel getPrompt() {
 		return prompt;
 	}

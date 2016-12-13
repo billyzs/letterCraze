@@ -13,7 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by billyzs on 11/30/16.
+ * View of the menu of the builder application.
+ * @author Created by billyzs on 11/30/16.
  */
 public class ViewMenu extends MenuView implements IView{
     //JComboBox boxCreateNewLevel;

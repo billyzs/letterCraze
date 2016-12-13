@@ -7,7 +7,8 @@ import common.view.LevelView;
 import javax.swing.*;
 
 /**
- * Created by billyzs on 12/8/16.
+ * View of a preview of what a level currently being built will look like when saved.
+ * @author Created by billyzs on 12/8/16.
  */
 public class ViewPreview extends JFrame {
 	BoardView boardView;

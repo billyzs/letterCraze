@@ -11,8 +11,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 /**
- * <code>ActionListener</code> controller for saving user's submitted words to ThemeLevel's Dict.
- * @author Created by billyzs on 12/7/16.
+ * Controller for saving user's submitted words to ThemeLevel's Dict
+ * Created by billyzs on 12/7/16.
  */
 public class CtrlSubmitWords implements ActionListener{
 	String prompt; // message to display to user
@@ -27,7 +27,7 @@ public class CtrlSubmitWords implements ActionListener{
 	}
 
 	/**
-	 * Count the number of letters in word, counting qu as 1 letter.
+	 * Count the number of letters in word, counting qu as 1 letter
 	 * @param w word
 	 * @return number of letters
 	 */
@@ -37,16 +37,16 @@ public class CtrlSubmitWords implements ActionListener{
 	}
 
 	/**
-	 * Returns whether a string only contains a-z.
+	 * return true if w only contains a-z
 	 * @param w
-	 * @return true if w only contains a-z.
+	 * @return
 	 */
 	boolean isAlpha(String w){
 		return w.chars().allMatch(Character::isLetter);
 	}
 
 	/**
-	 * Parse comma delimited string as list.
+	 * Parse comma delimited string as list
 	 * @param userInput
 	 * @return
 	 */
@@ -54,14 +54,12 @@ public class CtrlSubmitWords implements ActionListener{
 
 	/**
 	 * Validate user input.
-	 * <p>
 	 * User input is valid if
-	 * <ol>
-	 * <li> total number of letters < number of squares enabled (Qu count as 1) </li>
-	 * <li> each word is longer than 3 letters. </li>
-	 * </ol>
+	 * 1. total number of letters < number of squares enabled (Qu count as 1)
+	 * 2. each word is longer than 3 letters
 	 * @param userInput
 	 */
+
 	boolean isValid(String userInput, int numActiveTiles) throws IllegalArgumentException {
 		if(numActiveTiles > 36){
 			throw new IllegalArgumentException("Too many tiles: " + Integer.toString(numActiveTiles));

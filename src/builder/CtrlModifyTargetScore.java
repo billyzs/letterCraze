@@ -7,8 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * <code>ActionListener</code> controller for modifying the scores required in a level to reach each star threshold.
- * @author Created by billyzs on 12/8/16.
+ * Created by billyzs on 12/8/16.
  */
 public class CtrlModifyTargetScore implements ActionListener {
 	Level theLevel;
