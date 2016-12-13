@@ -11,6 +11,7 @@ import common.controller.StartLevelController;
 import common.view.LevelView;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,11 +50,8 @@ public class Application extends JFrame{
 		ArrayList<Level> result = new ArrayList<Level>();
 		try{
             for(int k = 1; k <= 5; k++){
-            	System.out.println("Loading Puzzle " + k);
                 result.add(loadLevel("Puzzle_Level_"+k+".lvl"));
-            	System.out.println("Loading lightning " + k);
                 result.add(loadLevel("Lightning_Level_"+k+".lvl"));
-            	System.out.println("Loading theme " + k);
                 result.add(loadLevel("Theme_Level_"+k+".lvl"));
             }
 		}
@@ -61,6 +59,48 @@ public class Application extends JFrame{
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	/**
+	 * Loads levels besides the default levels in folder /levels
+	 * @return returns an arraylist of levels, besides default levels.
+	 */
+	public static ArrayList<Level> loadOtherLevels(){
+		File folder = new File("./levels");
+		ArrayList<String> filenames = new ArrayList<String>();
+        for (File fileEntry : folder.listFiles()) {
+            if (!fileEntry.isDirectory()) {
+                filenames.add(fileEntry.getName());
+            }
+		}
+        
+        ArrayList<Level> result = new ArrayList<Level>();
+
+        //cycle through filenames
+        for(String s : filenames){
+        	boolean isDefault = false;
+
+        	//shitty way of checking if its a default level
+            for(int k = 1; k <= 5; k++){
+                if(s.equals("Puzzle_Level_"+k+".lvl")
+                    || (s.equals("Lightning_Level_"+k+".lvl"))
+                    || (s.equals("Theme_Level_"+k+".lvl"))){
+                	isDefault = true;
+                }
+            }
+
+            //if it isnt default, add to result
+            if(!isDefault){
+                try {
+                	System.out.println("Loading " + s);
+                    result.add(loadLevel(s));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return result;
 	}
 
 	//This will eventually be in a common.controller
@@ -121,7 +161,6 @@ public class Application extends JFrame{
             int maxWords = 0;
             if (type.equals("Puzzle")){
             	maxWords = Integer.parseInt(br.readLine());
-                System.out.println("\n\nMaxWords == " + maxWords + "\n\n");
             }
             
             

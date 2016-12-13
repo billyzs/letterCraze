@@ -8,6 +8,7 @@ import common.model.Tile;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,7 +48,11 @@ public class CtrlSaveLevel implements ActionListener {
     protected void saveLevelToFile(Level lvl, String filename) throws IOException {
         BufferedWriter writer = null;
         try{
-            writer = new BufferedWriter(new FileWriter(filename));
+        	//check if the file exists (Always unlock new levels/files)
+        	File f = new File("./levels/" + filename);
+        	boolean isDefault = f.exists();
+
+            writer = new BufferedWriter(new FileWriter("./levels/" + filename));
             writer.write(lvl.getType()); writer.newLine();
             writer.write(lvl.getName()); writer.newLine();
             writer.write(Integer.toString(lvl.getHighscore())); writer.newLine();
@@ -55,7 +60,14 @@ public class CtrlSaveLevel implements ActionListener {
 
             writer.write(Integer.toString(starVals)); writer.newLine();
 
-            writer.write(String.valueOf(lvl.isUnlocked())); writer.newLine();
+            //Custom levels should be unlocked automatically 
+            if(isDefault){
+                writer.write(String.valueOf(lvl.isUnlocked())); writer.newLine();
+            }
+            else{
+                writer.write("true"); writer.newLine();
+            }
+
             // write board layout to buffer
             String sysLineBreak = System.getProperty("line.separator");
             for (ArrayList<Tile> row : lvl.getBoard().getTiles()){
@@ -66,7 +78,7 @@ public class CtrlSaveLevel implements ActionListener {
                 }
                 writer.write(buffer); writer.newLine();
             }
-            if (lvl.getType() == "Theme") {
+            if (lvl.getType().equals("Theme")) {
                 // write the dict to end of file
                 Iterator<String> itr = lvl.getDict().getTable().iterator();
 
@@ -76,6 +88,10 @@ public class CtrlSaveLevel implements ActionListener {
                 }
                 // writer.write(itr.next()); writer.newLine();
             }
+            else if(lvl.getType().equals("Puzzle")){
+            	writer.write("" + lvl.getMaxWords()); writer.newLine();
+            }
+
             writer.close();
         } catch (IOException e) {
             // pwd

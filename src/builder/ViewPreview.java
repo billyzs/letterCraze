@@ -19,7 +19,15 @@ public class ViewPreview extends JFrame {
 		boardView = vbl.getBoardView();
 		// add(boardView);
 		// boardView.setVisible(true);
+
+		//Setup board
+		vbl.getLevel().initialize();
+
+		//Stop timer
+		vbl.getLevel().terminate();
+
 		levelView = new LevelView(vbl.getLevel());
+
 		add(levelView);
 	}
 }
