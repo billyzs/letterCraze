@@ -17,6 +17,9 @@ public class PuzzleLevel extends Level{
 		return "Puzzle";
 	}
 	
+	@Override
+	public int getMaxWords(){ return this.maxWords;}
+	
 
 	@Override
 	//Saves the level in ascii

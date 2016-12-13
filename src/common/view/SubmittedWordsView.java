@@ -72,10 +72,11 @@ public class SubmittedWordsView extends JPanel implements IView {
 		//refresh submitted words
 		System.out.println(words);
 
-		//Disable button if current words isnt a word, or short enough
+		//Disable button if current words isnt a word, or short enough, or exceeds max words
 		boolean isTheme = ContentPane.getCurrentLevelView().getLevel().getType().equals("Theme");
 		boolean longEnough = this.currentWord.toString().length() >= 3;
-		if(ContentPane.getCurrentLevelView().getLevel().getDict().isWord(this.currentWord.toString()) && (isTheme || longEnough))
+		boolean underMaxWords = words.size() < ContentPane.getCurrentLevelView().getLevel().getMaxWords();
+		if(ContentPane.getCurrentLevelView().getLevel().getDict().isWord(this.currentWord.toString()) && (isTheme || longEnough) && underMaxWords)
 			this.submitWord.setEnabled(true);
 		else
 			this.submitWord.setEnabled(false);

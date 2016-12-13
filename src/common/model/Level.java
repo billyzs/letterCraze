@@ -39,6 +39,10 @@ public abstract class Level{
 		return unlocked;
 	}
 	
+	public int getMaxWords(){
+		return Integer.MAX_VALUE;
+	}
+	
 	/**
 	 * For unlocking next level.
 	 * @return if this is complete, return true.

@@ -60,7 +60,8 @@ public class SubmitWordMove implements IMove{
 	//valid if its a valid word
 	public boolean isValid(){
 		if(this.level.getDict().isWord(this.word.toString()))
-            return true;
+			if(this.word.toString().length() >= 3 || this.level.getType().equals("Theme"))
+                return true;
 		return false;
 	}
 
