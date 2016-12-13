@@ -83,6 +83,8 @@ public class AppBuilder extends Application{
                     // TODO move to initializeModel()
                     //Level testLevel = (PuzzleLevel) loadLevel("Puzzle_Level_1.lvl");
                     ArrayList<Level> levels = loadDefaultLevels();//new ArrayList<Level>(18);
+                    ArrayList<Level> customs = loadOtherLevels();
+                    levels.addAll(customs);
                     
                     //for (int k = 0; k < 15; k++)
                      //   levels.add(testLevel);
