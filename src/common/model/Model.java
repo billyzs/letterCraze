@@ -107,5 +107,20 @@ public class Model {
 		l.setName(levelName);
 		return l;
 	}
+
+	/**
+	 * Cycles through the levels, and unlocks any new levels.
+	 */
+	public void unlockLevels() {
+		for(int k = 0; k < this.levels.size()-1; k++){
+			if(this.levels.get(k).isComplete()){
+				//save next level, set unlocked
+				Level next = this.levels.get(k+1);
+				next.setUnlocked(true);
+				next.save(next.getName());
+			}
+
+		}
+	}
 }
 

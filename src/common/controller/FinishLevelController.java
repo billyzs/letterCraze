@@ -29,12 +29,14 @@ public class FinishLevelController implements ActionListener{
 		//save the level to filename, go back to main menu
 		this.theLevel.save(this.theLevel.getName());
 		
-		
 		//Terminate the level
 		this.theLevel.terminate();
 
 		//hide the current level view
 		ContentPane.getCurrentLevelView().hide();
+		
+		//unlock levels if necessary
+		this.model.unlockLevels();
 
 		//hide the current level common.view
 		this.app.getMenu().show();

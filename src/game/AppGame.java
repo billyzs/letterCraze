@@ -32,7 +32,6 @@ public class AppGame extends Application{
             almv.getButton().addActionListener(new StartLevelController(this, this.model.getLevels().get(seq)));
             seq++;
 		}
-
 	}
     
     public void initializeControllers(){

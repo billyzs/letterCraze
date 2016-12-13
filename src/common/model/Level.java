@@ -38,6 +38,14 @@ public abstract class Level{
 	public boolean isUnlocked() {
 		return unlocked;
 	}
+	
+	/**
+	 * For unlocking next level.
+	 * @return if this is complete, return true.
+	 */
+	public boolean isComplete(){
+		return this.highscore >= (this.targetScore/3.0);
+	}
 
 	public void setUnlocked(boolean unlocked) {
 		this.unlocked = unlocked;
@@ -156,7 +164,6 @@ public abstract class Level{
 	}
 	
 	//done if current points is greater than 1 star
-	public boolean isComplete(){return this.currentPoints >= this.targetScore;}
 	public void addPoints(int i) {this.currentPoints += i;};
 	public int getTargetScore() {return this.targetScore;}
 	public Dictionary getDict(){ return this.dict;}
