@@ -152,10 +152,8 @@ public class Board {
             	System.err.println("\n\nNO Empty adjacent tiles FOR THEME WORD, trying again: " + s);
 
             	//reset used tiles to blank and try again
-            	// but if its at the last try, just leave chars.
-            	if(remainingTries > 1)
-                    for(Tile t : used)
-                        t.setLetters("");
+                for(Tile t : used)
+                    t.setLetters("");
 
             	//try recursively
             	this.add(s, remainingTries);
