@@ -77,7 +77,7 @@ public class Model {
 			switch (levelType){
 				case "Puzzle":
 					dict = new Dictionary();
-					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, unlocked);
+					level = new PuzzleLevel(emptyBoard,name, dict, highScore, starVal, unlocked, 3);
 					break;
 				case "Lightning":
 					dict = new Dictionary();
