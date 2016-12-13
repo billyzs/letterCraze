@@ -9,8 +9,9 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/** Deletes the file
- * Created by billyzs on 12/8/16.
+/** 
+ * <code>ActionListener</code> controller for deleting a saved level file.
+ * @author Created by billyzs on 12/8/16.
  */
 public class CtrlDeleteLevel implements ActionListener {
 	ViewBuildLevel viewBuildLevel;

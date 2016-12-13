@@ -7,8 +7,7 @@ import common.view.ContentPane;
 import common.view.LevelMenuView;
 import common.view.TileView;
 /**
- * Controller to handle bringing up the level building view.
- * Handles user's selection of which level to modify
+ * <code>ActionListener</code> controller to handle bringing up the level building view, based on user's selection of which level to modify.
  * Created by billyzs on 12/6/16.
  */
 public class CtrlModifyLevel implements ActionListener {
@@ -130,6 +129,11 @@ public class CtrlModifyLevel implements ActionListener {
 		this.ctrlSaveLevel = ctrlSaveLevel;
 	}
 
+	/**
+	 * Default constructor.
+	 * @param app
+	 * @param lmv
+	 */
 	public CtrlModifyLevel(AppBuilder app, LevelMenuView lmv) {
 		this.theLevel = lmv.getTheLevel();
 		this.lmv = lmv;
@@ -156,9 +160,9 @@ public class CtrlModifyLevel implements ActionListener {
 	}
 
 	/**
-	 * Calls the createnewLevel method, creates the level and brings up a view
+	 * Calls the createnewLevel method, creates the level and brings up a view.
 	 *
-	 * @param ae should be the JCombox that is the drop down menu with 3 types of levels
+	 * @param ae should be the JCombox that is the drop down menu with 3 types of levels.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent ae) {

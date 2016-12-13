@@ -7,8 +7,8 @@ import common.view.MenuView;
 import java.awt.*;
 import java.util.ArrayList;
 
-/** Main class for the Builder app. Handles the initial loading of levels and displaying of level
- * Created by billyzs on 11/30/16.
+/** Main class for the Builder app. Handles the initial loading of levels and displaying of levels.
+ * @author Created by billyzs on 11/30/16.
  */
 public class AppBuilder extends Application{
 
@@ -18,6 +18,10 @@ public class AppBuilder extends Application{
     CtrlSaveLevel ctrlSaveLevel;
     ArrayList<CtrlModifyLevel> ctrModifyLevels = new ArrayList<CtrlModifyLevel>();
 
+    /**
+	 * Returns the <code>ctrlModifyLevel</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
     public ArrayList<CtrlModifyLevel> getCtrModifyLevels() {
         return ctrModifyLevels;
     }
@@ -68,6 +72,10 @@ public class AppBuilder extends Application{
         // viewMenu.boxCreateNewLevel.addActionListener(ctrlModifyLevel);
     }
 
+    /**
+     * Launches the builder.
+     * @param args
+     */
     public static void main(String[] args){
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -122,6 +130,10 @@ public class AppBuilder extends Application{
         return welcome;
     }
 
+    /**
+	 * Returns the <code>viewBuildLevel</code> <code>ViewBuildLevel</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
     public ViewBuildLevel getViewBuildLevel() {
         return viewBuildLevel;
     }
@@ -130,6 +142,10 @@ public class AppBuilder extends Application{
         this.viewBuildLevel = viewBuildLevel;
     }
 
+    /**
+	 * Returns the <code>ctrlSaveLevel</code> <code>CtrlSaveLevel</code> attribute.
+	 * @return fieldChangeLevelName
+	 */
     public CtrlSaveLevel getCtrlSaveLevel() {
         return ctrlSaveLevel;
     }

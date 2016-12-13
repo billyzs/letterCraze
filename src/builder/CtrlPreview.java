@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by billyzs on 12/8/16.
+ * <code>ActionListener</code> controller which handles bringing up the preview of a level currently being built.
+ * @author Created by billyzs on 12/8/16.
  */
 public class CtrlPreview implements ActionListener {
 	ViewBuildLevel vbl;

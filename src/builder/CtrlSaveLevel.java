@@ -14,18 +14,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Saves a level to ASCII file format as specified by Grant.
- * Fileds are (separated by new line):
+ * Saves a level to ASCII file format as specified by Grant Espe.
+ * <p>
+ * Fields are (separated by new line):
+ * <p>
  * Type
+ * <p>
  * Name
+ * <p>
  * highScore
+ * <p>
  * starVal[0]
+ * <p>
  * starVal[1]
+ * <p>
  * starVal[2]
+ * <p>
  * unlocked
+ * <p>
  * 6*6 Board Layout
- * (Theme only) Dict words
- * Created by billyzs on 12/3/16.
+ * <p>
+ * (Theme only) Dict words.
+ * @author Created by billyzs on 12/3/16.
  */
 
 public class CtrlSaveLevel implements ActionListener {
@@ -77,6 +87,12 @@ public class CtrlSaveLevel implements ActionListener {
             if(writer!=null) writer.close();
         }
     }
+    
+    /**
+     * Save a level as an ASCII text file in the format specified in the class description.
+     * @param lvl
+     * @throws IOException
+     */
     public void saveLevelToFile(Level lvl) throws IOException{
         saveLevelToFile(lvl, lvl.getName()+".lvl");
     }

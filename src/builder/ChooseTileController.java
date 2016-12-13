@@ -23,6 +23,11 @@ import java.util.Queue;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 
+/**
+ * <code>MouseListener</code> controller that handles the selecting of tiles to hold be playable when building a level.
+ * @author Billy Shao
+ *
+ */
 public class ChooseTileController implements MouseListener{
 	Application app;
 	Model model;

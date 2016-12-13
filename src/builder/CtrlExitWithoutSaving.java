@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by billyzs on 12/8/16.
+ * <code>ActionListener</code> controller for exiting the builder without saving one's progres on a new level.
+ * @author Created by billyzs on 12/8/16.
  */
 public class CtrlExitWithoutSaving implements ActionListener{
 	CtrlModifyLevel cml;
@@ -14,7 +15,7 @@ public class CtrlExitWithoutSaving implements ActionListener{
 	}
 
 	/**
-	 * basically hide this view and bring up ViewMenu. Discards all current changes to this level;
+	 * Basically hides this view and bring up ViewMenu. Discards all current changes to this level.
 	 * @param actionEvent
 	 */
 	@Override
