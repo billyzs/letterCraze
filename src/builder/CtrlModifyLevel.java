@@ -219,6 +219,11 @@ public class CtrlModifyLevel implements ActionListener {
 			if(theLevel.getType() == "Theme"){
 				ctrlSubmitWords = new CtrlSubmitWords(this.builder.viewBuildLevel, this.builder.viewBuildLevel.getTextPane(), this.builder);
 				vbl.getBtnSaveDict().addActionListener(ctrlSubmitWords);
+				
+				//added because theme levels don't need to set score 
+				//SEE GROUP PROJECT POWERPOINT
+				vbl.remove(vbl.getLblPointThresholds());
+				vbl.remove(vbl.getStarVal3());
 			}
 			// Save level controller
 			vbl.getBtnSaveChanges().addActionListener(ctrlSaveLevel);

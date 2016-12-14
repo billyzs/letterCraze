@@ -36,6 +36,7 @@ public class ViewMenu extends MenuView implements IView{
             else{ // is an empty new level
                 btnString = "Create a new " + lmv.getTheLevel().getType() + " level";
             }
+
             lmv.getButton().setText(btnString);
             lmv.getButton().setEnabled(true); // should be able to edit a locked level
             lmv.getLblTitle().setVisible(false); //upstream introduced unwanted changes AGAIN

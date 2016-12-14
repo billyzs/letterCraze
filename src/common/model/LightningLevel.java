@@ -100,4 +100,12 @@ public class LightningLevel extends Level{
 	public Timer getTimer() { return this.timer; }
 	public void setTimer(Timer timer2) {this.timer = timer2;}
 
+	@Override
+	/**
+	 * Compute score for lightning levels, 1 point per word.
+	 */
+	public int computeScore(Word word) {
+		return 1;
+	}
+
 }

@@ -218,7 +218,6 @@ public abstract class Level{
 	 */
 	public void terminate() {
 	}
-	
-	
 
+	public abstract int computeScore(Word word);
 }

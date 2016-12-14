@@ -77,4 +77,56 @@ public class PuzzleLevel extends Level{
 		}
 	}
 
+	/**
+	 * Compute score based off letter frequency.
+	 * @return Collective score.
+	 */
+	@Override
+	public int computeScore(Word word){
+		//cycle through tiles and add score
+		int score = 0;
+		for(Tile t : word.getTiles()){
+			score += this.getLetterScore(t.getLetters());
+		}
+		return score;
+	}
+	
+	protected int getLetterScore(String s){
+		
+		int score = 0;
+
+		//String to char
+		char c = s.charAt(0);
+		switch(c){
+            case 'E': case 'T':
+            	score = 1;
+            	break;
+            case 'A': case 'O': case'I':case'N':
+            case'S': case'H':case'R':
+            	score = 2;
+            	break;
+            case'D':case'L':case'C':case'U':
+            case'M':case'W':
+            	score = 3;
+            	break;
+            case'F':case'G':case'Y':case'P': case'B':
+            	score = 4;
+            	break;
+            case'V':case'K':
+            	score = 5;
+            	break;
+            case'J':case'X':
+            	score = 7;
+            	break;
+            case'Z':
+            	score = 8;
+            	break;
+            case'Q':
+            	score = 11;
+            	break;
+		}
+           
+		return score;
+	}
+
 }

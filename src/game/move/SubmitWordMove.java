@@ -25,7 +25,7 @@ public class SubmitWordMove implements IMove{
 		this.wordCopy = new Word(this.word, this.prevBoard);
 
 		//clone the board before starting
-		this.points = this.word.computeScore();
+		this.points = l.computeScore(this.word);
 	}
 	
 	

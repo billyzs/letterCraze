@@ -22,12 +22,13 @@ public class ThemeLevel extends Level {
 	public ThemeLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul){
 		super(b,n,d,hs,sv,ul);
 		//this.initialize();
+		this.targetScore = this.dict.getTable().size();
 	}
 	
 	@Override
 	public void repopulate(){
 		//do nothing
-		System.out.println("\n\nREPOPULATE THEME\n\n");
+		//System.out.println("\n\nREPOPULATE THEME\n\n");
 	}
 	
 	/**
@@ -42,7 +43,7 @@ public class ThemeLevel extends Level {
 		for(String s : strings){
 			s = s.toUpperCase();
 			//10 is arbitrary number of tries per word
-			this.board.add(s,10);
+			this.board.add(s,20);
 		}
 		
 	}
@@ -57,7 +58,6 @@ public class ThemeLevel extends Level {
 		}
 		
 		this.board.clear();
-		this.populateThemeWords();
 		this.populateThemeWords();
 
 		//randomize other letters
@@ -90,6 +90,19 @@ public class ThemeLevel extends Level {
 			out += iter.next() + ", ";
 		}
 		return out;
+	}
+
+	@Override
+	/**
+	 * Compute Score for Theme Levels 1 point per word.
+	 */
+	public int computeScore(Word word) {
+		/**int totalWords = this.getSubmittedWords().size();
+		ArrayList<String> strings = new ArrayList<String>();
+		strings.addAll(this.dict.getTable());
+		*/
+
+		return 1;
 	}
 
 }
