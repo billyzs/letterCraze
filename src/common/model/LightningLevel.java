@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 import common.controller.TimerController;
 
+/**
+ * A <code>Level</code> subclass which is timed and calculates score based solely off of the number of words formed.
+ * @author Grant Espe
+ *
+ */
 public class LightningLevel extends Level{
 	Timer timer;
 
@@ -17,6 +22,17 @@ public class LightningLevel extends Level{
 	int timerSeconds;
 	public static final String type = "Lightning";
 
+	
+	/**
+	 * Same constructor as superclass with an extra parameter.
+	 * @param b
+	 * @param n
+	 * @param d
+	 * @param hs
+	 * @param ts
+	 * @param ul
+	 * @param timerSeconds How long user has to complete level.
+	 */
 	public LightningLevel(Board b, String n, Dictionary d, int hs, int ts, boolean ul, int timerSeconds){
 		super(b,n,d,hs,ts,ul);
 		this.timerSeconds = timerSeconds;

@@ -7,6 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import common.model.Level;
+
+/**
+ * <code>JPanel</code> object to show menu for selecting levels.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class LevelMenuView extends JPanel implements IView {
 	JButton btnThisLevel;
 	JLabel lblSequence;
@@ -101,6 +107,11 @@ public class LevelMenuView extends JPanel implements IView {
 	Level theLevel;
 //	GRect background;
 	
+	/**
+	 * Default constructor.
+	 * @param seq An integer representing which level this is in the sequence on menu.
+	 * @param l A Level
+	 */
 	public LevelMenuView(int seq, Level l){
 		
 		super();
@@ -176,6 +187,9 @@ public class LevelMenuView extends JPanel implements IView {
 		this.setVisible(false);
 	}
 	
+	/**
+	 * Refresh this view to update scores obtained and levels unlocked.  
+	 */
 	public void refresh() {
 		highscore = this.theLevel.getHighscore();
 		

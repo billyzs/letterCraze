@@ -6,10 +6,18 @@ import java.awt.event.ActionListener;
 import common.model.*;
 import common.application.Application;
 import common.view.*;
+
+/**
+ * <code>ActionListener</code> controller for exiting a level via the Exit <code>JButton</code>.
+ * @author Team Technetium
+ */
 public class ExitLevelController implements ActionListener{
 	Application app;
 	Model model;
 
+	/**
+	 * @param a A letterCraze application
+	 */
 	public ExitLevelController(Application a){
 		this.app = a;
 		this.model = a.getModel();

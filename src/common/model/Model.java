@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.IllegalFormatCodePointException;
 import java.util.Stack;
 
+/**
+ * Top-level container for all letterCraze entity objects.
+ * @author Grant Espe
+ *
+ */
 public class Model {
 	Stack<IMove> moves;
 	ArrayList<Level> levels;
@@ -15,12 +20,15 @@ public class Model {
 	public static final String Theme = "Theme";
 	public static final String Lightning = "Lightning";
 
+	/**
+	 * @param l An ArrayList of levels.
+	 */
 	public Model(ArrayList<Level> l){
 		this.levels = l;
 		this.moves = new Stack<IMove>();
 	}
 
-	public Model(){
+	public Model() {
 		this.moves = new Stack<IMove>();
 	}
 
@@ -32,18 +40,26 @@ public class Model {
 		return this.currentLevel;
 	}
 
-	//adds a move to the list
+	/**
+	 * Adds a move to the list of moves.
+	 * @param move
+	 */
 	public void addMove(IMove move) {
 		moves.add(move);
 	}
 	
-	//remove all moves
+	/**
+	 * Remove all moves.
+	 */
 	public void resetMoves(){
 		for(int k = this.moves.size()-1; k >= 0; k--)
 			this.moves.remove(k);
 	}
 	
-	//returns a move and removes it from the list of moves
+	/**
+	 * Returns a move and removes it from the list of moves.
+	 * @return A move.
+	 */
 	public IMove popMove(){
 		if(moves.size() > 0)
             return moves.pop();
@@ -54,11 +70,11 @@ public class Model {
 //public void resetMoves() { this.moves = new Stack<IMove>(); }
 
 	public void addLevel(Level l){this.levels.add(l);}
+	
 	/**
 	 * Creates new level based on type.
 	 * @param levelType one of "Puzzle", "Lightning", "Theme"
-	 * @return a new level with empty 6*6 board, name, starval, highscore, unlocked=false;
-	 * dict = default for lightning, puzzle, empty for theme;
+	 * @return a new level with empty 6*6 board, name, starval, highscore, unlocked=false, dict = default for lightning, puzzle, empty for theme;
 	 */
 	public Level createNewLevel(String levelType){
 		// standardize input

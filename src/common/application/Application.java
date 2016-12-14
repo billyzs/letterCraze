@@ -21,15 +21,23 @@ import java.util.Hashtable;
 import common.model.*;
 import common.view.*;
 
-public class Application extends JFrame{
+/**
+ * Parent class for all applications having to do with letterCraze as well as the top-level <code>JFrame</code> for all boundary objects.
+ * @author Team Technetium
+ */
+public class Application extends JFrame {
 
 	protected Model model; 
 	protected WelcomeView welcome;
 	protected MenuView menu;
 	
 	//To be removed on the merge to dev
-
 	public Application(){}
+	
+	/**
+	 * Usable constructor to host code used by most extensions of <code>Application</code> to take in entity objects and open their frame.
+	 * @param m The <code>Model</code> object containing entity objects for letterCraze.
+	 */
 	public Application(Model m) {
 		this.model = m;
 
@@ -46,6 +54,10 @@ public class Application extends JFrame{
 
 	public MenuView getMenu(){ return this.menu; }
 	
+	/**
+	 * Load the 15 level files available by default to all letterCraze <code>Applications</code>.
+	 * @return An <code>ArrayList</code> of <code>Level</code> objects.
+	 */
 	public static ArrayList<Level> loadDefaultLevels(){
 		ArrayList<Level> result = new ArrayList<Level>();
 		try{
@@ -62,7 +74,7 @@ public class Application extends JFrame{
 	}
 	
 	/**
-	 * Loads levels besides the default levels in folder /levels
+	 * Loads levels besides the default levels in folder /levels.
 	 * @return returns an arraylist of levels, besides default levels.
 	 */
 	public static ArrayList<Level> loadOtherLevels(){
@@ -103,7 +115,12 @@ public class Application extends JFrame{
         return result;
 	}
 
-	//This will eventually be in a common.controller
+	/** Either this or another controller is used to create a <code>Level</code> object from a specifically formatted 
+	 * text file.
+	 * @param filename Name of the file.
+	 * @return A Level object.
+	 * @throws IOException
+	 */
 	public static Level loadLevel(String filename) throws IOException{
 
 		//read a file

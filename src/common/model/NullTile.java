@@ -1,5 +1,10 @@
 package common.model;
 
+/**
+ * A child of <code>Tile</code> with no ability to be made selectable.
+ * @author Grant Espe
+ *
+ */
 public class NullTile extends Tile{
 
 	public NullTile(int r, int c) {

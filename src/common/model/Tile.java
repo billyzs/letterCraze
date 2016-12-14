@@ -1,12 +1,20 @@
 package common.model;
 
+/**
+ * A specific member of a <code>Board</code> object that is either non-selectable or selectable and blank or containing a letter.
+ * @author Grant Espe
+ */
 public class Tile {
 	String letters;
 	int row;
 	int col;
 	boolean selected;
 	
-	//Random Letter Tile
+	/**
+	 * Constructs a non-selectable tile with a random letter at specified location.
+	 * @param r Row
+	 * @param c Column
+	 */
 	public Tile(int r, int c){
 		this.row = r;
 		this.col = c;
@@ -15,6 +23,12 @@ public class Tile {
 		this.setRandLetter();
 	}
 
+	/**
+	 * Default constructor of a selectable <code>Tile</code>/
+	 * @param l A Letter object
+	 * @param r A row
+	 * @param c A column
+	 */
 	public Tile(String l, int r, int c){
 		this.letters = l;
 		this.row = r;
@@ -22,7 +36,10 @@ public class Tile {
 		this.selected = false;
 	}
 	
-	//for cloning tiles
+	/**
+	 * Constructor for cloning other <code>Tile</code> objects.
+	 * @param t A Tile to be cloned.
+	 */
 	public Tile(Tile t) {
 		this.letters = t.getLetters();
 		this.row = t.getRow();
@@ -36,6 +53,9 @@ public class Tile {
 		return false;
 	}
 	
+	/**
+	 * Sets this <code>Tile</code> to be blank.
+	 */
 	public void makeEmpty(){
 		this.letters = "";
 	}
@@ -48,7 +68,11 @@ public class Tile {
 	public boolean isSelected(){return this.selected;}
 	public void setSelected(boolean s){this.selected = s;}
 
-	//returns true if they are within 1 of each other
+	/**
+	 * Returns whether this <code>Tile</code> and another are within 1 space of each other.
+	 * @param t A possible adjacent Tile
+	 * @return Whether this Tile and another are adjacent or not.
+	 */
 	public boolean isAdjacent(Tile t){
 		if(t.getCol()+1 == this.getCol() || t.getCol()-1 == this.getCol() || t.getCol() == this.getCol())
             if(t.getRow()+1 == this.getRow() || t.getRow()-1 == this.getRow() || t.getRow() == this.getRow())
@@ -58,6 +82,10 @@ public class Tile {
 
 	public String getLetters(){return this.letters;}
 
+	/**
+	 * Helper method to generate a letter with a specific probability based on how common it is in the English language.
+	 * @return A one-character A-Z String.
+	 */
 	public String setRandLetter() {
 		
 		double r =  Math.random();
@@ -176,6 +204,10 @@ public class Tile {
 	
 	public boolean isNull(){return false;}
 
+	/**
+	 * Recover the state of another <code>Tile</code>.
+	 * @param t A Tile to be recovered.
+	 */
 	public void recoverState(Tile t) {
 		this.letters = t.getLetters();
 		this.row = t.getRow();

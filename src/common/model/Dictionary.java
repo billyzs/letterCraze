@@ -15,16 +15,19 @@ import java.util.Scanner;
  */
 public class Dictionary {
 
-	// The look up table for the dictionary
+	/** The look up table for the dictionary. */
 	HashSet<String> table;
 	
-	// Scanner for reading files
+	/** Scanner for reading files. */
 	Scanner sc;
 	
-	// The default file (located in letterCraze)
+	/** The default file (located in letterCraze). */
 	public static final String defaultTable = "./WordTable.sort";
 
-	// Default constructor, which populates table from defaultTable
+	/**
+	 *  Default constructor, which populates table from defaultTable file.
+	 * @throws IOException
+	 */
 	public Dictionary() throws IOException {
 		table = new HashSet<String>();
 		sc = new Scanner(new File(defaultTable));
@@ -37,16 +40,30 @@ public class Dictionary {
 		} sc.close();
 	}
 	
-	// Constructor to form dictionary using an alternate HashSet
+	/**
+	 * Constructor to form <code>Dictionary</code> using an alternate <code>HashSet</code>.
+	 * @param alternate
+	 */
 	public Dictionary(HashSet<String> alternate){
 		table = alternate;
 	}
+	
+	/**
+	 * Constructor to form <code>Dictionary</code> from an array of strings.
+	 * @param words
+	 */
 	public Dictionary(String[] words){
 		table = new HashSet<String>();
 		for(String word : words){
 			this.table.add(word.toLowerCase());
 		}
 	}
+	
+	/**
+	 * Returns whether a string in is contained in the <code>Dictionary</code> object. 
+	 * @param s A string
+	 * @return Whether or not s is in this object.
+	 */
 	public boolean isWord(String s) {
 		return table.contains(s.toLowerCase());
 	}

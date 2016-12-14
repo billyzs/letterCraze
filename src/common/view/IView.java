@@ -1,6 +1,9 @@
 package common.view;
 
-//interface for the show/hide methods
+/**
+ * Interface containing show/hide behaviors of View objects.
+ * @author Grant Espe
+ */
 public interface IView {
 	public void show();
 	public void hide();

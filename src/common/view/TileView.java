@@ -19,18 +19,29 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * <code>JPanel</code> object to show a <code>Tile</code>.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class TileView extends JPanel {
 	
 	JLabel lblX;
 	Tile tile;
 	
+	/**
+	 * Default constructor.
+	 * @param t A Tile
+	 */
 	public TileView(Tile t) {
 		this.tile = t;
 		this.initialize();
 		this.updateLabel();
 	}
 	
-	//moved logic for color to this function
+	/**
+	 * Update color based on whether <code>Tile</code> is currently selected or not.
+	 */
 	public void updateColor(){
 		if (tile.isNull()) {
 			setBackground(new Color(238, 238, 238));
@@ -47,7 +58,10 @@ public class TileView extends JPanel {
 
 	}
 	
-	//Tiles now set their own label
+	/**
+	 * Tiles set their own labels.
+	 * @deprecated
+	 */
 	public void updateLabel(){
         if(this.tile.isNull() || this.tile.getLetters().equals(""))
             this.setLabel(" ");
@@ -68,7 +82,7 @@ public class TileView extends JPanel {
 	}
 
 	/**
-	 * Create the panel.
+	 * Create the <code>Tile</code> <code>JPanel</code>.
 	 */
 	public void initialize() {
 		
@@ -103,6 +117,10 @@ public class TileView extends JPanel {
 	
 	public Tile getTile(){return tile;}
 
+	/**
+	 * Replace which <code>Tile</code> is represented with this object.
+	 * @param newTile
+	 */
 	public void updateTile(Tile newTile) {
 		this.tile = newTile;
 	}

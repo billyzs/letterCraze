@@ -11,7 +11,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import common.model.Board;
 import common.model.Tile;
 
-
+/**
+ * <code>JPanel</code> object to show <code>Board</code> objects.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class BoardView extends JPanel implements IView{
 
 	ArrayList<ArrayList<TileView>> TileViews;
@@ -22,6 +26,10 @@ public class BoardView extends JPanel implements IView{
 
 	Board board;
 	
+	/**
+	 * Default constructor.
+	 * @param b A Board
+	 */
 	public BoardView(Board b){
 		this.board = b;
 		this.initialize();

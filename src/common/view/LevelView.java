@@ -15,6 +15,11 @@ import javax.swing.SwingConstants;
 import common.model.Level;
 import common.model.LightningLevel;
 
+/**
+ * <code>JPanel</code> object to show <code>Level</code> objects.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class LevelView extends JPanel implements IView {
 	BoardView board;
 	StarsView stars;
@@ -32,7 +37,15 @@ public class LevelView extends JPanel implements IView {
 	
 	GroupLayout layout;
 	
+	/**
+	 * Empty constructor for ease of testing and instantiating controllers.
+	 */
 	public LevelView(){};
+	
+	/**
+	 * Default constructor.
+	 * @param l A Level
+	 */
 	public LevelView(Level l){
 		this.level = l;
 		if (level.getType().equals("Lightning")) {
@@ -157,7 +170,9 @@ public class LevelView extends JPanel implements IView {
 	public StarsView getStarsView() { return this.stars; }
 	public JLabel getTimerLabel() {return this.timer; }
 
-	//Redisplays all tilesviews, might do other stuff later
+	/**
+	 * Redisplays all <code>TileView</code>s to update <code>Tile</code>s as well as points accrued and stars reached.
+	 */
 	public void refresh() {
 		for(ArrayList<TileView> row : this.board.getTileViews()){
             for(TileView tv : row){

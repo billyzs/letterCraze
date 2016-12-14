@@ -3,16 +3,29 @@ package common.model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * A 6x6 board of selectable and non-selectable <code>Tile</code> objects from which <code>Word</code> objects are formed, and so the game of letterCraze is played.
+ * @author Grant Espe
+ */
 public class Board {
 	ArrayList<ArrayList<Tile>> tiles;
 
+	/**
+	 * @param t An ArrayList of Tile objects.
+	 */
 	public Board(ArrayList<ArrayList<Tile>> t){
 		tiles = t;
 	}
 
-	public Board(){} // empty constructor for test
+	/**
+	 * Empty constructor for testing.
+	 */
+	public Board(){} 
 	
-	//constructor for cloning
+	/**
+	 * Constructor for cloning.
+	 * @param b A Board to be cloned.
+	 */
     public Board(Board b){
 		//make new arraylist of tiles
 		this.tiles = new ArrayList<ArrayList<Tile>>();
@@ -30,7 +43,9 @@ public class Board {
 		}
 	}
     
-    //Reset each tile to be random
+    /**
+     * Reset each tile to be random.
+     */
     public void initialize(){
 		for(ArrayList<Tile> row : this.tiles){
 			for(Tile t : row){
@@ -40,6 +55,9 @@ public class Board {
 		}
     }
     
+    /**
+     * Clear the board by erasing all letters and making every <code>Tile</code> unselectable.
+     */
     public void clear(){
 		for(ArrayList<Tile> row : this.tiles){
 			for(Tile t : row){
@@ -54,6 +72,10 @@ public class Board {
 		return this.tiles;
 	}
 	
+	/**
+	 * Recover the state of a previous board.
+	 * @param prevBoard A Board to be recovered.
+	 */
 	public void recoverState(Board prevBoard) {
 		int r = 0;
 		for(ArrayList<Tile> row : prevBoard.getTiles()){
@@ -71,7 +93,7 @@ public class Board {
 	}
 
 	/**
-	 * set tiles to be an empty 6*6 array of tiles
+	 * Set tiles to be an empty 6*6 array of tiles.
 	 */
 	public void setEmptyBoard(){
 		ArrayList<ArrayList<Tile>> newTiles = new ArrayList<ArrayList<Tile>>();
@@ -86,11 +108,28 @@ public class Board {
 		tiles = newTiles;
 	}
 
-	// return the letter at specific position
+	/**
+	 * Return the letter on a specific <code>Tile</code>.
+	 * @param row
+	 * @param col
+	 * @return Letter in a Tile.
+	 */
 	String getLetterAt(int row, int col){
 		return tiles.get(row).get(col).getLetters();
 	}
+	
+	/**
+	 * Return the <code>Tile</code> object at this specific spot on the <code>Board</code>.
+	 * @param row
+	 * @param col
+	 * @return Tile object at specific Board location.
+	 */
 	public Tile at(int row, int col){ return tiles.get(row).get(col);}
+	
+	/**
+	 * Count how many tiles are currently selectable.
+	 * @return Number of selectable Tiles on this Board.
+	 */
 	public int countActiveTiles(){
 		int count = 36;
 		for (ArrayList<Tile> row: this.getTiles()){
@@ -104,7 +143,7 @@ public class Board {
 		return count;
 	}
 
-	/** for theme levels, adds a string to a board
+	/** For use in theme levels, adds a string to a board.
 	 * 
 	 * @param s The string to be added.
 	 * @param remainingTries number of TRials left before algol gives up.
@@ -175,6 +214,12 @@ public class Board {
 		System.out.println("Done with word: " + s);
 	}
 
+	/**
+	 * Return the <code>Tile</code>s that are adjacent to a specific <code>Tile</code> and empty.
+	 * @param row
+	 * @param col
+	 * @return All empty and adjacent Tiles.
+	 */
 	public ArrayList<Tile> getEmptyAdjacents(int row, int col) {
 		ArrayList<Tile> result = new ArrayList<Tile>();
 
@@ -192,7 +237,7 @@ public class Board {
 	}
 
 	/**
-	 * Fills the empty tiles with random letters
+	 * Fill the empty tiles with random letters.
 	 */
 	public void fillEmpty() {
 		for(ArrayList<Tile> row : this.tiles){

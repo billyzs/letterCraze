@@ -9,10 +9,17 @@ import common.model.IMove;
 import common.model.Model;
 import common.view.ContentPane;
 
+/**
+* <code>ActionListener</code> controller for undoing a move (usually the actions of another controller).
+* @author Team Technetium
+*/
 public class UndoController implements ActionListener{
 	Application app;
 	Model model;
 	
+	/**
+	 * @param a A letterCraze application.
+	 */
 	public UndoController(Application a){
 		this.app = a;
 		this.model = a.getModel();

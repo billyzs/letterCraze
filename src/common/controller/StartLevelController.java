@@ -8,13 +8,20 @@ import common.application.Application;
 import common.model.*;
 import common.view.*;
 
-// Controller for starting levels from the main menu
+/**
+* <code>ActionListener</code> controller for initializing and showing a <code>Level</code>.
+* @author Team Technetium
+*/
 public class StartLevelController implements ActionListener{
 	
 	Application app;
 	Model model;
 	Level theLevel;
 	
+	/**
+	 * @param a A letterCraze application.
+	 * @param l A level.
+	 */
 	public StartLevelController(Application a, Level l){
 		this.theLevel = l;
 		this.app = a;

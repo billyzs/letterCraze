@@ -4,6 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/**
+ * A <code>Level</code> subclass where only a limited number of <code>Word</code>s may be submitted, and
+ * where score is calculated based off the letters in a word as well as its length.
+ * @author Grant Espe
+ *
+ */
 public class PuzzleLevel extends Level{
 	public static final String type = "Puzzle";
 
@@ -13,6 +19,16 @@ public class PuzzleLevel extends Level{
 
 	int maxWords;
 
+	/**
+	 * Same constructor as superclass with an extra parameter.
+	 * @param b
+	 * @param n
+	 * @param d
+	 * @param hs
+	 * @param sv
+	 * @param ul
+	 * @param mw The maximum number of words allowed to be entered.
+	 */
 	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul, int mw){
 		super(b,n,d,hs,sv,ul);
 		this.maxWords = mw;

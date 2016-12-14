@@ -10,12 +10,20 @@ import common.model.Model;
 import common.model.Word;
 import common.view.ContentPane;
 
+/**
+* <code>ActionListener</code> controller for submitting words.
+* @author Team Technetium
+*/
 public class SubmitWordController implements ActionListener{
 
 	Application app;
 	Model model;
 	Level level;
 	
+	/**
+	 * @param a A letterCraze application.
+	 * @param l A level.
+	 */
 	public SubmitWordController(Application a, Level l){
 		this.app = a;
 		this.model= app.getModel();

@@ -8,13 +8,20 @@ import common.model.Level;
 import common.model.Model;
 import common.view.ContentPane;
 
+/**
+* <code>ActionListener</code> controller for reseting a level and forfeiting current score.
+* @author Team Technetium
+*/
 public class ResetLevelController implements ActionListener{
 	
 	Application app;
 	Model model;
 	Level theLevel;
 	
-	
+	/**
+	 * @param a A letterCraze application.
+	 * @param l A level being played.
+	 */
 	public ResetLevelController(Application a, Level l){
 		this.theLevel = l;
 		this.app = a;

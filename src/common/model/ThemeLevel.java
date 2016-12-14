@@ -3,9 +3,22 @@ package common.model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * A <code>Level</code> subclass in which letters are not replaced and only specific words may be submitted.
+ * @author Grant Espe
+ */
 public class ThemeLevel extends Level {
 	public static final String type = "Theme";
 
+	/**
+	 * Same constructor as superclass.
+	 * @param b
+	 * @param n
+	 * @param d
+	 * @param hs
+	 * @param sv
+	 * @param ul
+	 */
 	public ThemeLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul){
 		super(b,n,d,hs,sv,ul);
 		//this.initialize();
@@ -68,7 +81,7 @@ public class ThemeLevel extends Level {
 	}
 
 	/**
-	 * @return comma separated string containing all words in the dict, in no particular order
+	 * @return comma separated string containing all words in the dict, in no particular order.
 	 */
 	public String getWords(){
 		String out = "";

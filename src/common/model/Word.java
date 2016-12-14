@@ -2,20 +2,36 @@ package common.model;
 
 import java.util.ArrayList;
 
+/**
+ * A collection of <code>Tile</code> objects to be submitted and scored based on the type of level being played. 
+ * @author Adam Camilli (aocamilli@wpi.edu)
+ *
+ */
 public class Word {
 	ArrayList<Tile> tiles = new ArrayList<Tile>(1);
 	
+	/**
+	 * Default constructor.
+	 * @param t A Tile
+	 */
 	public Word(Tile t){
 		//set the first tiles to be the given arg
 		tiles.set(0, t);
 	}
 
+	/**
+	 * Empty constructor.
+	 */
 	public Word(){
 		//init new arraylist
 		tiles = new ArrayList<Tile>();
 	}
 	
-	//copy constructor
+	/**
+	 * Constructor to copy a <code>Word</code> object from a previous <code>Board</code>. 
+	 * @param w
+	 * @param prevboard
+	 */
 	public Word(Word w, Board prevboard) {
 		tiles = new ArrayList<Tile>();
 		for(Tile t : w.getTiles()){
@@ -28,6 +44,10 @@ public class Word {
 		this.tiles.add(t);
 	}
 	
+	/**
+	 * Compute score based off letter frequency.
+	 * @return Collective score.
+	 */
 	public int computeScore(){
 		//cycle through tiles and add score
 		int score = 0;
@@ -75,7 +95,9 @@ public class Word {
 		return score;
 	}
 	
-	//Converts List of Tiles to String Form
+	/**
+	 * Converts List of Tiles to String Form.
+	 */
 	public String toString(){
 		String result = "";
 
@@ -109,10 +131,8 @@ public class Word {
 
 	/**
 	 * Updates this word to reflect the state an old word.
-	 * @param l
-	 * 	Level for which it is being updated.
-	 * @param copy
-	 *  An old word which the state will be updated to reflect.
+	 * @param l Level for which it is being updated.
+	 * @param copy An old word which the state will be updated to reflect.
 	 */
 	public void recoverState(Level l, Word copy) {
 		this.tiles = new ArrayList<Tile>();
@@ -131,6 +151,9 @@ public class Word {
 		this.tiles = new ArrayList<Tile>();
 	}
 
+	/**
+	 * Simply invokes this.reset().
+	 */
 	public void initialize() {
 		this.reset();
 	}

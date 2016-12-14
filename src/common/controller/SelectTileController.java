@@ -15,11 +15,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+* <code>MouseListener</code> controller for selecting a tile, and handling the changes its state and appearance.
+* @author Team Technetium
+*/
 public class SelectTileController implements MouseListener{
 	Application app;
 	Model model;
 	TileView tileView;
 	
+	/**
+	 * @param a A letterCraze application/
+	 * @param t TileView of tile selected.
+	 */
 	public SelectTileController(Application a, TileView t){
 		this.app = a;
 		this.model = a.getModel();

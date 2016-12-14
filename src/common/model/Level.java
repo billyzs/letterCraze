@@ -2,6 +2,10 @@ package common.model;
 
 import java.util.ArrayList;
 
+/**
+ * Parent class of all levels in letterCraze containing data and functions used by all levels.
+ * @author Grant Espe
+ */
 public abstract class Level{
 	public static final String type = "";
 	Board board;
@@ -58,12 +62,21 @@ public abstract class Level{
 	public void setSubmittedWords(ArrayList<String> submittedWords) {
 		this.submittedWords = submittedWords;
 	}
-
-	//need to establish dictionary implementation
 	
-
-
-	public Level(){} //empty constructor to make creation of view and controller easier?
+	/**
+	 * Empty constructor to allow easier creation of boundary and controller objects.
+	 */
+	public Level(){} 
+	
+	/**
+	 * Default constructor.
+	 * @param b A Board
+	 * @param n A Name
+	 * @param d A Dictionary
+	 * @param hs A High-score
+	 * @param ts A target score
+	 * @param ul Whether or not this level is unlocked
+	 */
 	public Level(Board b, String n, Dictionary d, int hs, int ts, boolean ul){
 		this.board = b;
 		this.name = n;
@@ -75,6 +88,9 @@ public abstract class Level{
 		//this.initialize();
 	}
 
+	/**
+	 * Initialize level and all objects associated with it.
+	 */
 	public void initialize(){
 		this.currentWord.initialize();
 		this.board.initialize();
@@ -87,17 +103,20 @@ public abstract class Level{
 		this.currentPoints = 0;
 	}
 	
-	//saves the level to a file
-	//  This will eventually go to a common.controller I think
+	/** Saves the level to a file, either this or a common.controller is used to do this for extensions of <code>Level</code>.
+	 */
 	public abstract void save(String filename);
 	
+	/**
+	 * Repopulates the <code>Board</code> of this <code>Level</code>.
+	 */
 	public void repopulate(){
 		this.board.fillEmpty();
 	}
 
 	/**
 	 * Performs upward gravity on the board.
-	 * @return
+	 * @return Whether or not gravity was successful.
 	 */
 	public boolean floatTiles(){
 		//start looping from second row
@@ -126,12 +145,9 @@ public abstract class Level{
 
 	/**
 	 * Gets the next tile to move up, searching a specific column. 
-	 * @param startRow
-	 * The first Row to start looking on.
-	 * @param col
-	 * The column to search down.
-	 * @return
-	 * Returns the Tile it found.
+	 * @param startRow The first Row to start looking on.
+	 * @param col column to search down.
+	 * @return the Tile it found.
 	 */
 	protected Tile getNextFloatTile(int startRow, int col){
 		int r;
@@ -167,7 +183,10 @@ public abstract class Level{
 		this.currentPoints = i;
 	}
 	
-	//done if current points is greater than 1 star
+	/**
+	 * Add points to this level's score, done if current points are sufficient for 1 star.
+	 * @param i Number of points to add.
+	 */
 	public void addPoints(int i) {this.currentPoints += i;};
 	public int getTargetScore() {return this.targetScore;}
 	public Dictionary getDict(){ return this.dict;}
@@ -187,7 +206,7 @@ public abstract class Level{
 	}
 
 	/**
-	 * responisble for updating the highscore to the new current points, if it's greater
+	 * Responisble for updating the highscore to the new current points, if it's greater.
 	 */
 	public void updateHighscore() {
 		if(this.currentPoints > this.highscore)
@@ -195,7 +214,7 @@ public abstract class Level{
 	}
 
 	/**
-	 * responsible for teardown, opposite of init.
+	 * Responsible for teardown, opposite of init.
 	 */
 	public void terminate() {
 	}

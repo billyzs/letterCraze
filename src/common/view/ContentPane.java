@@ -2,8 +2,9 @@ package common.view;
 
 import javax.swing.JPanel;
 
-/*
- * ContentPane.get() to get the content pane from anywhere
+/**
+ * Content pane to be retrieved from anywhere.
+ * @author Grant Espe
  */
 public final class ContentPane {
     private static LevelView currentLevelView;

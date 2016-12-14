@@ -5,6 +5,11 @@ import common.controller.SplashTimer;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * <code>Canvas</code> object to show the Welcome Splash Screen.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class WelcomeView extends Canvas implements IView {
 
 	MenuView menu;
@@ -12,6 +17,9 @@ public class WelcomeView extends Canvas implements IView {
 		menu = mv;
 	}
 
+	/**
+	 * Display splash screen image.
+	 */
 	public void paint(Graphics g){
         java.net.URL url = this.getClass().getResource("/images/gameSplashFixed.jpg");
         //System.out.print(url.toString());

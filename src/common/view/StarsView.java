@@ -10,6 +10,11 @@ import javax.swing.SwingConstants;
 
 import common.model.Level;
 
+/**
+ * <code>JPanel</code> object to show Stars.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class StarsView extends JPanel {
 
 	int score;
@@ -21,6 +26,10 @@ public class StarsView extends JPanel {
 	JLabel label_2;
 	JLabel label_3;
 	
+	/**
+	 * Default constructor.
+	 * @param l A Level
+	 */
 	public StarsView(Level l) {
 		this.level = l;
 		targetScore = this.level.getTargetScore();
@@ -57,6 +66,9 @@ public class StarsView extends JPanel {
 		add(currentScorelabel);
 	}
 
+	/**
+	 * Refresh this view to update which star thresholds have been reached.
+	 */
 	public void refresh() {
 		score = this.level.getCurrentPoints();
 		this.currentScorelabel.setText(""+score);

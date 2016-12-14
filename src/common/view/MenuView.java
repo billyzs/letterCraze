@@ -8,13 +8,22 @@ import javax.swing.JPanel;
 import common.model.Level;
 import common.model.Model;
 
-public class MenuView  extends JPanel implements IView{
+/**
+ * <code>JPanel</code> object to show the main menu of letterCraze.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
+public class MenuView  extends JPanel implements IView {
 	//decided to make it an arraylist because 
 	//  the size could change due to custom levels
 	
 	ArrayList<LevelMenuView> lmv;
 	Model currentGame;
 
+	/**
+	 * Default constructor.
+	 * @param m
+	 */
 	public MenuView(Model m){
 		super();
 

@@ -8,12 +8,20 @@ import java.awt.event.ActionListener;
 
 import common.application.*;
 
+/**
+ * <code>ActionListener</code> controller for finishing a completed level.
+ * @author Team Technetium
+ */
 public class FinishLevelController implements ActionListener{
 	
 	Application app;
 	Model model;
 	Level theLevel;
 	
+	/**
+	 * @param a A letterCraze application.
+	 * @param l A completed level.
+	 */
 	public FinishLevelController(Application a, Level l){
 		this.theLevel = l;
 		this.app = a;

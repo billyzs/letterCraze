@@ -13,6 +13,10 @@ import common.model.Model;
 import common.view.ContentPane;
 import common.view.LevelView;
 
+/**
+* <code>ActionListener</code> controller to proved a timer for <code>LightningLevel</code>s using the swing <code>Timer</code> class.
+* @author Team Technetium
+*/
 public class TimerController implements ActionListener{
     int elapsedSeconds = 30;
     JLabel timerLabel;
@@ -20,6 +24,9 @@ public class TimerController implements ActionListener{
 	LevelView levelView;
 	Timer timer;
 	
+	/**
+	 * @param l A Level.
+	 */
 	public TimerController(Level l){
 		this.level= l;
 		this.timer = ((LightningLevel) l).getTimer();

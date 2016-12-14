@@ -12,13 +12,17 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+/**
+ * <code>JPanel</code> object to show the builder of <code>Level</code> objects.
+ * @author Billy Shao
+ */
 public class BuilderView extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 
 	/**
-	 * Create the panel.
+	 * Default constructor, also creates the panel.
 	 */
 	public BuilderView() {
 		

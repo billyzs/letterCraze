@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+/**
+ * <code>JPanel</code> object to show submitted <code>Word</code> objects.
+ * @author Grant Espe
+ * @author Santiago Sade de la Paz
+ */
 public class SubmittedWordsView extends JPanel implements IView {
 	private JTextField textField;
 	private JLabel currentWordLabel;
@@ -23,6 +28,11 @@ public class SubmittedWordsView extends JPanel implements IView {
 
 	Word currentWord;
 	
+	/**
+	 * Default constructor.
+	 * @param sw An ArrayList of Strings
+	 * @param cw
+	 */
 	public SubmittedWordsView(ArrayList<String> sw, Word cw){
 		this.words = sw;
 		this.currentWord = cw;
@@ -42,8 +52,9 @@ public class SubmittedWordsView extends JPanel implements IView {
 		// TODO Auto-generated method stub
 	}
 	
-	//Converts the arraylist of words into labels
-	//  refreshes for adding/removing a word
+	/**
+	 * Converts the arraylist of words into <code>JLabel</code>s, refreshes for adding/removing a word.
+	 */
 	public void refresh(){
 		System.out.println(this.currentWord.toString());
 		//remove all labels from the view
@@ -87,7 +98,7 @@ public class SubmittedWordsView extends JPanel implements IView {
 	public JButton getSubmitButton(){return this.submitWord;}
 	
 	/**
-	 * Create the panel.
+	 * Create the <code>JPanel</code>.
 	 */
 	public void initialize() {
 		
