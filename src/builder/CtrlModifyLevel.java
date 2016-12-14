@@ -21,6 +21,15 @@ public class CtrlModifyLevel implements ActionListener {
 	ViewBuildLevel viewBuildLevel;
 	CtrlExitWithoutSaving ctrlExitWithoutSaving;
 
+	public CtrlModifyTimeLimit getCtrlModifyTimeLimit() {
+		return ctrlModifyTimeLimit;
+	}
+
+	public void setCtrlModifyTimeLimit(CtrlModifyTimeLimit ctrlModifyTimeLimit) {
+		this.ctrlModifyTimeLimit = ctrlModifyTimeLimit;
+	}
+
+	CtrlModifyTimeLimit ctrlModifyTimeLimit;
 	public CtrlExitWithoutSaving getCtrlExitWithoutSaving() {
 		return ctrlExitWithoutSaving;
 	}
@@ -143,7 +152,7 @@ public class CtrlModifyLevel implements ActionListener {
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
 		ctrlChangeLevelName = new CtrlChangeLevelName(theLevel);
-
+		ctrlModifyTimeLimit = new CtrlModifyTimeLimit(theLevel);
 		// TODO TEST, or do we need a copy constructor for backup?
 		try{
 			if (theLevel.getName() != ""){
@@ -187,6 +196,7 @@ public class CtrlModifyLevel implements ActionListener {
                     t.addMouseListener(new ChooseTileController(this.builder, t));
 				}
 			}
+
 			// Submit words controller
 			if(theLevel.getType() == "Theme"){
 				ctrlSubmitWords = new CtrlSubmitWords(this.builder.viewBuildLevel, this.builder.viewBuildLevel.getTextPane(), this.builder);

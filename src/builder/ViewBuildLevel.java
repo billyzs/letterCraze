@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import common.model.Level;
+import common.model.LightningLevel;
+import common.model.Model;
 import common.view.*;
 /**
  * Boundary object for the viewing of a level currently being built.
@@ -30,7 +32,8 @@ public class ViewBuildLevel extends LevelView implements IView{
 	BoardView panel;
 	JTextPane textPane;
 	JLabel prompt;
-
+	JTextField timeLimit;
+	JLabel timePrompt;
 	/**
 	 * Returns the <code>fieldChangeLevelName</code> <code>JTextfield</code> attribute.
 	 * @return fieldChangeLevelName
@@ -143,7 +146,16 @@ public class ViewBuildLevel extends LevelView implements IView{
         starVal3.setColumns(10);
         starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
+		if(level.getType() == Model.Lightning){
 
+			timeLimit = new JTextField(Integer.toString(((LightningLevel) level).getTimerSeconds()));
+			timePrompt = new JLabel("Time limit (seconds)");
+			timePrompt.setBounds(601, 184, 200, 26);
+			timeLimit.setBounds(601, 211, 77, 26);
+			add(timePrompt);
+			add(timeLimit);
+
+		}
 		if(level.getType() == "Theme") {
 			JLabel lblInsertDesiredWords = new JLabel("Insert dictionary words (separate with commas)");
 			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 14));

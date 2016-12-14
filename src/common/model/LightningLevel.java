@@ -9,6 +9,11 @@ import common.controller.TimerController;
 
 public class LightningLevel extends Level{
 	Timer timer;
+
+	public void setTimerSeconds(int timerSeconds) {
+		this.timerSeconds = timerSeconds;
+	}
+
 	int timerSeconds;
 	public static final String type = "Lightning";
 
