@@ -2,12 +2,14 @@ package builder;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.*;
 
 import common.model.Level;
 import common.model.LightningLevel;
 import common.model.Model;
+import common.model.ThemeLevel;
 import common.view.*;
 /**
  * Boundary object for the viewing of a level currently being built.
@@ -159,7 +161,9 @@ public class ViewBuildLevel extends LevelView implements IView{
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
 			add(lblInsertDesiredWords);
 			textPane = new JTextPane();
+			textPane.setText(((ThemeLevel) level).getWords());
 			// load dict words into textpane
+
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
 			btnSaveDict.setBounds(601, 381, 200, 29);

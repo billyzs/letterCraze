@@ -1,6 +1,7 @@
 package common.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ThemeLevel extends Level {
 	public static final String type = "Theme";
@@ -64,6 +65,18 @@ public class ThemeLevel extends Level {
 	public void save(String filename) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * @return comma separated string containing all words in the dict, in no particular order
+	 */
+	public String getWords(){
+		String out = "";
+		Iterator<String> iter = this.getDict().getTable().iterator();
+		while (iter.hasNext()){
+			out += iter.next() + ", ";
+		}
+		return out;
 	}
 
 }
