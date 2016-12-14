@@ -11,6 +11,7 @@ public class LightningLevel extends Level{
 	Timer timer;
 	int timerSeconds;
 	public static final String type = "Lightning";
+	boolean timeOver;
 
 	public LightningLevel(Board b, String n, Dictionary d, int hs, int ts, boolean ul, int timerSeconds){
 		super(b,n,d,hs,ts,ul);
@@ -28,6 +29,7 @@ public class LightningLevel extends Level{
 		}
 
 		this.currentPoints = 0;
+		this.timeOver = false;
 		
         this.setTimer(new Timer(1000, new TimerController(this)));
 		this.timer.start();
@@ -78,5 +80,7 @@ public class LightningLevel extends Level{
 	public int getTimerSeconds() { return this.timerSeconds; }
 	public Timer getTimer() { return this.timer; }
 	public void setTimer(Timer timer2) {this.timer = timer2;}
+	public boolean isTimeOver(){return this.timeOver; }
+	public void setTimeOver(boolean b){ timeOver = b; }
 
 }

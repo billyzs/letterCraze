@@ -23,7 +23,9 @@ public class TimerController implements ActionListener{
 	public TimerController(Level l){
 		this.level= l;
 		this.timer = ((LightningLevel) l).getTimer();
+		System.out.println("BEFORE" + targetSeconds);
 		targetSeconds = ((LightningLevel)level).getTimerSeconds();
+		System.out.println("AFTER" + targetSeconds);
 	}
 	
 	@Override
@@ -33,9 +35,14 @@ public class TimerController implements ActionListener{
 		targetSeconds--;
         timerLabel.setText("" + targetSeconds);
         if(targetSeconds <= 0){
-            timer.stop();
-            System.out.println("Timer Over");
+            //timer.stop();
+        	((LightningLevel)level).setTimeOver(true);
+            timerLabel.setText("Out of Time!");
+            levelView.getResetButton().setEnabled(false);
+            levelView.getUndoButton().setEnabled(false);
+            levelView.getSubmittedWordsView().getSubmitButton().setEnabled(false);
         }
+        System.out.println(((LightningLevel)level).isTimeOver());
 		
 	}
 
