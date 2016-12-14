@@ -3,6 +3,10 @@ package game.move;
 import common.model.*;
 import common.view.ContentPane;
 
+/**
+ * Move class representing the action of submitting a <code>Word</code>.
+ * @author Team Technetium
+ */
 public class SubmitWordMove implements IMove{
 	Level level;
 	Board prevBoard;
@@ -10,6 +14,10 @@ public class SubmitWordMove implements IMove{
 	Word word;
 	int points;
 	
+	/**
+	 * Default constructor.
+	 * @param l A Level
+	 */
 	public SubmitWordMove(Level l){
 		this.level = l;
 		this.prevBoard = new Board(this.level.getBoard());
@@ -21,7 +29,9 @@ public class SubmitWordMove implements IMove{
 	}
 	
 	
-	//adds word to the submitted words, removes tiles from the level
+	/**
+	 * Adds <code>Word</code> to the submitted words, removes tiles from the <code>Level</code>.
+	 */
 	public void doMove(){
 		if(this.isValid()){
 			//add submitted word
@@ -41,7 +51,9 @@ public class SubmitWordMove implements IMove{
 		}
 	}
 
-	//undo submitting the word
+	/**
+	 * Undo submission of <code>Word</code>.
+	 */
 	public void undo(){
 		//move prevboard to the level
 		this.level.getBoard().recoverState(this.prevBoard);
@@ -57,7 +69,9 @@ public class SubmitWordMove implements IMove{
 		
 	}
 	
-	//valid if its a valid word
+	/**
+	 * Move is valid if <code>Word</code> is valid.
+	 */
 	public boolean isValid(){
 		if(this.level.getDict().isWord(this.word.toString()))
 			if(this.word.toString().length() >= 3 || this.level.getType().equals("Theme"))

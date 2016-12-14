@@ -2,12 +2,22 @@ package game.move;
 
 import common.model.*;
 
+/**
+ * Move representing the action of selecting a tile.
+ * @author Team Technetium
+ *
+ */
 public class SelectTileMove implements IMove{
 	Model model;
 	Tile tile;
 	int row;
 	int col;
 	
+	/**
+	 * Default constructor.
+	 * @param m An Application Model
+	 * @param t A Tile
+	 */
 	public SelectTileMove(Model m, Tile t){
 		this.model = m;
 		this.tile = t;
@@ -16,7 +26,9 @@ public class SelectTileMove implements IMove{
 	}
 	
 	
-	//selected the tile and adds it to the word
+	/**
+	 * Selects this <code>Tile</code> and adds it to a <code>Word</code>.
+	 */
 	public void doMove(){
 		if(this.isValid()){
             this.tile.setSelected(true);
@@ -24,7 +36,9 @@ public class SelectTileMove implements IMove{
 		}
 	}
 
-	//removes tile from word, deselects
+	/**
+	 * Removes this <code>Tile</code> from word, and then deselects it.
+	 */
 	public void undo(){
 		//deselect the tile at the position
 		this.model.getCurrentLevel().getBoard().getTiles().get(row).get(col).setSelected(false);
@@ -33,6 +47,10 @@ public class SelectTileMove implements IMove{
 		this.model.getCurrentLevel().getCurrentWord().removeLastTile();
 	}
 	
+	/**
+	 * Returns whether or not this move is valid.
+	 * @return True if move is valid.
+	 */
 	//mind the short circuit evaluation
 	public boolean isValid(){
 		if(!this.tile.isSelectable() || this.tile.isSelected())

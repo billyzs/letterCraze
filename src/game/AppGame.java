@@ -17,10 +17,15 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 /**
- * Created by gtespe on 02/12/16.
+ * The letterCraze game subclass of <code>Application</code>.
+ * @author Grant Espe
  */
 public class AppGame extends Application{
 
+	/**
+	 * The default constructor which takes all entity objects in the <code>Model</code> container.
+	 * @param m The Model
+	 */
     public AppGame(Model m) {
 		super(m);
 		this.menu = new MenuView(m);
