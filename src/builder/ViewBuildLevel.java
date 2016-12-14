@@ -139,13 +139,11 @@ public class ViewBuildLevel extends LevelView implements IView{
 		lblPointThresholds.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
         lblPointThresholds.setBounds(601, 140, 480, 16);
         add(lblPointThresholds);
-
-        //TODO looks like these fields are for starVals, and need controllers
-
-        starVal3 = new JTextField();
+        starVal3 = new JTextField(Integer.toString(level.getTargetScore()));
         starVal3.setColumns(10);
         starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
+
 		if(level.getType() == Model.Lightning){
 
 			timeLimit = new JTextField(Integer.toString(((LightningLevel) level).getTimerSeconds()));
@@ -154,7 +152,6 @@ public class ViewBuildLevel extends LevelView implements IView{
 			timeLimit.setBounds(601, 211, 77, 26);
 			add(timePrompt);
 			add(timeLimit);
-
 		}
 		if(level.getType() == "Theme") {
 			JLabel lblInsertDesiredWords = new JLabel("Insert dictionary words (separate with commas)");
@@ -162,6 +159,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
 			add(lblInsertDesiredWords);
 			textPane = new JTextPane();
+			// load dict words into textpane
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
 			btnSaveDict.setBounds(601, 381, 200, 29);
