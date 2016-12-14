@@ -53,17 +53,24 @@ public class SelectTileMove implements IMove{
 	 */
 	//mind the short circuit evaluation
 	public boolean isValid(){
-		if(!this.tile.isSelectable() || this.tile.isSelected())
+		String type = this.model.getCurrentLevel().getType();
+		
+		if(!this.tile.isSelectable() || this.tile.isSelected()){
 			return false;
-			
+		}
+		
+		if((type == "Lightning") && (((LightningLevel)(this.model.getCurrentLevel())).isTimeOver())) {
+			return false;
+		}
+		
 		Word currentWord = this.model.getCurrentLevel().getCurrentWord();
 		Tile prevTile = currentWord.getLastTile();
 		
 		//valid if the tile is selectable and adjacent to recent tile
 		// or if current word is empty
-		if(currentWord.isEmpty() || this.tile.isAdjacent(prevTile))
+		if(currentWord.isEmpty() || this.tile.isAdjacent(prevTile)){
 			return true;
-
+		}
 		return false;
 	
 	}

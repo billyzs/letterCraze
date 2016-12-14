@@ -38,7 +38,8 @@ public class AppGame extends Application{
             seq++;
 		}
 	}
-    
+
+    //Not yet used
     public void initializeControllers(){
     }
 

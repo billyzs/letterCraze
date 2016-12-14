@@ -73,6 +73,10 @@ public class SubmitWordMove implements IMove{
 	 * Move is valid if <code>Word</code> is valid.
 	 */
 	public boolean isValid(){
+		String type = level.getType();
+		if((type == "Lightning") && (((LightningLevel)(level)).isTimeOver())) {
+			return false;
+		}
 		if(this.level.getDict().isWord(this.word.toString()))
 			if(this.word.toString().length() >= 3 || this.level.getType().equals("Theme"))
                 return true;
