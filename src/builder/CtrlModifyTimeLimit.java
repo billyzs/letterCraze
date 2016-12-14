@@ -24,5 +24,6 @@ public class CtrlModifyTimeLimit implements ActionListener{
 	public void actionPerformed(ActionEvent actionEvent) {
 		int newTimeLimit = Integer.parseInt(((JTextField) actionEvent.getSource()).getText());
 		((LightningLevel) theLevel).setTimerSeconds(newTimeLimit);
+		System.out.println("change timer limit to " + Integer.toString(newTimeLimit));
 	}
 }

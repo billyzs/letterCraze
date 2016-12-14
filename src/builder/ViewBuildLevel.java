@@ -6,10 +6,7 @@ import java.util.Iterator;
 
 import javax.swing.*;
 
-import common.model.Level;
-import common.model.LightningLevel;
-import common.model.Model;
-import common.model.ThemeLevel;
+import common.model.*;
 import common.view.*;
 /**
  * Boundary object for the viewing of a level currently being built.
@@ -19,7 +16,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 
 	// Application app;
     Level level;
-    //TODO what are the textFields?
+
     /**
      * The Swing attributes.
      */
@@ -36,6 +33,9 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JLabel prompt;
 	JTextField timeLimit;
 	JLabel timePrompt;
+	JLabel lblMaxWords;
+	JTextField jtfMaxWords;
+	JButton btnSaveDict;
 	/**
 	 * Returns the <code>fieldChangeLevelName</code> <code>JTextfield</code> attribute.
 	 * @return fieldChangeLevelName
@@ -83,15 +83,45 @@ public class ViewBuildLevel extends LevelView implements IView{
 		this.btnSaveDict = btnSaveDict;
 	}
 
-	JButton btnSaveDict;
+
+	public JTextField getTimeLimit() {
+		return timeLimit;
+	}
+
+	public void setTimeLimit(JTextField timeLimit) {
+		this.timeLimit = timeLimit;
+	}
+
+	public JLabel getTimePrompt() {
+		return timePrompt;
+	}
+
+	public void setTimePrompt(JLabel timePrompt) {
+		this.timePrompt = timePrompt;
+	}
+
+	public JLabel getLblMaxWords() {
+		return lblMaxWords;
+	}
+
+	public void setLblMaxWords(JLabel lblMaxWords) {
+		this.lblMaxWords = lblMaxWords;
+	}
+
+	public JTextField getJtfMaxWords() {
+		return jtfMaxWords;
+	}
+
+	public void setJtfMaxWords(JTextField jtfMaxWords) {
+		this.jtfMaxWords = jtfMaxWords;
+	}
+
 	/**
      * Create the panel.
      * @param lmv
      */
 	public ViewBuildLevel(LevelMenuView lmv) {
 
-
-        //TODO TEST!!!
         // app = a;
 		this.lmv = lmv;
 		this.seq = lmv.getSeq();
@@ -145,6 +175,16 @@ public class ViewBuildLevel extends LevelView implements IView{
         starVal3.setColumns(10);
         starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
+
+        if(level.getType() == Model.Puzzle){
+        	lblMaxWords = new JLabel("Max words allowed");
+        	jtfMaxWords = new JTextField();
+        	jtfMaxWords.setText(Integer.toString(((PuzzleLevel) level).getMaxWords()));
+			lblMaxWords.setBounds(601, 184, 200, 26);
+			jtfMaxWords.setBounds(601, 211, 77, 26);
+			add(lblMaxWords);
+			add(jtfMaxWords);
+		}
 
 		if(level.getType() == Model.Lightning){
 

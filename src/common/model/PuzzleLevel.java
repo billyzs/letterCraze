@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class PuzzleLevel extends Level{
 	public static final String type = "Puzzle";
+
+	public void setMaxWords(int maxWords) {
+		this.maxWords = maxWords;
+	}
+
 	int maxWords;
 
 	public PuzzleLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul, int mw){

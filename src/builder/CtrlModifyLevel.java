@@ -20,6 +20,15 @@ public class CtrlModifyLevel implements ActionListener {
 	CtrlModifyTargetScore ctrlModifyTargetScore;
 	ViewBuildLevel viewBuildLevel;
 	CtrlExitWithoutSaving ctrlExitWithoutSaving;
+	CtrlModifyMaxWords ctrlModifyMaxWords;
+
+	public CtrlModifyMaxWords getCtrlModifyMaxWords() {
+		return ctrlModifyMaxWords;
+	}
+
+	public void setCtrlModifyMaxWords(CtrlModifyMaxWords ctrlModifyMaxWords) {
+		this.ctrlModifyMaxWords = ctrlModifyMaxWords;
+	}
 
 	public CtrlModifyTimeLimit getCtrlModifyTimeLimit() {
 		return ctrlModifyTimeLimit;
@@ -153,7 +162,7 @@ public class CtrlModifyLevel implements ActionListener {
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
 		ctrlChangeLevelName = new CtrlChangeLevelName(theLevel);
 		ctrlModifyTimeLimit = new CtrlModifyTimeLimit(theLevel);
-		// TODO TEST, or do we need a copy constructor for backup?
+		ctrlModifyMaxWords = new CtrlModifyMaxWords(theLevel);
 		try{
 			if (theLevel.getName() != ""){
 				backup = builder.loadLevel(theLevel.getName()+".lvl");
@@ -196,6 +205,15 @@ public class CtrlModifyLevel implements ActionListener {
                     t.addMouseListener(new ChooseTileController(this.builder, t));
 				}
 			}
+			// Puzzle specific controllers (max word)
+			if(theLevel.getType() == Model.Puzzle){
+				vbl.getJtfMaxWords().addActionListener(ctrlModifyMaxWords);
+			}
+
+			// Lightning Specific controllers (Timer limit)
+			if(theLevel.getType() == Model.Lightning){
+				vbl.getTimeLimit().addActionListener(ctrlModifyTimeLimit);
+			}
 
 			// Submit words controller
 			if(theLevel.getType() == "Theme"){
@@ -220,6 +238,10 @@ public class CtrlModifyLevel implements ActionListener {
 			// delete level
 			ctrlDeleteLevel = new CtrlDeleteLevel(this.builder, this.getViewBuildLevel());
 			vbl.getBtnDeleteLevel().addActionListener(this.ctrlDeleteLevel);
+
+			// modify timer controller for Lightning
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
