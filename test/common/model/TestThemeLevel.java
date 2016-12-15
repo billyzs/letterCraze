@@ -10,7 +10,7 @@ public class TestThemeLevel extends TestCase{
 		String[] words = {"aaa", "bbb", "ccc"};
  		Dictionary d = new Dictionary(words);
  		Board b = new Board();
- 		ThemeLevel tl = new ThemeLevel(b, "test", d, 100, 100, true);
+ 		ThemeLevel tl = new ThemeLevel(b, "test", d, 100, 100, true, "");
  		for (String word : words){
 			assertTrue(tl.getWords().contains(word));
 		}

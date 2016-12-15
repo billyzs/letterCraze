@@ -100,7 +100,7 @@ public class Model {
 					level =  new LightningLevel(emptyBoard, name, dict, highScore, starVal, unlocked, lightningSeconds); //TODO santiago
 					break;
 				case "Theme":
-					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked);
+					level = new ThemeLevel(emptyBoard, name, dict, highScore, starVal, unlocked, "");
 					break;
 				default:
 					throw new IllegalArgumentException("CtrlModifyLevel::createNewLevel: cannot parse " + levelType);

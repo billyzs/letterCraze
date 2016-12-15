@@ -37,6 +37,24 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JTextField jtfMaxWords;
 	JButton btnSaveDict;
 	String levelNamePrompt;
+	JLabel lblThemeWord;
+	JTextField jtfThemeWord;
+
+	public JTextField getJtfThemeWord() {
+		return jtfThemeWord;
+	}
+
+	public void setJtfThemeWord(JTextField jtfThemeWord) {
+		this.jtfThemeWord = jtfThemeWord;
+	}
+
+	public JLabel getLblThemeWord() {
+		return lblThemeWord;
+	}
+
+	public void setLblThemeWord(JLabel lblThemeWord) {
+		this.lblThemeWord = lblThemeWord;
+	}
 
 	public String getLevelNamePrompt() {
 		return levelNamePrompt;
@@ -226,6 +244,13 @@ public class ViewBuildLevel extends LevelView implements IView{
 			add(timeLimit);
 		}
 		if(level.getType() == "Theme") {
+
+			lblThemeWord = new JLabel("Theme: ");
+			lblThemeWord.setBounds(601, 184, 100, 26);
+			jtfThemeWord = new JTextField(((ThemeLevel) level).getTheme());
+			jtfThemeWord.setBounds(702, 184, 100, 26);
+			add(lblThemeWord);
+			add(jtfThemeWord);
 			JLabel lblInsertDesiredWords = new JLabel("Insert dictionary words (separate with commas)");
 			lblInsertDesiredWords.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 			lblInsertDesiredWords.setBounds(601, 271, 293, 16);
@@ -233,12 +258,13 @@ public class ViewBuildLevel extends LevelView implements IView{
 			textPane = new JTextPane();
 			textPane.setText(((ThemeLevel) level).getWords());
 			// load dict words into textpane
-
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
 			btnSaveDict.setBounds(601, 381, 200, 29);
 			add(textPane);
 			add(btnSaveDict);
+
+
 		}
 		this.hideLetters();
     }

@@ -86,6 +86,8 @@ public class CtrlSaveLevel implements ActionListener {
                     String s = itr.next();
                     writer.write(s); writer.newLine();
                 }
+                // write the actual theme word to end of file
+                writer.write(((ThemeLevel) lvl).getTheme()); writer.newLine();
                 // writer.write(itr.next()); writer.newLine();
             }
             else if(lvl.getType().equals("Puzzle")){
