@@ -2,6 +2,8 @@ package builder;
 
 import common.model.Dictionary;
 import common.model.Level;
+import common.model.LightningLevel;
+import common.model.Model;
 import common.model.ThemeLevel;
 import common.model.Tile;
 
@@ -41,7 +43,9 @@ import java.util.Iterator;
 
 public class CtrlSaveLevel implements ActionListener {
     Level currentLevel;
-    public CtrlSaveLevel(Level lvl){
+    CtrlModifyLevel cml;
+    public CtrlSaveLevel(CtrlModifyLevel c, Level lvl){
+    	this.cml = c;
         currentLevel = lvl;
     }
 
@@ -61,7 +65,7 @@ public class CtrlSaveLevel implements ActionListener {
             writer.write(Integer.toString(starVals)); writer.newLine();
 
             //Custom levels should be unlocked automatically 
-            if(isDefault){
+            if(isDefault && !lvl.getName().equals("Lightning_Level_1") && !lvl.getName().equals("Puzzle_Level_1") && !lvl.getName().equals("Theme_Level_1")){
                 writer.write(String.valueOf(lvl.isUnlocked())); writer.newLine();
             }
             else{
@@ -93,6 +97,8 @@ public class CtrlSaveLevel implements ActionListener {
             else if(lvl.getType().equals("Puzzle")){
             	writer.write("" + lvl.getMaxWords()); writer.newLine();
             }
+            else if(lvl.getType().equals("Lightning"))
+            	writer.write("" + ((LightningLevel)lvl).getTimerSeconds());
 
             writer.close();
         } catch (IOException e) {
@@ -104,6 +110,50 @@ public class CtrlSaveLevel implements ActionListener {
         finally {
             if(writer!=null) writer.close();
         }
+
+        //restore the old ones on save and exit for custom levels
+        if(cml.seq >= 15){
+//            int seq = cml.seq;
+ //           cml.getBuilder().getModel().getLevels().set(seq, cml.getBackup());
+        	System.out.println("HERE");
+        	
+        	char[] chars = this.currentLevel.getName().toCharArray();
+        	int seq = Character.getNumericValue(chars[chars.length-1]);
+        	int modifier = 1;
+        	String type = this.currentLevel.getType();
+
+        	if(type.equals("Puzzle")){
+        		modifier = 0;
+        	}
+        	else if(type.equals("Lightning")){
+        		modifier = 1;
+        	}
+        	else if(type.equals("Theme")){
+        		modifier = 2;
+        	}
+        	
+        	seq = (seq-1)*3 + modifier;
+
+            Model builderModel = cml.getBuilder().getModel();
+
+            //save changes to model
+            builderModel.getLevels().set(seq, currentLevel);
+
+            //fix the create level bug changing name
+            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+
+            builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
+            builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
+            builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
+        }
+
+        //Exit Level to menu
+		cml.getBuilder().viewMenu = new ViewMenu(cml.getBuilder().getModel());
+		cml.getBuilder().initializeControllers();
+		cml.getViewBuildLevel().hide();
+		cml.getBuilder().getMenu().show();
     }
     
     /**
@@ -122,7 +172,6 @@ public class CtrlSaveLevel implements ActionListener {
         System.out.println("preparing to save");
         try{
 			saveLevelToFile(currentLevel);
-			System.out.println("saved");
 		} catch (Exception e){
         	e.printStackTrace();
 		}

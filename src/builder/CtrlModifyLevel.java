@@ -166,7 +166,7 @@ public class CtrlModifyLevel implements ActionListener {
 		this.lmv = lmv;
 		this.seq = lmv.getSeq();
 		this.builder = app;
-		ctrlSaveLevel = new CtrlSaveLevel(theLevel);
+		ctrlSaveLevel = new CtrlSaveLevel(this,theLevel);
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
 		ctrlModifyTimeLimit = new CtrlModifyTimeLimit(theLevel);

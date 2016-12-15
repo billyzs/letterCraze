@@ -50,6 +50,38 @@ to submit all of the words to achieve 3 stars.
 Tiles do not randomly refill after they have been emptied from a word submission
 
 ## Builder
+Choose from one of the 15 Default levels to modify, or Create a new level by selecting one of the 3 create buttons at the botton of the menu.
+
+If you create a new level, you can overwrite one of the previous names in the format
+    [Puzzle,Lightning,Theme]_Level_[1-5]
+
+Once you are editing a level, you may select or deselect any of the Tiles by clicking on them.
+A Deselected Tile will blend with the background color.
+
+***NOTE The builder will prevent you from creating an invalid board configuration i.e. a board with islands, or fewer than 9 tiles.***
+
+###Buttons
+The Exit Without Saving Button will remove any changes that you made and revert to the previous version of the level, then return to the main menu.
+
+The Save button will Write the changes to disk and return to the main menu.
+
+***In our latest implementation, both of the above buttons take a few seconds to execute, please wait for them, writing to disk is slow***
+
+Each of the different levels will allow you to change the Value for 3 Stars. ***Press Enter to Save Changes before writing to disk***
+
+***You can only set a 3 star value, the other two stars are calculated by the game based on this value***
+
+
+###Puzzle Levels
+The Puzzle Levels allow you to make changes to the Max Words in the Max Words text Field. ***Press Enter to Save Changes***
+
+
+###Lightning Levels
+The Lightning Levels allow you to make changes to the Time Limit. ***Press Enter to Save Changes***
+
+###Theme Levels
+For Theme Levels, You can change the Theme for the Level. ***Press Enter to Save Changes***
+You can also add or remove words from the Dictionary (MAKE SURE THEY ARE SEPARATED BY COMMAS) ***Press SAVE WORDS to Save Changes***
 
 
 ## Testing

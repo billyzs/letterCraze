@@ -183,7 +183,7 @@ public class Board {
 		tiles.get(row).get(col).setLetters("" + s.toCharArray()[0]);
 		
 		//set the rest
-		for(int k = 0; k < s.length(); k++){
+		for(int k = 1; k < s.length(); k++){
 			//Empty adjacent tiles
             ArrayList<Tile> empties = getEmptyAdjacents(row,col);
 

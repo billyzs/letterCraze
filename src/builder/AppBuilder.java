@@ -68,7 +68,6 @@ public class AppBuilder extends Application{
             // System.out.println(lmv.getTheLevel().getType());
             this.ctrModifyLevels.add(c);
             lmv.getButton().addActionListener(this.ctrModifyLevels.get(i++));
-
         }
         // viewMenu.boxCreateNewLevel.addActionListener(ctrlModifyLevel);
     }
@@ -161,4 +160,5 @@ public class AppBuilder extends Application{
     public ViewMenu getMenu() {
         return this.viewMenu;
     }
+
 }
