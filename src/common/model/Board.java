@@ -152,7 +152,7 @@ public class Board {
 		remainingTries--;
 
 		if(remainingTries <= 0){
-            System.out.println("\n Finished all tries for word: " + s);
+            System.err.println("\n Finished all tries for word " + s + " giving up... :(");
 			return;
 		}
 
@@ -188,7 +188,7 @@ public class Board {
             ArrayList<Tile> empties = getEmptyAdjacents(row,col);
 
             if(empties.size() == 0){
-            	System.err.println("\n\nNO Empty adjacent tiles FOR THEME WORD, trying again: " + s);
+            	///System.err.println("\n\nNO Empty adjacent tiles FOR THEME WORD, trying again: " + s);
 
             	//reset used tiles to blank and try again
                 for(Tile t : used)
