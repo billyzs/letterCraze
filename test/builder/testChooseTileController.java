@@ -36,20 +36,20 @@ public class testChooseTileController extends TestCase {
 			row.set(0, new NullTile(k,0));
 			k++;
 		}
-		assertTrue(c.isBoardValid(b));
+		assertTrue(c.isBoardValid(b, 8));
 
 		k = 0;
 		for(ArrayList<Tile> row : b.getTiles()){
 			row.set(5, new NullTile(k,5));
 			k++;
 		}
-		assertTrue(c.isBoardValid(b));
+		assertTrue(c.isBoardValid(b, 8));
 
 		k = 0;
 		for(ArrayList<Tile> row : b.getTiles()){
 			row.set(3, new NullTile(k,3));
 			k++;
 		}
-		assertFalse(c.isBoardValid(b));
+		assertFalse(c.isBoardValid(b, 8));
 	}
 }
