@@ -21,9 +21,15 @@ public class LightningLevel extends Level{
 
 	int timerSeconds;
 	public static final String type = "Lightning";
+	public final String partialFileName = "Lightning_Level_";
+
 	boolean timeOver;
 
-	
+	@Override
+	public String getPartialFileName() {
+		return this.partialFileName;
+	}
+
 	/**
 	 * Same constructor as superclass with an extra parameter.
 	 * @param b

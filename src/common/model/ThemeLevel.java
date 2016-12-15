@@ -10,6 +10,13 @@ import java.util.Iterator;
 public class ThemeLevel extends Level {
 	public static final String type = "Theme";
 
+	@Override
+	public String getPartialFileName() {
+		return this.partialFileName;
+	}
+
+	String partialFileName = "Theme_Level_";
+
 	/**
 	 * Same constructor as superclass.
 	 * @param b

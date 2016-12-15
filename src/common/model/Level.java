@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public abstract class Level{
 	public static final String type = "";
+	String partialFileName;
 	Board board;
 	String name;
 	Word currentWord;
@@ -220,4 +221,10 @@ public abstract class Level{
 	}
 
 	public abstract int computeScore(Word word);
+
+	public abstract String getPartialFileName();
+
+	public void setPartialFileName(String partialFileName) {
+		this.partialFileName = partialFileName;
+	}
 }

@@ -160,7 +160,6 @@ public class CtrlModifyLevel implements ActionListener {
 		ctrlSaveLevel = new CtrlSaveLevel(theLevel);
 		ctrlModifyTargetScore = new CtrlModifyTargetScore(theLevel);
 		ctrlExitWithoutSaving = new CtrlExitWithoutSaving(this);
-		ctrlChangeLevelName = new CtrlChangeLevelName(theLevel);
 		ctrlModifyTimeLimit = new CtrlModifyTimeLimit(theLevel);
 		ctrlModifyMaxWords = new CtrlModifyMaxWords(theLevel);
 		try{
@@ -190,6 +189,7 @@ public class CtrlModifyLevel implements ActionListener {
 			this.builder.viewBuildLevel = vbl;
 			this.viewBuildLevel = vbl;
 			this.ctrlPreview = new CtrlPreview(vbl);
+			ctrlChangeLevelName = new CtrlChangeLevelName(this.getViewBuildLevel(), theLevel);
 			// this.builder.add(vbl);
 			//ContentPane.get().setVisible(false);
 			//builder.getMenu().hide();

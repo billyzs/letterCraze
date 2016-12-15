@@ -202,6 +202,10 @@ public class ViewBuildLevel extends LevelView implements IView{
         starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
 
+		prompt = new JLabel("");
+		prompt.setBounds(601, 411, 293, 50);
+		add(prompt);
+
         if(level.getType() == Model.Puzzle){
         	lblMaxWords = new JLabel("Max words allowed");
         	jtfMaxWords = new JTextField();
@@ -233,10 +237,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
 			btnSaveDict.setBounds(601, 381, 200, 29);
-			prompt = new JLabel("");
-			prompt.setBounds(601, 411, 293, 50);
 			add(textPane);
-			add(prompt);
 			add(btnSaveDict);
 		}
 		this.hideLetters();

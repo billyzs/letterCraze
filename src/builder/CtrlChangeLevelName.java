@@ -12,15 +12,26 @@ import java.awt.event.ActionListener;
  */
 public class CtrlChangeLevelName implements ActionListener {
 	Level theLevel;
+	ViewBuildLevel viewBuildLevel;
 
-	CtrlChangeLevelName(Level l){
+	CtrlChangeLevelName(ViewBuildLevel vbl, Level l){
 		this.theLevel = l;
+		this.viewBuildLevel = vbl;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		String newLevelName = ((JTextField) actionEvent.getSource()).getText();
-		System.out.println("Changing name from "+ theLevel.getName() + " to " + newLevelName);
-		theLevel.setName(newLevelName);
+		viewBuildLevel.getPrompt().setText("");
+		String newLevelName = "";
+		String newLevelSeq = ((JTextField) actionEvent.getSource()).getText();
+		if (newLevelSeq.length() == 1 && "12345".contains(newLevelSeq)){
+			newLevelName = theLevel.getPartialFileName() + newLevelSeq;
+			System.out.println("Changing name from "+ theLevel.getName() + " to " + newLevelName);
+			theLevel.setName(newLevelName);
+		}
+		else{
+			viewBuildLevel.getPrompt().setText("Enter 1, 2, 3, 4 or 5");
+			viewBuildLevel.getPrompt().setVisible(true);
+		}
 	}
 }
