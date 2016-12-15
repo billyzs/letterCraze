@@ -89,6 +89,11 @@ public class Tile {
 	public String setRandLetter() {
 		
 		double r =  Math.random();
+		return testableSetRandLetter(r);
+
+	}
+
+	public String testableSetRandLetter(double r){
 
 		double prob = 0.08167;
 		if(r < prob)
@@ -195,7 +200,7 @@ public class Tile {
 		if(r <= prob)
 		*/
 
-        return (this.letters = "Z");
+		return (this.letters = "Z");
 
 	}
 	public boolean isSelectable(){return !(letters == "");}
