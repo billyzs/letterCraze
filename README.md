@@ -26,19 +26,19 @@ Press the Undo Button to undo
     Tile Selection  -OR-
     Word Submission
 
-#Puzzle Levels
+###Puzzle Levels
     You are only allowed to submit 'MaxWords' number of words in puzzle levels
     However, you gain points based on how low the letter frequency is for
     each Tile you select, and based on the length of the word.
     You can only submit words of length 3 or greater.
 
-#Lightning Levels
+###Lightning Levels
     A timer will tick down as you play a lightning level, you cannot
     submit any words after the timer runs out.
     
     You can only submit words of length 3 or greater.
 
-#Theme Levels
+###Theme Levels
     Theme Levels have a dictionary that corresponds to the Theme.
     Each theme level has a predetermined number of words, you need to 
     all of the words to achieve 3 stars.
