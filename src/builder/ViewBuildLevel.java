@@ -166,7 +166,7 @@ public class ViewBuildLevel extends LevelView implements IView{
         lblChooseAtLeast.setHorizontalAlignment(SwingConstants.LEFT);
         lblChooseAtLeast.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 
-        btnSaveChanges = new JButton("Save");
+        btnSaveChanges = new JButton("Save and Exit");
         btnSaveChanges.setBounds(812, 6, 82, 29);
 
         btnDeleteLevel = new JButton("Delete Level");

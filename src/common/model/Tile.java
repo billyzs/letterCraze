@@ -203,7 +203,7 @@ public class Tile {
 		return (this.letters = "Z");
 
 	}
-	public boolean isSelectable(){return !(letters == "");}
+	public boolean isSelectable(){return !(letters.equals(""));}
 
 	public void setLetters(String s ) { this.letters = s; }
 	

@@ -51,7 +51,6 @@ public class SelectTileMove implements IMove{
 	 * Returns whether or not this move is valid.
 	 * @return True if move is valid.
 	 */
-	//mind the short circuit evaluation
 	public boolean isValid(){
 		String type = this.model.getCurrentLevel().getType();
 		
@@ -59,6 +58,7 @@ public class SelectTileMove implements IMove{
 			return false;
 		}
 		
+        //mind the short circuit evaluation
 		if((type == "Lightning") && (((LightningLevel)(this.model.getCurrentLevel())).isTimeOver())) {
 			return false;
 		}
