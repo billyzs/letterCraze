@@ -88,6 +88,13 @@ public class PuzzleLevel extends Level{
 		for(Tile t : word.getTiles()){
 			score += this.getLetterScore(t.getLetters());
 		}
+		
+		//multiply score by n-2
+		int multiplier = word.toString().length() - 2;
+		
+		if(multiplier > 1)
+			score *= multiplier;
+			
 		return score;
 	}
 	
