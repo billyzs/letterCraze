@@ -22,7 +22,7 @@ public class TestCtrlSaveLevel {
         String testFile = inFileName;
         String outputFile = "reference.lvl";
         Level level1 = app.loadLevel(testFile);
-        CtrlSaveLevel csl = new CtrlSaveLevel(level1);
+        CtrlSaveLevel csl = new CtrlSaveLevel(null, level1);
         csl.saveLevelToFile(level1, outputFile);
         Level level2 = app.loadLevel(outputFile);
         // lvl 1 == lvl2??
