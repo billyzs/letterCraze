@@ -48,6 +48,7 @@ public class LevelView extends JPanel implements IView {
 	 */
 	public LevelView(Level l){
 		this.level = l;
+		
 		if (level.getType().equals("Lightning")) {
 			lightningSeconds = ((LightningLevel) level).getTimerSeconds();
 		}
@@ -144,6 +145,10 @@ public class LevelView extends JPanel implements IView {
 		else
 			this.finish.setEnabled(false);
 
+		if(!(level.getType().equals("Lightning"))) {
+			//timer.setVisible(false);
+			timer.setText("");
+		}
 		//Add to the content pane and show
 		
 		System.out.println(this.getBackground().toString());
