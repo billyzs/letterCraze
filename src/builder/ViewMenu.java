@@ -42,6 +42,7 @@ public class ViewMenu extends MenuView implements IView{
             lmv.getLblTitle().setVisible(false); //upstream introduced unwanted changes AGAIN
             //TODO add controller for buttons in lmv
 
+
         }
 
         int numLevels = m.getLevels().size();
