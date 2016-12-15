@@ -13,6 +13,8 @@ New Levels will unlock if you achieve at least 1 star, and your progress will be
 
 Click on the Tiles to form words by chaining adjacent tiles.
 
+####Buttons
+
 Press the Submit Word button to submit a word, and remove its tiles.
     Tiles will float up in a submission, and the board will randomly fill empties
 
