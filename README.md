@@ -65,16 +65,23 @@ The Exit Without Saving Button will remove any changes that you made and revert 
 
 The Save button will Write the changes to disk and return to the main menu.
 
-***In our latest implementation, both of the above buttons take a few seconds to execute***
+***In our latest implementation, both of the above buttons take a few seconds to execute, please wait for them, writing to disk is slow***
+
+Each of the different levels will allow you to change the Value for 3 Stars. ***Press Enter to Save Changes before writing to disk***
+
+***You can only set a 3 star value, the other two stars are calculated by the game based on this value***
 
 
 ###Puzzle Levels
-    
+   The Puzzle Levels allow you to make changes to the Max Words in the Max Words text Field. ***Press Enter to Save Changes before writing to disk***
 
+ 
 ###Lightning Levels
-
+   The Lightning Levels allow you to make changes to the Time Limit. ***Press Enter to Save Changes before writing to disk***
 
 ###Theme Levels
+   For Theme Levels, You can change the Theme for the Level. ***Press Enter to Save Changes***
+   You can also add or remove words from the Dictionary (MAKE SURE THEY ARE SEPARATED BY COMMAS) ***Press SAVE WORDS to Save Changes***
 
 
 ## Testing
