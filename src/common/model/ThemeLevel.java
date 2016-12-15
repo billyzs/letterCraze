@@ -1,5 +1,7 @@
 package common.model;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -9,6 +11,8 @@ import java.util.Iterator;
  */
 public class ThemeLevel extends Level {
 	public static final String type = "Theme";
+	protected String theme;
+
 
 	@Override
 	public String getPartialFileName() {
@@ -26,9 +30,10 @@ public class ThemeLevel extends Level {
 	 * @param sv
 	 * @param ul
 	 */
-	public ThemeLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul){
+	public ThemeLevel(Board b, String n, Dictionary d, int hs, int sv, boolean ul, String th){
 		super(b,n,d,hs,sv,ul);
 		//this.initialize();
+		this.theme = th;
 		this.targetScore = this.dict.getTable().size();
 	}
 	
@@ -82,10 +87,47 @@ public class ThemeLevel extends Level {
 	}
 
 	@Override
+	//Saves the level in ascii
 	public void save(String filename) {
-		// TODO Auto-generated method stub
-		
+		try{
+		    PrintWriter wr = new PrintWriter("./levels/" + filename + ".lvl", "UTF-8");
+		    //write out to disk
+		    wr.println(this.getType());
+		    wr.println(this.getName());
+		    wr.println("" + this.getHighscore());
+		    wr.println("" + this.getTargetScore());
+		    wr.println("" + this.isUnlocked());
+		    ArrayList<ArrayList<Tile>> tiles = this.getBoard().getTiles();
+		    
+		    //output the board as an array of 0's and 1's
+		    for(ArrayList<Tile> row : tiles){
+		    	for(Tile t : row){
+		    		//if the tile is empty, output 0, otherwise 1
+		    		if(t.isNull())
+                        wr.print("0");
+		    		else
+		    			wr.print("1");
+		    	}
+		    	wr.println();
+
+		    }
+            // write the dict to end of file
+            Iterator<String> itr = this.getDict().getTable().iterator();
+
+            while(itr.hasNext()){
+                String s = itr.next();
+                wr.println(s);
+            }
+            
+            wr.println(this.getTheme());
+		    wr.close();
+		} catch (IOException e) {
+            e.printStackTrace();
+		}
 	}
+	
+	public String getTheme(){return this.theme;}
+	public String setTheme(String s){ return (this.theme = s);}
 
 	/**
 	 * @return comma separated string containing all words in the dict, in no particular order.

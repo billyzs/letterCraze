@@ -42,6 +42,7 @@ public class PuzzleLevel extends Level{
 	public int getMaxWords(){ return this.maxWords;}
 	
 
+	
 	@Override
 	//Saves the level in ascii
 	//TODO save maxwords somehow?
@@ -60,7 +61,7 @@ public class PuzzleLevel extends Level{
 		    for(ArrayList<Tile> row : tiles){
 		    	for(Tile t : row){
 		    		//if the tile is empty, output 0, otherwise 1
-		    		if(t.isEmpty() || t.getLetters().equals(""))
+		    		if(t.isNull() || t.getLetters().equals(""))
                         wr.print("0");
 		    		else
 		    			wr.print("1");
@@ -76,6 +77,7 @@ public class PuzzleLevel extends Level{
             e.printStackTrace();
 		}
 	}
+	
 
 	/**
 	 * Compute score based off letter frequency.

@@ -193,13 +193,13 @@ public class LevelMenuView extends JPanel implements IView {
 	public void refresh() {
 		highscore = this.theLevel.getHighscore();
 		
-		if(highscore >= (targetScore/3)){
+		if(highscore >= (targetScore/3.0)){
 			stars[0] ="\u2605"; // ONE STAR UNLOCKED "\u2605" is black, "\u2606" is white
 		} else {
 			stars[0] ="\u2606";
 		}
 		
-		if(highscore >= (2*(targetScore/3))){
+		if(highscore >= (2.0*(targetScore/3.0))){
 			stars[1] ="\u2605"; // TWO STARS UNLOCKED "\u2605" is black, "\u2606" is white
 		} else {
 			stars[1] ="\u2606";

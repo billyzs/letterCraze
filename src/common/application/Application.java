@@ -197,12 +197,18 @@ public class Application extends JFrame {
 
 					HashSet<String> table = new HashSet<String>();
              		// not at EOF yet, read into dict.
+					String prevWord = "";
 					String word;
 					while((word=br.readLine()) != null && !word.equals("")){
-						table.add(word.toLowerCase());
+						prevWord = word.toLowerCase();
+						table.add(prevWord);
 					}
+
+					//remove last, its the theme type.
+					table.remove(prevWord);
+					
 					Dictionary dict = new Dictionary(table);
-            		result = new ThemeLevel(new Board(tiles), name, dict, highscore, targetScore, isUnlocked);
+            		result = new ThemeLevel(new Board(tiles), name, dict, highscore, targetScore, isUnlocked, prevWord);
             		return result;
             }
 

@@ -1,8 +1,8 @@
 Theme
 Theme_Level_2
-0
-30
-false
+4
+4
+true
 111111
 111111
 111111
@@ -10,6 +10,7 @@ false
 111111
 111111
 red
+orange
 blue
 purple
-orange
+colors
