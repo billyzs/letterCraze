@@ -42,6 +42,7 @@ public class LightningLevel extends Level{
 	 */
 	public LightningLevel(Board b, String n, Dictionary d, int hs, int ts, boolean ul, int timerSeconds){
 		super(b,n,d,hs,ts,ul);
+		this.timer = null;
 		this.timerSeconds = timerSeconds;
 	}
 	
@@ -58,14 +59,17 @@ public class LightningLevel extends Level{
 		this.currentPoints = 0;
 		this.timeOver = false;
 		
-        this.setTimer(new Timer(1000, new TimerController(this)));
-		this.timer.start();
-		//timer = new Timer(1000, new TimerController(this, )); TODO ??????
+		//If this is the first time, reset it
+        if(this.timer == null){
+        	this.setTimer(new Timer(1000, new TimerController(this)));
+            this.timer.start();
+        }
 	}
 	
 	@Override
 	public void terminate(){
 		this.timer.stop();
+		this.timer = null;
 	}
 
 	@Override
