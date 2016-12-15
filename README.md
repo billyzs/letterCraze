@@ -39,7 +39,7 @@ submit any words after the timer runs out.
 
 You can only submit words of length 3 or greater.
 
-##Theme Levels
+###Theme Levels
 Theme Levels have a unique dictionary that corresponds to the Theme.
 
 Each theme level has a predetermined number of words, you need
