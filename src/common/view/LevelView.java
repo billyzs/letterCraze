@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 
 import common.model.Level;
 import common.model.LightningLevel;
+import common.model.ThemeLevel;
 
 /**
  * <code>JPanel</code> object to show <code>Level</code> objects.
@@ -57,6 +58,11 @@ public class LevelView extends JPanel implements IView {
 		JButton undo = new JButton("Undo");
 		JButton finish = new JButton("Finish Level");
 		JLabel name = new JLabel(level.getName());
+		
+		if (level.getType().equals("Theme")){
+			name.setText(level.getName() + "     Theme: " + ((ThemeLevel)level).getTheme());
+		}
+			
 		JLabel timerlocal = new JLabel("" + lightningSeconds);
 		StarsView panel_1 = new StarsView(level);
 		
