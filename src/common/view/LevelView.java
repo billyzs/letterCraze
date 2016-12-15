@@ -28,7 +28,6 @@ public class LevelView extends JPanel implements IView {
 	JButton reset;
 	JButton finish;
 	JButton undo;
-//	JButton submitWord;
 	JLabel currentWord;
 	JLabel name;
 	JLabel timer;
@@ -61,10 +60,12 @@ public class LevelView extends JPanel implements IView {
 		JLabel timerlocal = new JLabel("" + lightningSeconds);
 		StarsView panel_1 = new StarsView(level);
 		
-		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord());
+		SubmittedWordsView panel_2 = new SubmittedWordsView(this.level.getSubmittedWords(), this.level.getCurrentWord(), this.level);
 
 		name.setHorizontalAlignment(SwingConstants.CENTER);
 		name.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		
+		timerlocal.setHorizontalAlignment(SwingConstants.RIGHT);
 	
 		GroupLayout groupLayout = new GroupLayout(this);
 
