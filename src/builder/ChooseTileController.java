@@ -27,7 +27,7 @@ import static java.lang.Integer.min;
 
 /**
  * <code>MouseListener</code> controller that handles the selecting of tiles to hold be playable when building a level.
- * @author Billy Shao
+ * @author Grant Espe
  *
  */
 public class ChooseTileController implements MouseListener{
