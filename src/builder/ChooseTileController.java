@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import common.application.Application;
 import common.model.Board;
 import common.model.Model;
@@ -13,6 +14,7 @@ import common.view.ContentPane;
 import common.view.TileView;
 import jdk.internal.util.xml.impl.Pair;
 
+import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -41,26 +43,29 @@ public class ChooseTileController implements MouseListener{
 
 	/**
 	 * One-pass connected component analysis to determine if board contains no islands.
+	 * Also checks if number of active tiles is greater than minNumTiles.
+	 * minNumTiles = characters in dict for Theme, 8 for others
 	 * If Tile.isSelected() == True it is actually not enabled for playing.
 	 * @param b board
 	 * @return true if board has no islands
+	 * @author billyzs
 	 */
-	boolean isBoardValid(Board b){
+	boolean isBoardValid(Board b, int minNumTiles){
 
 		HashSet<Point> checked = new HashSet<Point>();
 		LinkedList<Tile> q = new LinkedList<Tile>();
-		int curLable = 0;
+		int currLabel = 0;
 		int enabledTileCount = 0;
 		for(int j=0; j < 6; j++){
 			for(int i=0; i < 6; i++){
-				if (curLable > 1){
+				if (currLabel > 1){
 					return false;
 				}
 				if(!b.at(i,j).isNull() && !checked.contains(new Point(i,j))){ // if tile is enabled and not checked
 					q.add(b.at(i,j));
 					enabledTileCount++;
 					// if(!checked.contains(new Point(i, j))){ // if tile has not been checked
-					curLable++;
+					currLabel++;
 					checked.add(new Point(i, j));
 					// }
 					while(!q.isEmpty()){
@@ -79,9 +84,12 @@ public class ChooseTileController implements MouseListener{
 				}
 			}
 		}
-		return (curLable==1 && enabledTileCount > 8);
+		System.out.println("active tiles:" + Integer.toString(enabledTileCount));
+		return (currLabel==1 && enabledTileCount >= minNumTiles);
 	}
-	
+	boolean isBoardValid(Board b){
+		return isBoardValid(b, 9);
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -105,7 +113,9 @@ public class ChooseTileController implements MouseListener{
         tileView.updateTile(newTile);
 		
         //move the tile back if the board is invalid
-		if(!isBoardValid(this.model.getCurrentLevel().getBoard())){
+		int minNumTiles = (this.model.getCurrentLevel().getType() == Model.Theme)?
+				this.model.getCurrentLevel().getDict().getCharCount() : 9;
+		if(!isBoardValid(this.model.getCurrentLevel().getBoard(), minNumTiles)){
             this.model.getCurrentLevel().getBoard().getTiles().get(row).set(col, tile);
             tileView.updateTile(tile);
 		}

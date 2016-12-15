@@ -59,8 +59,9 @@ public class AppBuilder extends Application{
 
     }
 
-    private void initializeControllers(){
+    public void initializeControllers(){
         int i = 0;
+        this.ctrModifyLevels = new ArrayList<CtrlModifyLevel>();
         System.out.println(this.viewMenu.getLevelMenuViews().size());
         for(LevelMenuView lmv : this.viewMenu.getLevelMenuViews()){
             CtrlModifyLevel c = new CtrlModifyLevel(this, lmv);

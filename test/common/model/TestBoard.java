@@ -12,12 +12,17 @@ import org.junit.Test;
  * Created by billyzs on 12/5/16.
 */
 public class TestBoard extends TestCase{
+	private Board board;
+	private ArrayList<ArrayList<Tile>> tiles;
+
     @Before
     public void setUp() throws Exception {
+    	board = new Board();
     }
 
     @After
     public void tearDown() throws Exception {
+    	board = new Board();
     }
     @Test
     public void testReset(){
@@ -42,6 +47,8 @@ public class TestBoard extends TestCase{
 		}
 	}
 
+	public void testConstructor(){
+	}
 
 }
 

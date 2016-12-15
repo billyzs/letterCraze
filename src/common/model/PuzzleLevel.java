@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class PuzzleLevel extends Level{
 	public static final String type = "Puzzle";
-
+	public final String partialFileName = "Puzzle_Level_";
 	public void setMaxWords(int maxWords) {
 		this.maxWords = maxWords;
 	}
@@ -136,4 +136,8 @@ public class PuzzleLevel extends Level{
 		return score;
 	}
 
+	@Override
+	public String getPartialFileName() {
+		return this.partialFileName;
+	}
 }

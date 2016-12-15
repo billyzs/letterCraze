@@ -24,7 +24,7 @@ public class ViewMenu extends MenuView implements IView{
 
         super(m);
 
-        //TODO stars, locks, previous high scores shouldn't be needed.
+
         for(LevelMenuView lmv : this.getLevelMenuViews()){
             lmv.getLabelHighScore().setVisible(false);
             //lmv.getLabelLocked().setVisible(false);
@@ -41,6 +41,7 @@ public class ViewMenu extends MenuView implements IView{
             lmv.getButton().setEnabled(true); // should be able to edit a locked level
             lmv.getLblTitle().setVisible(false); //upstream introduced unwanted changes AGAIN
             //TODO add controller for buttons in lmv
+
 
         }
 

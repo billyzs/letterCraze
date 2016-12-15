@@ -23,7 +23,7 @@ public class CtrlDeleteLevel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
-		String fileName = "./" + viewBuildLevel.getLevel().getName() + ".lvl";
+		String fileName = "./levels/" + viewBuildLevel.getLevel().getName() + ".lvl";
 		try{
 			Path toDelete = Paths.get(fileName);
 			Files.delete(toDelete);

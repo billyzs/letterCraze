@@ -1,5 +1,7 @@
 package builder;
 
+import common.model.Level;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,9 +23,13 @@ public class CtrlExitWithoutSaving implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		int seq = cml.seq;
+		System.out.println("Seq = " + Integer.toString(seq));
 		// reset the corresponding level in model to the original state
 		System.out.println("Restoring the original level");
 		cml.getBuilder().getModel().getLevels().set(seq, cml.getBackup());
+		// refresh builder's viewMenu?
+		cml.getBuilder().viewMenu = new ViewMenu(cml.getBuilder().getModel());
+		cml.getBuilder().initializeControllers();
 		cml.getViewBuildLevel().hide();
 		cml.getBuilder().getMenu().show();
 	}

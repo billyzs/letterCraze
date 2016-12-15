@@ -36,6 +36,16 @@ public class ViewBuildLevel extends LevelView implements IView{
 	JLabel lblMaxWords;
 	JTextField jtfMaxWords;
 	JButton btnSaveDict;
+	String levelNamePrompt;
+
+	public String getLevelNamePrompt() {
+		return levelNamePrompt;
+	}
+
+	public void setLevelNamePrompt(String levelNamePrompt) {
+		this.levelNamePrompt = levelNamePrompt;
+	}
+
 	/**
 	 * Returns the <code>fieldChangeLevelName</code> <code>JTextfield</code> attribute.
 	 * @return fieldChangeLevelName
@@ -158,13 +168,29 @@ public class ViewBuildLevel extends LevelView implements IView{
         add(btnSaveChanges);
 
 
-        lblLevelSettings = new JLabel("Enter new level name (Hit enter to save)");
+        lblLevelSettings = new JLabel("New level name (Hit enter to save)");
         // lblLevelSettings.setHorizontalAlignment(SwingConstants.CENTER);
         lblLevelSettings.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-        lblLevelSettings.setBounds(601, 41, 180, 22);
+        lblLevelSettings.setBounds(601, 41, 280, 22);
         add(lblLevelSettings);
-		fieldChangeLevelName = new JTextField(level.getName());
-		fieldChangeLevelName.setBounds(601, 64, 148, 22);
+
+        switch (level.getType()){
+			case Model.Puzzle:
+				levelNamePrompt = "Puzzle_Level_";
+				break;
+			case Model.Lightning:
+				levelNamePrompt = "Lightning_Level_";
+				break;
+			case Model.Theme:
+				levelNamePrompt = "Theme_Level_";
+		}
+
+        JLabel lblLevelNamePrompt = new JLabel(levelNamePrompt);
+        lblLevelNamePrompt.setBounds(601, 64, 100, 22);
+        add(lblLevelNamePrompt);
+        String levelNumber = level.getName().substring(Integer.max(0, level.getName().length()-1)); //will be "" if name is ""
+		fieldChangeLevelName = new JTextField(levelNumber);
+		fieldChangeLevelName.setBounds(702, 64, 20, 22);
 		// fieldChangeLevelName.setHorizontalAlignment(SwingConstants.CENTER);
 		add(fieldChangeLevelName);
 		lblPointThresholds = new JLabel("Points for ★★★: (Hit enter to save)");
@@ -175,6 +201,10 @@ public class ViewBuildLevel extends LevelView implements IView{
         starVal3.setColumns(10);
         starVal3.setBounds(601, 157, 77, 26);
         add(starVal3);
+
+		prompt = new JLabel("");
+		prompt.setBounds(601, 411, 293, 50);
+		add(prompt);
 
         if(level.getType() == Model.Puzzle){
         	lblMaxWords = new JLabel("Max words allowed");
@@ -207,10 +237,7 @@ public class ViewBuildLevel extends LevelView implements IView{
 			textPane.setBounds(601, 299, 293, 81);
 			btnSaveDict = new JButton("Save Words");
 			btnSaveDict.setBounds(601, 381, 200, 29);
-			prompt = new JLabel("");
-			prompt.setBounds(601, 411, 293, 50);
 			add(textPane);
-			add(prompt);
 			add(btnSaveDict);
 		}
 		this.hideLetters();

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /** Defines a dictionary for a letterCraze level, which contains all strings a Word object can 
@@ -17,7 +18,12 @@ public class Dictionary {
 
 	/** The look up table for the dictionary. */
 	HashSet<String> table;
-	
+
+	public int getCharCount() {
+		return charCount;
+	}
+
+	private int charCount = 0; // total number of characters (only useful for dict created by user words
 	/** Scanner for reading files. */
 	Scanner sc;
 	
@@ -46,6 +52,12 @@ public class Dictionary {
 	 */
 	public Dictionary(HashSet<String> alternate){
 		table = alternate;
+		Iterator<String> iter = alternate.iterator();
+		String c = "";
+		while(iter.hasNext()){
+			c+=iter.next();
+		}
+		charCount = c.length();
 	}
 	
 	/**
@@ -56,6 +68,7 @@ public class Dictionary {
 		table = new HashSet<String>();
 		for(String word : words){
 			this.table.add(word.toLowerCase());
+			this.charCount += word.length();
 		}
 	}
 	
