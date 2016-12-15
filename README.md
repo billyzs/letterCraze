@@ -1,5 +1,5 @@
-# letterCraze
-CS3733 Class Project
+# letterCraze - Team Technetium
+CS3733 Class Project 
 
 # Instructions
 Run AppGame.java to launch the Game Application.
