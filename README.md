@@ -73,15 +73,15 @@ Each of the different levels will allow you to change the Value for 3 Stars. ***
 
 
 ###Puzzle Levels
-   The Puzzle Levels allow you to make changes to the Max Words in the Max Words text Field. ***Press Enter to Save Changes before writing to disk***
+The Puzzle Levels allow you to make changes to the Max Words in the Max Words text Field. ***Press Enter to Save Changes***
 
- 
+
 ###Lightning Levels
-   The Lightning Levels allow you to make changes to the Time Limit. ***Press Enter to Save Changes before writing to disk***
+The Lightning Levels allow you to make changes to the Time Limit. ***Press Enter to Save Changes***
 
 ###Theme Levels
-   For Theme Levels, You can change the Theme for the Level. ***Press Enter to Save Changes***
-   You can also add or remove words from the Dictionary (MAKE SURE THEY ARE SEPARATED BY COMMAS) ***Press SAVE WORDS to Save Changes***
+For Theme Levels, You can change the Theme for the Level. ***Press Enter to Save Changes***
+You can also add or remove words from the Dictionary (MAKE SURE THEY ARE SEPARATED BY COMMAS) ***Press SAVE WORDS to Save Changes***
 
 
 ## Testing
