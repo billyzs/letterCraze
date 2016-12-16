@@ -2,6 +2,7 @@ package builder;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Test;
@@ -13,6 +14,7 @@ import common.model.Model;
 import common.model.NullTile;
 import common.model.Tile;
 import common.view.ContentPane;
+import common.view.LevelMenuView;
 import common.view.TileView;
 
 
@@ -20,14 +22,21 @@ public class TestViewBuildLevel {
 	
 	@Test
 	public void testViewBuildLevel(){
-		AppBuilder builder = new AppBuilder(new Model(Application.loadDefaultLevels()));
-		
-		//select the first lightning level and load it
-		builder.getMenu().getLevelMenuViews().get(0).getButton().doClick();
-		ContentPane.getCurrentLevelView().refresh();
-		
-		//ensure the proper level was loaded
-		assertTrue(ContentPane.getCurrentLevelView().getLevel().equals(builder.getModel().getLevels().get(0)));
+		try {
+			ViewBuildLevel vbl = new ViewBuildLevel(new LevelMenuView(25, Application.loadLevel("Lightning_Level_Test.lvl")));
+			vbl.setJtfMaxWords(null);
+            AppBuilder builder = new AppBuilder(new Model(Application.loadDefaultLevels()));
+            
+            //select the first puzzle level and load it
+            builder.getMenu().getLevelMenuViews().get(0).getButton().doClick();
+            ContentPane.getCurrentLevelView().refresh();
+            
+            //ensure the proper level was loaded
+            assertTrue(ContentPane.getCurrentLevelView().getLevel().equals(builder.getModel().getLevels().get(0)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test

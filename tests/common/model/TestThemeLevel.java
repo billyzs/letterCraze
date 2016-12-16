@@ -17,13 +17,12 @@ public class TestThemeLevel {
 			testLevel.setTheme("waytotest");
 			testLevel.save("Theme_Level_Test");
 			testLevel.initialize();
-			testLevel.getWords();
 			testLevel.computeScore(new Word());
-			testLevel.populateThemeWords();
 			ThemeLevel testLevel2 = (ThemeLevel)loadLevel("Theme_Level_Test.lvl");
 			assertTrue(testLevel2.getName().equals("TEST NAME"));
 			assertTrue(testLevel2.getHighscore() == testLevel.getHighscore());
 			assertTrue(testLevel2.getTargetScore() == testLevel.getTargetScore());
+			assertTrue(testLevel.getWords().equals("cat, fish, bird, dog, pig, "));
 			assertTrue(testLevel2.isUnlocked());
 			assertTrue(testLevel2.getTheme().equals(testLevel.getTheme()));
 		}catch(Exception e){}	
