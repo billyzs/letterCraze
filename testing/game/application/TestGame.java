@@ -1,4 +1,5 @@
 package game.application;
+import game.*;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +10,6 @@ import org.junit.Test;
 import common.model.Level;
 import common.model.Model;
 import common.model.PuzzleLevel;
-import game.application.AppGame;
 import static common.application.Application.loadLevel;
 
 public class TestGame {
