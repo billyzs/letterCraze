@@ -2,24 +2,29 @@ package builder;
 
 import static org.junit.Assert.*;
 
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 
 import org.junit.Test;
 
 import builder.ChooseTileController;
 import common.application.Application;
 import common.model.Board;
+import common.model.Model;
 import common.model.NullTile;
 import common.model.Tile;
+import common.view.ContentPane;
 import common.view.TileView;
 
 
 public class TestChooseTileController {
-	
+	AppBuilder app = new AppBuilder(new Model(Application.loadDefaultLevels()));
+
 	@Test
 	public void testIsBoardValid(){
 		//TODO test more board configuration
-		Application app = new Application();
 		NullTile nt = new NullTile(1,1);
 		TileView tv = new TileView(nt);
 		ChooseTileController c = new ChooseTileController(app, tv);
@@ -53,5 +58,19 @@ public class TestChooseTileController {
 			k++;
 		}
 		assertFalse(c.isBoardValid(b));
+	}
+	
+	@Test
+	public void testActionPerformed(){
+		Tile t = new Tile(0,0);
+		TileView tv = new TileView(t);
+		ChooseTileController ctc = new ChooseTileController(app, tv);
+		tv.addMouseListener(ctc);
+		app.getModel().setLevel(app.getModel().getLevels().get(0));
+
+		ctc.doClick();
+		
+		//tile should now be null, as it is deselected
+		assertTrue(tv.getTile().isNull());
 	}
 }

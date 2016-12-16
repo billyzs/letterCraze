@@ -93,6 +93,11 @@ public class ChooseTileController implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		//for testing
+		this.doClick();
+	}
+	
+	public void doClick(){
 		Tile tile = tileView.getTile();
 
 		if(tile == null)
@@ -123,11 +128,13 @@ public class ChooseTileController implements MouseListener{
 		//newTile.setSelected(true);
 
         tileView.updateColor();
-
-        ContentPane.getCurrentLevelView().refresh();
+        
+        if(ContentPane.getCurrentLevelView() != null){
+            ContentPane.getCurrentLevelView().refresh();
 		
-		ContentPane.get().invalidate();
-		ContentPane.get().validate();
+            ContentPane.get().invalidate();
+            ContentPane.get().validate();
+        }
 	}
 
 	@Override
