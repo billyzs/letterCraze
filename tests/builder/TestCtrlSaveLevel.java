@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import common.application.Application;
 import common.model.Level;
+import common.model.Model;
 
 public class TestCtrlSaveLevel {
 
@@ -18,11 +19,11 @@ public class TestCtrlSaveLevel {
     // level1 == level2?
 	
     public void doTest(String inFileName) throws Exception{
-        Application app = new Application();
+        AppBuilder app = new AppBuilder(new Model(Application.loadDefaultLevels()));
         String testFile = inFileName;
         String outputFile = "reference.lvl";
         Level level1 = app.loadLevel(testFile);
-        CtrlSaveLevel csl = new CtrlSaveLevel(null, level1);
+        CtrlSaveLevel csl = new CtrlSaveLevel(new CtrlModifyLevel(app, app.getMenu().getLevelMenuViews().get(0)), level1);
         csl.saveLevelToFile(level1, outputFile);
         Level level2 = app.loadLevel(outputFile);
         // lvl 1 == lvl2??

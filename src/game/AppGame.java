@@ -54,10 +54,10 @@ public class AppGame extends Application{
 
                     //Level testLevel = (PuzzleLevel)loadLevel("Puzzle_Level_1.lvl");
                     ArrayList<Level> levels = loadDefaultLevels();//new ArrayList<Level>();
-                    ArrayList<Level> customs = loadOtherLevels();
+                  //  ArrayList<Level> customs = loadOtherLevels();
                    
                     //Add customs to levels
-                    levels.addAll(customs);
+                 //   levels.addAll(customs);
                      
                     /*
                      * for(int k = 0; k < 15;k++)
