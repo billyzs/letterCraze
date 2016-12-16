@@ -2,9 +2,14 @@
 CS3733 Class Project 
 
 # Instructions
-Run AppGame.java to launch the Game Application.
+##Importing
 
-Run AppBuilder.java to launch the Builder Application.
+I found it easiest to extract the zip folder and import into Eclipse as an existing project, but use whatever method you are comfortable with.
+
+##Running
+Run AppGame.java (game.AppGame) to launch the Game Application.
+
+Run AppBuilder.java (builder.AppBuilder) to launch the Builder Application.
 
 ## Game
 Choose from one of 15 Levels in the Menu to Play.
@@ -18,7 +23,7 @@ Click on the Tiles to form words by chaining adjacent tiles.
 Press the Submit Word button to submit a word, and remove its tiles.
     Tiles will float up in a submission, and the board will randomly fill empties
 
-Press the Exit button to return to the main menu, without saving progress.
+Press the Exit button to return to the main menu, ***without saving progress.***
 
 Press the Finish Level button to finish the level and save progress.
 
