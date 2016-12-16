@@ -38,8 +38,15 @@ public class TimerController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.levelView = ContentPane.getCurrentLevelView();
+
+		
 		timerLabel = levelView.getTimerLabel();
 		targetSeconds--;
+
+		if(levelView.getTimerLabel() == null)
+			return;
+
+
         timerLabel.setText("" + targetSeconds);
         if(targetSeconds <= 0){
             //timer.stop();

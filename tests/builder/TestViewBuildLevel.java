@@ -23,11 +23,11 @@ public class TestViewBuildLevel {
 		AppBuilder builder = new AppBuilder(new Model(Application.loadDefaultLevels()));
 		
 		//select the first lightning level and load it
-		builder.getMenu().getLevelMenuViews().get(1).getButton().doClick();
+		builder.getMenu().getLevelMenuViews().get(0).getButton().doClick();
 		ContentPane.getCurrentLevelView().refresh();
 		
 		//ensure the proper level was loaded
-		assertTrue(ContentPane.getCurrentLevelView().getLevel().equals(builder.getModel().getLevels().get(1)));
+		assertTrue(ContentPane.getCurrentLevelView().getLevel().equals(builder.getModel().getLevels().get(0)));
 	}
 
 	@Test

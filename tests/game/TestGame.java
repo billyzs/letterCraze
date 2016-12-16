@@ -40,23 +40,27 @@ public class TestGame {
 	
 	@Test
 	public void testCreateLvls(){
+		Model m = null;
 		try{
 			Level testLevel = (PuzzleLevel)loadLevel("Puzzle_Level_1.lvl");
 			ArrayList<Level> levels = new ArrayList<Level>();
 			for(int k = 0; k < 15;k++)
 				levels.add(testLevel);
-			Model m = new Model(levels);
+			m = new Model(levels);
 			AppGame app = new AppGame(m);
 			
 			
 			assertTrue(app.getModel().createNewLevel("Puzzle").getType() == "Puzzle"); //check that the lvl was created with proper type
 			assertTrue(app.getModel().createNewLevel("Lightning").getType() == "Lightning"); //check that the lvl was created with proper type
 			assertTrue(app.getModel().createNewLevel("Theme").getType() == "Theme"); //check that the lvl was created with proper type
+			
+
 		} catch(Exception e){
 			e.printStackTrace();
 			fail();
 		}
 	}
+
 	@Test
 	public void testMain(){
 		try {

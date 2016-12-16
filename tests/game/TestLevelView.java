@@ -28,6 +28,9 @@ public class TestLevelView {
             //simulate button press
             app.getMenu().getLevelMenuViews().get(1).getButton().doClick();
             ContentPane.getCurrentLevelView().refresh();
+            
+            ContentPane.getCurrentLevelView().getLevel().addSubmittedWord("TEST");
+            ContentPane.getCurrentLevelView().getSubmittedWordsView().refresh();
 
             assertTrue(app.getModel().getLevels().get(1).equals(ContentPane.getCurrentLevelView().getLevel()));
 
