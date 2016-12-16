@@ -2,6 +2,11 @@
 CS3733 Class Project 
 
 # Instructions
+##Importing
+
+I found it easiest to extract the zip folder and import into Eclipse as an existing project, but use whatever method you are comfortable with.
+
+##Running
 Run AppGame.java to launch the Game Application.
 
 Run AppBuilder.java to launch the Builder Application.
