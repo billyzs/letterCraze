@@ -27,7 +27,17 @@ public class ViewPreview extends JFrame {
 		vbl.getLevel().terminate();
 
 		levelView = new LevelView(vbl.getLevel());
-
+		
+		levelView.getResetButton().setVisible(false);
+		levelView.getUndoButton().setVisible(false);
+		levelView.getFinishButton().setVisible(false);
+		levelView.getExitButton().setVisible(false);
+		levelView.getStarsView().setVisible(false);
+		levelView.getNameLabel().setVisible(false);
+		levelView.getTimerLabel().setVisible(false);
+		levelView.getSubmittedWordsView().setVisible(false);
+		
+		
 		add(levelView);
 	}
 }
