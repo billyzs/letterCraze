@@ -23,7 +23,7 @@ Click on the Tiles to form words by chaining adjacent tiles.
 Press the Submit Word button to submit a word, and remove its tiles.
     Tiles will float up in a submission, and the board will randomly fill empties
 
-Press the Exit button to return to the main menu, *** without saving progress.***
+Press the Exit button to return to the main menu, ***without saving progress.***
 
 Press the Finish Level button to finish the level and save progress.
 
