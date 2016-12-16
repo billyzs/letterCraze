@@ -4,11 +4,31 @@ import static common.application.Application.loadLevel;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.Test;
 
 public class TestWord {
 
+	@Test
+	public void testMiscellaneous() {
+		PuzzleLevel p = null;
+		try {
+			p = (PuzzleLevel)loadLevel("Puzzle_Level_1.lvl");
+		} catch (Exception e) {
+			fail();
+		}
+		assertFalse(p == null);
+		Word w = new Word();
+		Tile t = p.getBoard().getTiles().get(0).get(0);
+		Word lost = new Word();
+		lost.addTile(t);
+		
+		w.recoverState(p, lost);
+		w.initialize();
+		assertTrue(w.tiles.isEmpty());
+	}
+	
 	@Test
 	public void testScore() {
 		Tile t = new Tile("T", 0, 0);

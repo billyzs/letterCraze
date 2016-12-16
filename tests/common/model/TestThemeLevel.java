@@ -16,6 +16,10 @@ public class TestThemeLevel {
 			testLevel.setUnlocked(true);
 			testLevel.setTheme("waytotest");
 			testLevel.save("Theme_Level_Test");
+			testLevel.initialize();
+			testLevel.getWords();
+			testLevel.computeScore(new Word());
+			testLevel.populateThemeWords();
 			ThemeLevel testLevel2 = (ThemeLevel)loadLevel("Theme_Level_Test.lvl");
 			assertTrue(testLevel2.getName().equals("TEST NAME"));
 			assertTrue(testLevel2.getHighscore() == testLevel.getHighscore());
