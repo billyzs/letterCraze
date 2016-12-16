@@ -3,6 +3,7 @@ package builder;
 import static org.junit.Assert.*;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 import javax.swing.JButton;
 
@@ -11,7 +12,9 @@ import org.junit.Test;
 import common.application.Application;
 import common.model.Dictionary;
 import common.model.Model;
+import common.model.ThemeLevel;
 import common.view.ContentPane;
+import common.view.LevelMenuView;
 
 public class TestCtrlSubmitWords {
 
@@ -51,15 +54,24 @@ public class TestCtrlSubmitWords {
 	@Test
 	public void testClick(){
 		AppBuilder b = new AppBuilder(new Model(Application.loadDefaultLevels()));
-		JButton button = new JButton();
-		
-		//start a theme level
-		b.getMenu().getLevelMenuViews().get(2).getButton().doClick();
+		//JButton button = new JButton();
 
-		ViewBuildLevel vbl = (ViewBuildLevel)ContentPane.getCurrentLevelView();
-        CtrlSubmitWords c = new CtrlSubmitWords(vbl, vbl.getTextPane(), b);
-        button.addActionListener(c);
-        button.doClick();
+		ThemeLevel level;
+		try {
+			level = (ThemeLevel) Application.loadLevel("Theme_Level_Test.lvl");
+            ViewBuildLevel vbl = new ViewBuildLevel(new LevelMenuView(0, level));//(ViewBuildLevel)ContentPane.getCurrentLevelView();
+
+            CtrlSubmitWords c = new CtrlSubmitWords(vbl, vbl.getTextPane(), b);
+            
+            b.getModel().setLevel(level);
+
+            //button.addActionListener(c);
+            //button.doClick();
+            c.doSubmit();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test

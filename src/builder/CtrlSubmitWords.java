@@ -88,9 +88,8 @@ public class CtrlSubmitWords implements ActionListener{
 		}
 
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent actionEvent) {
+	
+	public void doSubmit(){
 		// get the words
 		String userInput = jtp.getText();
 
@@ -120,6 +119,12 @@ public class CtrlSubmitWords implements ActionListener{
 		} finally {
 			//vbl.prompt.setVisible(true);
 		}
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent actionEvent) {
+		doSubmit();
 	}
 
 

@@ -87,3 +87,11 @@ You can also add or remove words from the Dictionary (MAKE SURE THEY ARE SEPARAT
 ## Testing
 Tested using JUnit 4.12.
 
+To run Tests, use JUnit 4 with ECLEmma on the 'tests' source folder.
+
+***Our Tests averaged nearly 3 minutes (180 seconds) runtime on my i5-5200u in Arch Linux, please allow ample time for all the tests to run to completion***
+
+We finished with 81.5% code coverage of our source folder.
+
+
+
