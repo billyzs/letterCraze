@@ -59,7 +59,8 @@ public class SubmitWordMove implements IMove{
 		this.level.getBoard().recoverState(this.prevBoard);
 
 		//remove last word submitted
-		this.level.getSubmittedWords().remove(this.level.getSubmittedWords().size()-1);
+		if(this.level.getSubmittedWords().size()> 0)
+            this.level.getSubmittedWords().remove(this.level.getSubmittedWords().size()-1);
 		
 		//move the prevword to the level
 		this.level.getCurrentWord().recoverState(this.level,this.wordCopy);
