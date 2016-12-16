@@ -71,5 +71,41 @@ public class TestCtrlSubmitWords {
 		assertTrue(d.isWord("ccc"));
 
 	}
+	
+	@Test 
+	public void testExceptionHandling() {
+		//Test too many tiles throws exception
+		CtrlSubmitWords c = new CtrlSubmitWords();
+		try {
+			c.isValid("test", 37);
+			fail();
+		} catch (IllegalArgumentException e) {
+		 //success	
+		}
+		
+		//Test illegal characters throws exception
+		try {
+			c.isValid("b@d", 12);
+			fail();
+		} catch (IllegalArgumentException e) {
+			//success
+		}
+		
+		//Test too little characters throws exception
+		try {
+			c.isValid("ba",12);
+			fail();
+		} catch (IllegalArgumentException e) {
+			//success
+		}
+		
+		//Test less active tiles than characters throws exception
+		try {
+			c.isValid("abcdefg", 5);
+			fail();
+		} catch (IllegalArgumentException e) {
+			//success
+		}
+	}
 
 }
