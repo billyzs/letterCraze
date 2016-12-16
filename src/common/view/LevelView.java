@@ -181,6 +181,7 @@ public class LevelView extends JPanel implements IView {
 	public SubmittedWordsView getSubmittedWordsView() { return this.submittedWords; }
 	public StarsView getStarsView() { return this.stars; }
 	public JLabel getTimerLabel() {return this.timer; }
+	public JLabel getNameLabel() {return this.name; }
 
 	/**
 	 * Redisplays all <code>TileView</code>s to update <code>Tile</code>s as well as points accrued and stars reached.
