@@ -13,6 +13,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -49,14 +50,21 @@ public class CtrlSaveLevel implements ActionListener {
         currentLevel = lvl;
     }
 
-    protected void saveLevelToFile(Level lvl, String filename) throws IOException {
+    public void saveLevelToFile(Level lvl, String filename) throws IOException {
         BufferedWriter writer = null;
+
+        //for testing
+        if(filename.equals(""))
+        	writer = new BufferedWriter(new PrintWriter(System.out));
+
         try{
         	//check if the file exists (Always unlock new levels/files)
         	File f = new File("./levels/" + filename);
         	boolean isDefault = f.exists();
 
-            writer = new BufferedWriter(new FileWriter("./levels/" + filename));
+        	if(writer == null)
+                writer = new BufferedWriter(new FileWriter("./levels/" + filename));
+
             writer.write(lvl.getType()); writer.newLine();
             writer.write(lvl.getName()); writer.newLine();
             writer.write(Integer.toString(lvl.getHighscore())); writer.newLine();
@@ -112,48 +120,51 @@ public class CtrlSaveLevel implements ActionListener {
         }
 
         //restore the old ones on save and exit for custom levels
-        if(cml.seq >= 15){
-//            int seq = cml.seq;
- //           cml.getBuilder().getModel().getLevels().set(seq, cml.getBackup());
-        	System.out.println("HERE");
-        	
-        	char[] chars = this.currentLevel.getName().toCharArray();
-        	int seq = Character.getNumericValue(chars[chars.length-1]);
-        	int modifier = 1;
-        	String type = this.currentLevel.getType();
+        if(cml != null){
+            if(cml.seq >= 15){
+    //            int seq = cml.seq;
+     //           cml.getBuilder().getModel().getLevels().set(seq, cml.getBackup());
+                System.out.println("HERE");
+                
+                char[] chars = this.currentLevel.getName().toCharArray();
+                int seq = Character.getNumericValue(chars[chars.length-1]);
+                int modifier = 1;
+                String type = this.currentLevel.getType();
 
-        	if(type.equals("Puzzle")){
-        		modifier = 0;
-        	}
-        	else if(type.equals("Lightning")){
-        		modifier = 1;
-        	}
-        	else if(type.equals("Theme")){
-        		modifier = 2;
-        	}
-        	
-        	seq = (seq-1)*3 + modifier;
+                if(type.equals("Puzzle")){
+                    modifier = 0;
+                }
+                else if(type.equals("Lightning")){
+                    modifier = 1;
+                }
+                else if(type.equals("Theme")){
+                    modifier = 2;
+                }
+                
+                seq = (seq-1)*3 + modifier;
 
-            Model builderModel = cml.getBuilder().getModel();
+                Model builderModel = cml.getBuilder().getModel();
 
-            //save changes to model
-            builderModel.getLevels().set(seq, currentLevel);
+                //save changes to model
+                builderModel.getLevels().set(seq, currentLevel);
 
-            //fix the create level bug changing name
-            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
-            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
-            builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+                //fix the create level bug changing name
+                builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+                builderModel.getLevels().remove(builderModel.getLevels().size()-1);
+                builderModel.getLevels().remove(builderModel.getLevels().size()-1);
 
-            builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
-            builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
-            builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
+                builderModel.addLevel(builderModel.createNewLevel(builderModel.Puzzle));
+                builderModel.addLevel(builderModel.createNewLevel(builderModel.Lightning));
+                builderModel.addLevel(builderModel.createNewLevel(builderModel.Theme));
+            }
+
+            //Exit Level to menu
+            cml.getBuilder().viewMenu = new ViewMenu(cml.getBuilder().getModel());
+            cml.getBuilder().initializeControllers();
+            if(cml.getViewBuildLevel() != null)
+                cml.getViewBuildLevel().hide();
+            cml.getBuilder().getMenu().show();
         }
-
-        //Exit Level to menu
-		cml.getBuilder().viewMenu = new ViewMenu(cml.getBuilder().getModel());
-		cml.getBuilder().initializeControllers();
-		cml.getViewBuildLevel().hide();
-		cml.getBuilder().getMenu().show();
     }
     
     /**
